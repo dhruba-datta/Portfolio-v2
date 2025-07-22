@@ -1,0 +1,42 @@
+import Navigation from '../components/ui/Navigation';
+import About from '../components/sections/About';
+import Academic from '../components/sections/Academic';
+import Research from '../components/sections/Research';
+import Achievements from '../components/sections/Achievements';
+import Experience from '../components/sections/Experience';
+import Certifications from '../components/sections/Certifications';
+import Volunteer from '../components/sections/Volunteer';
+import Footer from '../components/ui/Footer';
+
+interface AboutPageProps {
+  isDark: boolean;
+  toggleTheme: () => void;
+}
+
+const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <Navigation isDark={isDark} toggleTheme={toggleTheme} />
+      
+      {/* Background pattern to match hero */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 -z-10"></div>
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10"></div>
+      
+      <main className="pt-20">
+
+        {/* About Sections */}
+        <About isDark={isDark} />
+        <Academic isDark={isDark} />
+        <Research isDark={isDark} />
+        <Achievements isDark={isDark} />
+        <Experience isDark={isDark} />
+        <Certifications isDark={isDark} />
+        <Volunteer isDark={isDark} />
+      </main>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default AboutPage;
