@@ -34,7 +34,7 @@ const socialLinks = [
   },
   {
     name: 'YouTube',
-    url: 'https://www.youtube.com/DhrubaDattaAnjan',
+    url: 'https://www.youtube.com/DhrubaDattaAnjan', // This URL seems like a placeholder, you might want to update it
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M22.54 6.42A2.78 2.78 0 0 0 20.85 4.7C19.18 4 12 4 12 4s-7.18 0-8.85.7A2.78 2.78 0 0 0 1.46 6.42 29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.69 1.72C4.82 20 12 20 12 20s7.18 0 8.85-.7a2.78 2.78 0 0 0 1.69-1.72A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58z" />
@@ -115,7 +115,10 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      // Added `min-h-screen` only for larger screens (lg)
+      // For mobile, we want the content to flow naturally, allowing the intro to fill the first screen.
+      // `py-16` provides consistent vertical padding.
+      className="lg:min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden py-16 lg:py-0"
     >
       {/* --- Enhanced Animated Background --- */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -182,13 +185,14 @@ const Contact: React.FC = () => {
         ))}
       </div>
       {/* --- 2 Column Main Content --- */}
-      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center px-2">
+      {/* On mobile (default), make this `flex-col` so intro is above form. On larger screens, `lg:grid-cols-2`. */}
+      <div className="w-full max-w-5xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center px-4 md:px-6 lg:px-2">
         {/* --- Left: Profile/Intro --- */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4"
+          className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4 pt-10 md:pt-16 lg:pt-0" // Added top padding for mobile view
         >
           {/* Animated Profile */}
           <motion.div
@@ -316,7 +320,7 @@ const Contact: React.FC = () => {
           </div>
           <div className="text-blue-600 dark:text-blue-400 font-medium text-xl">Bringing Ideas to Life - Let's build together</div>
           <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-2 text-lg">
-            Got an idea, a question, or just want to chat? 
+            Got an idea, a question, or just want to chat?
             <br />
             Connect on social media for updates, or use the form for detailed inquiries.
           </p>
@@ -341,7 +345,6 @@ const Contact: React.FC = () => {
               </a>
             ))}
           </div>
-          
         </motion.div>
 
         {/* --- Right: Form --- */}
@@ -350,7 +353,7 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full space-y-5"
+          className="w-full space-y-5 pb-10 md:pb-16 lg:pb-0" // Added bottom padding for mobile view
           aria-label="Contact Form"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -446,10 +449,10 @@ const Contact: React.FC = () => {
               (loading
                 ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow"
                 : status === "success"
-                ? "bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white shadow"
-                : status === "idle"
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow"
-                : "bg-red-600 text-white")
+                  ? "bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white shadow"
+                  : status === "idle"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow"
+                    : "bg-red-600 text-white")
             }
             disabled={loading || status === "success"}
             tabIndex={0}
@@ -459,8 +462,8 @@ const Contact: React.FC = () => {
               <>
                 <span>Sending...</span>
                 <svg className="animate-spin w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25"/>
-                  <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75"/>
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25" />
+                  <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75" />
                 </svg>
               </>
             ) : status === "success" ? (
@@ -468,8 +471,8 @@ const Contact: React.FC = () => {
                 <span>Message Sent!</span>
                 {/* Modern checkmark in circle */}
                 <svg className="w-5 h-5 ml-2 text-green-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e"/>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" stroke="#fff" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" stroke="#fff" strokeWidth="2" />
                 </svg>
               </>
             ) : status === "error" ? (
@@ -477,8 +480,8 @@ const Contact: React.FC = () => {
                 <span>Failed. Try again.</span>
                 {/* Modern error icon: circle with X */}
                 <svg className="w-5 h-5 ml-2 text-red-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#ef4444"/>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l6 6M15 9l-6 6" stroke="#fff" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#ef4444" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l6 6M15 9l-6 6" stroke="#fff" strokeWidth="2" />
                 </svg>
               </>
             ) : (
