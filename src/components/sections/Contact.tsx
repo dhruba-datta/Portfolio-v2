@@ -192,16 +192,18 @@ const Contact: React.FC = () => {
               }}
             />
           </motion.div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
             Dhruba <span className="text-blue-600 dark:text-blue-400">Datta</span>
           </h1>
           <div className="flex items-center gap-2 bg-green-100/80 dark:bg-green-900/40 rounded-full px-4 py-1 w-fit mt-1">
             <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-green-700 dark:text-green-300 font-medium text-xs">Open for New Opportunities</span>
+            <span className="text-green-700 dark:text-green-300 font-medium text-sm">Open for New Opportunities</span>
           </div>
-          <div className="text-blue-600 dark:text-blue-400 font-medium text-lg">Bringing Ideas to Life - Let's build together</div>
-          <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-2 text-base">
-            Got an idea, a question, or just want to chat? Connect on social for updates, or use the form for detailed inquiries.
+          <div className="text-blue-600 dark:text-blue-400 font-medium text-xl">Bringing Ideas to Life - Let's build together</div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-2 text-lg">
+            Got an idea, a question, or just want to chat? 
+            <br />
+            Connect on social media for updates, or use the form for detailed inquiries.
           </p>
           <div className="flex gap-4 mb-2 justify-center lg:justify-start">
             {socialLinks.map((social) => (
@@ -232,7 +234,7 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+              <label htmlFor="name" className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
                 Name <span className="text-red-400">*</span>
               </label>
               <input
@@ -252,7 +254,7 @@ const Contact: React.FC = () => {
             </div>
             {/* Email */}
             <div>
-              <label htmlFor="email" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+              <label htmlFor="email" className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
                 Email <span className="text-red-400">*</span>
               </label>
               <input
@@ -273,7 +275,7 @@ const Contact: React.FC = () => {
           </div>
           {/* Subject */}
           <div>
-            <label htmlFor="subject" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+            <label htmlFor="subject" className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
               Subject <span className="text-red-400">*</span>
             </label>
             <input
@@ -292,7 +294,7 @@ const Contact: React.FC = () => {
           </div>
           {/* Message */}
           <div className="relative">
-            <label htmlFor="message" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+            <label htmlFor="message" className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
               Message <span className="text-red-400">*</span>
             </label>
             <textarea
