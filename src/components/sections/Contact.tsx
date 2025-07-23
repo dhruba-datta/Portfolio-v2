@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTelegramPlane, FaYoutube } from "react-icons/fa";
 
 type FormType = {
   name: string;
@@ -12,55 +13,34 @@ type ErrorType = Partial<FormType>;
 
 // Social links
 const socialLinks = [
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/dhrubz_/',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-      </svg>
-    ),
-  },
+
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/dhruba-datta/',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5" />
-        <path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z" />
-        <circle cx="8" cy="8" r="1" />
-      </svg>
-    ),
+    icon: <FaLinkedinIn className="w-5 h-5" />,
   },
-  {
-    name: 'YouTube',
-    url: 'https://www.youtube.com/DhrubaDattaAnjan', // This URL seems like a placeholder, you might want to update it
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M22.54 6.42A2.78 2.78 0 0 0 20.85 4.7C19.18 4 12 4 12 4s-7.18 0-8.85.7A2.78 2.78 0 0 0 1.46 6.42 29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.69 1.72C4.82 20 12 20 12 20s7.18 0 8.85-.7a2.78 2.78 0 0 0 1.69-1.72A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58z" />
-        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
-      </svg>
-    ),
-  },
+  
   {
     name: 'Facebook',
     url: 'https://www.facebook.com/dhruba.datta.anjan',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5" />
-        <path d="M15.5 8.5H13.5V7.5C13.5 7.22386 13.7239 7 14 7H15.5V4.5H14C12.067 4.5 10.5 6.067 10.5 8V8.5H9V11H10.5V19H13.5V11H15L15.5 8.5Z" />
-      </svg>
-    ),
+    icon: <FaFacebookF className="w-5 h-5" />,
   },
-  {
+    {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/dhrubz_/',
+    icon: <FaInstagram className="w-5 h-5" />,
+  },
+    {
     name: 'Telegram',
     url: 'https://t.me/dhruba_datta_anjan',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M21.05 2.05a2.5 2.5 0 0 1 2.45 2.95l-2.1 13.5a2.5 2.5 0 0 1-3.6 1.7l-3.7-2.2-1.8 1.7a1.25 1.25 0 0 1-2.1-.7l-.7-3.6-3.7-1.5a1.25 1.25 0 0 1 .1-2.4l17-6.5a2.5 2.5 0 0 1 1.05-.2zm-2.1 2.7-13.5 5.2 3.7 1.5a1.25 1.25 0 0 1 .8 1l.7 3.6 1.8-1.7a1.25 1.25 0 0 1 1.4-.1l3.7 2.2a.5.5 0 0 0 .7-.3l2.1-13.5a.5.5 0 0 0-.3-.6z" />
-      </svg>
-    ),
+    icon: <FaTelegramPlane className="w-5 h-5" />,
   },
+  {
+    name: 'YouTube',
+    url: 'https://www.youtube.com/DhrubaDattaAnjan',
+    icon: <FaYoutube className="w-5 h-5" />,
+  },
+
 ];
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
