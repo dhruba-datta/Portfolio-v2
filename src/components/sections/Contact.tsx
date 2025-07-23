@@ -94,15 +94,44 @@ const Contact: React.FC = () => {
     <section
       id="contact"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse 65% 45% at 50% 14%,rgba(99,102,241,0.10),transparent 90%)",
-      }}
     >
-     {/* --- Animated minimal bg --- */}
+      {/* --- Enhanced Animated Background --- */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 opacity-95" />
+        {/* Animated gradient overlay */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          style={{
+            background:
+              "radial-gradient(ellipse 65% 45% at 50% 14%,rgba(99,102,241,0.13),transparent 90%)",
+          }}
+        />
+        {/* Animated color blobs */}
+        <motion.div
+          className="absolute top-0 left-1/3 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.15, 1],
+            x: [0, 30, 0],
+            y: [0, 20, 0],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-400/20 rounded-full blur-2xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            x: [0, -20, 0],
+            y: [0, -30, 0],
+            opacity: [0.6, 0.9, 0.6],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_28px] opacity-10 [mask-image:radial-gradient(ellipse_60%_40%_at_50%_14%,#000_70%,transparent_120%)]"></div>
+        {/* Floating animated dots */}
         {bgDots.map((r, i) => (
           <motion.div
             key={i}
@@ -146,6 +175,7 @@ const Contact: React.FC = () => {
             transition={{ y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
             className="relative mb-3"
           >
+            {/* Outer animated glow ring */}
             <motion.div
               className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-30 blur-2xl"
               animate={{ rotate: 360, scale: [1, 1.10, 1] }}
@@ -155,12 +185,75 @@ const Contact: React.FC = () => {
               }}
               style={{ transform: "scale(1.13)" }}
             />
+            {/* Floating geometric shapes */}
+            <motion.div
+              className="absolute -top-8 right-2 w-6 h-6 border-2 border-purple-400 opacity-60"
+              style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+              animate={{
+                rotate: [0, 360],
+                y: [0, -10, 0],
+                opacity: [0.6, 1, 0.6],
+              }}
+              transition={{
+                rotate: { duration: 6, repeat: Infinity, ease: "linear" },
+                y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+              }}
+            />
+            <motion.div
+              className="absolute -left-8 bottom-8 w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-400 opacity-70"
+              style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
+              animate={{
+                rotate: [0, -360],
+                x: [0, 8, 0],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                scale: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+              }}
+            />
+            {/* Floating sparkles */}
+            <motion.div
+              className="absolute -top-3 -left-3 w-2 h-2 bg-yellow-400 rounded-full shadow-lg"
+              animate={{
+                scale: [0, 1, 0],
+                rotate: [0, 180, 360],
+                opacity: [0, 1, 0],
+                x: [0, 3, 0],
+                y: [0, -3, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: 1,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className="absolute -bottom-2 -right-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-lg"
+              animate={{
+                scale: [0, 1.2, 0],
+                opacity: [0, 1, 0],
+                x: [0, -2, 0],
+                y: [0, 2, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                delay: 0.5,
+                ease: "easeInOut",
+              }}
+            />
+            {/* Main profile image */}
             <img
               src="/images/Headshot.png"
               alt="Profile"
               className="relative z-10 w-32 h-32 rounded-full object-cover shadow-2xl"
               draggable={false}
             />
+            {/* Status indicator */}
             <motion.div
               className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
               animate={{
@@ -362,9 +455,9 @@ const Contact: React.FC = () => {
             ) : (
               <>
                 <span>Send</span>
-                {/* Arrow right */}
+                {/* Modern paper plane icon */}
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 20l18-8-18-8v6l15 2-15 2v6z" />
                 </svg>
               </>
             )}
