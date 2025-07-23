@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
+type FormType = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+type ErrorType = Partial<FormType>;
+
 // Social links
 const socialLinks = [
   {
@@ -30,22 +38,22 @@ const socialLinks = [
         <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
       </svg>
     ),
-  }
+  },
 ];
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const INITIAL_FORM = { name: "", email: "", subject: "", message: "" };
+const INITIAL_FORM: FormType = { name: "", email: "", subject: "", message: "" };
 
 const Contact: React.FC = () => {
-  const [form, setForm] = useState(INITIAL_FORM);
-  const [errors, setErrors] = useState<{ [k: string]: string }>({});
+  const [form, setForm] = useState<FormType>(INITIAL_FORM);
+  const [errors, setErrors] = useState<ErrorType>({});
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  async function sendEmail(params: Record<string, string>) {
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-    const userId = import.meta.env.VITE_EMAILJS_USER_ID as string;
+  async function sendEmail(params: FormType) {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userId = import.meta.env.VITE_EMAILJS_USER_ID;
     return emailjs.send(serviceId, templateId, params, userId);
   }
 
@@ -53,7 +61,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setErrors({});
     setStatus("idle");
-    let errs: typeof errors = {};
+    let errs: ErrorType = {};
     if (!form.name.trim()) errs.name = "Name is required";
     if (!EMAIL_REGEX.test(form.email)) errs.email = "Enter a valid email";
     if (!form.subject.trim()) errs.subject = "Subject is required";
@@ -63,13 +71,7 @@ const Contact: React.FC = () => {
 
     setLoading(true);
     try {
-      await sendEmail({
-        name: form.name,
-        email: form.email,
-        subject: form.subject,
-        message: form.message,
-        title: form.subject,
-      });
+      await sendEmail(form);
       setStatus("success");
       setForm(INITIAL_FORM);
     } catch {
@@ -78,76 +80,130 @@ const Contact: React.FC = () => {
     setLoading(false);
   }
 
+  // Subtle animated bg dots
+  const bgDots = Array.from({ length: 9 }).map((_, i) => ({
+    left: `${8 + i * 10}%`,
+    top: `${20 + i * 8}%`,
+    size: 20 + Math.random() * 16,
+    opacity: 0.08 + Math.random() * 0.09,
+    duration: 6 + i,
+    delay: i * 0.8,
+  }));
+
   return (
     <section
       id="contact"
-      className="flex min-h-[calc(100vh-80px)] justify-center items-center py-0 bg-transparent"
-      style={{ marginBottom: 0 }}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(ellipse 65% 45% at 50% 14%,rgba(99,102,241,0.10),transparent 90%)",
+      }}
     >
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
-        {/* Left: Same as Hero - everything centered */}
+     {/* --- Animated minimal bg --- */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 opacity-95" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_28px] opacity-10 [mask-image:radial-gradient(ellipse_60%_40%_at_50%_14%,#000_70%,transparent_120%)]"></div>
+        {bgDots.map((r, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-blue-400"
+            style={{
+              left: r.left,
+              top: r.top,
+              width: r.size,
+              height: r.size,
+              opacity: r.opacity,
+              filter: "blur(1px)",
+              zIndex: 0,
+            }}
+            initial={{ y: 0 }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [r.opacity, r.opacity * 1.5, r.opacity],
+            }}
+            transition={{
+              duration: r.duration,
+              repeat: Infinity,
+              delay: r.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+      {/* --- 2 Column Main Content --- */}
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center px-2">
+        {/* --- Left: Profile/Intro --- */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col justify-center items-center text-center px-6 py-0 h-full"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4"
         >
-          {/* Animated Head emoji/profile (copy from Hero) */}
+          {/* Animated Profile */}
           <motion.div
-            whileHover={{
-              scale: 1.07,
-              transition: { duration: 0.4, ease: "easeOut" }
-            }}
-            whileTap={{ scale: 0.98 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="relative group cursor-pointer mb-8"
+            whileHover={{ scale: 1.08 }}
+            animate={{ y: [0, -8, 0] }}
+            transition={{ y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
+            className="relative mb-3"
           >
-            {/* Outer glow ring */}
             <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30 blur-2xl"
-              animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-30 blur-2xl"
+              animate={{ rotate: 360, scale: [1, 1.10, 1] }}
               transition={{
-                rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                rotate: { duration: 7, repeat: Infinity, ease: "linear" },
+                scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
               }}
-              style={{ transform: "scale(1.2)" }}
+              style={{ transform: "scale(1.13)" }}
             />
-            {/* Main image */}
             <img
               src="/images/Headshot.png"
               alt="Profile"
-              className="relative z-10 w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover shadow-2xl transition-all duration-300"
+              className="relative z-10 w-32 h-32 rounded-full object-cover shadow-2xl"
               draggable={false}
             />
-            {/* Status indicator */}
             <motion.div
               className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
               animate={{
-                scale: [1, 1.3, 1],
+                scale: [1, 1.22, 1],
                 boxShadow: [
                   "0 0 0 0 rgba(34, 197, 94, 0.4)",
-                  "0 0 0 6px rgba(34, 197, 94, 0)",
-                  "0 0 0 0 rgba(34, 197, 94, 0)"
-                ]
+                  "0 0 0 8px rgba(34, 197, 94, 0)",
+                  "0 0 0 0 rgba(34, 197, 94, 0)",
+                ],
               }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 2.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className="absolute -top-2 left-2 w-2 h-2 bg-yellow-300 rounded-full shadow"
+              animate={{
+                scale: [0, 1.05, 0],
+                opacity: [0, 1, 0],
+                y: [0, -2, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                delay: 1,
+                ease: "easeInOut",
+              }}
             />
           </motion.div>
-
-          {/* Info */}
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
             Dhruba <span className="text-blue-600 dark:text-blue-400">Datta</span>
           </h1>
-          <h2 className="text-lg text-blue-600 dark:text-blue-400 font-medium mb-2">
-            Full-Stack Developer & QA Automation Engineer
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-lg mx-auto mb-3">
-            Building elegant solutions to complex problems with modern technologies and ensuring quality through comprehensive testing strategies.
+          <div className="flex items-center gap-2 bg-green-100/80 dark:bg-green-900/40 rounded-full px-4 py-1 w-fit mt-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span className="text-green-700 dark:text-green-300 font-medium text-xs">Open for New Opportunities</span>
+          </div>
+          <div className="text-blue-600 dark:text-blue-400 font-medium text-lg">Bringing Ideas to Life - Let's build together</div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-2 text-base">
+            Got an idea, a question, or just want to chat? Connect on social for updates, or use the form for detailed inquiries.
           </p>
-          <div className="flex gap-4 mb-4 justify-center">
+          <div className="flex gap-4 mb-2 justify-center lg:justify-start">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -161,133 +217,151 @@ const Contact: React.FC = () => {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-2 bg-green-100/70 dark:bg-green-900/40 rounded-full px-4 py-2 w-fit mx-auto">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-green-700 dark:text-green-300 font-medium text-sm">Available for new projects</span>
-          </div>
+          
         </motion.div>
-        {/* Right: Wide Form, input grid */}
-        <motion.div
+
+        {/* --- Right: Form --- */}
+        <motion.form
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex items-center justify-center h-full py-12 px-3"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full space-y-5"
+          aria-label="Contact Form"
         >
-          <form
-            onSubmit={handleSubmit}
-            className="w-full max-w-xl mx-auto bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 p-10 space-y-6"
-            aria-label="Contact Form"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-                  Name <span className="text-red-400">*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  className={`w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border ${errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500`}
-                  value={form.name}
-                  onChange={e => { setForm(f => ({ ...f, name: e.target.value })); setStatus("idle"); }}
-                  aria-invalid={!!errors.name}
-                  aria-describedby={errors.name && "name-error"}
-                  placeholder="Full Name"
-                  required
-                />
-                {errors.name && <div className="text-xs text-red-400 mt-1" id="name-error">{errors.name}</div>}
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-                  Email <span className="text-red-400">*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  className={`w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border ${errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500`}
-                  value={form.email}
-                  onChange={e => { setForm(f => ({ ...f, email: e.target.value })); setStatus("idle"); }}
-                  aria-invalid={!!errors.email}
-                  aria-describedby={errors.email && "email-error"}
-                  placeholder="you@email.com"
-                  required
-                />
-                {errors.email && <div className="text-xs text-red-400 mt-1" id="email-error">{errors.email}</div>}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Name */}
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-                Subject <span className="text-red-400">*</span>
+              <label htmlFor="name" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+                Name <span className="text-red-400">*</span>
               </label>
               <input
-                id="subject"
-                name="subject"
+                id="name"
+                name="name"
                 type="text"
-                className={`w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border ${errors.subject ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500`}
-                value={form.subject}
-                onChange={e => { setForm(f => ({ ...f, subject: e.target.value })); setStatus("idle"); }}
-                aria-invalid={!!errors.subject}
-                aria-describedby={errors.subject && "subject-error"}
-                placeholder="Subject"
+                autoComplete="name"
+                className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400`}
+                value={form.name}
+                onChange={e => { setForm(f => ({ ...f, name: e.target.value })); setStatus("idle"); }}
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name && "name-error"}
+                placeholder="Full Name"
                 required
               />
-              {errors.subject && <div className="text-xs text-red-400 mt-1" id="subject-error">{errors.subject}</div>}
+              {errors.name && <div className="text-xs text-red-400 mt-1" id="name-error">{errors.name}</div>}
             </div>
+            {/* Email */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-                Message <span className="text-red-400">*</span>
+              <label htmlFor="email" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+                Email <span className="text-red-400">*</span>
               </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                maxLength={500}
-                className={`w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border ${errors.message ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 resize-none`}
-                value={form.message}
-                onChange={e => { setForm(f => ({ ...f, message: e.target.value })); setStatus("idle"); }}
-                aria-invalid={!!errors.message}
-                aria-describedby={errors.message && "message-error"}
-                placeholder="How can I help you?"
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400`}
+                value={form.email}
+                onChange={e => { setForm(f => ({ ...f, email: e.target.value })); setStatus("idle"); }}
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email && "email-error"}
+                placeholder="you@email.com"
                 required
               />
-              <div className="absolute bottom-3 right-3 text-xs text-gray-500">{form.message.length}/500</div>
-              {errors.message && <div className="text-xs text-red-400 mt-1" id="message-error">{errors.message}</div>}
+              {errors.email && <div className="text-xs text-red-400 mt-1" id="email-error">{errors.email}</div>}
             </div>
-            {/* Dynamic Button */}
-            <motion.button
-              type={status === "success" ? "button" : "submit"}
-              whileHover={{ scale: status === "idle" ? 1.02 : 1 }}
-              whileTap={{ scale: status === "idle" ? 0.98 : 1 }}
-              className={
-                "w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center " +
-                (status === "idle"
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                  : status === "success"
-                  ? "bg-green-600 text-white"
-                  : "bg-red-600 text-white")
-              }
-              disabled={loading || status === "success"}
-              tabIndex={0}
-              onClick={status === "success" ? undefined : undefined}
-            >
-              {loading ? (
-                <>
-                  <svg className="animate-spin w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v4m0 12v4m8-8h-4M6 12H2m15.364-6.364l-2.828 2.828M9.464 9.464L6.636 6.636m12.728 12.728l-2.828-2.828M9.464 14.536l-2.828 2.828"/></svg>
-                  <span className="ml-2">Sending...</span>
-                </>
-              ) : status === "success" ? (
-                <span>Message sent! ✅</span>
-              ) : status === "error" ? (
+          </div>
+          {/* Subject */}
+          <div>
+            <label htmlFor="subject" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+              Subject <span className="text-red-400">*</span>
+            </label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${errors.subject ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400`}
+              value={form.subject}
+              onChange={e => { setForm(f => ({ ...f, subject: e.target.value })); setStatus("idle"); }}
+              aria-invalid={!!errors.subject}
+              aria-describedby={errors.subject && "subject-error"}
+              placeholder="Subject"
+              required
+            />
+            {errors.subject && <div className="text-xs text-red-400 mt-1" id="subject-error">{errors.subject}</div>}
+          </div>
+          {/* Message */}
+          <div className="relative">
+            <label htmlFor="message" className="text-xs font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
+              Message <span className="text-red-400">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              maxLength={500}
+              className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${errors.message ? "border-red-500" : "border-gray-300 dark:border-gray-700"} rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 resize-none`}
+              value={form.message}
+              onChange={e => { setForm(f => ({ ...f, message: e.target.value })); setStatus("idle"); }}
+              aria-invalid={!!errors.message}
+              aria-describedby={errors.message && "message-error"}
+              placeholder="How can I help you?"
+              required
+            />
+            {/* Char count bottom-right, always visible */}
+            <span className="absolute bottom-2 right-3 text-[11px] text-gray-400">{form.message.length}/500</span>
+            {errors.message && <div className="text-xs text-red-400 mt-1" id="message-error">{errors.message}</div>}
+          </div>
+          {/* Button */}
+          <motion.button
+            type={status === "success" ? "button" : "submit"}
+            whileHover={{ scale: status === "idle" ? 1.04 : 1 }}
+            whileTap={{ scale: status === "idle" ? 0.97 : 1 }}
+            className={
+              "w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-base " +
+              (status === "idle"
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow"
+                : status === "success"
+                ? "bg-green-600 text-white"
+                : "bg-red-600 text-white")
+            }
+            disabled={loading || status === "success"}
+            tabIndex={0}
+            aria-live="polite"
+          >
+            {loading ? (
+              <>
+                <svg className="animate-spin w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25"/>
+                  <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75"/>
+                </svg>
+                <span className="ml-2">Sending...</span>
+              </>
+            ) : status === "success" ? (
+              <>
+                <span>Message Sent!</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </>
+            ) : status === "error" ? (
+              <>
                 <span>Failed. Try again.</span>
-              ) : (
-                <span>Send Message</span>
-              )}
-            </motion.button>
-          </form>
-        </motion.div>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </>
+            ) : (
+              <>
+                <span>Send</span>
+                {/* Arrow right */}
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+              </>
+            )}
+          </motion.button>
+        </motion.form>
       </div>
     </section>
   );
