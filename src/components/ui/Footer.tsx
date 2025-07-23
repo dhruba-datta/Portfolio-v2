@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const footerLinks = [
@@ -75,7 +76,7 @@ const Footer = () => {
         {/* Left: Copyright */}
         <div className="flex flex-col items-center md:items-start gap-2 md:w-1/3">
           <span className="text-base font-semibold text-gray-900 dark:text-white">Dhruba Datta</span>
-          <p className="text-xs text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} Dhruba Datta. All rights reserved.</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} | All rights reserved.</p>
         </div>
 
         {/* Center: Social Icons */}
@@ -87,7 +88,14 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors p-2 rounded"
+              className={
+                `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 ` +
+                (link.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white' : '') +
+                (link.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400' : '') +
+                (link.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400' : '') +
+                (link.name === 'Telegram' ? 'hover:text-blue-400 dark:hover:text-blue-300' : '') +
+                (link.name === 'YouTube' ? 'hover:text-red-500 dark:hover:text-red-400' : '')
+              }
             >
               {link.icon}
             </a>
@@ -97,13 +105,13 @@ const Footer = () => {
         {/* Right: Navigation */}
         <nav aria-label="Footer Navigation" className="flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-end md:w-1/3">
           {footerLinks.map(link => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base font-medium"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

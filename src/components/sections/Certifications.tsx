@@ -109,10 +109,10 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
     {
       id: 7,
       title: "Cybersecurity and Its Ten Domains",
-      issuer: "University System of Georgia",
+      issuer: "Kennesaw State University",
       issueDate: "May 2022",
       credentialId: "JH92ELQKBMT5",
-      logo: "georgia",
+      logo: "kennesaw",
       credentialUrl: "https://www.coursera.org/account/accomplishments/records/JH92ELQKBMT5"
     },
     {
@@ -188,10 +188,10 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
             SU
           </div>
         );
-      case 'georgia':
+      case 'kennesaw':
         return (
-          <div className={`${logoClass} bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-xs`}>
-            USG
+          <div className={`${logoClass} bg-yellow-700 rounded-lg flex items-center justify-center text-white font-bold text-xs`}>
+            KSU
           </div>
         );
       case 'udemy':
