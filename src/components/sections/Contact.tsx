@@ -25,17 +25,20 @@ const socialLinks = [
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/dhruba-datta/',
     icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.25h-3v-4.5c0-1.1-.9-2-2-2s-2 .9-2 2v4.5h-3v-9h3v1.25c.41-.59 1.09-1.25 2.09-1.25 2.21 0 2.91 1.46 2.91 3.36v5.64z" />
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z" />
+        <circle cx="8" cy="8" r="1" />
       </svg>
     ),
   },
-    {
+  {
     name: 'YouTube',
     url: 'https://www.youtube.com/DhrubaDattaAnjan',
     icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M23.498 6.186a2.99 2.99 0 0 0-2.104-2.11C19.13 3.5 12 3.5 12 3.5s-7.13 0-9.394.576a2.99 2.99 0 0 0-2.104 2.11A31.13 31.13 0 0 0 0 12a31.13 31.13 0 0 0 .502 5.814 2.99 2.99 0 0 0 2.104 2.11C4.87 20.5 12 20.5 12 20.5s7.13 0 9.394-.576a2.99 2.99 0 0 0 2.104-2.11A31.13 31.13 0 0 0 24 12a31.13 31.13 0 0 0-.502-5.814zM9.75 15.02V8.98l6.5 3.02-6.5 3.02z" />
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22.54 6.42A2.78 2.78 0 0 0 20.85 4.7C19.18 4 12 4 12 4s-7.18 0-8.85.7A2.78 2.78 0 0 0 1.46 6.42 29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.69 1.72C4.82 20 12 20 12 20s7.18 0 8.85-.7a2.78 2.78 0 0 0 1.69-1.72A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58z" />
+        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
       </svg>
     ),
   },
@@ -43,8 +46,9 @@ const socialLinks = [
     name: 'Facebook',
     url: 'https://www.facebook.com/dhruba.datta.anjan',
     icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24h11.495v-9.294H9.692v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0" />
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <path d="M15.5 8.5H13.5V7.5C13.5 7.22386 13.7239 7 14 7H15.5V4.5H14C12.067 4.5 10.5 6.067 10.5 8V8.5H9V11H10.5V19H13.5V11H15L15.5 8.5Z" />
       </svg>
     ),
   },

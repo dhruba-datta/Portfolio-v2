@@ -15,15 +15,19 @@ interface AboutPageProps {
 
 const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className={
+      `min-h-screen transition-colors duration-300 ` +
+      (isDark ? 'bg-gray-900' : 'bg-gray-50')
+    }>
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
-      
-      {/* Background pattern to match hero */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 -z-10"></div>
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10"></div>
-      
+      {/* Background pattern to match hero, only in dark mode */}
+      {isDark && (
+        <>
+          <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 -z-10"></div>
+          <div className="fixed inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10"></div>
+        </>
+      )}
       <main className="pt-20">
-
         {/* About Sections */}
         <section className="mb-12">
           <About isDark={isDark} />
@@ -37,17 +41,17 @@ const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
         <section className="mb-12">
           <Achievements isDark={isDark} />
         </section>
-        <section className="mb-12">
+        <section className="mb-0">
           <Experience isDark={isDark} />
         </section>
-        <section className="mb-12">
+        {/* Remove extra section/gap before Certifications */}
+        <section className="mb-0">
           <Certifications isDark={isDark} />
         </section>
         <section className="mb-12">
           <Volunteer isDark={isDark} />
         </section>
       </main>
-      
       <Footer />
     </div>
   );
