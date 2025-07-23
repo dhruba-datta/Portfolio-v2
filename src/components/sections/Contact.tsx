@@ -321,10 +321,12 @@ const Contact: React.FC = () => {
             whileTap={{ scale: status === "idle" ? 0.97 : 1 }}
             className={
               "w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-base " +
-              (status === "idle"
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow"
+              (loading
+                ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow"
                 : status === "success"
-                ? "bg-green-600 text-white"
+                ? "bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white shadow"
+                : status === "idle"
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow"
                 : "bg-red-600 text-white")
             }
             disabled={loading || status === "success"}
@@ -333,24 +335,28 @@ const Contact: React.FC = () => {
           >
             {loading ? (
               <>
-                <svg className="animate-spin w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span>Sending...</span>
+                <svg className="animate-spin w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25"/>
                   <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75"/>
                 </svg>
-                <span className="ml-2">Sending...</span>
               </>
             ) : status === "success" ? (
               <>
                 <span>Message Sent!</span>
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                {/* Modern checkmark in circle */}
+                <svg className="w-5 h-5 ml-2 text-green-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" stroke="#fff" strokeWidth="2"/>
                 </svg>
               </>
             ) : status === "error" ? (
               <>
                 <span>Failed. Try again.</span>
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                {/* Modern error icon: circle with X */}
+                <svg className="w-5 h-5 ml-2 text-red-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#ef4444"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l6 6M15 9l-6 6" stroke="#fff" strokeWidth="2"/>
                 </svg>
               </>
             ) : (
