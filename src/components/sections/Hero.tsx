@@ -271,9 +271,16 @@ const Hero = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={
+                    `p-2 rounded-lg bg-gray-100 dark:bg-gray-800 transition-all duration-300 hover:scale-110 text-gray-600 dark:text-gray-300 ` +
+                    (social.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white' : '') +
+                    (social.name === 'LinkedIn' ? 'hover:text-blue-600' : '') +
+                    (social.name === 'Instagram' ? 'hover:text-pink-500' : '') +
+                    (social.name === 'Google Scholar' ? 'hover:text-blue-400' : '')
+                  }
+                  aria-label={social.name}
                 >
                   {social.icon}
                 </motion.a>

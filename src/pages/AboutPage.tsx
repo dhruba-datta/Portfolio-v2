@@ -25,13 +25,27 @@ const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
       <main className="pt-20">
 
         {/* About Sections */}
-        <About isDark={isDark} />
-        <Academic isDark={isDark} />
-        <Research isDark={isDark} />
-        <Achievements isDark={isDark} />
-        <Experience isDark={isDark} />
-        <Certifications isDark={isDark} />
-        <Volunteer isDark={isDark} />
+        <section className="mb-12">
+          <About isDark={isDark} />
+        </section>
+        <section className="mb-12">
+          <Academic isDark={isDark} />
+        </section>
+        <section className="mb-12">
+          <Research isDark={isDark} />
+        </section>
+        <section className="mb-12">
+          <Achievements isDark={isDark} />
+        </section>
+        <section className="mb-12">
+          <Experience isDark={isDark} />
+        </section>
+        <section className="mb-12">
+          <Certifications isDark={isDark} />
+        </section>
+        <section className="mb-12">
+          <Volunteer isDark={isDark} />
+        </section>
       </main>
       
       <Footer />
