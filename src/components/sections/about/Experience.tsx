@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { MdOutlineWork } from "react-icons/md";
+import { TbLocationFilled } from "react-icons/tb";
 
 interface ExperienceProps {
   isDark?: boolean;
@@ -10,7 +12,7 @@ interface Experience {
   position: string;
   duration: string;
   location: string;
-  type: 'Remote work' | 'On-site' | 'Hybrid';
+  type: 'Remote' | 'On-site' | 'Hybrid';
   description: string[];
   technologies: string[];
   current: boolean;
@@ -24,7 +26,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       position: "Research & Development Lead",
       duration: "JAN 2025 - PRESENT",
       location: "Florida, United States",
-      type: "Remote work",
+      type: "Remote",
       current: true,
       description: [
         "Architected enterprise-scale, CMS-driven reusable pagebuilder blocks with dynamic configurability using Sanity and Contentful, enabling non-technical teams to manage content across 6+ production websites. Designed custom schemas and optimized GROQ queries, resulting in 40% faster content delivery.",
@@ -42,7 +44,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       position: "AI Model Trainer",
       duration: "APR 2025 - PRESENT",
       location: "United States",
-      type: "Remote work",
+      type: "Remote",
       current: true,
       description: [
         "Leading AI model training initiatives to enhance coding capabilities and problem-solving efficiency through competitive programming methodologies.",
@@ -58,7 +60,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       position: "SQA Engineer",
       duration: "JUN 2024 - MAR 2025",
       location: "California, United States",
-      type: "Remote work",
+      type: "Remote",
       current: false,
       description: [
         "Conducted comprehensive quality assurance and automation testing for Kounsel platform to ensure high standards and reliability.",
@@ -177,15 +179,11 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     isDark ? 'text-gray-400' : 'text-gray-600'
                   }`}>
                     <div className="flex items-center gap-2 lg:justify-end">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
+                      <TbLocationFilled className="w-4 h-4" />
                       <span>{exp.location}</span>
                     </div>
                     <div className="flex items-center gap-2 lg:justify-end">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-                      </svg>
+                      <MdOutlineWork className="w-4 h-4" />
                       <span>{exp.type}</span>
                     </div>
                   </div>
