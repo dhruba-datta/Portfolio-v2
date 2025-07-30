@@ -1,11 +1,11 @@
 import Navigation from '../components/ui/Navigation';
-import Hero from '../components/sections/Hero';
-import TechStack from '../components/sections/TechStack';
-import Skills from '../components/sections/Skills';
-import Achievements from '../components/sections/Achievements';
-import Projects from '../components/sections/Projects';
-import Photography from '../components/sections/Photography';
-import Updates from '../components/sections/Updates';
+import Hero from '../components/sections/home/Hero';
+import TechStack from '../components/sections/home/TechStack';
+import Skills from '../components/sections/home/Skills';
+import Achievements from '../components/sections/about/Achievements';
+import Projects from '../components/sections/project/Projects';
+import Photography from '../components/sections/home/Photography';
+import Updates from '../components/sections/home/Updates';
 import Footer from '../components/ui/Footer';
 
 interface HomePageProps {

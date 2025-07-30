@@ -1,5 +1,5 @@
 import Navigation from '../components/ui/Navigation';
-import Projects from '../components/sections/Projects';
+import Projects from '../components/sections/project/Projects';
 import Footer from '../components/ui/Footer';
 
 interface ProjectsPageProps {

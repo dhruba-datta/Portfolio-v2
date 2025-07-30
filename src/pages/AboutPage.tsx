@@ -1,11 +1,11 @@
 import Navigation from '../components/ui/Navigation';
-import About from '../components/sections/About';
-import Academic from '../components/sections/Academic';
-import Research from '../components/sections/Research';
-import Achievements from '../components/sections/Achievements';
-import Experience from '../components/sections/Experience';
-import Certifications from '../components/sections/Certifications';
-import Volunteer from '../components/sections/Volunteer';
+import About from '../components/sections/about/About';
+import Academic from '../components/sections/about/Academic';
+import Research from '../components/sections/about/Research';
+import Achievements from '../components/sections/about/Achievements';
+import Experience from '../components/sections/about/Experience';
+import Certifications from '../components/sections/about/Certifications';
+import Volunteer from '../components/sections/about/Volunteer';
 import Footer from '../components/ui/Footer';
 
 interface AboutPageProps {
