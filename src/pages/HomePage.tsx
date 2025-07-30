@@ -2,7 +2,6 @@ import Navigation from '../components/ui/Navigation';
 import Hero from '../components/sections/home/Hero';
 import TechStack from '../components/sections/home/TechStack';
 import Skills from '../components/sections/home/Skills';
-import Achievements from '../components/sections/about/Achievements';
 import Projects from '../components/sections/project/Projects';
 import Photography from '../components/sections/home/Photography';
 import Updates from '../components/sections/home/Updates';
@@ -22,7 +21,6 @@ const HomePage = ({ isDark, toggleTheme }: HomePageProps) => {
         <Hero />
         <TechStack isDark={isDark} />
         <Skills />
-        <Achievements />
         <Projects />
         <Photography />
         <Updates />

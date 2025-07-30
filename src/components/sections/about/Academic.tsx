@@ -47,9 +47,9 @@ const Academic = ({ isDark = false }: AcademicProps) => {
   ];
 
   return (
-    <section 
-      id="academic" 
-      className={`py-20 transition-colors duration-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white`}
+    <section
+      id="academic"
+      className="py-20 transition-colors duration-300"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Header */}
@@ -74,10 +74,10 @@ const Academic = ({ isDark = false }: AcademicProps) => {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className={`text-lg ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
+            className={`text-lg mb-8 ${
+              isDark ? 'text-gray-300' : 'text-gray-700'
             } max-w-3xl mx-auto`}
           >
             Educational journey and academic achievements

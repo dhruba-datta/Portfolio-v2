@@ -210,8 +210,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   return (
     <section
       id="certifications"
-      className={`py-20 relative transition-colors duration-300
-        ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}
+      className="py-20 relative transition-colors duration-300"
       style={{ minHeight: cardHeight + 120 }}
     >
       <div className="container mx-auto px-6 max-w-full">

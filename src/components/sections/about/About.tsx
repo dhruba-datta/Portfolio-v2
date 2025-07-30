@@ -8,7 +8,7 @@ const About = ({ isDark }: AboutProps) => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-start justify-center pt-20 relative bg-slate-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+      className="min-h-screen flex items-start justify-center pt-20 relative py-20 transition-colors duration-300"
     >
       {/* Minimal dot pattern background for aesthetic look */}
       <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(circle,rgba(203,213,225,0.25)_1px,transparent_1.5px)] dark:bg-[radial-gradient(circle,rgba(51,65,85,0.25)_1px,transparent_1.5px)] bg-[size:22px_22px] opacity-40"></div>
@@ -40,7 +40,7 @@ const About = ({ isDark }: AboutProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-4xl lg:text-5xl font-bold leading-tight"
+                className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
               >
                 I'm Dhruba, a<br />
                 creative <span className="text-pink-500 dark:text-pink-400 italic">engineer</span>
