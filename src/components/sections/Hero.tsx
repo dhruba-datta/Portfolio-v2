@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
+import { LuMessageSquareShare } from "react-icons/lu";
 
 interface MousePosition {
   x: number;
@@ -281,9 +282,11 @@ const Hero = () => {
             >
               <Link
                 to="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-1"
+                aria-label="Contact Me"
               >
                 Contact Me
+                <LuMessageSquareShare className="w-5 h-5 ml-0.5" aria-hidden="true" />
               </Link>
             </motion.div>
           </motion.div>
