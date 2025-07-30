@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTelegramPlane, FaYoutube } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
 
 type FormType = {
   name: string;
@@ -448,12 +450,8 @@ const Contact: React.FC = () => {
               </>
             ) : status === "success" ? (
               <>
-                <span>Message Sent!</span>
-                {/* Modern checkmark in circle */}
-                <svg className="w-5 h-5 ml-2 text-green-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" stroke="#fff" strokeWidth="2" />
-                </svg>
+                <span>Message Sent</span>
+                <FaCheck className="w-5 h-5 ml-1 text-white-400" aria-hidden="true" />
               </>
             ) : status === "error" ? (
               <>
@@ -466,11 +464,8 @@ const Contact: React.FC = () => {
               </>
             ) : (
               <>
-                <span>Send</span>
-                {/* Modern paper plane icon */}
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 20l18-8-18-8v6l15 2-15 2v6z" />
-                </svg>
+                <span>Send Message</span>
+                <IoIosSend className="w-5 h-5 ml-0.5" aria-hidden="true" />
               </>
             )}
           </motion.button>
