@@ -2,7 +2,6 @@ import Navigation from '../components/ui/Navigation';
 import About from '../components/sections/about/About';
 import Academic from '../components/sections/about/Academic';
 import Research from '../components/sections/about/Research';
-import Achievements from '../components/sections/about/Achievements';
 import Experience from '../components/sections/about/Experience';
 import Certifications from '../components/sections/about/Certifications';
 import Volunteer from '../components/sections/about/Volunteer';
@@ -37,9 +36,6 @@ const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
         </section>
         <section>
           <Research isDark={isDark} />
-        </section>
-        <section>
-          <Achievements isDark={isDark} />
         </section>
         <section>
           <Experience isDark={isDark} />

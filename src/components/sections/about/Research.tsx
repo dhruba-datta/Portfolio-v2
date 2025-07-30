@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion';
 
-interface ResearchProps {
-  isDark?: boolean;
-}
-
 interface Publication {
   id: number;
   title: string;
@@ -15,284 +11,279 @@ interface Publication {
   status: string;
 }
 
-interface ResearchInterest {
+interface Achievement {
   id: number;
-  area: string;
+  title: string;
+  description: string;
+  category: 'scholarship' | 'technical' | 'competition' | 'research';
   icon: string;
-  color: string;
 }
 
-const Research = ({ isDark = false }: ResearchProps) => {
-  const publications: Publication[] = [
-    {
-      id: 1,
-      title: "Skin Cancer Detection with Edge Devices Using YOLOv7 Deep CNN",
-      authors: ["Dhruba Datta", "Harsh Prakash", "Priya Singh"],
-      conference: "4th International Conference on Data Analytics & Management [ICDAM-2023]",
-      date: "November 2023",
-      location: "London Metropolitan University, London, UK",
-      doi: "10.1007/978-981-99-6550-2_5",
-      status: "Published"
-    }
-  ];
+interface ResearchProps {
+  isDark?: boolean;
+}
 
-  const researchInterests: ResearchInterest[] = [
-    {
-      id: 1,
-      area: "Computer Vision",
-      icon: "eye",
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      id: 2,
-      area: "Artificial Intelligence",
-      icon: "brain",
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      id: 3,
-      area: "Machine Learning",
-      icon: "neural-network",
-      color: "from-green-500 to-teal-500"
-    },
-    {
-      id: 4,
-      area: "Natural Language Processing",
-      icon: "message",
-      color: "from-orange-500 to-red-500"
-    }
-  ];
+const publications: Publication[] = [
+  {
+    id: 1,
+    title: "Skin Cancer Detection with Edge Devices Using YOLOv7 Deep CNN",
+    authors: ["Dhruba Datta", "Harsh Prakash", "Priya Singh"],
+    conference: "4th International Conference on Data Analytics & Management [ICDAM-2023]",
+    date: "November 2023",
+    location: "London Metropolitan University, London, UK",
+    doi: "10.1007/978-981-99-6550-2_5",
+    status: "Published"
+  }
+];
 
+const achievements: Achievement[] = [
+  {
+    id: 1,
+    title: "ICCR Government Scholarship",
+    description: "Received the prestigious Indian Government Scholarship entailing full funded education and monthly stipend.",
+    category: 'scholarship',
+    icon: "graduation-cap"
+  },
+  {
+    id: 2,
+    title: "SEO-Optimized Portfolio Website",
+    description: "Built a personal portfolio website that ranked on the first page of Google search results.",
+    category: 'technical',
+    icon: "rocket"
+  },
+  {
+    id: 3,
+    title: "LeetCode Achievement",
+    description: "Solved 450+ problems with 3K+ reputation and 200K+ views, capturing coding enthusiasts worldwide.",
+    category: 'technical',
+    icon: "code"
+  },
+  {
+    id: 4,
+    title: "1st Position - Wall Magazine",
+    description: "Secured 1st position among 250+ teams at DRMC National Science Festival '16.",
+    category: 'competition',
+    icon: "trophy"
+  },
+  {
+    id: 5,
+    title: "3rd Position - Science Project",
+    description: "Achieved 3rd position out of 120 teams at SGHS Inter-School Science Festival '16.",
+    category: 'competition',
+    icon: "medal"
+  }
+];
+
+// Category color helpers
+const getCategoryColor = (category: string, isDark: boolean) => {
+  switch (category) {
+    case 'scholarship': return isDark ? 'from-yellow-400 to-amber-500' : 'from-yellow-500 to-amber-600';
+    case 'technical': return isDark ? 'from-blue-400 to-cyan-500' : 'from-blue-500 to-cyan-600';
+    case 'competition': return isDark ? 'from-purple-400 to-pink-500' : 'from-purple-500 to-pink-600';
+    case 'research': return isDark ? 'from-green-400 to-teal-500' : 'from-green-500 to-teal-600';
+    default: return isDark ? 'from-gray-400 to-gray-500' : 'from-gray-500 to-gray-600';
+  }
+};
+
+// SVG generation centralized
+function AchievementIcon({ icon, category, isDark }: { icon: string; category: string; isDark: boolean }) {
+  // ...SVG code as per your achievements listing
+  // Just as before, copy the icon from your code!
+  // Example for 'rocket':
+  if (icon === 'rocket') {
+    return (
+      <svg className="w-6 h-6" fill="none" stroke={isDark ? "#38bdf8" : "#0ea5e9"} strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a5.5 5.5 0 0 1-5.96-5.96l.2-1.13a2 2 0 0 1 1.67-1.67l1.13-.2a5.5 5.5 0 0 1 5.96 5.96l-.2 1.13a2 2 0 0 1-1.67 1.67l-1.13.2z"/>
+        <circle cx="12" cy="12" r="2" fill={isDark ? '#38bdf8' : '#0ea5e9'} />
+      </svg>
+    );
+  }
+  if (icon === 'code') {
+    return (
+      <svg className="w-6 h-6" fill="none" stroke={isDark ? "#38bdf8" : "#0ea5e9"} strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+      </svg>
+    );
+  }
+  if (icon === 'graduation-cap') {
+    return (
+      <svg className="w-6 h-6" fill="none" stroke={category === 'scholarship' ? (isDark ? '#ef4444' : '#dc2626') : (isDark ? '#fbbf24' : '#f59e42')} strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0c-4.418 0-8-1.343-8-3V9"/>
+      </svg>
+    );
+  }
+  if (icon === 'trophy') {
+    return (
+      <svg className="w-6 h-6" fill="none" stroke={isDark ? '#a78bfa' : '#8b5cf6'} strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 21h8M12 17v4m0-4a7 7 0 0 1-7-7V5h14v5a7 7 0 0 1-7 7z"/>
+      </svg>
+    );
+  }
+  if (icon === 'medal') {
+    return (
+      <svg className="w-6 h-6" fill="none" stroke={isDark ? '#f472b6' : '#ec4899'} strokeWidth="1.5" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="6" strokeWidth="1.5"/>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 16l4 4 4-4"/>
+      </svg>
+    );
+  }
+  return null;
+}
+
+const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
   return (
-    <section 
-      id="research" 
-      className="py-20 transition-colors duration-300"
-    >
-      <div className="container mx-auto px-6 max-w-7xl">
-        {/* Header */}
+    <section className={`py-20 transition-colors duration-300 min-h-screen ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}> 
+      <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+
+        {/* Unified Section Header - Style matches Research */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
-            className={`text-4xl lg:text-5xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}
+            className={`text-4xl lg:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}
           >
-            Research & Publications
+            Research & Achievements
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
             viewport={{ once: true }}
-            className={`text-lg ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            } max-w-3xl mx-auto`}
+            className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}
           >
-            Academic research and peer-reviewed publications
+            Academic contributions and notable recognitions
           </motion.p>
         </motion.div>
 
-        {/* Two Column Layout with Divider */}
-        <div className="grid lg:grid-cols-[350px,1px,1fr] gap-12 lg:gap-16">
-          {/* Research Interests Section - Left */}
+        {/* Grid Layout */}
+        <div className="grid md:grid-cols-[1.3fr_0.7fr] gap-10 md:gap-20">
+
+          {/* Publications Timeline */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className={`relative pb-4`}
           >
-            <div className="space-y-3">
-              <div>
-                <h3 className={`text-xl font-bold ${
-                  isDark ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Research Focus
-                </h3>
-                <p className={`text-sm ${
-                  isDark ? 'text-gray-400' : 'text-gray-600'
-                } leading-relaxed mt-2`}>
-                  Core areas of interest and expertise
-                </p>
-              </div>
-            </div>
+            <h3 className={`text-xl font-bold mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              Publications
+            </h3>
 
-            <div className="space-y-3">
-              {researchInterests.map((interest, index) => (
-                <motion.div
-                  key={interest.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center gap-3"
-                >
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${interest.color} flex-shrink-0`}></div>
-                  <span className={`font-medium ${
-                    isDark ? 'text-gray-200' : 'text-gray-700'
-                  }`}>
-                    {interest.area}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-            
-            <div className={`mt-8 p-4 rounded-xl ${
-              isDark 
-                ? 'bg-gradient-to-br from-gray-800/40 to-gray-700/40 border border-gray-700/50' 
-                : 'bg-gradient-to-br from-gray-50/80 to-blue-50/50 border border-gray-200/60'
-            }`}>
-              <p className={`text-sm ${
-                isDark ? 'text-gray-300' : 'text-gray-700'
-              } leading-relaxed italic text-center`}>
-                "Bridging theoretical research with practical applications in artificial intelligence"
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Vertical Divider */}
-          <div className="hidden lg:block">
-            <div className={`w-px h-full ${
-              isDark 
-                ? 'bg-gradient-to-b from-transparent via-gray-700/60 to-transparent' 
-                : 'bg-gradient-to-b from-transparent via-gray-300/60 to-transparent'
-            }`}></div>
-          </div>
-
-          {/* Publications Section - Right */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="space-y-3">
-              <div>
-                <h3 className={`text-xl font-bold ${
-                  isDark ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Publications
-                </h3>
-                <p className={`text-sm ${
-                  isDark ? 'text-gray-400' : 'text-gray-600'
-                } mt-2`}>
-                  Peer-reviewed research contributions
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {publications.map((pub, index) => (
-                <motion.article
+            <ol className="relative border-l-2 border-gray-200 dark:border-gray-700 mt-2 space-y-10">
+              {publications.map((pub, idx) => (
+                <motion.li
                   key={pub.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  transition={{ delay: idx * 0.07 }}
                   viewport={{ once: true }}
-                  className={`group ${
-                    isDark 
-                      ? 'bg-gradient-to-br from-gray-800/60 to-gray-700/40 border-gray-600/40 hover:from-gray-800/80 hover:to-gray-700/60 hover:border-gray-600/60' 
-                      : 'bg-gradient-to-br from-white to-gray-50/80 border-gray-200/40 hover:from-white hover:to-blue-50/30 hover:border-blue-200/40 shadow-md hover:shadow-lg'
-                  } backdrop-blur-sm border rounded-xl p-5 transition-all duration-300 hover:scale-[1.01] cursor-default`}
+                  className="ml-5"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className={`flex items-center gap-1 text-xs ${
-                      isDark ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      {pub.date}
-                    </div>
-                    <div className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                      isDark 
-                        ? 'bg-green-500/15 text-green-400 border border-green-500/30' 
-                        : 'bg-green-50 text-green-700 border border-green-200'
-                    }`}>
-                      {pub.status}
-                    </div>
-                  </div>
-                  
-                  <h4 className={`text-lg font-bold mb-3 leading-tight ${
-                    isDark ? 'text-white' : 'text-gray-900'
-                  } group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300`}>
-                    {pub.title}
-                  </h4>
-                  
-                  <div className="space-y-2 text-sm">
-                    <div className={`flex items-start gap-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      <div>
-                        <span className="font-medium">Authors:</span>{' '}
-                        {pub.authors.map((author, index) => (
-                          <span key={index}>
-                            {author === 'Dhruba Datta' ? (
-                              <span className="font-bold">{author}</span>
-                            ) : (
-                              author
-                            )}
-                            {index < pub.authors.length - 1 && ', '}
-                          </span>
+                  <div className="relative">
+                    {/* Timeline Dot */}
+                    <span className="absolute -left-7 top-4 w-4 h-4 rounded-full bg-blue-500 border-4 border-white dark:border-gray-950 shadow-md" />
+                    {/* Publication Info - No Card */}
+                    <h4 className="text-lg font-bold mb-2 leading-tight text-blue-600 dark:text-blue-400 group-hover:underline">
+                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer">{pub.title}</a>
+                    </h4>
+                    <div className="flex flex-col gap-1 text-sm mb-2">
+                      <div className={`flex items-center gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                        <span className="font-medium">Authors:</span> {pub.authors.map((author, i) => (
+                          <span key={i} className={author === "Dhruba Datta" ? "font-bold" : ""}>{author}{i < pub.authors.length - 1 ? ', ' : ''}</span>
                         ))}
                       </div>
-                    </div>
-                    
-                    <div className={`flex items-start gap-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                      </svg>
-                      <div>
+                      <div className={`flex items-center gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
                         <span className="font-medium">Conference:</span> {pub.conference}
                       </div>
-                    </div>
-                    
-                    <div className={`flex items-start gap-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <div>
+                      <div className={`flex items-center gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         <span className="font-medium">Location:</span> {pub.location}
                       </div>
                     </div>
-                    
-                    <div className={`flex items-start gap-2 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                      <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                      </svg>
-                      <div className="flex items-center gap-2">
-                        <span className="font-medium">DOI:</span>
-                        <a 
-                          href="https://link.springer.com/chapter/10.1007/978-981-99-6550-2_5"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`font-mono text-xs hover:underline transition-colors duration-200 flex items-center gap-1 ${
-                            isDark ? 'hover:text-blue-300' : 'hover:text-blue-800'
-                          }`}
-                        >
-                          {pub.doi}
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </a>
-                      </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                      <span className="font-medium text-blue-600 dark:text-blue-400 text-xs">DOI:</span>
+                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`font-mono text-xs hover:underline transition-colors duration-200 flex items-center gap-1 ${isDark ? 'text-blue-300' : 'text-blue-800'}`}> 
+                        {pub.doi}
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`px-3 py-1 text-xs font-semibold rounded-full ${isDark ? 'bg-green-500/15 text-green-400 border border-green-500/30' : 'bg-green-50 text-green-700 border border-green-200'}`}>{pub.status}</span>
+                      <span className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-400'}`}>{pub.date}</span>
                     </div>
                   </div>
-                </motion.article>
+                </motion.li>
               ))}
+            </ol>
+            <div className={`mt-8 p-4 rounded-xl ${isDark ? 'bg-gradient-to-br from-gray-800/40 to-gray-700/40 border border-gray-700/50' : 'bg-gradient-to-br from-gray-50/80 to-blue-50/50 border border-gray-200/60'}`}>
+                <p className={`text-sm leading-relaxed italic text-center ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  "Bridging theoretical research with practical applications in artificial intelligence"
+                </p>
+              </div>
+
+            {/* Research Focus Section */}
+            <div className="mt-12">
+              <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>Research Interests</h3>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                {[{ id: 1, area: "Computer Vision", color: "from-blue-500 to-cyan-500" },
+                  { id: 2, area: "Artificial Intelligence", color: "from-purple-500 to-pink-500" },
+                  { id: 3, area: "Machine Learning", color: "from-green-500 to-teal-500" },
+                  { id: 4, area: "Natural Language Processing", color: "from-orange-500 to-red-500" }].map((interest) => (
+                  <div key={interest.id} className="flex items-center gap-3">
+                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${interest.color} flex-shrink-0`} />
+                    <span className={`font-medium ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>{interest.area}</span>
+                  </div>
+                ))}
+              </div>
+              
+
             </div>
+          </motion.div>
+
+          {/* Achievements Timeline */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative pb-4"
+          >
+            <h3 className={`text-xl font-bold mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              Achievements
+            </h3>
+
+            <ol className="relative border-l-2 border-gray-200 dark:border-gray-700 mt-2 space-y-10">
+              {achievements.map((a, idx) => (
+                <motion.li
+                  key={a.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + idx * 0.07 }}
+                  viewport={{ once: true }}
+                  className="ml-5 flex flex-col gap-1"
+                >
+                  <span
+                    className={`absolute -left-3 w-5 h-5 rounded-full shadow-md border-4 border-white dark:border-gray-950 bg-gradient-to-br ${getCategoryColor(a.category, isDark)}`}
+                  >
+                    <span className="flex items-center justify-center h-full w-full">
+                      <AchievementIcon icon={a.icon} isDark={isDark} category={a.category} />
+                    </span>
+                  </span>
+                  <span className="font-semibold text-base text-gray-800 dark:text-white">{a.title}</span>
+                  <span className={`text-xs mt-1 text-gray-500 dark:text-gray-400`}>{a.description}</span>
+                </motion.li>
+              ))}
+            </ol>
           </motion.div>
         </div>
       </div>
@@ -300,4 +291,4 @@ const Research = ({ isDark = false }: ResearchProps) => {
   );
 };
 
-export default Research;
+export default ResearchAndAchievements;
