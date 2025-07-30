@@ -49,9 +49,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
   return (
     <section 
       id="academic" 
-      className={`py-20 transition-colors duration-300 ${
-        isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
-      }`}
+      className={`py-20 transition-colors duration-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white`}
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Header */}
