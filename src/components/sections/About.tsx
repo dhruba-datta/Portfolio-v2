@@ -10,6 +10,8 @@ const About = ({ isDark }: AboutProps) => {
       id="about"
       className="min-h-screen flex items-start justify-center pt-20 relative bg-slate-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
     >
+      {/* Minimal dot pattern background for aesthetic look */}
+      <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(circle,rgba(203,213,225,0.25)_1px,transparent_1.5px)] dark:bg-[radial-gradient(circle,rgba(51,65,85,0.25)_1px,transparent_1.5px)] bg-[size:22px_22px] opacity-40"></div>
       <div className="container-max-width section-padding w-full pt-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
           
