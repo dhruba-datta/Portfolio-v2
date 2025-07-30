@@ -130,7 +130,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
     if (rotationRef.current) clearInterval(rotationRef.current);
     rotationRef.current = setInterval(() => {
       setCurrentIdx(i => (i + 1) % certifications.length);
-    }, 10000);
+    }, 5000);
   };
 
   useEffect(() => {
