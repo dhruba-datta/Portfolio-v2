@@ -8,7 +8,7 @@ const About = ({ isDark }: AboutProps) => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-start justify-center pt-20 relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+      className="min-h-screen flex items-start justify-center pt-20 relative bg-slate-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
     >
       <div className="container-max-width section-padding w-full pt-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
