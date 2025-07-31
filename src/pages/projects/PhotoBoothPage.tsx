@@ -313,9 +313,7 @@ const PhotoBoothPage = ({ isDark, toggleTheme }: PhotoBoothPageProps) => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Application Features
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              A comprehensive photo-sharing experience with modern social features
-            </p>
+            
           </motion.div>
 
           <div className="space-y-3">
@@ -387,9 +385,7 @@ const PhotoBoothPage = ({ isDark, toggleTheme }: PhotoBoothPageProps) => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
               Tech Stack Used
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
-              Modern technologies and tools used to build this comprehensive photo-sharing platform
-            </p>
+            
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
