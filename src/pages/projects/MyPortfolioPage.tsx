@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import Navigation from '../../components/ui/Navigation';
 import Footer from '../../components/ui/Footer';
 
+interface MyPortfolioPageProps {
+  isDark: boolean;
+  toggleTheme: () => void;
+}
+
 const features = [
   'SEO indexed personal portfolio',
   'About, skills, resume, projects, contact sections',
@@ -16,9 +21,9 @@ const techStack = [
   'Bootstrap',
 ];
 
-const MyPortfolioPage = () => (
+const MyPortfolioPage = ({ isDark, toggleTheme }: MyPortfolioPageProps) => (
   <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-    <Navigation isDark={false} toggleTheme={() => {}} />
+    <Navigation isDark={isDark} toggleTheme={toggleTheme} />
     <main className="container-max-width py-16">
       <motion.div
         initial={{ opacity: 0, y: 40 }}

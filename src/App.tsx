@@ -40,10 +40,10 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
       <Route path="/projects" element={<ProjectsPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/contact" element={<ContactPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/kfc-clone" element={<KfcClonePage isDark={isDark} toggleTheme={toggleTheme} />} />
-      <Route path="/projects/myportfolio" element={<MyPortfolioPage />} />
-      <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage />} />
-      <Route path="/projects/photoBooth" element={<PhotoBoothPage />} />
-      <Route path="/projects/cryptoverse" element={<CryptoVersePage />} />
+      <Route path="/projects/myportfolio" element={<MyPortfolioPage isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/photoBooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/cryptoverse" element={<CryptoVersePage isDark={isDark} toggleTheme={toggleTheme} />} />
     </Routes>
   );
 }
