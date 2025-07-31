@@ -144,7 +144,7 @@ function AchievementIcon({ icon, category, isDark }: { icon: string; category: s
 
 const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
   // Animation only on first visit
-  const [timelineAnimated, setTimelineAnimated] = useState(() => {
+  const [timelineAnimated] = useState(() => {
     return typeof window !== 'undefined' && !window.sessionStorage.getItem('timelineAnimated');
   });
   const timelineRef = useRef<HTMLDivElement>(null);
