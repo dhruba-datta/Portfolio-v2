@@ -19,7 +19,7 @@ export interface Project {
   link?: string;
   github?: string;
   featured: boolean;
-  category: 'development' | 'research' | 'automation' | 'ai';
+  category: 'development' | 'research' | 'automation' | 'ai' | 'app';
 }
 
 // Experience types

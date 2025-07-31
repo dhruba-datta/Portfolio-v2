@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Globe2, Upload, Search, Heart, MessageCircle, Camera, User, Smartphone, Code, Database, Palette, Zap, ChevronDown, Users, Layers, Settings, Shield, ArrowLeft, Eye, Filter } from 'lucide-react';
+import { ExternalLink, Github, Globe2, Upload, Search, Heart, User, Smartphone, Code, Database, Palette, Zap, ChevronDown, Users, Layers, Settings, Shield, ArrowLeft, Eye } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/ui/Navigation';

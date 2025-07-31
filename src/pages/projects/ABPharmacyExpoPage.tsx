@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Smartphone, Search, ShoppingCart, Calendar, Users, MessageCircle, Map, Bell, Code, Database, Palette, Zap, ChevronDown, Layers, Settings, Shield, ArrowLeft, Filter, Package, Store } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Search, Calendar, Users, Bell, Code, Database, Palette, ChevronDown, Layers, Settings, Shield, ArrowLeft, Package, Store } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/ui/Navigation';
