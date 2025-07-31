@@ -4,6 +4,11 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
+import KfcClonePage from './pages/projects/KfcClonePage';
+import MyPortfolioPage from './pages/projects/MyPortfolioPage';
+import ABPharmacyExpoPage from './pages/projects/ABPharmacyExpoPage';
+import PhotoBoothPage from './pages/projects/PhotoBoothPage';
+import CryptoVersePage from './pages/projects/CryptoVersePage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +39,11 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
       <Route path="/about" element={<AboutPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects" element={<ProjectsPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/contact" element={<ContactPage isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/kfc-clone" element={<KfcClonePage />} />
+      <Route path="/projects/myportfolio" element={<MyPortfolioPage />} />
+      <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage />} />
+      <Route path="/projects/photoBooth" element={<PhotoBoothPage />} />
+      <Route path="/projects/cryptoverse" element={<CryptoVersePage />} />
     </Routes>
   );
 }
