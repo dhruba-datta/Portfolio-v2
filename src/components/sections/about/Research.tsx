@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 
 interface Publication {
   id: number;
@@ -28,7 +29,7 @@ const publications: Publication[] = [
     id: 1,
     title: "Skin Cancer Detection with Edge Devices Using YOLOv7 Deep CNN",
     authors: ["Dhruba Datta", "Harsh Prakash", "Priya Singh"],
-    conference: "4th International Conference on Data Analytics & Management [ICDAM-2023]",
+    conference: "4th International Conference on Data Analytics & Management, 2023",
     date: "November 2023",
     location: "London Metropolitan University, London, UK",
     doi: "10.1007/978-981-99-6550-2_5",
@@ -74,7 +75,22 @@ const achievements: Achievement[] = [
   }
 ];
 
-// Category color helpers
+// Animation Variants
+const timelineVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.18
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
 const getCategoryColor = (category: string, isDark: boolean) => {
   switch (category) {
     case 'scholarship': return isDark ? 'from-yellow-400 to-amber-500' : 'from-yellow-500 to-amber-600';
@@ -85,11 +101,7 @@ const getCategoryColor = (category: string, isDark: boolean) => {
   }
 };
 
-// SVG generation centralized
 function AchievementIcon({ icon, category, isDark }: { icon: string; category: string; isDark: boolean }) {
-  // ...SVG code as per your achievements listing
-  // Just as before, copy the icon from your code!
-  // Example for 'rocket':
   if (icon === 'rocket') {
     return (
       <svg className="w-6 h-6" fill="none" stroke={isDark ? "#38bdf8" : "#0ea5e9"} strokeWidth="1.5" viewBox="0 0 24 24">
@@ -131,15 +143,25 @@ function AchievementIcon({ icon, category, isDark }: { icon: string; category: s
 }
 
 const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
+  // Animation only on first visit
+  const [timelineAnimated, setTimelineAnimated] = useState(() => {
+    return typeof window !== 'undefined' && !window.sessionStorage.getItem('timelineAnimated');
+  });
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (timelineAnimated) {
+      window.sessionStorage.setItem('timelineAnimated', 'true');
+    }
+  }, [timelineAnimated]);
+
   return (
     <section className={`py-12 sm:py-16 md:py-20 transition-colors duration-300 min-h-screen ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}> 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-
-        {/* Unified Section Header - Style matches Research */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 md:mb-14"
         >
@@ -162,34 +184,50 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             Academic contributions and notable recognitions
           </motion.p>
         </motion.div>
-
-        {/* Responsive Grid Layout */}
         <div className="flex flex-col md:grid md:grid-cols-[1.3fr_0.7fr] gap-8 sm:gap-10 md:gap-20">
-
           {/* Publications Timeline */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            ref={timelineRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={timelineAnimated ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={timelineAnimated ? { duration: 1, ease: "easeInOut" } : { duration: 0 }}
             className={`relative pb-4`}
           >
             <h3 className={`text-lg sm:text-xl font-bold mb-4 sm:mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}> 
               Publications
             </h3>
-
-            <ol className="relative border-l-2 border-gray-200 dark:border-gray-700 mt-2 space-y-8 sm:space-y-10">
-              {publications.map((pub, idx) => (
+            <motion.ol
+              initial="hidden"
+              animate={timelineAnimated ? "visible" : "visible"}
+              variants={timelineAnimated ? timelineVariants : {}}
+              className="relative border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-8 sm:space-y-10"
+            >
+              {publications.map((pub, index) => (
                 <motion.li
                   key={pub.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.07 }}
-                  viewport={{ once: true }}
-                  className="ml-4 sm:ml-5"
+                  className="relative pl-7"
+                  variants={itemVariants}
+                  transition={{
+                    duration: 0.75,
+                    ease: [0.42, 0, 0.58, 1]
+                  }}
                 >
-                  <div className="relative">
-                    {/* Timeline Dot at the top, aligned with start */}
-                    <span className="absolute -left-7 top-0 w-5 h-5 rounded-full shadow-md border-4 border-white dark:border-gray-950 bg-blue-500" />
+                  {/* Timeline Dot: styled and animated like achievement section */}
+                  <motion.span
+                    className="absolute left-[-8.5px] top-2 w-3 h-3 rounded-full shadow-md bg-gradient-to-br from-blue-500 to-cyan-500"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: index * 0.1 + 0.3, type: 'spring', stiffness: 300 }}
+                    viewport={{ once: true }}
+                  />
+                  {/* Timeline Content ... */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative"
+                  >
                     <h4 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 leading-tight text-blue-600 dark:text-blue-400 group-hover:underline">
                       <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer">{pub.title}</a>
                     </h4>
@@ -202,7 +240,8 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                       </div>
                       <div className={`flex flex-wrap items-center gap-1 sm:gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
                         <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                        <span className="font-medium">Conference:</span> {pub.conference}
+                        <span className="font-medium whitespace-nowrap">Conference:</span>
+                        <span className="flex-1 break-words">{pub.conference}</span>
                       </div>
                       <div className={`flex flex-wrap items-center gap-1 sm:gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
                         <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -221,17 +260,15 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                       <span className={`px-3 py-1 text-xs font-semibold rounded-full ${isDark ? 'bg-green-500/15 text-green-400 border border-green-500/30' : 'bg-green-50 text-green-700 border border-green-200'}`}>{pub.status}</span>
                       <span className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-400'}`}>{pub.date}</span>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.li>
               ))}
-            </ol>
+            </motion.ol>
             <div className={`mt-6 sm:mt-8 p-3 sm:p-4 rounded-xl ${isDark ? 'bg-gradient-to-br from-gray-800/40 to-gray-700/40 border border-gray-700/50' : 'bg-gradient-to-br from-gray-50/80 to-blue-50/50 border border-gray-200/60'}`}>
-                <p className={`text-xs sm:text-sm leading-relaxed italic text-center ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  "Bridging theoretical research with practical applications in Artificial Intelligence"
-                </p>
-              </div>
-
-            {/* Research Focus Section */}
+              <p className={`text-xs sm:text-sm leading-relaxed italic text-center ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                "Bridging theoretical research with practical applications in Artificial Intelligence"
+              </p>
+            </div>
             <div className="mt-8 sm:mt-12">
               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>Research Interests</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3">
@@ -249,39 +286,52 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
           </motion.div>
 
           {/* Achievements Timeline */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative pb-4"
-          >
+          <div className="relative pb-4">
             <h3 className={`text-lg sm:text-xl font-bold mb-4 sm:mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}> 
               Achievements
             </h3>
-
-            <ol className="relative border-l-2 border-gray-200 dark:border-gray-700 mt-2 space-y-8 sm:space-y-10">
-              {achievements.map((a, idx) => (
+            <motion.ol
+              initial="hidden"
+              whileInView="visible"
+              transition={{ staggerChildren: 0.12, delayChildren: 0.18 }}
+              viewport={{ once: true }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.12,
+                    delayChildren: 0.18
+                  }
+                }
+              }}
+              className="relative border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-8 sm:space-y-10"
+            >
+              {achievements.map((a, index) => (
                 <motion.li
                   key={a.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + idx * 0.07 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="ml-4 sm:ml-5 flex flex-col gap-1"
+                  className="relative pl-7 flex flex-col gap-1"
                 >
-                  <span
-                    className={`absolute -left-3 w-5 h-5 rounded-full shadow-md border-4 border-white dark:border-gray-950 bg-gradient-to-br ${getCategoryColor(a.category, isDark)}`}
+                  <motion.span
+                    className={`absolute left-[-8.5px] top-2 w-3 h-3 rounded-full shadow-md bg-gradient-to-br ${getCategoryColor(a.category, isDark)}`}
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
+                    viewport={{ once: true }}
                   >
                     <span className="flex items-center justify-center h-full w-full">
                       <AchievementIcon icon={a.icon} isDark={isDark} category={a.category} />
                     </span>
-                  </span>
+                  </motion.span>
                   <span className="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">{a.title}</span>
                   <span className={`text-xs mt-1 text-gray-500 dark:text-gray-400`}>{a.description}</span>
                 </motion.li>
               ))}
-            </ol>
-          </motion.div>
+            </motion.ol>
+          </div>
         </div>
       </div>
     </section>
