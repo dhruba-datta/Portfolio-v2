@@ -88,7 +88,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="relative py-20 bg-white dark:bg-gray-950">
+    <section id="projects" className="relative py-10">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header - Consistent with other sections */}
         <div className="flex flex-col items-center mb-14">
