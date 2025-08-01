@@ -8,7 +8,8 @@ Sparkles,
 ExternalLink,
 Github,
 Eye,
-Smartphone
+Smartphone,
+Layers
 } from 'lucide-react';
 import React from 'react';
 
@@ -103,14 +104,15 @@ const Projects = () => {
         {/* Filters - Consistent button style */}
         <div className="flex justify-center gap-3 mb-10">
           <button
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 border ${
               activeCategory === 'all'
                 ? 'bg-blue-500 text-white shadow-lg border-blue-500'
                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
             onClick={() => setActiveCategory('all')}
           >
-            All Projects
+            <Layers className="w-4 h-4" />
+            All
           </button>
           {categories.map(cat => {
             const count = projects.filter(p => p.category === cat.key).length;
@@ -204,7 +206,7 @@ const Projects = () => {
                         <div className="flex flex-wrap gap-1">
                           {project.tags.slice(0, 2).map((tag) => {
                             // Icon mapping for tags (should match details page usage)
-                            const tagIcons: Record<string, JSX.Element> = {
+                            const tagIcons: Record<string, React.ReactNode> = {
                               'Vue.js': <Code2 className="w-3 h-3 text-green-400" />,
                               'Tailwind': <Sparkles className="w-3 h-3 text-cyan-400" />,
                               'Vite': <ExternalLink className="w-3 h-3 text-purple-400" />,
