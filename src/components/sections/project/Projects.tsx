@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Code2, 
-  Sparkles, 
-  ExternalLink,
-  Github,
-  Eye
+Code2, 
+Sparkles, 
+ExternalLink,
+Github,
+Eye,
+Smartphone
 } from 'lucide-react';
+import React from 'react';
 
 const projects: Project[] = [
   {
     id: 'kfc-clone',
-    title: 'KFC-CLONE',
+    title: 'KFC Clone',
     description: "Modern, responsive web app replicating KFC's online ordering experience with seamless UI and dynamic features.",
     longDescription: "Seamless UI, dynamic menu, multi-language, and e-commerce features.",
     image: '/public/images/kfc-clone.png',
@@ -23,21 +25,10 @@ const projects: Project[] = [
     featured: true,
     category: 'development',
   },
-  {
-    id: 'myportfolio',
-    title: 'MyPortfolio',
-    description: 'Professional portfolio with clean sections and Google search visibility for enhanced online presence.',
-    longDescription: 'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
-    image: '/public/images/portfolio.png',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    link: 'https://dhruba-datta.netlify.app/',
-    github: 'https://github.com/dhruba-datta/MyPortfolio',
-    featured: true,
-    category: 'development',
-  },
+  
   {
     id: 'ab-pharmacy-expo',
-    title: 'AB-Pharmacy-Expo',
+    title: 'AB Pharmacy',
     description: 'Android app for medical store with direct ordering and comprehensive business management features.',
     longDescription: 'Sort by categories, search/filter products, add to cart, WhatsApp integration, and more.',
     image: '/public/images/pharmacy.png',
@@ -71,12 +62,24 @@ const projects: Project[] = [
     featured: true,
     category: 'development',
   },
+  {
+    id: 'myportfolio',
+    title: 'MyPortfolio',
+    description: 'Professional portfolio with clean sections and Google search visibility for enhanced online presence.',
+    longDescription: 'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
+    image: '/public/images/portfolio.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://dhruba-datta.netlify.app/',
+    github: 'https://github.com/dhruba-datta/MyPortfolio',
+    featured: true,
+    category: 'development',
+  },
 ];
 
 const categories = [
   { key: 'development', label: 'Web', icon: Code2 },
   { key: 'automation', label: 'AI', icon: Sparkles },
-  { key: 'app', label: 'Mobile', icon: Eye },
+  { key: 'app', label: 'App', icon: Smartphone },
 ];
 
 const Projects = () => {
@@ -195,21 +198,40 @@ const Projects = () => {
                           : 'max-h-0 opacity-0'
                       }`}>
                         <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-2">
-                          {project.description}
+                          <span className="line-clamp-2 block">{project.description}</span>
                         </p>
                         {/* Tech Stack */}
                         <div className="flex flex-wrap gap-1">
-                          {project.tags.slice(0, 3).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                          {project.tags.length > 3 && (
-                            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">
-                              +{project.tags.length - 3}
+                          {project.tags.slice(0, 2).map((tag) => {
+                            // Icon mapping for tags (should match details page usage)
+                            const tagIcons: Record<string, JSX.Element> = {
+                              'Vue.js': <Code2 className="w-3 h-3 text-green-400" />,
+                              'Tailwind': <Sparkles className="w-3 h-3 text-cyan-400" />,
+                              'Vite': <ExternalLink className="w-3 h-3 text-purple-400" />,
+                              'React Native': <Eye className="w-3 h-3 text-blue-400" />,
+                              'Expo': <Sparkles className="w-3 h-3 text-yellow-400" />,
+                              'TypeScript': <Code2 className="w-3 h-3 text-blue-500" />,
+                              'React': <Code2 className="w-3 h-3 text-cyan-400" />,
+                              'Sanity': <Sparkles className="w-3 h-3 text-red-400" />,
+                              'Redux Toolkit': <Code2 className="w-3 h-3 text-purple-400" />,
+                              'Ant Design': <Sparkles className="w-3 h-3 text-blue-400" />,
+                              'HTML': <Code2 className="w-3 h-3 text-orange-400" />,
+                              'CSS': <Sparkles className="w-3 h-3 text-blue-300" />,
+                              'JavaScript': <Code2 className="w-3 h-3 text-yellow-400" />,
+                            };
+                            return (
+                              <span
+                                key={tag}
+                                className="inline-flex items-center gap-1 px-3 py-1 bg-gray-900/80 dark:bg-gray-800 border border-gray-700 dark:border-gray-700 text-gray-100 dark:text-gray-200 rounded-full text-xs font-semibold shadow-sm transition-colors"
+                              >
+                                {tagIcons[tag] || <Code2 className="w-3 h-3 text-blue-400" />}
+                                {tag}
+                              </span>
+                            );
+                          })}
+                          {project.tags.length > 2 && (
+                            <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold border border-blue-200 shadow-sm">
+                              +{project.tags.length - 2} more
                             </span>
                           )}
                         </div>
