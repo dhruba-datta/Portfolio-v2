@@ -1,0 +1,37 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  <rect x="50" y="50" width="1100" height="700" rx="12" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+  
+  <!-- Header bar -->
+  <rect x="80" y="80" width="1040" height="60" rx="8" fill="#475569"/>
+  <circle cx="110" cy="110" r="8" fill="#ef4444"/>
+  <circle cx="140" cy="110" r="8" fill="#f59e0b"/>
+  <circle cx="170" cy="110" r="8" fill="#10b981"/>
+  
+  <!-- Content area -->
+  <rect x="80" y="160" width="500" height="300" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="100" y="180" width="460" height="20" rx="4" fill="#cbd5e1"/>
+  <rect x="100" y="220" width="300" height="16" rx="4" fill="#e2e8f0"/>
+  <rect x="100" y="250" width="400" height="16" rx="4" fill="#e2e8f0"/>
+  <rect x="100" y="280" width="350" height="16" rx="4" fill="#e2e8f0"/>
+  
+  <!-- Sidebar -->
+  <rect x="600" y="160" width="550" height="300" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="620" y="180" width="200" height="20" rx="4" fill="#3b82f6"/>
+  <rect x="620" y="220" width="510" height="12" rx="4" fill="#e2e8f0"/>
+  <rect x="620" y="250" width="480" height="12" rx="4" fill="#e2e8f0"/>
+  <rect x="620" y="280" width="450" height="12" rx="4" fill="#e2e8f0"/>
+  
+  <!-- Project placeholder text -->
+  <text x="600" y="550" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#64748b" text-anchor="middle">
+    Project Screenshot
+  </text>
+  <text x="600" y="580" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">
+    Image placeholder - Replace with actual project image
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="950" cy="200" r="4" fill="#8b5cf6"/>
+  <circle cx="980" cy="230" r="3" fill="#06b6d4"/>
+  <circle cx="1020" cy="210" r="3" fill="#10b981"/>
+</svg>

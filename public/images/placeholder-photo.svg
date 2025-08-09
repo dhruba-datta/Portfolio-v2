@@ -1,0 +1,48 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#f1f5f9"/>
+  
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="mountain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="800" fill="url(#bg)"/>
+  
+  <!-- Mountains -->
+  <polygon points="0,600 200,300 400,450 600,250 800,400 800,800 0,800" fill="url(#mountain)"/>
+  
+  <!-- Sun -->
+  <circle cx="650" cy="200" r="60" fill="#fbbf24" opacity="0.8"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="200" cy="150" rx="40" ry="20" fill="#ffffff" opacity="0.7"/>
+  <ellipse cx="220" cy="140" rx="50" ry="25" fill="#ffffff" opacity="0.7"/>
+  <ellipse cx="180" cy="140" rx="30" ry="15" fill="#ffffff" opacity="0.7"/>
+  
+  <ellipse cx="500" cy="180" rx="35" ry="18" fill="#ffffff" opacity="0.6"/>
+  <ellipse cx="520" cy="170" rx="45" ry="22" fill="#ffffff" opacity="0.6"/>
+  
+  <!-- Camera icon in center -->
+  <g transform="translate(350, 350)">
+    <rect x="10" y="30" width="80" height="60" rx="8" fill="#475569" opacity="0.8"/>
+    <rect x="20" y="15" width="20" height="20" rx="4" fill="#475569" opacity="0.8"/>
+    <circle cx="50" cy="60" r="20" fill="#64748b" opacity="0.8"/>
+    <circle cx="50" cy="60" r="15" fill="#94a3b8" opacity="0.8"/>
+    <rect x="75" y="40" width="8" height="8" rx="2" fill="#ef4444" opacity="0.8"/>
+  </g>
+  
+  <!-- Location text placeholder -->
+  <text x="400" y="500" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#64748b" text-anchor="middle">
+    Photography
+  </text>
+  <text x="400" y="530" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">
+    Image placeholder
+  </text>
+</svg>

@@ -65,7 +65,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label={link.name}
               className={
-                `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 ` +
+                `p-3 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 min-h-[48px] min-w-[48px] flex items-center justify-center ` +
                 (link.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white' : '') +
                 (link.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400' : '') +
                 (link.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400' : '') +
@@ -79,12 +79,12 @@ const Footer = () => {
         </div>
 
         {/* Right: Navigation */}
-        <nav aria-label="Footer Navigation" className="flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-end md:w-1/3">
+        <nav aria-label="Footer Navigation" className="flex flex-wrap gap-x-6 gap-y-4 justify-center md:justify-end md:w-1/3">
           {footerLinks.map(link => (
             <Link
               key={link.name}
               to={link.href}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base font-medium"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base font-medium min-h-[44px] flex items-center px-2 py-2"
             >
               {link.name}
             </Link>

@@ -107,7 +107,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
     cta?: string;
   }) => (
     <Link to={to} className="block group focus:outline-none focus-visible:ring-0">
-      <div className={`${cardBase} p-8 h-full flex flex-col justify-center relative`}>
+      <div className={`${cardBase} p-6 lg:p-8 h-full flex flex-col justify-center relative min-h-[200px]`}>
         <div className="flex-1 flex flex-col justify-center">
           <div className="flex items-start gap-4">
             <div className="flex-1">
@@ -116,14 +116,14 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-blue-500">{icon}</span>
-                <h3 className="text-xl font-semibold">{title}</h3>
+                <h3 className="text-lg lg:text-xl font-semibold">{title}</h3>
               </div>
               <p className={`text-sm mt-2 ${textMuted}`}>{description}</p>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-between">
+        <div className="mt-6 flex items-center justify-between min-h-[44px]">
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               {cta}
@@ -164,13 +164,13 @@ const TechStack = ({ isDark }: TechStackProps) => {
           />
 
           {/* Card 2 (Tech Stack — unchanged) */}
-          <div className={`lg:col-span-2 ${cardBase} p-8`}>
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-1">
+          <div className={`lg:col-span-2 ${cardBase} p-6 lg:p-8`}>
+            <div className="mb-6 lg:mb-8">
+              <h3 className="text-xl lg:text-2xl font-bold mb-1">
                 Tech  <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Stack</span>
               </h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3 lg:space-y-4">
               <TechScroll technologies={frontendTech} direction="right" />
               <TechScroll technologies={backendTech} direction="left" />
               <TechScroll technologies={toolsTech} direction="right" />
@@ -178,61 +178,61 @@ const TechStack = ({ isDark }: TechStackProps) => {
           </div>
 
           {/* Card 3: Key Highlights — unchanged */}
-          <div className={`lg:col-span-2 ${cardBase} p-8`}>
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-1">
+          <div className={`lg:col-span-2 ${cardBase} p-6 lg:p-8`}>
+            <div className="mb-6 lg:mb-8">
+              <h3 className="text-xl lg:text-2xl font-bold mb-1">
                 Key <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">Highlights</span>
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4 mb-6">
               {/* Scholarship - Link to about page */}
               <Link to="/about" className="block group">
-                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
-                    <div className="text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
+                    <div className="text-xs lg:text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Scholarship</div>
+                  <div className="text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Scholarship</div>
                 </div>
               </Link>
 
               {/* Publications - Link to Google Scholar */}
               <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group">
-                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
-                    <div className="text-3xl font-extrabold leading-none">1</div>
+                    <div className="text-2xl lg:text-3xl font-extrabold leading-none">1</div>
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Paper Published</div>
+                  <div className="text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Paper Published</div>
                 </div>
               </a>
 
               {/* Projects - Link to projects page */}
               <Link to="/projects" className="block group">
-                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
-                    <div className="text-3xl font-extrabold leading-none">{projects.length}</div>
+                    <div className="text-2xl lg:text-3xl font-extrabold leading-none">{projects.length}</div>
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
+                  <div className="text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
                 </div>
               </Link>
 
               {/* LeetCode - Link to LeetCode profile */}
               <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group">
-                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
-                    <div className="text-3xl font-extrabold leading-none">480+</div>
+                    <div className="text-2xl lg:text-3xl font-extrabold leading-none">480+</div>
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Solved Leetcode</div>
+                  <div className="text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Solved Leetcode</div>
                 </div>
               </a>
 
               {/* Countries - Link to Instagram */}
               <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="block group">
-                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
-                    <div className="text-3xl font-extrabold leading-none">2</div>
+                    <div className="text-2xl lg:text-3xl font-extrabold leading-none">2</div>
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">visited Country</div>
+                  <div className="text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">visited Country</div>
                 </div>
               </a>
             </div>

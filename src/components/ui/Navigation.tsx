@@ -85,7 +85,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`flex items-center space-x-2 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`flex items-center space-x-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] ${
                     location.pathname === item.href
                       ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg scale-105'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/60 hover:shadow-md hover:scale-105'
@@ -150,7 +150,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-3 w-full px-4 py-3 text-left rounded-xl text-sm font-medium transition-all duration-300 ${
+                  className={`flex items-center space-x-3 w-full px-4 py-4 text-left rounded-xl text-base font-medium transition-all duration-300 min-h-[56px] ${
                     location.pathname === item.href
                       ? 'bg-gray-100/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg scale-105'
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50/60 dark:hover:bg-gray-800/60 hover:text-gray-900 dark:hover:text-white hover:shadow-md hover:scale-105'

@@ -92,7 +92,7 @@ const Photography = () => {
         </div>
 
         {/* Photo Grid */}
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
+        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-12">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
@@ -107,7 +107,8 @@ const Photography = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
-                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer"
+                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer min-h-[44px]"
+                aria-label={`View ${photo.location} photography on Instagram`}
               >
                 {/* Image */}
                 <div className="relative aspect-square overflow-hidden">
@@ -156,7 +157,8 @@ const Photography = () => {
               href="https://www.instagram.com/dhrubz_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-2xl border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500 hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 group"
+              className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-2xl border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500 hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 group min-h-[56px]"
+              aria-label="Follow on Instagram for more photography"
             >
               <div className="flex items-center justify-center w-6 h-6">
                 <FaInstagram className="w-5 h-5 text-pink-500" />

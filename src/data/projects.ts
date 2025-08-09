@@ -41,7 +41,7 @@ export const projects: Project[] = [
     description:
       'A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on performance, multilingual UX, and a clean component architecture.',
     longDescription: 'Seamless UI, dynamic menu, multi-language, and e-commerce features.',
-    image: '/images/kfc-clone.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "Vue 3", icon: React.createElement(FaVuejs, { className: "w-3.5 h-3.5" }) },
       { name: "TailwindCSS", icon: React.createElement(RiTailwindCssFill, { className: "w-3.5 h-3.5" }) },
@@ -63,7 +63,7 @@ export const projects: Project[] = [
       'A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search—built with modular components and offline-first UX.',
     longDescription:
       'Sort by categories, search/filter products, add to cart, WhatsApp integration, and more.',
-    image: '/images/pharmacy.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "React Native", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Expo", icon: React.createElement(SiExpo, { className: "w-3.5 h-3.5" }) },
@@ -84,7 +84,7 @@ export const projects: Project[] = [
       'A Pinterest-inspired social photo sharing app with modern UI. Features include Google OAuth, real-time uploads, social engagement (likes/comments), advanced search/filtering, and responsive design for seamless cross-platform experience.',
     longDescription:
       'Fullscreen mode, Google authentication, create/edit/delete posts, like/comment, search/filter images.',
-    image: '/images/photoBooth.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Sanity CMS", icon: React.createElement(Database, { className: "w-3.5 h-3.5" }) },
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     description:
       'A comprehensive cryptocurrency dashboard offering real-time market data, detailed analytics, trending news, and interactive charts. Features responsive design, advanced search/filtering, and seamless API integrations for up-to-date crypto insights.',
     longDescription: 'Search/filter cryptocurrencies, latest news, detailed info, cross-platform.',
-    image: '/images/cryptoverse.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Redux Toolkit", icon: React.createElement(Database, { className: "w-3.5 h-3.5" }) },
@@ -125,7 +125,7 @@ export const projects: Project[] = [
       'A minimalist, SEO-optimized personal portfolio featuring essential sections (about, skills, projects, contact), clean responsive design, and Google search visibility. Built with vanilla HTML/CSS/JavaScript for optimal performance and accessibility.',
     longDescription:
       'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
-    image: '/images/portfolio.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "HTML5", icon: React.createElement(Code, { className: "w-3.5 h-3.5" }) },
       { name: "CSS3", icon: React.createElement(Palette, { className: "w-3.5 h-3.5" }) },
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       'A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.',
     longDescription:
       'Modern React portfolio with TypeScript, Tailwind CSS, animations, and comprehensive project case studies.',
-    image: '/images/portfolio-v2.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "React 18", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "TypeScript", icon: React.createElement(SiTypescript, { className: "w-3.5 h-3.5" }) },
@@ -167,7 +167,7 @@ export const projects: Project[] = [
       'A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.',
     longDescription:
       'Automated content creation workflow with Google Sheets integration, AI content generation, and Trello management.',
-    image: '/images/n8n-automation.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
       { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
@@ -188,7 +188,7 @@ export const projects: Project[] = [
       'A set of n8n workflows to automate your LinkedIn-style job discovery and notifications. Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule or on demand.',
     longDescription:
       'Web form-driven job search automation with dynamic URL building, data extraction, and Google Sheets integration.',
-    image: '/images/linkedin-automation.png',
+    image: '/images/placeholder-project.svg',
     tags: [
       { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
       { name: "LinkedIn", icon: React.createElement(SiLinkedin, { className: "w-3.5 h-3.5" }) },

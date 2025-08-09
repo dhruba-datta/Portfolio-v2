@@ -15,6 +15,22 @@
     color: #374151;
     background-color: #ffffff;
   }
+  
+  /* Ensure better dark mode colors */
+  .dark body {
+    color: #e5e7eb;
+    background-color: #111827;
+  }
+  
+  /* Better focus states for accessibility */
+  *:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  .dark *:focus {
+    outline-color: #60a5fa;
+  }
 }
 
 @layer components {
@@ -65,13 +81,17 @@
     }
   }
   
-  /* Scrollbar styling */
+  /* Scrollbar styling - improved contrast */
   ::-webkit-scrollbar {
     width: 8px;
   }
   
   ::-webkit-scrollbar-track {
     background: #f1f5f9;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    background: #1f2937;
   }
   
   ::-webkit-scrollbar-thumb {
@@ -81,5 +101,13 @@
   
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #60a5fa, #a78bfa);
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
   }
 }
