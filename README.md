@@ -1,11 +1,44 @@
-# React + TypeScript + Vite
+# Portfolio v2 - Modern React Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website showcasing development projects and photography with integrated Instagram feed. Built with React 18, TypeScript, Tailwind CSS, and Framer Motion.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎨 Design & User Experience
+
+- **Modern Design**: Minimalist, professional aesthetic with smooth animations
+- **Responsive**: Mobile-first design optimized for all devices
+- **Dark/Light Theme**: Automatic theme switching with user preference memory
+- **Performance Optimized**: Fast loading with code splitting and lazy loading
+- **Interactive Animations**: Smooth Framer Motion animations with reduced motion support
+
+### 📱 Homepage Sections
+
+- **Hero**: Eye-catching introduction with dynamic typewriter effects
+- **Tech Stack**: Animated technology showcase
+- **Skills**: Interactive skill categories with visual indicators
+- **Project Preview**: First 6 featured projects with "View All" redirect
+- **Photography**: Live Instagram integration showing latest 6 posts
+- **Updates**: Latest news and achievements
+
+### 🔗 Instagram Integration
+
+- **Live Feed**: Automatically fetches latest 6 Instagram posts
+- **Auto-refresh**: 30-minute cache with automatic updates
+- **Fallback Support**: Graceful degradation with placeholder content
+- **Error Handling**: Retry mechanisms and user-friendly error states
+- **Rate Limiting**: Built-in API rate limit management
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM
+- **API Integration**: Axios for Instagram API
+- **Icons**: Lucide React + React Icons
+- **Email**: EmailJS integration
 
 # Professional Portfolio
 
