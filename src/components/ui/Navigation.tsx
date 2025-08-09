@@ -71,7 +71,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105">
+            <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 focus-override">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-lg">DD</span>
               </div>
@@ -85,7 +85,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`flex items-center space-x-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] ${
+                  className={`flex items-center space-x-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] focus-override ${
                     location.pathname === item.href
                       ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg scale-105'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/60 hover:shadow-md hover:scale-105'
@@ -102,7 +102,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm"
+              className="p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
             >
               {isDark ? (
                 <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -117,7 +117,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm"
+              className="md:hidden p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
               onClick={() => setIsOpen(!isOpen)}
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center relative">
@@ -150,7 +150,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-3 w-full px-4 py-4 text-left rounded-xl text-base font-medium transition-all duration-300 min-h-[56px] ${
+                  className={`flex items-center space-x-3 w-full px-4 py-4 text-left rounded-xl text-base font-medium transition-all duration-300 min-h-[56px] focus-override ${
                     location.pathname === item.href
                       ? 'bg-gray-100/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg scale-105'
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50/60 dark:hover:bg-gray-800/60 hover:text-gray-900 dark:hover:text-white hover:shadow-md hover:scale-105'

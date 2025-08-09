@@ -187,7 +187,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4 mb-6">
               {/* Scholarship - Link to about page */}
-              <Link to="/about" className="block group">
+              <Link to="/about" className="block group focus-override">
                 <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xs lg:text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
@@ -197,7 +197,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </Link>
 
               {/* Publications - Link to Google Scholar */}
-              <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group">
+              <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group focus-override">
                 <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-2xl lg:text-3xl font-extrabold leading-none">1</div>
@@ -207,7 +207,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </a>
 
               {/* Projects - Link to projects page */}
-              <Link to="/projects" className="block group">
+              <Link to="/projects" className="block group focus-override">
                 <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-2xl lg:text-3xl font-extrabold leading-none">{projects.length}</div>
@@ -217,7 +217,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </Link>
 
               {/* LeetCode - Link to LeetCode profile */}
-              <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group">
+              <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group focus-override">
                 <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-2xl lg:text-3xl font-extrabold leading-none">480+</div>
@@ -227,7 +227,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </a>
 
               {/* Countries - Link to Instagram */}
-              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group">
+              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group focus-override">
                 <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-2xl lg:text-3xl font-extrabold leading-none">2</div>

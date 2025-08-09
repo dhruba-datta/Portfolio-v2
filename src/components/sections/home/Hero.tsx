@@ -226,7 +226,7 @@ const Hero = () => {
                 transition={{ delay: 0.5 }}
                 className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
-                Researcher & Automation Engineer
+                Researcher & Software Engineer
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -254,7 +254,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.98 }}
               className={
-                `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 ` +
+                `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 focus-override ` +
                 (social.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400' : '') +
                 (social.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400' : '') +
                 (social.name === 'Telegram' ? 'hover:text-blue-400 dark:hover:text-blue-300' : '') +
@@ -277,7 +277,7 @@ const Hero = () => {
               >
                 <Link
                   to="/contact"
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 font-medium px-4 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-1 text-sm"
+                  className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 font-medium px-4 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-1 text-sm focus-override"
                   aria-label="Contact Me"
                 >
                   Contact Me

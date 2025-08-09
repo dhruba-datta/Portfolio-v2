@@ -139,7 +139,7 @@ const Projects = () => {
                 <button
                   key={key}
                   onClick={() => setActiveCategory(key)}
-                  className={`relative z-10 px-3.5 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5 transition-all
+                  className={`relative z-10 px-3.5 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5 transition-all focus-override
                     ${isActive ? 'text-white' : 'text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300'}`}
                 >
                   {/* Active background: static on first paint, animated thereafter */}
@@ -291,7 +291,7 @@ const Projects = () => {
           <div className="flex justify-center mt-8">
             <button
               onClick={() => setVisibleCount(filteredProjects.length)}
-              className="inline-flex items-center gap-2 text-sm font-medium px-5 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 text-sm font-medium px-5 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] focus-override"
             >
               Load more
             </button>

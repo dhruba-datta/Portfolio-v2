@@ -22,14 +22,28 @@
     background-color: #111827;
   }
   
-  /* Better focus states for accessibility */
-  *:focus {
+  /* Better focus states for accessibility - only for elements that need it */
+  input:focus,
+  textarea:focus,
+  select:focus,
+  a:focus:not(.focus-override),
+  [tabindex]:focus:not(button):not(.focus-override) {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
   }
   
-  .dark *:focus {
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus,
+  .dark a:focus:not(.focus-override),
+  .dark [tabindex]:focus:not(button):not(.focus-override) {
     outline-color: #60a5fa;
+  }
+  
+  /* Remove default focus outline for buttons and elements with custom focus styles */
+  button:focus,
+  .focus-override:focus {
+    outline: none;
   }
 }
 

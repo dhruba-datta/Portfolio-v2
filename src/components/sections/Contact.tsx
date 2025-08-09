@@ -502,7 +502,7 @@ const Contact: React.FC = () => {
             whileHover={{ scale: status === "idle" ? 1.04 : 1 }}
             whileTap={{ scale: status === "idle" ? 0.97 : 1 }}
             className={
-              "w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-base " +
+              "w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-base focus-override " +
               (loading
                 ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow"
                 : status === "success"

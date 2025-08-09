@@ -410,16 +410,27 @@ const PortfolioV1Page = ({
           </aside>
         </div>
 
-        {/* Mobile CTA */}
-        <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
-          <a
-            href="https://dhruba-datta.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
-          >
-            Check it out <ExternalLink className="w-4 h-4" />
-          </a>
+        {/* Mobile CTA - Show both GitHub and main action */}
+        <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4">
+          <div className="flex flex-col gap-3">
+            <a
+              href="https://github.com/dhruba-datta/Portfolio-v1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-medium focus-override"
+            >
+              <Github className="w-4 h-4" />
+              View on GitHub
+            </a>
+            <a
+              href="https://dhruba-datta.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors font-medium focus-override"
+            >
+              Check it out <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
         {/* Contact CTA Section */}
