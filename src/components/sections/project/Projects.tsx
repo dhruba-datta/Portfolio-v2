@@ -337,9 +337,7 @@ const Projects = () => {
           <h2 className="mt-3 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white text-center">
             Featured Work
           </h2>
-          <p className="mt-3 text-base text-slate-600 dark:text-slate-400 text-center max-w-xl">
-            A selection of recent projects across web, app, and automation.
-          </p>
+          
         </div>
 
         {/* Filters: Modern segmented control with no initial slide-in */}
