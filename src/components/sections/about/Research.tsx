@@ -165,24 +165,20 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 md:mb-14"
         >
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}
           >
-            Research & Achievements
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            viewport={{ once: true }}
-            className={`text-base sm:text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}
-          >
-            Academic contributions and notable recognitions
-          </motion.p>
+            <span className="uppercase tracking-[0.2em] text-[11px] text-slate-500 dark:text-slate-400">
+              Research & Recognition
+            </span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+              Publications & Achievements
+            </h2>
+            
+          </motion.div>
         </motion.div>
         <div className="flex flex-col md:grid md:grid-cols-[1.3fr_0.7fr] gap-8 sm:gap-10 md:gap-20">
           {/* Publications Timeline */}

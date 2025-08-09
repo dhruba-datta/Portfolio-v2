@@ -60,28 +60,20 @@ const Academic = ({ isDark = false }: AcademicProps) => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className={`text-4xl lg:text-5xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}
           >
-            Academic Background
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className={`text-lg mb-8 ${
-              isDark ? 'text-gray-300' : 'text-gray-700'
-            } max-w-3xl mx-auto`}
-          >
-            Educational journey and academic achievements
-          </motion.p>
+            <span className="uppercase tracking-[0.2em] text-[11px] text-slate-500 dark:text-slate-400">
+              Education
+            </span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+              Academic Background
+            </h2>
+            
+          </motion.div>
         </motion.div>
 
         {/* Timeline Container */}

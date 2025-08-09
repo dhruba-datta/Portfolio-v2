@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 // Fix NodeJS.Timeout type for browser/React usage
 type Timeout = ReturnType<typeof setTimeout>;
 
@@ -215,12 +216,20 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
       <div className="container mx-auto px-6 max-w-full">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Licenses & Certifications
-          </h2>
-          <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-            Professional certifications and continuous learning achievements
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            viewport={{ once: true }}
+          >
+            <span className="uppercase tracking-[0.2em] text-[11px] text-slate-500 dark:text-slate-400">
+              Professional Development
+            </span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+              Licenses & Certifications
+            </h2>
+            
+          </motion.div>
         </div>
         {/* Carousel */}
         <div className="relative mx-auto"
