@@ -8,8 +8,49 @@ import {
   Github,
   Smartphone,
   Layers,
+  Languages,
+  Calendar,
+  Bell,
+  Code,
+  Database,
+  Package,
+  Store,
+  Search,
+  Heart,
+  User,
+  Palette,
+  Zap,
+  Upload,
+  Eye,
+  TrendingUp,
+  BarChart3,
+  Newspaper,
+  LineChart,
+  Globe2,
+  Webhook,
+  Clock,
+  FileJson,
+  Send,
 } from 'lucide-react';
-import { SiN8N } from 'react-icons/si';
+import { 
+  SiN8N, 
+  SiReact, 
+  SiExpo, 
+  SiJavascript, 
+  SiGooglesheets,
+  SiOpenai,
+  SiTrello,
+  SiLinkedin,
+  SiTypescript,
+  SiTailwindcss,
+  SiFramer,
+  SiVite,
+  SiGithub
+} from 'react-icons/si';
+import { FaVuejs } from 'react-icons/fa';
+import { RiTailwindCssFill } from 'react-icons/ri';
+import { BiLogoNetlify, BiLogoTypescript } from 'react-icons/bi';
+import { GrStorage } from 'react-icons/gr';
 // ...existing code...
 
 const projects: Project[] = [
@@ -17,10 +58,18 @@ const projects: Project[] = [
     id: 'kfc-clone',
     title: 'KFC Clone',
     description:
-      "Modern, responsive web app replicating KFC's online ordering experience with seamless UI and dynamic features.",
+      'A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on performance, multilingual UX, and a clean component architecture.',
     longDescription: 'Seamless UI, dynamic menu, multi-language, and e-commerce features.',
     image: '/images/kfc-clone.png',
-    tags: ['Vue.js', 'Tailwind', 'Vite'],
+    tags: [
+      { name: "Vue 3", icon: <FaVuejs className="w-3.5 h-3.5" /> },
+      { name: "TailwindCSS", icon: <RiTailwindCssFill className="w-3.5 h-3.5" /> },
+      { name: "TypeScript/ES6+", icon: <BiLogoTypescript className="w-3.5 h-3.5" /> },
+      { name: "Vue I18n", icon: <Languages className="w-3.5 h-3.5" /> },
+      { name: "localStorage", icon: <GrStorage className="w-3.5 h-3.5" /> },
+      { name: "Netlify", icon: <BiLogoNetlify className="w-3.5 h-3.5" /> },
+      { name: "GitHub", icon: <Github className="w-3.5 h-3.5" /> },
+    ],
     link: 'https://kfc-bd.netlify.app/',
     github: 'https://github.com/dhruba-datta/kfc-clone',
     featured: true,
@@ -30,11 +79,18 @@ const projects: Project[] = [
     id: 'ab-pharmacy-expo',
     title: 'AB Pharmacy Expo',
     description:
-      'Android app for medical store with direct ordering and comprehensive business management features.',
+      'A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search—built with modular components and offline-first UX.',
     longDescription:
       'Sort by categories, search/filter products, add to cart, WhatsApp integration, and more.',
     image: '/images/pharmacy.png',
-    tags: ['React Native', 'Expo', 'TypeScript'],
+    tags: [
+      { name: "React Native", icon: <SiReact className="w-3.5 h-3.5" /> },
+      { name: "Expo", icon: <SiExpo className="w-3.5 h-3.5" /> },
+      { name: "JavaScript ES6+", icon: <SiJavascript className="w-3.5 h-3.5" /> },
+      { name: "React Navigation", icon: <Code className="w-3.5 h-3.5" /> },
+      { name: "AsyncStorage", icon: <GrStorage className="w-3.5 h-3.5" /> },
+      { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    ],
     link: 'http://surl.li/lkiufr',
     github: 'https://github.com/dhruba-datta/AB-Pharmacy-Expo',
     featured: true,
@@ -44,11 +100,18 @@ const projects: Project[] = [
     id: 'photoBooth',
     title: 'PhotoBooth',
     description:
-      'Social photo sharing app with advanced features, modern UI and comprehensive user engagement tools.',
+      'A Pinterest-inspired social photo sharing app with modern UI. Features include Google OAuth, real-time uploads, social engagement (likes/comments), advanced search/filtering, and responsive design for seamless cross-platform experience.',
     longDescription:
       'Fullscreen mode, Google authentication, create/edit/delete posts, like/comment, search/filter images.',
     image: '/images/photoBooth.png',
-    tags: ['React', 'Sanity', 'Tailwind'],
+    tags: [
+      { name: "React", icon: <SiReact className="w-3.5 h-3.5" /> },
+      { name: "Sanity CMS", icon: <Database className="w-3.5 h-3.5" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3.5 h-3.5" /> },
+      { name: "Google OAuth", icon: <User className="w-3.5 h-3.5" /> },
+      { name: "JavaScript ES6+", icon: <SiJavascript className="w-3.5 h-3.5" /> },
+      { name: "Responsive Design", icon: <Smartphone className="w-3.5 h-3.5" /> },
+    ],
     link: 'https://phootobooth.netlify.app/',
     github: 'https://github.com/dhruba-datta/photoBooth',
     featured: true,
@@ -58,10 +121,17 @@ const projects: Project[] = [
     id: 'cryptoverse',
     title: 'CryptoVerse',
     description:
-      'Real-time crypto dashboard with latest news, market data and comprehensive cryptocurrency insights.',
+      'A comprehensive cryptocurrency dashboard offering real-time market data, detailed analytics, trending news, and interactive charts. Features responsive design, advanced search/filtering, and seamless API integrations for up-to-date crypto insights.',
     longDescription: 'Search/filter cryptocurrencies, latest news, detailed info, cross-platform.',
     image: '/images/cryptoverse.png',
-    tags: ['React', 'Redux Toolkit', 'Ant Design'],
+    tags: [
+      { name: "React", icon: <SiReact className="w-3.5 h-3.5" /> },
+      { name: "Redux Toolkit", icon: <Database className="w-3.5 h-3.5" /> },
+      { name: "Ant Design", icon: <Palette className="w-3.5 h-3.5" /> },
+      { name: "Chart.js", icon: <LineChart className="w-3.5 h-3.5" /> },
+      { name: "API Integration", icon: <Globe2 className="w-3.5 h-3.5" /> },
+      { name: "Responsive Design", icon: <Smartphone className="w-3.5 h-3.5" /> },
+    ],
     link: 'https://cryptoverse20.netlify.app/',
     github: 'https://github.com/dhruba-datta/CryptoVerse',
     featured: true,
@@ -71,11 +141,18 @@ const projects: Project[] = [
     id: 'portfolio-v1',
     title: 'Portfolio v1',
     description:
-      'Professional portfolio with clean sections and Google search visibility for enhanced online presence.',
+      'A minimalist, SEO-optimized personal portfolio featuring essential sections (about, skills, projects, contact), clean responsive design, and Google search visibility. Built with vanilla HTML/CSS/JavaScript for optimal performance and accessibility.',
     longDescription:
       'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
     image: '/images/portfolio.png',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    tags: [
+      { name: "HTML5", icon: <Code className="w-3.5 h-3.5" /> },
+      { name: "CSS3", icon: <Palette className="w-3.5 h-3.5" /> },
+      { name: "JavaScript", icon: <SiJavascript className="w-3.5 h-3.5" /> },
+      { name: "SEO Optimized", icon: <Search className="w-3.5 h-3.5" /> },
+      { name: "Responsive Design", icon: <Smartphone className="w-3.5 h-3.5" /> },
+      { name: "Netlify", icon: <BiLogoNetlify className="w-3.5 h-3.5" /> },
+    ],
     link: 'https://dhruba-datta.netlify.app/',
     github: 'https://github.com/dhruba-datta/Portfolio-v1',
     featured: true,
@@ -83,13 +160,20 @@ const projects: Project[] = [
   },
   {
     id: 'content-automation',
-    title: 'Content Automation',
+    title: 'Content Automation (n8n)',
     description:
-      'AI-powered n8n workflow that automates social media content generation using OpenAI and integrates with Google Sheets and Trello.',
+      'A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.',
     longDescription:
       'Automated content creation workflow with Google Sheets integration, AI content generation, and Trello management.',
     image: '/images/n8n-automation.png',
-    tags: ['n8n', 'OpenAI', 'Google Sheets', 'Trello'],
+    tags: [
+      { name: "n8n", icon: <SiN8N className="w-3.5 h-3.5" /> },
+      { name: "OpenAI", icon: <SiOpenai className="w-3.5 h-3.5" /> },
+      { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+      { name: "Trello", icon: <SiTrello className="w-3.5 h-3.5" /> },
+      { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
+      { name: "Workflow JSON", icon: <FileJson className="w-3.5 h-3.5" /> },
+    ],
     link: '',
     github: 'https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation',
     featured: true,
@@ -97,13 +181,20 @@ const projects: Project[] = [
   },
   {
     id: 'linkedin-job-search',
-    title: 'LinkedIn Job Search',
+    title: 'LinkedIn Job Search (n8n)',
     description:
-      'Automated LinkedIn job search workflow that scrapes job postings based on criteria and saves results to Google Sheets for tracking.',
+      'A set of n8n workflows to automate your LinkedIn-style job discovery and notifications. Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule or on demand.',
     longDescription:
       'Web form-driven job search automation with dynamic URL building, data extraction, and Google Sheets integration.',
     image: '/images/linkedin-automation.png',
-    tags: ['n8n', 'LinkedIn', 'Web Scraping', 'Google Sheets'],
+    tags: [
+      { name: "n8n", icon: <SiN8N className="w-3.5 h-3.5" /> },
+      { name: "LinkedIn", icon: <SiLinkedin className="w-3.5 h-3.5" /> },
+      { name: "Web Scraping", icon: <Search className="w-3.5 h-3.5" /> },
+      { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+      { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
+      { name: "Data Extraction", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    ],
     link: '',
     github: 'https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search',
     featured: true,
@@ -256,91 +347,111 @@ const Projects = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: index * 0.06, duration: 0.5, ease: 'easeOut' }}
-              className="group"
-            >
-              <Link
-                to={`/projects/${project.id}`}
-                className="block rounded-2xl overflow-hidden border border-slate-200/70 dark:border-white/10 bg-white/90 dark:bg-slate-950/80 backdrop-blur-sm hover:shadow-md transition-all
-                           hover:border-blue-400/40 dark:hover:border-sky-400/30"
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {filteredProjects.map((project, index) => {
+            // Truncate description to 2 lines (approximately 100-120 characters)
+            const truncateDescription = (text: string, maxLength: number = 110) => {
+              if (text.length <= maxLength) return text;
+              const truncated = text.slice(0, maxLength);
+              const lastSpace = truncated.lastIndexOf(' ');
+              return truncated.slice(0, lastSpace) + '...';
+            };
+
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: index * 0.08, duration: 0.6, ease: 'easeOut' }}
+                className="group"
               >
-                {/* Image */}
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                  {/* Blue hover tint */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-blue-500 dark:bg-sky-500" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/10" />
-                </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-sky-300 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 text-[11px] rounded-full border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 bg-white/70 dark:bg-slate-900/60"
-                      >
-                        {tag}
+                <Link
+                  to={`/projects/${project.id}`}
+                  className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500
+                             hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    {/* Modern gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Category badge */}
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/50">
+                        {project.category === 'development' ? 'Web' : project.category === 'app' ? 'App' : 'Automation'}
                       </span>
-                    ))}
-                    {project.tags.length > 3 && (
-                      <span className="px-2.5 py-1 text-[11px] rounded-full border border-blue-200/70 dark:border-sky-400/20 text-blue-700 dark:text-sky-300 bg-blue-50/80 dark:bg-sky-900/20">
-                        +{project.tags.length - 3}
-                      </span>
-                    )}
+                    </div>
+                    <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.08] dark:ring-white/[0.08] rounded-t-3xl" />
                   </div>
 
-                  {/* Actions */}
-                  <div className="mt-4 flex items-center gap-2">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener"
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-sky-300 hover:border-blue-300/60 dark:hover:border-sky-400/30 transition-colors"
-                      >
-                        <Github className="w-4 h-4" />
-                        Code
-                      </a>
-                    )}
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener"
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-blue-500/40 text-blue-700 dark:text-sky-300 bg-blue-50/60 dark:bg-sky-900/20 hover:bg-blue-100/70 dark:hover:bg-sky-900/30 transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Live
-                      </a>
-                    )}
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+                        {project.title}
+                      </h3>
+                    </div>
+                    
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 min-h-[40px]">
+                      {truncateDescription(project.description)}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {project.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag.name}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-xl border border-slate-200/70 dark:border-white/[0.08] text-slate-700 dark:text-slate-300 bg-slate-50/80 dark:bg-slate-800/50 backdrop-blur-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        >
+                          <span className="text-slate-500 dark:text-slate-400">{tag.icon}</span>
+                          {tag.name}
+                        </span>
+                      ))}
+                      {project.tags.length > 2 && (
+                        <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-xl border border-blue-200/70 dark:border-sky-400/20 text-blue-700 dark:text-sky-300 bg-blue-50/80 dark:bg-sky-900/20 backdrop-blur-sm">
+                          +{project.tags.length - 2}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-3">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-200/70 dark:border-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 hover:border-blue-300/60 dark:hover:border-sky-400/30 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300"
+                        >
+                          <Github className="w-4 h-4" />
+                          Code
+                        </a>
+                      )}
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-105"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Empty state */}

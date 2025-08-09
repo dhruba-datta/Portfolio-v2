@@ -4,7 +4,10 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  tags: string[];
+  tags: Array<{
+    name: string;
+    icon: React.ReactNode;
+  }>;
   link?: string;
   github?: string;
 }
@@ -15,7 +18,10 @@ export interface Project {
   description: string;
   longDescription: string;
   image: string;
-  tags: string[];
+  tags: Array<{
+    name: string;
+    icon: React.ReactNode;
+  }>;
   link?: string;
   github?: string;
   featured: boolean;
