@@ -65,8 +65,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
   // responsive canvas
   useEffect(() => {
     if (!wrapRef.current) return;
-    const ro = new ResizeObserver((ents) => {
-      const r = ents[0].contentRect;
+    const ro = new ResizeObserver(() => {
       // setSize({ w: r.width, h: r.height });
     });
     ro.observe(wrapRef.current);
@@ -74,10 +73,60 @@ const TechStack = ({ isDark }: TechStackProps) => {
   }, []);
 
   // helper colors
-  const cardBase = isDark ? 'bg-gray-800/50 border-gray-700/30' : 'bg-white border-gray-200 shadow-2xl';
+  const cardBase = 'rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1';
   const textMuted = isDark ? 'text-gray-400' : 'text-gray-600';
   const borderSoft = isDark ? 'border-white/10' : 'border-gray-200';
   const statBg = isDark ? 'bg-white/[0.03]' : 'bg-gray-50';
+
+  // --- Reusable identical feature card (used for Card 1 and Card 4) ---
+  const FeatureCard = ({
+    to,
+    badge,
+    title,
+    description,
+    delay = 0.1,
+    cta = 'Explore'
+  }: {
+    to: string;
+    badge: string;
+    title: string;
+    description: string;
+    delay?: number;
+    cta?: string;
+  }) => (
+    <Link to={to} className="block group focus:outline-none focus-visible:ring-0">
+      <motion.div
+        className={`${cardBase} p-8 h-full flex flex-col justify-between relative`}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay }}
+      >
+        <div>
+          <div className="flex items-start gap-4">
+            <div className="flex-1">
+              <span className={`text-[11px] uppercase tracking-[0.14em] ${textMuted}`}>{badge}</span>
+              <h3 className="text-xl font-semibold mt-1">{
+                title
+              }</h3>
+              <p className={`text-sm mt-2 ${textMuted}`}>{description}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              {cta}
+            </span>
+          </div>
+          <svg className="w-5 h-5 text-blue-400 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"></path>
+          </svg>
+        </div>
+      </motion.div>
+    </Link>
+  );
 
   return (
     <section className={`py-20 ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} overflow-hidden`}>
@@ -100,40 +149,19 @@ const TechStack = ({ isDark }: TechStackProps) => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[600px]">
-          {/* Card 1 */}
-          <motion.div
-            className={`${cardBase} backdrop-blur-sm rounded-2xl p-8 border flex flex-col justify-between`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div>
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Academic Excellence</h3>
-              <p className={`${textMuted} leading-relaxed`}>
-                Research publications, LeetCode achievements, and academic collaborations for professors and researchers.
-              </p>
-            </div>
-            <div className="flex items-center justify-between mt-6">
-              <div className="flex items-center gap-2">
-                <span className={`text-sm ${textMuted}`}>Publications & Research</span>
-              </div>
-              <Link
-                to="/about"
-                className="text-blue-400 text-sm font-medium hover:text-blue-300 transition-colors flex items-center gap-1"
-              >
-                View Profile →
-              </Link>
-            </div>
-          </motion.div>
+          {/* Card 1 (Academic) — identical style */}
+          <FeatureCard
+            to="/about"
+            badge="For Academics"
+            title="Academic Excellence"
+            description="Scholarships, publications, and research interests—view my academic profile."
+            delay={0.1}
+            cta="View Profile"
+          />
 
-          {/* Card 2 */}
+          {/* Card 2 (Tech Stack — unchanged) */}
           <motion.div
-            className={`lg:col-span-2 ${cardBase} backdrop-blur-sm rounded-2xl p-8 border`}
+            className={`lg:col-span-2 ${cardBase} p-8`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -151,63 +179,46 @@ const TechStack = ({ isDark }: TechStackProps) => {
             </div>
           </motion.div>
 
-          {/* Card 3: Key Highlights - five sections in one line */}
+          {/* Card 3: Key Highlights — unchanged */}
           <motion.div
-            className={`lg:col-span-2 ${cardBase} backdrop-blur-sm rounded-2xl p-8 border`}
+            className={`lg:col-span-2 ${cardBase} p-8`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {/* Header aligned with stack card and NO ICON */}
             <div className="mb-8">
               <h3 className="text-2xl font-bold mb-1">
                 Key <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">Highlights</span>
               </h3>
             </div>
 
-            {/* Five items side-by-side */}
             <div className="grid grid-cols-5 gap-4 mb-6">
-              {/* 1) ICCR Scholarship */}
-              <div
-                className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}
-              >
+              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
                 <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Scholarship</div>
                 <div className="text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
                 <div className={`mt-2 text-xs ${textMuted}`}>Fully funded & stipend</div>
               </div>
 
-              {/* 2) Publications */}
-              <div
-                className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}
-              >
+              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
                 <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Publications</div>
                 <div className="text-3xl font-extrabold leading-none">1</div>
                 <div className={`mt-2 text-xs ${textMuted}`}>Peer-reviewed</div>
               </div>
 
-              {/* 3) Countries */}
-              <div
-                className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}
-              >
+              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
                 <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Countries</div>
                 <div className="text-3xl font-extrabold leading-none">3</div>
                 <div className={`mt-2 text-xs ${textMuted}`}>Visited & collaborated</div>
               </div>
 
-              {/* 4) Projects */}
-              <div
-                className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}
-              >
+              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
                 <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Projects</div>
                 <div className="text-3xl font-extrabold leading-none">{projects.length}</div>
                 <div className={`mt-2 text-xs ${textMuted}`}>Production & demos</div>
               </div>
 
-              {/* 5) LeetCode */}
-              <div
-                className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}
-              >
+              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
                 <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">LeetCode</div>
                 <div className="text-3xl font-extrabold leading-none">450+</div>
                 <div className={`mt-3 h-1.5 rounded-full ${isDark ? 'bg-white/10' : 'bg-gray-200'}`}>
@@ -222,33 +233,17 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 </div>
               </div>
             </div>
-
-          
           </motion.div>
 
-          {/* Card 4 */}
-          <motion.div
-            className={`${cardBase} backdrop-blur-sm rounded-2xl p-8 border`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="mb-6">
-              <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clipRule="evenodd" /></svg>
-              </div>
-              <p className={`text-sm ${textMuted} mb-2`}>For Tech Recruiters</p>
-              <h3 className="text-lg font-semibold">Portfolio & Project Showcase</h3>
-            </div>
-            <Link
-              to="/projects"
-              className="text-green-400 text-sm font-medium hover:text-green-300 transition-colors flex items-center gap-1"
-            >
-              View Recent Work →
-            </Link>
-          </motion.div>
+          {/* Card 4 (Recruiter) — identical style */}
+          <FeatureCard
+            to="/projects"
+            badge="For Recruiters"
+            title="Project Showcase"
+            description="Explore shipped work, case studies, and live demos tailored for hiring."
+            delay={0.4}
+            cta="View Recent Work"
+          />
         </div>
       </div>
     </section>

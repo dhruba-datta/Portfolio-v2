@@ -58,20 +58,17 @@ const Hero = () => {
     <section 
       id="hero" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.15), transparent 40%)`
-      }}
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900"></div>
-      
-      {/* Interactive mouse-tracking overlay */}
-      <div 
-        className="absolute inset-0 opacity-30 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.05) 50%, transparent 70%)`
-        }}
-      ></div>
+      {/* Subtle background effects - keeping it minimal like other sections */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {/* Interactive mouse-tracking overlay */}
+        <div 
+          className="absolute inset-0 opacity-30 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.05) 50%, transparent 70%)`
+          }}
+        />
+      </div>
       
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" style={{ top: '-300px', height: 'calc(100% + 300px)' }}></div>
