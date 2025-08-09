@@ -9,6 +9,8 @@ import PortfolioV1Page from './pages/projects/PortfolioV1Page';
 import ABPharmacyExpoPage from './pages/projects/ABPharmacyExpoPage';
 import PhotoBoothPage from './pages/projects/PhotoBoothPage';
 import CryptoVersePage from './pages/projects/CryptoVersePage';
+import ContentAutomationPage from './pages/projects/ContentAutomationPage';
+import LinkedInJobSearchPage from './pages/projects/LinkedInJobSearchPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +43,8 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
       <Route path="/contact" element={<ContactPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/kfc-clone" element={<KfcClonePage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/portfolio-v1" element={<PortfolioV1Page isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/content-automation" element={<ContentAutomationPage isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/linkedin-job-search" element={<LinkedInJobSearchPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/photoBooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/cryptoverse" element={<CryptoVersePage isDark={isDark} toggleTheme={toggleTheme} />} />

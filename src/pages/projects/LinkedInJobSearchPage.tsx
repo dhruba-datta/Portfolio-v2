@@ -2,24 +2,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Smartphone,
-  Search,
-  Calendar,
-  Bell,
-  Code,
+  Globe2,
+  Webhook,
+  Clock,
+  FileJson,
+  Code2,
+  Send,
   Database,
+  Bot,
+  AlertTriangle,
+  Activity,
+  Filter,
   ChevronDown,
   ArrowLeft,
-  Package,
-  Store,
 } from "lucide-react";
 import { TiPointOfInterest } from "react-icons/ti";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { GrDocument } from "react-icons/gr";
 import { AiOutlineAlignLeft } from "react-icons/ai";
-import { GrStorage } from "react-icons/gr";
-import { SiReact, SiExpo, SiJavascript, SiGooglesheets } from "react-icons/si";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,133 +28,112 @@ import Navigation from "../../components/ui/Navigation";
 import Footer from "../../components/ui/Footer";
 import ContactCTA from "../../components/sections/ContactCTA";
 
-interface ABPharmacyExpoPageProps {
+interface N8nLinkedinJobSearchPageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
   coverSrc?: string;
 }
 
-const ABPharmacyExpoPage = ({
+const N8nLinkedinJobSearchPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/ab-pharmacy-cover.jpg",
-}: ABPharmacyExpoPageProps) => {
+  coverSrc = "/images/n8n-linkedin-cover.jpg",
+}: N8nLinkedinJobSearchPageProps) => {
   const navigate = useNavigate();
 
-  // local theme fallback (matches KFC page pattern)
+  // Local theme fallback (same pattern as other project pages)
   const [localDark, setLocalDark] = useState(false);
   const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
     typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
 
-  // chips under title
+  // Chips under title
   const chips = [
-    { name: "React Native", icon: <SiReact className="w-3.5 h-3.5" /> },
-    { name: "Expo", icon: <SiExpo className="w-3.5 h-3.5" /> },
-    { name: "JavaScript ES6+", icon: <SiJavascript className="w-3.5 h-3.5" /> },
-    { name: "React Navigation", icon: <Code className="w-3.5 h-3.5" /> },
-    { name: "AsyncStorage", icon: <GrStorage className="w-3.5 h-3.5" /> },
-    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    { name: "n8n", icon: <Bot className="w-3.5 h-3.5" /> },
+    { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
+    { name: "Cron", icon: <Clock className="w-3.5 h-3.5" /> },
+    { name: "HTTP Request", icon: <Globe2 className="w-3.5 h-3.5" /> },
+    { name: "Code Node (JS)", icon: <Code2 className="w-3.5 h-3.5" /> },
+    { name: "Google Sheets", icon: <Database className="w-3.5 h-3.5" /> },
+    { name: "Email/Telegram Alerts", icon: <Send className="w-3.5 h-3.5" /> },
   ];
 
-  // features (accordion)
+  // Features (accordion) — tailored for LinkedIn Job Search automation
   const features = [
     {
-      id: "native",
-      icon: <Smartphone className="w-5 h-5" />,
-      title: "Cross-Platform Native Experience",
-      summary: "Optimized for iOS & Android with native feel",
+      id: "discovery",
+      icon: <Activity className="w-5 h-5" />,
+      title: "Job Discovery Pipeline",
+      summary: "Keyword + location search → normalize → store",
       details: [
-        "Single codebase deployed to both platforms",
-        "Smooth navigation, gestures & haptics",
-        "Platform-specific UI polish & performance",
+        "Fetch recent job posts from a data source/API with HTTP Request",
+        "Normalize fields (title, company, location, postedAt, applyUrl)",
+        "Map to a consistent schema for downstream steps",
       ],
     },
     {
-      id: "schedule",
-      icon: <Calendar className="w-5 h-5" />,
-      title: "Expo Schedule Management",
-      summary: "Real-time timeline, sessions & reminders",
+      id: "filters",
+      icon: <Filter className="w-5 h-5" />,
+      title: "Smart Filters & De-duplication",
+      summary: "Tight control over results and no repeat alerts",
       details: [
-        "Interactive agenda with speaker/session details",
-        "Live updates & notifications",
-        "Calendar integration & offline caching",
+        "Filter by keywords, locations, seniority, remote/on-site",
+        "De-dupe via hash/URL to avoid repeat notifications",
+        "Optional time-window filter (e.g., last 24–72 hours)",
       ],
     },
     {
-      id: "directory",
-      icon: <Store className="w-5 h-5" />,
-      title: "Exhibitor Directory",
-      summary: "Searchable profiles with booth & contact info",
+      id: "scheduler",
+      icon: <Clock className="w-5 h-5" />,
+      title: "Scheduling & Triggers",
+      summary: "Run on a schedule or on-demand",
       details: [
-        "Rich exhibitor profiles & product highlights",
-        "Advanced search & filtering",
-        "Interactive map & booth locations",
+        "Cron schedules for daily/weekly discovery runs",
+        "Webhook endpoint to trigger ad-hoc searches with params",
+        "Replay-safe execution with input validation",
       ],
     },
     {
-      id: "catalog",
-      icon: <Package className="w-5 h-5" />,
-      title: "Product & Service Catalog",
-      summary: "Categorized products with details & status",
-      details: [
-        "Clear categories & high-quality images",
-        "Specs, availability & pricing fields",
-        "Comparisons, recommendations & favorites",
-      ],
-    },
-    {
-      id: "search",
-      icon: <Search className="w-5 h-5" />,
-      title: "Real-Time Search & Filters",
-      summary: "Instant results across content types",
-      details: [
-        "Fast search across products & exhibitors",
-        "Multi-criteria filters, history & suggestions",
-        "Optional voice search pattern",
-      ],
-    },
-    {
-      id: "components",
-      icon: <Code className="w-5 h-5" />,
-      title: "Modular Components",
-      summary: "Reusable RN components with consistent UX",
-      details: [
-        "Shared card, list & detail components",
-        "Custom nav transitions & sheets",
-        "Forms with validation & errors",
-      ],
-    },
-    {
-      id: "features",
-      icon: <Bell className="w-5 h-5" />,
-      title: "Advanced Mobile Features",
-      summary: "Notifications, offline, and integrations",
-      details: [
-        "Push notifications for live updates",
-        "Offline data caching",
-        "Google Sheets login integration (demo)",
-      ],
-    },
-    {
-      id: "persistence",
+      id: "storage",
       icon: <Database className="w-5 h-5" />,
-      title: "Local Persistence",
-      summary: "AsyncStorage for session & preferences",
+      title: "Storage & Tracking",
+      summary: "Persist results and track status",
       details: [
-        "Persisted auth state & preferences",
-        "Pluggable data layer to swap APIs",
-        "Predictable storage utilities",
+        "Append results to Google Sheets (or DB) as a job queue",
+        "Status columns for Not Applied / Applied / Interview",
+        "Automatic updates when a listing changes or duplicates are found",
+      ],
+    },
+    {
+      id: "alerts",
+      icon: <Send className="w-5 h-5" />,
+      title: "Notifications",
+      summary: "Get notified where you work",
+      details: [
+        "Send email or Telegram alerts with top matches",
+        "Compact card-style messages with title/company/apply link",
+        "Batching & rate-limit friendly dispatch",
+      ],
+    },
+    {
+      id: "safety",
+      icon: <AlertTriangle className="w-5 h-5" />,
+      title: "Reliability & Safety",
+      summary: "Error handling & secrets hygiene",
+      details: [
+        "Dedicated error branch with alerts and retry/backoff",
+        "Credential scoping per integration",
+        "Graceful degradation if a source endpoint is down",
       ],
     },
   ];
 
-  const [expanded, setExpanded] = useState<string | null>("native");
+  const [expanded, setExpanded] = useState<string | null>("discovery");
 
-  // Right TOC (same structure as KFC)
+  // Right TOC (same layout/UX as other pages)
   const toc = [
     { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
-    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
+    { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
     { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
   ] as const;
@@ -192,7 +172,7 @@ const ABPharmacyExpoPage = ({
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
       <main>
-        {/* Full-width cover under navbar (matches KFC) */}
+        {/* Full-width cover under navbar */}
         <div className="relative h-40 sm:h-56 md:h-64 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
@@ -221,12 +201,12 @@ const ABPharmacyExpoPage = ({
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-                AB-Pharmacy Expo
+                LinkedIn Job Search (n8n)
               </h1>
               <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
-                A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor
-                directory, product catalogs, and instant search—built with modular components and offline-first
-                UX.
+                A set of n8n workflows to automate your LinkedIn-style job discovery and notifications.
+                Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule
+                or on demand.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -244,19 +224,19 @@ const ABPharmacyExpoPage = ({
               </div>
             </div>
 
-            {/* GitHub + Demo */}
+            {/* GitHub + Open folder */}
             <div className="hidden sm:flex items-center gap-2">
               <a
-                href="https://github.com/dhruba-datta/AB-Pharmacy-Expo"
+                href="https://github.com/dhruba-datta/n8n"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
-                aria-label="Source code on GitHub"
+                aria-label="Repository on GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
               <motion.a
-                href="http://surl.li/lkiufr"
+                href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
@@ -265,7 +245,7 @@ const ABPharmacyExpoPage = ({
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
               >
-                Check it out <ExternalLink className="w-4 h-4" />
+                Open Folder <ExternalLink className="w-4 h-4" />
               </motion.a>
             </div>
           </div>
@@ -344,37 +324,45 @@ const ABPharmacyExpoPage = ({
               </div>
             </section>
 
-            {/* Technologies Used */}
+            {/* Nodes & Tech Used */}
             <section id="tech" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
                 <BsAppIndicator className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
               </div>
 
               <ul className="space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiReact className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>React Native</b> — Native iOS/Android with one codebase.</span>
+                  <Bot className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>n8n Core</b> — Visual builder, credentials, error branches, sub-workflows.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiExpo className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Expo</b> — Build, test, deploy & access device APIs.</span>
+                  <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>HTTP Request</b> — Job source/API calls and data retrieval.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiJavascript className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>JavaScript (ES6+)</b> — Async flows, state & API logic.</span>
+                  <Code2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Code (JS)</b> — Parsing, de-duplication, mapping, and scoring logic.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Code className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>React Navigation</b> — Native navigation patterns.</span>
+                  <Clock className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Cron</b> — Scheduled discovery & follow-ups.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <GrStorage className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>AsyncStorage</b> — Offline cache & preferences.</span>
+                  <Webhook className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Webhook</b> — On-demand searches with query params.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Google Sheets</b> — Lightweight demo auth/data integration.</span>
+                  <Database className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Google Sheets</b> — Persistent queue & status tracking.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Send className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Email/Telegram</b> — Job alerts and error notifications.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <FileJson className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Workflow JSON</b> — Importable templates to get started fast.</span>
                 </li>
               </ul>
             </section>
@@ -386,10 +374,10 @@ const ABPharmacyExpoPage = ({
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
-                <li>Pharmacy & medical expos (attendee companion app)</li>
-                <li>Trade shows needing schedules, exhibitors & catalogs</li>
-                <li>Client demos for native app capability & UX</li>
-                <li>Starter kit for event-industry mobile products</li>
+                <li>Daily job digests by role + location delivered to your inbox/Telegram</li>
+                <li>Team job board powered by Google Sheets with live updates</li>
+                <li>Lead a pipeline for applying later—tag, prioritize, and track status</li>
+                <li>Trigger ad-hoc searches from a form/webhook and notify instantly</li>
               </ul>
             </section>
 
@@ -403,36 +391,30 @@ const ABPharmacyExpoPage = ({
               <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-6 space-y-4">
                 <ol className="list-decimal list-inside space-y-2 text-gray-800 dark:text-gray-200">
                   <li>
-                    Clone:&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      git clone https://github.com/dhruba-datta/AB-Pharmacy-Expo
-                    </code>
+                    Open folder:&nbsp;
+                    <a
+                      className="underline underline-offset-2"
+                      href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub — LinkedIn Job Search
+                    </a>
                   </li>
                   <li>
-                    Install deps:&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npm install
-                    </code>
+                    Import the workflow JSON(s): In n8n go to <b>Workflows → Import</b> and upload the <code>.json</code>.
                   </li>
                   <li>
-                    Start (Expo):&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo start
-                    </code>
-                    &nbsp;then run on device/emulator.
+                    Add credentials: job data source/API, Google Sheets, and your alert channel (Email/Telegram).
                   </li>
                   <li>
-                    Build (optional):&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo prebuild && npx expo run:android
-                    </code>
-                    &nbsp;/&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo run:ios
-                    </code>
+                    Set parameters: default keywords, locations, seniority, remote/on-site, and de-dup secret/hash field.
                   </li>
                   <li>
-                    Configure integrations (Sheets/auth) in <code>env</code> or config as needed.
+                    Choose triggers: attach a <b>Cron</b> schedule and/or expose a <b>Webhook</b> for ad-hoc searches.
+                  </li>
+                  <li>
+                    Test & enable: run once with sample inputs, check the sheet and notifications, then enable.
                   </li>
                 </ol>
               </div>
@@ -479,19 +461,19 @@ const ABPharmacyExpoPage = ({
         {/* Mobile CTA */}
         <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
           <a
-            href="http://surl.li/lkiufr"
+            href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
           >
-            Check it out <ExternalLink className="w-4 h-4" />
+            Open Folder <ExternalLink className="w-4 h-4" />
           </a>
         </div>
 
         {/* Contact CTA Section */}
         <ContactCTA
-          title="Like what you see?"
-          description="I build performant, scalable native apps with a clean UX. Let’s discuss your event or product."
+          title="Want to automate your job search?"
+          description="I build production-ready n8n workflows—discovery, filtering, storage, and alerts tailored to your stack."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />
@@ -502,4 +484,4 @@ const ABPharmacyExpoPage = ({
   );
 };
 
-export default ABPharmacyExpoPage;
+export default N8nLinkedinJobSearchPage;

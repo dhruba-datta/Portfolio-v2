@@ -2,24 +2,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Smartphone,
-  Search,
-  Calendar,
-  Bell,
-  Code,
+  Globe2,
+  Webhook,
+  Clock,
+  FileJson,
+  Code2,
+  Send,
   Database,
+  Bot,
+  AlertTriangle,
+  Activity,
   ChevronDown,
   ArrowLeft,
-  Package,
-  Store,
 } from "lucide-react";
 import { TiPointOfInterest } from "react-icons/ti";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { GrDocument } from "react-icons/gr";
 import { AiOutlineAlignLeft } from "react-icons/ai";
-import { GrStorage } from "react-icons/gr";
-import { SiReact, SiExpo, SiJavascript, SiGooglesheets } from "react-icons/si";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,20 +27,20 @@ import Navigation from "../../components/ui/Navigation";
 import Footer from "../../components/ui/Footer";
 import ContactCTA from "../../components/sections/ContactCTA";
 
-interface ABPharmacyExpoPageProps {
+interface N8nContentAutomationPageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
   coverSrc?: string;
 }
 
-const ABPharmacyExpoPage = ({
+const N8nContentAutomationPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/ab-pharmacy-cover.jpg",
-}: ABPharmacyExpoPageProps) => {
+  coverSrc = "/images/n8n-cover.jpg",
+}: N8nContentAutomationPageProps) => {
   const navigate = useNavigate();
 
-  // local theme fallback (matches KFC page pattern)
+  // local theme fallback (aligns with your other project pages)
   const [localDark, setLocalDark] = useState(false);
   const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
@@ -48,112 +48,85 @@ const ABPharmacyExpoPage = ({
 
   // chips under title
   const chips = [
-    { name: "React Native", icon: <SiReact className="w-3.5 h-3.5" /> },
-    { name: "Expo", icon: <SiExpo className="w-3.5 h-3.5" /> },
-    { name: "JavaScript ES6+", icon: <SiJavascript className="w-3.5 h-3.5" /> },
-    { name: "React Navigation", icon: <Code className="w-3.5 h-3.5" /> },
-    { name: "AsyncStorage", icon: <GrStorage className="w-3.5 h-3.5" /> },
-    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    { name: "n8n", icon: <Bot className="w-3.5 h-3.5" /> },
+    { name: "Workflow JSON", icon: <FileJson className="w-3.5 h-3.5" /> },
+    { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
+    { name: "Cron", icon: <Clock className="w-3.5 h-3.5" /> },
+    { name: "Code Node (JS)", icon: <Code2 className="w-3.5 h-3.5" /> },
+    { name: "HTTP Request", icon: <Globe2 className="w-3.5 h-3.5" /> },
+    { name: "Self-host / Cloud", icon: <Database className="w-3.5 h-3.5" /> },
   ];
 
-  // features (accordion)
+  // features (accordion) — tailored for Content Automation
   const features = [
     {
-      id: "native",
-      icon: <Smartphone className="w-5 h-5" />,
-      title: "Cross-Platform Native Experience",
-      summary: "Optimized for iOS & Android with native feel",
+      id: "pipeline",
+      icon: <Activity className="w-5 h-5" />,
+      title: "Content Pipeline Orchestrator",
+      summary: "Ingest → Transform (AI/clean) → Publish/Queue",
       details: [
-        "Single codebase deployed to both platforms",
-        "Smooth navigation, gestures & haptics",
-        "Platform-specific UI polish & performance",
+        "Ingest content from forms/APIs/feeds via Webhook & HTTP Request nodes",
+        "Normalize & enrich fields (title, tags, canonical URL)",
+        "Optional AI assist for summaries/captions via Code/HTTP nodes",
+        "Branching for multi-channel outputs (blog, newsletter, socials)",
       ],
     },
     {
-      id: "schedule",
-      icon: <Calendar className="w-5 h-5" />,
-      title: "Expo Schedule Management",
-      summary: "Real-time timeline, sessions & reminders",
+      id: "scheduler",
+      icon: <Clock className="w-5 h-5" />,
+      title: "Scheduling & Triggers",
+      summary: "Cron triggers & on-demand webhooks",
       details: [
-        "Interactive agenda with speaker/session details",
-        "Live updates & notifications",
-        "Calendar integration & offline caching",
+        "Cron schedules for daily/weekly runs",
+        "Instant Webhook endpoints for manual publish",
+        "Replay-friendly runs with input validation",
+        "Idempotent guards to prevent duplicate posts",
       ],
     },
     {
-      id: "directory",
-      icon: <Store className="w-5 h-5" />,
-      title: "Exhibitor Directory",
-      summary: "Searchable profiles with booth & contact info",
+      id: "integrations",
+      icon: <Send className="w-5 h-5" />,
+      title: "Integrations",
+      summary: "Email, CMS, Sheets & social endpoints",
       details: [
-        "Rich exhibitor profiles & product highlights",
-        "Advanced search & filtering",
-        "Interactive map & booth locations",
+        "Email/newsletter providers (e.g., Brevo) for campaign drafts",
+        "CMS/Docs (Notion/Markdown repos/Headless CMS) via HTTP",
+        "Spreadsheets/DB (Google Sheets/SQL) for content queues",
+        "Social endpoints (X/LinkedIn) ready via HTTP & OAuth creds",
       ],
     },
     {
-      id: "catalog",
-      icon: <Package className="w-5 h-5" />,
-      title: "Product & Service Catalog",
-      summary: "Categorized products with details & status",
+      id: "blocks",
+      icon: <Code2 className="w-5 h-5" />,
+      title: "Reusable Building Blocks",
+      summary: "Set/Merge, Switch/If, Split in Batches",
       details: [
-        "Clear categories & high-quality images",
-        "Specs, availability & pricing fields",
-        "Comparisons, recommendations & favorites",
+        "Reusable sub-workflows for parsing & templating",
+        "Batch processing with retry & backoff patterns",
+        "Field mapping with Set/Merge nodes",
+        "Switch/If for channel-specific formats",
       ],
     },
     {
-      id: "search",
-      icon: <Search className="w-5 h-5" />,
-      title: "Real-Time Search & Filters",
-      summary: "Instant results across content types",
+      id: "observability",
+      icon: <AlertTriangle className="w-5 h-5" />,
+      title: "Observability & Safety",
+      summary: "Error handling, notifications & audit trails",
       details: [
-        "Fast search across products & exhibitors",
-        "Multi-criteria filters, history & suggestions",
-        "Optional voice search pattern",
-      ],
-    },
-    {
-      id: "components",
-      icon: <Code className="w-5 h-5" />,
-      title: "Modular Components",
-      summary: "Reusable RN components with consistent UX",
-      details: [
-        "Shared card, list & detail components",
-        "Custom nav transitions & sheets",
-        "Forms with validation & errors",
-      ],
-    },
-    {
-      id: "features",
-      icon: <Bell className="w-5 h-5" />,
-      title: "Advanced Mobile Features",
-      summary: "Notifications, offline, and integrations",
-      details: [
-        "Push notifications for live updates",
-        "Offline data caching",
-        "Google Sheets login integration (demo)",
-      ],
-    },
-    {
-      id: "persistence",
-      icon: <Database className="w-5 h-5" />,
-      title: "Local Persistence",
-      summary: "AsyncStorage for session & preferences",
-      details: [
-        "Persisted auth state & preferences",
-        "Pluggable data layer to swap APIs",
-        "Predictable storage utilities",
+        "Dedicated error workflows with alerts to email/Slack",
+        "Run-level metadata & checkpoints for traceability",
+        "Secret-scoped credentials per integration",
+        "Graceful degradation when an endpoint is down",
       ],
     },
   ];
 
-  const [expanded, setExpanded] = useState<string | null>("native");
+  const [expanded, setExpanded] = useState<string | null>("pipeline");
 
-  // Right TOC (same structure as KFC)
+  // Right TOC (keep structure; section content adapted for n8n)
   const toc = [
     { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
-    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
+    { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
     { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
   ] as const;
@@ -192,7 +165,7 @@ const ABPharmacyExpoPage = ({
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
       <main>
-        {/* Full-width cover under navbar (matches KFC) */}
+        {/* Full-width cover under navbar */}
         <div className="relative h-40 sm:h-56 md:h-64 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
@@ -221,12 +194,11 @@ const ABPharmacyExpoPage = ({
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-                AB-Pharmacy Expo
+                Content Automation (n8n)
               </h1>
               <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
-                A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor
-                directory, product catalogs, and instant search—built with modular components and offline-first
-                UX.
+                A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to
+                scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -244,19 +216,19 @@ const ABPharmacyExpoPage = ({
               </div>
             </div>
 
-            {/* GitHub + Demo */}
+            {/* GitHub + Open folder */}
             <div className="hidden sm:flex items-center gap-2">
               <a
-                href="https://github.com/dhruba-datta/AB-Pharmacy-Expo"
+                href="https://github.com/dhruba-datta/n8n"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
-                aria-label="Source code on GitHub"
+                aria-label="Repository on GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
               <motion.a
-                href="http://surl.li/lkiufr"
+                href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
@@ -265,7 +237,7 @@ const ABPharmacyExpoPage = ({
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
               >
-                Check it out <ExternalLink className="w-4 h-4" />
+                Open Folder <ExternalLink className="w-4 h-4" />
               </motion.a>
             </div>
           </div>
@@ -344,37 +316,37 @@ const ABPharmacyExpoPage = ({
               </div>
             </section>
 
-            {/* Technologies Used */}
+            {/* Nodes & Tech Used */}
             <section id="tech" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
                 <BsAppIndicator className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
               </div>
 
               <ul className="space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiReact className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>React Native</b> — Native iOS/Android with one codebase.</span>
+                  <Bot className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>n8n Core</b> — Visual builder, credentials, error workflows.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiExpo className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Expo</b> — Build, test, deploy & access device APIs.</span>
+                  <Webhook className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Webhook</b> — On-demand triggers for manual runs or integrations.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiJavascript className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>JavaScript (ES6+)</b> — Async flows, state & API logic.</span>
+                  <Clock className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Cron</b> — Scheduled publishing & batch jobs.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Code className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>React Navigation</b> — Native navigation patterns.</span>
+                  <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>HTTP Request</b> — Connect any REST API (CMS, socials, email).</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <GrStorage className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>AsyncStorage</b> — Offline cache & preferences.</span>
+                  <Code2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Code Node (JS)</b> — Transform, template, and validate payloads.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Google Sheets</b> — Lightweight demo auth/data integration.</span>
+                  <Database className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Sheets/DB</b> — Queues & audit logs via Google Sheets/SQL.</span>
                 </li>
               </ul>
             </section>
@@ -386,10 +358,10 @@ const ABPharmacyExpoPage = ({
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
-                <li>Pharmacy & medical expos (attendee companion app)</li>
-                <li>Trade shows needing schedules, exhibitors & catalogs</li>
-                <li>Client demos for native app capability & UX</li>
-                <li>Starter kit for event-industry mobile products</li>
+                <li>Auto-generate post drafts, titles, and social captions</li>
+                <li>Build a content queue from feeds, forms, or spreadsheets</li>
+                <li>Cross-post to blog, newsletter (e.g., Brevo), and socials</li>
+                <li>Create weekly digests from curated links & publish on schedule</li>
               </ul>
             </section>
 
@@ -403,36 +375,29 @@ const ABPharmacyExpoPage = ({
               <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-6 space-y-4">
                 <ol className="list-decimal list-inside space-y-2 text-gray-800 dark:text-gray-200">
                   <li>
-                    Clone:&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      git clone https://github.com/dhruba-datta/AB-Pharmacy-Expo
-                    </code>
+                    Open folder:&nbsp;
+                    <a
+                      className="underline underline-offset-2"
+                      href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub — Content Automation
+                    </a>
                   </li>
                   <li>
-                    Install deps:&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npm install
-                    </code>
+                    Import workflow JSON:&nbsp;In n8n, go to <b>Workflows → Import</b> and upload the selected <code>.json</code>.
                   </li>
                   <li>
-                    Start (Expo):&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo start
-                    </code>
-                    &nbsp;then run on device/emulator.
+                    Configure credentials:&nbsp;Add API keys/OAuth apps for channels you’ll publish to (e.g., email, CMS,
+                    Sheets, socials).
                   </li>
                   <li>
-                    Build (optional):&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo prebuild && npx expo run:android
-                    </code>
-                    &nbsp;/&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo run:ios
-                    </code>
+                    Set triggers:&nbsp;Attach a <b>Cron</b> schedule and/or expose a <b>Webhook</b> for manual runs.
                   </li>
                   <li>
-                    Configure integrations (Sheets/auth) in <code>env</code> or config as needed.
+                    Test & ship:&nbsp;Run once with sample input, verify outputs, then enable the workflow. Deploy on n8n
+                    Cloud or your Docker instance.
                   </li>
                 </ol>
               </div>
@@ -479,19 +444,19 @@ const ABPharmacyExpoPage = ({
         {/* Mobile CTA */}
         <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
           <a
-            href="http://surl.li/lkiufr"
+            href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
           >
-            Check it out <ExternalLink className="w-4 h-4" />
+            Open Folder <ExternalLink className="w-4 h-4" />
           </a>
         </div>
 
         {/* Contact CTA Section */}
         <ContactCTA
-          title="Like what you see?"
-          description="I build performant, scalable native apps with a clean UX. Let’s discuss your event or product."
+          title="Need custom n8n automations?"
+          description="I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let’s build your pipeline."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />
@@ -502,4 +467,4 @@ const ABPharmacyExpoPage = ({
   );
 };
 
-export default ABPharmacyExpoPage;
+export default N8nContentAutomationPage;

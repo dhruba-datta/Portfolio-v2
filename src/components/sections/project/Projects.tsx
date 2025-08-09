@@ -81,12 +81,40 @@ const projects: Project[] = [
     featured: true,
     category: 'development',
   },
+  {
+    id: 'content-automation',
+    title: 'Content Automation',
+    description:
+      'AI-powered n8n workflow that automates social media content generation using OpenAI and integrates with Google Sheets and Trello.',
+    longDescription:
+      'Automated content creation workflow with Google Sheets integration, AI content generation, and Trello management.',
+    image: '/images/n8n-automation.png',
+    tags: ['n8n', 'OpenAI', 'Google Sheets', 'Trello'],
+    link: '',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation',
+    featured: true,
+    category: 'automation',
+  },
+  {
+    id: 'linkedin-job-search',
+    title: 'LinkedIn Job Search',
+    description:
+      'Automated LinkedIn job search workflow that scrapes job postings based on criteria and saves results to Google Sheets for tracking.',
+    longDescription:
+      'Web form-driven job search automation with dynamic URL building, data extraction, and Google Sheets integration.',
+    image: '/images/linkedin-automation.png',
+    tags: ['n8n', 'LinkedIn', 'Web Scraping', 'Google Sheets'],
+    link: '',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search',
+    featured: true,
+    category: 'automation',
+  },
 ];
 
 const categories = [
   { key: 'development', label: 'Web', icon: Code2 },
   { key: 'app', label: 'App', icon: Smartphone },
-  { key: 'n8n', label: 'n8n', icon: SiN8N },
+  { key: 'automation', label: 'Automation', icon: SiN8N },
 ];
 
 const Projects = () => {
