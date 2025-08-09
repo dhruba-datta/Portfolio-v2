@@ -1,6 +1,6 @@
 import type { Project } from '../../../types';
 import { Link } from 'react-router-dom';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
   Code2,
@@ -9,28 +9,15 @@ import {
   Smartphone,
   Layers,
   Languages,
-  Calendar,
-  Bell,
   Code,
   Database,
-  Package,
-  Store,
   Search,
-  Heart,
   User,
   Palette,
-  Zap,
-  Upload,
-  Eye,
-  TrendingUp,
-  BarChart3,
-  Newspaper,
   LineChart,
   Globe2,
   Webhook,
-  Clock,
   FileJson,
-  Send,
 } from 'lucide-react';
 import { 
   SiN8N, 
@@ -41,17 +28,16 @@ import {
   SiOpenai,
   SiTrello,
   SiLinkedin,
-  SiTypescript,
-  SiTailwindcss,
-  SiFramer,
-  SiVite,
-  SiGithub
+  SiTailwindcss
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
 import { BiLogoNetlify, BiLogoTypescript } from 'react-icons/bi';
 import { GrStorage } from 'react-icons/gr';
-// ...existing code...
+
+// ---------------------------------------
+// Projects data (unchanged visual content)
+// ---------------------------------------
 
 const projects: Project[] = [
   {
@@ -208,14 +194,35 @@ const categories = [
   { key: 'automation', label: 'Automation', icon: SiN8N },
 ];
 
+const categoryMeta: Record<string, { label: string; Icon: any }> = {
+  development: { label: 'Web', Icon: Code2 },
+  app: { label: 'App', Icon: Smartphone },
+  automation: { label: 'Automation', Icon: SiN8N },
+};
+
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | string>('all');
+  const [mounted, setMounted] = useState(false); // prevent first-time thumb animation
+  const [visibleCount, setVisibleCount] = useState(6); // load-more
   const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    // Enable animations after first paint to avoid the initial "All" slide-in
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Reset visible items when category changes
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [activeCategory]);
 
   const filteredProjects =
     activeCategory === 'all'
       ? projects
       : projects.filter((p) => p.category === activeCategory);
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
 
   // Decorative dots for the minimal background (stable across renders)
   const bgDots = useMemo(
@@ -312,9 +319,15 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Filters: blue-accented pills */}
+        {/* Filters: Modern segmented control with no initial slide-in */}
         <div className="flex justify-center mb-8">
-          <div className="relative inline-flex items-center gap-1 rounded-full p-1 border border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-slate-900/60 backdrop-blur">
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="relative inline-flex items-center gap-1 rounded-full p-1 border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md"
+          >
             {(['all', ...categories.map((c) => c.key)] as const).map((key) => {
               const isActive = activeCategory === key;
               const label = key === 'all' ? 'All' : categories.find((c) => c.key === key)?.label;
@@ -324,38 +337,78 @@ const Projects = () => {
                 <button
                   key={key}
                   onClick={() => setActiveCategory(key)}
-                  className={`relative z-10 px-3.5 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5 transition-colors
+                  className={`relative z-10 px-3.5 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5 transition-all
                     ${isActive ? 'text-white' : 'text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300'}`}
                 >
-                  <Icon className="w-4 h-4" />
-                  {label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="activePill"
-                      className="absolute inset-0 -z-10 rounded-full ring-1 ring-inset ring-blue-300/40 dark:ring-sky-400/20"
-                      transition={{ type: 'spring', stiffness: 420, damping: 30 }}
-                      style={{
-                        background:
-                          'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
-                      }}
-                    />
-                  )}
+                  {/* Active background: static on first paint, animated thereafter */}
+                  {isActive ? (
+                    mounted ? (
+                      <>
+                        <motion.span
+                          layoutId="activePillBg"
+                          className="absolute inset-0 -z-10 rounded-full ring-1 ring-inset ring-blue-300/40 dark:ring-sky-400/25"
+                          transition={{ type: 'spring', stiffness: 500, damping: 36 }}
+                          style={{
+                            background:
+                              'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
+                          }}
+                        />
+                        <motion.span
+                          layoutId="activePillGlow"
+                          className="absolute -inset-[2px] -z-20 rounded-full blur-md"
+                          transition={{ type: 'spring', stiffness: 500, damping: 36 }}
+                          style={{
+                            background:
+                              'radial-gradient(70% 120% at 50% 50%, rgba(59,130,246,0.35), rgba(99,102,241,0.22) 60%, transparent 80%)',
+                          }}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <span
+                          className="absolute inset-0 -z-10 rounded-full ring-1 ring-inset ring-blue-300/40 dark:ring-sky-400/25"
+                          style={{
+                            background:
+                              'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
+                          }}
+                        />
+                        <span
+                          className="absolute -inset-[2px] -z-20 rounded-full blur-md"
+                          style={{
+                            background:
+                              'radial-gradient(70% 120% at 50% 50%, rgba(59,130,246,0.35), rgba(99,102,241,0.22) 60%, transparent 80%)',
+                          }}
+                        />
+                      </>
+                    )
+                  ) : null}
+
+                  <motion.span
+                    initial={false}
+                    animate={{ scale: isActive ? 1 : 0.98 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                    className="inline-flex items-center gap-1.5"
+                  >
+                    <Icon className={`w-4 h-4 ${isActive ? 'opacity-100' : 'opacity-80'}`} />
+                    {label}
+                  </motion.span>
                 </button>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Grid */}
+        {/* Grid (shows first 6, then expands) */}
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project, index) => {
-            // Truncate description to 2 lines (approximately 100-120 characters)
+          {visibleProjects.map((project, index) => {
             const truncateDescription = (text: string, maxLength: number = 110) => {
               if (text.length <= maxLength) return text;
               const truncated = text.slice(0, maxLength);
               const lastSpace = truncated.lastIndexOf(' ');
               return truncated.slice(0, lastSpace) + '...';
             };
+
+            const meta = categoryMeta[project.category] || { label: project.category, Icon: Layers };
 
             return (
               <motion.div
@@ -381,12 +434,15 @@ const Projects = () => {
                     />
                     {/* Modern gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    {/* Category badge */}
+                    
+                    {/* Category badge with icon */}
                     <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/50">
-                        {project.category === 'development' ? 'Web' : project.category === 'app' ? 'App' : 'Automation'}
+                      <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 inline-flex items-center gap-1.5">
+                        <meta.Icon className="w-3.5 h-3.5 opacity-80" />
+                        {meta.label}
                       </span>
                     </div>
+
                     <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.08] dark:ring-white/[0.08] rounded-t-3xl" />
                   </div>
 
@@ -403,7 +459,7 @@ const Projects = () => {
                     </p>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="flex flex-wrap gap-2">
                       {project.tags.slice(0, 2).map((tag) => (
                         <span
                           key={tag.name}
@@ -420,39 +476,25 @@ const Projects = () => {
                       )}
                     </div>
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-3">
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-200/70 dark:border-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 hover:border-blue-300/60 dark:hover:border-sky-400/30 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300"
-                        >
-                          <Github className="w-4 h-4" />
-                          Code
-                        </a>
-                      )}
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-105"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          Live Demo
-                        </a>
-                      )}
-                    </div>
+                    {/* Actions removed as requested */}
                   </div>
                 </Link>
               </motion.div>
             );
           })}
         </div>
+
+        {/* Load More */}
+        {filteredProjects.length > visibleCount && (
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setVisibleCount(filteredProjects.length)}
+              className="inline-flex items-center gap-2 text-sm font-medium px-5 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02]"
+            >
+              Load more
+            </button>
+          </div>
+        )}
 
         {/* Empty state */}
         {filteredProjects.length === 0 && (
