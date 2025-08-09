@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { MdOutlineWork } from "react-icons/md";
 import { projects } from '../../../data/projects';
 
 interface TechStackProps { isDark?: boolean }
@@ -78,37 +79,45 @@ const TechStack = ({ isDark }: TechStackProps) => {
   const borderSoft = isDark ? 'border-white/10' : 'border-gray-200';
   const statBg = isDark ? 'bg-white/[0.03]' : 'bg-gray-50';
 
+  // Icons for cards
+  const AcademicIcon = () => (
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+    </svg>
+  );
+
+  const BriefcaseIcon = () => (
+    <MdOutlineWork className="w-5 h-5" />
+  );
+
   // --- Reusable identical feature card (used for Card 1 and Card 4) ---
   const FeatureCard = ({
     to,
     badge,
     title,
     description,
-    delay = 0.1,
+    icon,
     cta = 'Explore'
   }: {
     to: string;
     badge: string;
     title: string;
     description: string;
-    delay?: number;
+    icon: React.ReactNode;
     cta?: string;
   }) => (
     <Link to={to} className="block group focus:outline-none focus-visible:ring-0">
-      <motion.div
-        className={`${cardBase} p-8 h-full flex flex-col justify-between relative`}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay }}
-      >
-        <div>
+      <div className={`${cardBase} p-8 h-full flex flex-col justify-center relative`}>
+        <div className="flex-1 flex flex-col justify-center">
           <div className="flex items-start gap-4">
             <div className="flex-1">
-              <span className={`text-[11px] uppercase tracking-[0.14em] ${textMuted}`}>{badge}</span>
-              <h3 className="text-xl font-semibold mt-1">{
-                title
-              }</h3>
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`text-[11px] uppercase tracking-[0.14em] ${textMuted}`}>{badge}</span>
+              </div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-blue-500">{icon}</span>
+                <h3 className="text-xl font-semibold">{title}</h3>
+              </div>
               <p className={`text-sm mt-2 ${textMuted}`}>{description}</p>
             </div>
           </div>
@@ -124,7 +133,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
             <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"></path>
           </svg>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 
@@ -133,19 +142,14 @@ const TechStack = ({ isDark }: TechStackProps) => {
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+          <div>
             <span className={`uppercase tracking-[0.2em] text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
               Tech Stack & Status
             </span>
             <h2 className={`mt-3 text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
               My Stack & Collaboration
             </h2>
-          </motion.div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[600px]">
@@ -153,20 +157,14 @@ const TechStack = ({ isDark }: TechStackProps) => {
           <FeatureCard
             to="/about"
             badge="For Academics"
-            title="Academic Excellence"
-            description="Scholarships, publications, and research interests—view my academic profile."
-            delay={0.1}
+            title=" Academic Excellence"
+            description="Scholarships, publications and research interests view my academic profile."
+            icon={<AcademicIcon />}
             cta="View Profile"
           />
 
           {/* Card 2 (Tech Stack — unchanged) */}
-          <motion.div
-            className={`lg:col-span-2 ${cardBase} p-8`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <div className={`lg:col-span-2 ${cardBase} p-8`}>
             <div className="mb-8">
               <h3 className="text-2xl font-bold mb-1">
                 Tech  <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Stack</span>
@@ -177,71 +175,76 @@ const TechStack = ({ isDark }: TechStackProps) => {
               <TechScroll technologies={backendTech} direction="left" />
               <TechScroll technologies={toolsTech} direction="right" />
             </div>
-          </motion.div>
+          </div>
 
           {/* Card 3: Key Highlights — unchanged */}
-          <motion.div
-            className={`lg:col-span-2 ${cardBase} p-8`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
+          <div className={`lg:col-span-2 ${cardBase} p-8`}>
             <div className="mb-8">
               <h3 className="text-2xl font-bold mb-1">
                 Key <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">Highlights</span>
               </h3>
             </div>
 
-            <div className="grid grid-cols-5 gap-4 mb-6">
-              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
-                <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Scholarship</div>
-                <div className="text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
-                <div className={`mt-2 text-xs ${textMuted}`}>Fully funded & stipend</div>
-              </div>
-
-              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
-                <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Publications</div>
-                <div className="text-3xl font-extrabold leading-none">1</div>
-                <div className={`mt-2 text-xs ${textMuted}`}>Peer-reviewed</div>
-              </div>
-
-              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
-                <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Countries</div>
-                <div className="text-3xl font-extrabold leading-none">3</div>
-                <div className={`mt-2 text-xs ${textMuted}`}>Visited & collaborated</div>
-              </div>
-
-              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
-                <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">Projects</div>
-                <div className="text-3xl font-extrabold leading-none">{projects.length}</div>
-                <div className={`mt-2 text-xs ${textMuted}`}>Production & demos</div>
-              </div>
-
-              <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5`}>
-                <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mb-1">LeetCode</div>
-                <div className="text-3xl font-extrabold leading-none">450+</div>
-                <div className={`mt-3 h-1.5 rounded-full ${isDark ? 'bg-white/10' : 'bg-gray-200'}`}>
-                  <div
-                    className={`h-1.5 rounded-full ${isDark ? 'bg-orange-400' : 'bg-orange-500'}`}
-                    style={{ width: '45%' }}
-                  />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+              {/* Scholarship - Link to about page */}
+              <Link to="/about" className="block group">
+                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Scholarship</div>
                 </div>
-                <div className={`mt-1 flex justify-between text-[10px] ${textMuted}`}>
-                  <span>450 / 1000</span>
-                  <span>Goal</span>
+              </Link>
+
+              {/* Publications - Link to Google Scholar */}
+              <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group">
+                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                  <div className="flex-1">
+                    <div className="text-3xl font-extrabold leading-none">1</div>
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Paper Published</div>
                 </div>
-              </div>
+              </a>
+
+              {/* Projects - Link to projects page */}
+              <Link to="/projects" className="block group">
+                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                  <div className="flex-1">
+                    <div className="text-3xl font-extrabold leading-none">{projects.length}</div>
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
+                </div>
+              </Link>
+
+              {/* LeetCode - Link to LeetCode profile */}
+              <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group">
+                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                  <div className="flex-1">
+                    <div className="text-3xl font-extrabold leading-none">480+</div>
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Solved Leetcode</div>
+                </div>
+              </a>
+
+              {/* Countries - Link to Instagram */}
+              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="block group">
+                <div className={`p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-32`}>
+                  <div className="flex-1">
+                    <div className="text-3xl font-extrabold leading-none">2</div>
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">visited Country</div>
+                </div>
+              </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Card 4 (Recruiter) — identical style */}
           <FeatureCard
             to="/projects"
             badge="For Recruiters"
-            title="Project Showcase"
+            title=" Project Showcase"
             description="Explore shipped work, case studies, and live demos tailored for hiring."
-            delay={0.4}
+            icon={<BriefcaseIcon />}
             cta="View Recent Work"
           />
         </div>
