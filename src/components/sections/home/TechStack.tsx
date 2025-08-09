@@ -74,10 +74,10 @@ const TechStack = ({ isDark }: TechStackProps) => {
   }, []);
 
   // helper colors
-  const cardBase = 'rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1';
+  const cardBase = 'rounded-3xl overflow-hidden border border-blue-200/60 dark:border-white/[0.08] bg-blue-50/30 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1';
   const textMuted = isDark ? 'text-gray-400' : 'text-gray-600';
-  const borderSoft = isDark ? 'border-white/10' : 'border-gray-200';
-  const statBg = isDark ? 'bg-white/[0.03]' : 'bg-gray-50';
+  const borderSoft = isDark ? 'border-white/10' : 'border-blue-200/50';
+  const statBg = isDark ? 'bg-white/[0.03]' : 'bg-blue-50/40';
 
   // Icons for cards
   const AcademicIcon = () => (
@@ -227,7 +227,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </a>
 
               {/* Countries - Link to Instagram */}
-              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="block group">
+              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group">
                 <div className={`p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-28 lg:h-32 min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-2xl lg:text-3xl font-extrabold leading-none">2</div>
