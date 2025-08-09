@@ -18,7 +18,7 @@ A modern, responsive portfolio website showcasing development projects and photo
 - **Tech Stack**: Animated technology showcase
 - **Skills**: Interactive skill categories with visual indicators
 - **Project Preview**: First 6 featured projects with "View All" redirect
-- **Photography**: Live Instagram integration showing latest 6 posts
+- **Photography**: Static photo gallery with Instagram links (6 photos)
 - **Updates**: Latest news and achievements
 
 ### 🔗 Instagram Integration
@@ -130,6 +130,37 @@ npm run dev
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build locally
 - `npm run lint` - Run ESLint
+
+## 📸 Photography Setup
+
+### Quick Setup
+
+1. **Add your 6 photos** to `public/images/photos/` directory:
+   - Name them: `photo1.jpg`, `photo2.jpg`, `photo3.jpg`, `photo4.jpg`, `photo5.jpg`, `photo6.jpg`
+   - Use square aspect ratio (800x800px or higher recommended)
+
+2. **Update photo data** in `src/data/photos.ts`:
+   ```typescript
+   {
+     id: '1',
+     image: '/images/photos/photo1.jpg',
+     caption: 'Your actual photo caption',
+     instagramUrl: 'https://www.instagram.com/p/YOUR_POST_ID/',
+     alt: 'Descriptive alt text'
+   }
+   ```
+
+3. **Interactive Setup** (optional):
+   ```bash
+   node update-photos.js
+   ```
+
+### Getting Instagram URLs
+
+1. Go to your Instagram post
+2. Click the three dots (⋯) menu  
+3. Select "Copy link"
+4. Use that URL in the `instagramUrl` field
 
 ## 🎨 Customization
 
