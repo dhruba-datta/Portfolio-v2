@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Camera, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+import { FaInstagram } from "react-icons/fa";
 import { photos } from '../../../data/photos';
 
 const Photography = () => {
@@ -21,7 +22,7 @@ const Photography = () => {
   );
 
   return (
-    <section id="photography" className="relative py-16 overflow-hidden">
+    <section id="photography" className="relative py-16 overflow-hidden bg-white dark:bg-gray-900">
       {/* Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {/* Soft mesh glows */}
@@ -32,19 +33,19 @@ const Photography = () => {
           transition={{ duration: 1.2 }}
           style={{
             background:
-              'radial-gradient(900px 500px at 80% -10%, rgba(168,85,247,0.08), transparent 65%), radial-gradient(800px 500px at 10% 110%, rgba(99,102,241,0.06), transparent 70%)',
+              'radial-gradient(900px 500px at 80% -10%, rgba(168,85,247,0.04), transparent 65%), radial-gradient(800px 500px at 10% 110%, rgba(99,102,241,0.03), transparent 70%)',
           }}
         />
         {/* Purple orbs */}
         <motion.div
-          className="absolute -top-24 right-1/4 w-[22rem] h-[22rem] rounded-full blur-3xl bg-gradient-to-tr from-purple-500/10 via-violet-500/8 to-pink-500/8"
+          className="absolute -top-24 right-1/4 w-[22rem] h-[22rem] rounded-full blur-3xl bg-gradient-to-tr from-purple-500/6 via-violet-500/4 to-pink-500/4 dark:from-purple-500/10 dark:via-violet-500/8 dark:to-pink-500/8"
           animate={
             prefersReducedMotion ? {} : { y: [0, 18, 0], x: [0, -22, 0], scale: [1, 1.05, 1] }
           }
           transition={prefersReducedMotion ? {} : { duration: 11, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute -bottom-20 left-1/5 w-[20rem] h-[20rem] rounded-full blur-3xl bg-gradient-to-tl from-indigo-400/8 via-purple-500/6 to-violet-600/6"
+          className="absolute -bottom-20 left-1/5 w-[20rem] h-[20rem] rounded-full blur-3xl bg-gradient-to-tl from-indigo-400/4 via-purple-500/3 to-violet-600/3 dark:from-indigo-400/8 dark:via-purple-500/6 dark:to-violet-600/6"
           animate={
             prefersReducedMotion ? {} : { y: [0, -15, 0], x: [0, 18, 0], scale: [1, 1.04, 1] }
           }
@@ -54,7 +55,7 @@ const Photography = () => {
         {bgElements.map((el, i) => (
           <motion.span
             key={i}
-            className="absolute rounded-full bg-purple-400/30 dark:bg-violet-300/30"
+            className="absolute rounded-full bg-purple-400/20 dark:bg-violet-300/30"
             style={{
               left: el.left,
               top: el.top,
@@ -101,8 +102,13 @@ const Photography = () => {
               transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
               className="group"
             >
-              <div className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
-                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1">
+              <a
+                href="https://www.instagram.com/dhrubz_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
+                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer"
+              >
                 {/* Image */}
                 <div className="relative aspect-square overflow-hidden">
                   <img
@@ -114,8 +120,8 @@ const Photography = () => {
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Location indicator */}
-                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Permanent Location indicator */}
+                  <div className="absolute bottom-4 left-4 transition-opacity duration-300">
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full">
                       <MapPin className="w-3 h-3 text-slate-700 dark:text-slate-300" />
                       <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
@@ -124,23 +130,16 @@ const Photography = () => {
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.08] dark:ring-white/[0.08] rounded-t-3xl" />
-                </div>
-
-                {/* Content */}
-                <div className="p-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                        {photo.location}
-                      </span>
-                      <span className="text-xs text-purple-600 dark:text-violet-400 font-medium">
-                        Photography
-                      </span>
+                  {/* Instagram button on hover */}
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex items-center justify-center w-10 h-10 bg-white/80 dark:bg-transparent rounded-full backdrop-blur-sm">
+                      <FaInstagram className="w-6 h-6 text-pink-500" />
                     </div>
                   </div>
+
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.08] dark:ring-white/[0.08] rounded-3xl" />
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>
@@ -157,10 +156,12 @@ const Photography = () => {
               href="https://www.instagram.com/dhrubz_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold rounded-2xl bg-gradient-to-r from-purple-500 to-violet-600 dark:from-violet-500 dark:to-purple-600 text-white hover:from-purple-600 hover:to-violet-700 dark:hover:from-violet-600 dark:hover:to-purple-700 shadow-lg shadow-purple-500/25 dark:shadow-violet-500/20 hover:shadow-xl hover:shadow-purple-500/30 dark:hover:shadow-violet-500/25 transition-all duration-300 hover:scale-[1.02] group"
+              className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-2xl border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500 hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 group"
             >
-              <Camera className="w-5 h-5" />
-              <span>View More Photography</span>
+              <div className="flex items-center justify-center w-6 h-6">
+                <FaInstagram className="w-5 h-5 text-pink-500" />
+              </div>
+              <span>Follow for More</span>
             </a>
           </motion.div>
         </div>

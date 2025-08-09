@@ -147,7 +147,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               Tech Stack & Status
             </span>
             <h2 className={`mt-3 text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              My Stack & Collaboration
+              Profile Overview
             </h2>
           </div>
         </div>
