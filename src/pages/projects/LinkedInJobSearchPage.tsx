@@ -8,19 +8,16 @@ import {
   FileJson,
   Code2,
   Send,
-  Database,
-  Bot,
   AlertTriangle,
   Activity,
-  Filter,
   ChevronDown,
   ArrowLeft,
+  Search,
+  Filter,
 } from "lucide-react";
-import { TiPointOfInterest } from "react-icons/ti";
+import { SiN8N, SiGooglesheets, SiLinkedin } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
-import { GrDocument } from "react-icons/gr";
-import { AiOutlineAlignLeft } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -49,13 +46,12 @@ const N8nLinkedinJobSearchPage = ({
 
   // Chips under title
   const chips = [
-    { name: "n8n", icon: <Bot className="w-3.5 h-3.5" /> },
+    { name: "n8n", icon: <SiN8N className="w-3.5 h-3.5" /> },
+    { name: "LinkedIn", icon: <SiLinkedin className="w-3.5 h-3.5" /> },
+    { name: "Web Scraping", icon: <Search className="w-3.5 h-3.5" /> },
+    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
     { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
-    { name: "Cron", icon: <Clock className="w-3.5 h-3.5" /> },
-    { name: "HTTP Request", icon: <Globe2 className="w-3.5 h-3.5" /> },
-    { name: "Code Node (JS)", icon: <Code2 className="w-3.5 h-3.5" /> },
-    { name: "Google Sheets", icon: <Database className="w-3.5 h-3.5" /> },
-    { name: "Email/Telegram Alerts", icon: <Send className="w-3.5 h-3.5" /> },
+    { name: "Data Extraction", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
   ];
 
   // Features (accordion) — tailored for LinkedIn Job Search automation
@@ -95,7 +91,7 @@ const N8nLinkedinJobSearchPage = ({
     },
     {
       id: "storage",
-      icon: <Database className="w-5 h-5" />,
+      icon: <SiGooglesheets className="w-5 h-5" />,
       title: "Storage & Tracking",
       summary: "Persist results and track status",
       details: [
@@ -132,10 +128,10 @@ const N8nLinkedinJobSearchPage = ({
 
   // Right TOC (same layout/UX as other pages)
   const toc = [
-    { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
+    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-4 h-4" /> },
     { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <FileJson className="w-4 h-4" /> },
   ] as const;
 
   const [active, setActive] = useState<string>("highlights");
@@ -258,7 +254,7 @@ const N8nLinkedinJobSearchPage = ({
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <TiPointOfInterest className="w-5 h-5 shrink-0 text-blue-500" />
+                <Activity className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
 
@@ -333,7 +329,7 @@ const N8nLinkedinJobSearchPage = ({
 
               <ul className="space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Bot className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <SiN8N className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
                   <span><b>n8n Core</b> — Visual builder, credentials, error branches, sub-workflows.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
@@ -353,7 +349,7 @@ const N8nLinkedinJobSearchPage = ({
                   <span><b>Webhook</b> — On-demand searches with query params.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Database className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
                   <span><b>Google Sheets</b> — Persistent queue & status tracking.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
@@ -384,7 +380,7 @@ const N8nLinkedinJobSearchPage = ({
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <GrDocument className="w-5 h-5 shrink-0 text-blue-500" />
+                <FileJson className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
               </div>
 
@@ -425,7 +421,7 @@ const N8nLinkedinJobSearchPage = ({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                <AiOutlineAlignLeft className="w-3 h-3" />
+                <FileJson className="w-3 h-3" />
                 On this page
               </div>
               <div className="relative pl-3">

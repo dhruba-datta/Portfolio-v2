@@ -12,12 +12,11 @@ import {
   ArrowLeft,
   Package,
   Store,
+  Activity,
+  FileJson,
 } from "lucide-react";
-import { TiPointOfInterest } from "react-icons/ti";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
-import { GrDocument } from "react-icons/gr";
-import { AiOutlineAlignLeft } from "react-icons/ai";
 import { GrStorage } from "react-icons/gr";
 import { SiReact, SiExpo, SiJavascript, SiGooglesheets } from "react-icons/si";
 import { useEffect, useRef, useState } from "react";
@@ -152,10 +151,10 @@ const ABPharmacyExpoPage = ({
 
   // Right TOC (same structure as KFC)
   const toc = [
-    { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
+    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-4 h-4" /> },
     { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <FileJson className="w-4 h-4" /> },
   ] as const;
 
   const [active, setActive] = useState<string>("highlights");
@@ -221,7 +220,7 @@ const ABPharmacyExpoPage = ({
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-                AB-Pharmacy Expo
+                AB Pharmacy Expo
               </h1>
               <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
                 A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor
@@ -278,7 +277,7 @@ const ABPharmacyExpoPage = ({
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <TiPointOfInterest className="w-5 h-5 shrink-0 text-blue-500" />
+                <Activity className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
 
@@ -396,7 +395,7 @@ const ABPharmacyExpoPage = ({
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <GrDocument className="w-5 h-5 shrink-0 text-blue-500" />
+                <FileJson className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
               </div>
 
@@ -443,7 +442,7 @@ const ABPharmacyExpoPage = ({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                <AiOutlineAlignLeft className="w-3 h-3" />
+                <FileJson className="w-3 h-3" />
                 On this page
               </div>
               <div className="relative pl-3">

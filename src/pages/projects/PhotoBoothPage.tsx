@@ -13,17 +13,13 @@ import {
   Palette,
   Zap,
   ChevronDown,
-  Users,
-  Settings,
-  Shield,
   ArrowLeft,
   Eye,
+  Activity,
+  FileJson,
 } from "lucide-react";
-import { TiPointOfInterest } from "react-icons/ti";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
-import { GrDocument } from "react-icons/gr";
-import { AiOutlineAlignLeft } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -168,10 +164,10 @@ const PhotoBoothPage = ({
 
   // Right TOC (same sections as KFC style)
   const toc = [
-    { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
+    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-4 h-4" /> },
     { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <FileJson className="w-4 h-4" /> },
   ] as const;
 
   const [active, setActive] = useState<string>("highlights");
@@ -294,7 +290,7 @@ const PhotoBoothPage = ({
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <TiPointOfInterest className="w-5 h-5 shrink-0 text-blue-500" />
+                <Activity className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
 
@@ -412,7 +408,7 @@ const PhotoBoothPage = ({
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <GrDocument className="w-5 h-5 shrink-0 text-blue-500" />
+                <FileJson className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
               </div>
 
@@ -455,7 +451,7 @@ const PhotoBoothPage = ({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                <AiOutlineAlignLeft className="w-3 h-3" />
+                <FileJson className="w-3 h-3" />
                 On this page
               </div>
               <div className="relative pl-3">

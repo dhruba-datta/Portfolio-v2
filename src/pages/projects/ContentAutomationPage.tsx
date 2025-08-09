@@ -8,18 +8,14 @@ import {
   FileJson,
   Code2,
   Send,
-  Database,
-  Bot,
   AlertTriangle,
   Activity,
   ChevronDown,
   ArrowLeft,
 } from "lucide-react";
-import { TiPointOfInterest } from "react-icons/ti";
+import { SiN8N, SiOpenai, SiGooglesheets, SiTrello } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
-import { GrDocument } from "react-icons/gr";
-import { AiOutlineAlignLeft } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -48,13 +44,12 @@ const N8nContentAutomationPage = ({
 
   // chips under title
   const chips = [
-    { name: "n8n", icon: <Bot className="w-3.5 h-3.5" /> },
-    { name: "Workflow JSON", icon: <FileJson className="w-3.5 h-3.5" /> },
+    { name: "n8n", icon: <SiN8N className="w-3.5 h-3.5" /> },
+    { name: "OpenAI", icon: <SiOpenai className="w-3.5 h-3.5" /> },
+    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    { name: "Trello", icon: <SiTrello className="w-3.5 h-3.5" /> },
     { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
-    { name: "Cron", icon: <Clock className="w-3.5 h-3.5" /> },
-    { name: "Code Node (JS)", icon: <Code2 className="w-3.5 h-3.5" /> },
-    { name: "HTTP Request", icon: <Globe2 className="w-3.5 h-3.5" /> },
-    { name: "Self-host / Cloud", icon: <Database className="w-3.5 h-3.5" /> },
+    { name: "Workflow JSON", icon: <FileJson className="w-3.5 h-3.5" /> },
   ];
 
   // features (accordion) — tailored for Content Automation
@@ -125,10 +120,10 @@ const N8nContentAutomationPage = ({
 
   // Right TOC (keep structure; section content adapted for n8n)
   const toc = [
-    { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
+    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-4 h-4" /> },
     { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <FileJson className="w-4 h-4" /> },
   ] as const;
 
   const [active, setActive] = useState<string>("highlights");
@@ -250,7 +245,7 @@ const N8nContentAutomationPage = ({
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <TiPointOfInterest className="w-5 h-5 shrink-0 text-blue-500" />
+                <Activity className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
 
@@ -325,7 +320,7 @@ const N8nContentAutomationPage = ({
 
               <ul className="space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Bot className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <SiN8N className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
                   <span><b>n8n Core</b> — Visual builder, credentials, error workflows.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
@@ -345,7 +340,7 @@ const N8nContentAutomationPage = ({
                   <span><b>Code Node (JS)</b> — Transform, template, and validate payloads.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Database className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
                   <span><b>Sheets/DB</b> — Queues & audit logs via Google Sheets/SQL.</span>
                 </li>
               </ul>
@@ -368,7 +363,7 @@ const N8nContentAutomationPage = ({
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
-                <GrDocument className="w-5 h-5 shrink-0 text-blue-500" />
+                <FileJson className="w-5 h-5 shrink-0 text-blue-500" />
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
               </div>
 
@@ -408,7 +403,7 @@ const N8nContentAutomationPage = ({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                <AiOutlineAlignLeft className="w-3 h-3" />
+                <FileJson className="w-3 h-3" />
                 On this page
               </div>
               <div className="relative pl-3">
@@ -466,5 +461,5 @@ const N8nContentAutomationPage = ({
     </div>
   );
 };
-
+ 
 export default N8nContentAutomationPage;
