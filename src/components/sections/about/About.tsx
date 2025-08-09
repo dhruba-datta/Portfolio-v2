@@ -201,9 +201,8 @@ const About = ({ isDark }: AboutProps) => {
                         rotateY: map.rotY,
                         scale: map.scale,
                         opacity: map.opacity,
-                        translateZ: map.z,
-                        transformPerspective: 1200,
-                      } as any}
+                        z: map.z,
+                      }}
                       transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                       aria-hidden={!isCenter}
                     >

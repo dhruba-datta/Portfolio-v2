@@ -136,7 +136,6 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   useEffect(() => {
     startAutoRotate();
     return () => { if (rotationRef.current) clearInterval(rotationRef.current); };
-    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -203,7 +202,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
 
   const getVisibleCards = () =>
     LEVELS.map(level => {
-      let idx = (currentIdx + level + certifications.length) % certifications.length;
+      const idx = (currentIdx + level + certifications.length) % certifications.length;
       return { cert: certifications[idx], level, idx };
     });
 

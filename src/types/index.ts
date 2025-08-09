@@ -1,16 +1,3 @@
-// Project data structure for portfolio
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: Array<{
-    name: string;
-    icon: React.ReactNode;
-  }>;
-  link?: string;
-  github?: string;
-}
 // Project types
 export interface Project {
   id: string;

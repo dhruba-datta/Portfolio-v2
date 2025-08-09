@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Project } from '../../../types';
 import { Link } from 'react-router-dom';
 import { useMemo, useState, useEffect } from 'react';
@@ -217,7 +218,7 @@ const categories = [
   { key: 'automation', label: 'Automation', icon: SiN8N },
 ];
 
-const categoryMeta: Record<string, { label: string; Icon: any }> = {
+const categoryMeta: Record<string, { label: string; Icon: React.ElementType }> = {
   development: { label: 'Web', Icon: Code2 },
   app: { label: 'App', Icon: Smartphone },
   automation: { label: 'Automation', Icon: SiN8N },
