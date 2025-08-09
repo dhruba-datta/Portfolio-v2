@@ -1,177 +1,166 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Globe2, Languages, ShoppingCart, Smartphone, Code, Database, Palette, Zap, ChevronDown, Users, Layers, Settings, Shield, ArrowLeft } from 'lucide-react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navigation from '../../components/ui/Navigation';
-import Footer from '../../components/ui/Footer';
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ExternalLink,
+  Github,
+  Languages,
+  ShoppingCart,
+  Smartphone,
+  Database,
+  Zap,
+  ChevronDown,
+  ArrowLeft,
+  BadgeCheck,     // For modern-ui feature
+} from "lucide-react";
+import { TiPointOfInterest } from "react-icons/ti";
+import { BsAppIndicator } from "react-icons/bs";
+import { LuSettings2 } from "react-icons/lu";
+import { GrDocument } from "react-icons/gr";
+import { BiLogoNetlify, BiLogoTypescript } from "react-icons/bi";
+import { GrStorage } from "react-icons/gr";
+import { FaVuejs } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { AiOutlineAlignLeft } from "react-icons/ai";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navigation from "../../components/ui/Navigation";
+import Footer from "../../components/ui/Footer";
+import ContactCTA from "../../components/sections/ContactCTA";
 
 interface KfcClonePageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
+  coverSrc?: string;
 }
 
-const KfcClonePage = ({ isDark, toggleTheme }: KfcClonePageProps) => {
+const KfcClonePage = ({
+  isDark,
+  toggleTheme,
+  coverSrc = "/images/kfc-cover.jpg",
+}: KfcClonePageProps) => {
   const navigate = useNavigate();
-  
-  // Fallback local theme state if props not provided
+
+  // local theme fallback
   const [localDark, setLocalDark] = useState(false);
-  const effectiveIsDark = typeof isDark === 'boolean' ? isDark : localDark;
+  const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
-    typeof toggleTheme === 'function'
-      ? toggleTheme
-      : () => setLocalDark((d) => !d);
+    typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
 
-  const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
+  // chips under title
+  const chips = [
+    { name: "Vue 3", icon: <FaVuejs className="w-3.5 h-3.5" /> },
+    { name: "TailwindCSS", icon: <RiTailwindCssFill className="w-3.5 h-3.5" /> },
+    { name: "TypeScript/ES6+", icon: <BiLogoTypescript className="w-3.5 h-3.5" /> },
+    { name: "Vue I18n", icon: <Languages className="w-3.5 h-3.5" /> },
+    { name: "localStorage", icon: <GrStorage className="w-3.5 h-3.5" /> },
+    { name: "Netlify", icon: <BiLogoNetlify className="w-3.5 h-3.5" /> },
+    { name: "GitHub", icon: <Github className="w-3.5 h-3.5" /> },
+  ];
 
+  // features
   const features = [
     {
-      id: 'multilingual',
+      id: "modern-ui",
+      icon: <BadgeCheck className="w-5 h-5" />,
+      title: "Modern UI/UX",
+      summary: "Minimal layout with bold type & soft depth",
+      details: [
+        "Elegant spacing and readable line lengths",
+        "Subtle mesh/dots background for depth",
+        "Consistent pills and glass cards",
+      ],
+    },
+    {
+      id: "multilingual",
       icon: <Languages className="w-5 h-5" />,
-      title: 'Multilingual Support',
-      summary: 'Real-time language switching with Vue I18n',
-      details: [
-        'Real-time language switching between English, Bengali, and Hindi',
-        'Vue I18n integration for seamless translations',
-        'Translated UI elements throughout the application',
-        'localStorage persistence for language preferences'
-      ]
+      title: "Multilingual Support",
+      summary: "Real-time language switch (EN/BN/HI)",
+      details: ["Vue I18n integration", "Preference persistence", "Instant updates"],
     },
     {
-      id: 'responsive',
-      icon: <Smartphone className="w-5 h-5" />,
-      title: 'Responsive Design',
-      summary: 'Mobile-first design with Tailwind CSS',
-      details: [
-        'Mobile-first approach ensuring optimal mobile experience',
-        'Tailwind CSS for consistent responsive layouts',
-        'Optimized layouts for menu, cart, checkout, and profile pages',
-        'Touch-friendly interface with responsive components'
-      ]
-    },
-    {
-      id: 'ecommerce',
+      id: "workflow",
       icon: <ShoppingCart className="w-5 h-5" />,
-      title: 'E-commerce Workflow',
-      summary: 'Complete ordering system with cart and checkout',
-      details: [
-        'Real-time search and filtering for product categories (Buckets, Chicken, Burgers)',
-        'Dynamic product cards with detailed information',
-        'Product modal with one-click "Add to Cart" functionality',
-        'Shopping cart with add/remove items and live total calculations',
-        'Simulated OTP signup and persistent login system',
-        'Mock order history displayed in user profile',
-        'Validated address form and mock payment options (Cash/Card)',
-        'Order confirmation and tracking system'
-      ]
+      title: "Ordering Workflow",
+      summary: "Search → Add to cart → Checkout",
+      details: ["Cards & modal details", "Live cart totals", "Mock auth + order history"],
     },
     {
-      id: 'components',
-      icon: <Layers className="w-5 h-5" />,
-      title: 'Modular Components',
-      summary: 'Reusable and maintainable component architecture',
-      details: [
-        'Responsive navbar and footer that adapt to user state',
-        'Accessible language switcher for instant toggling',
-        'Custom Vue toast notifications for cart, order, and error feedback',
-        'Reusable modals for product details and confirmations',
-        'Componentized architecture for easy maintenance'
-      ]
+      id: "responsive",
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "Responsive by default",
+      summary: "Mobile-first, touch-friendly UI",
+      details: ["Adaptive layout", "Tap targets & keyboard access"],
     },
     {
-      id: 'ux',
-      icon: <Palette className="w-5 h-5" />,
-      title: 'UX Enhancements',
-      summary: 'Smooth animations and accessibility features',
-      details: [
-        'Vue transitions for smooth modal and route animations',
-        'ARIA-compliant markup for accessibility',
-        'Interactive hover, focus, and active states',
-        'Intuitive user interface with clear visual feedback'
-      ]
-    },
-    {
-      id: 'optimization',
+      id: "performance",
       icon: <Zap className="w-5 h-5" />,
-      title: 'Front-End Optimization',
-      summary: 'Performance-focused with modern best practices',
-      details: [
-        'Vue Router for seamless single-page navigation',
-        'Vue 3 reactivity with localStorage integration',
-        'Semantic HTML and meta tags for SPA SEO optimization',
-        'Lazy-loaded images for improved performance',
-        'Minimal dependencies for faster load times'
-      ]
+      title: "Performance minded",
+      summary: "Small deps, lazy images, SPA SEO basics",
+      details: ["Vue Router", "Minimal deps", "Lazy image loading"],
     },
     {
-      id: 'persistence',
+      id: "persistence",
       icon: <Database className="w-5 h-5" />,
-      title: 'Data Persistence',
-      summary: 'Secure localStorage with API-ready architecture',
-      details: [
-        'Secure localStorage implementation for cart data',
-        'User profile and session persistence',
-        'Language preference storage',
-        'API-ready architecture for easy backend integration'
-      ]
-    }
+      title: "Data persistence",
+      summary: "API-ready cart & session storage",
+      details: ["Cart/session in localStorage", "Easy swap to real APIs"],
+    },
   ];
+  const [expanded, setExpanded] = useState<string | null>("modern-ui");
 
-  const techStack = [
-    { name: 'Vue.js 3', icon: <Code className="w-4 h-4" /> },
-    { name: 'Tailwind CSS', icon: <Palette className="w-4 h-4" /> },
-    { name: 'JavaScript ES6+', icon: <Code className="w-4 h-4" /> },
-    { name: 'Vue I18n', icon: <Languages className="w-4 h-4" /> },
-    { name: 'Netlify', icon: <Globe2 className="w-4 h-4" /> }
-  ];
+  // Right TOC
+  const toc = [
+    { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
+    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
+    { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
+  ] as const;
 
-  const techStackDetailed = [
-    {
-      name: 'Vue.js 3',
-      icon: <Code className="w-5 h-5" />,
-      description: 'Framework for all app features, routing, components, multilingual support, and UI logic'
-    },
-    {
-      name: 'Tailwind CSS',
-      icon: <Palette className="w-5 h-5" />,
-      description: 'Utility-first CSS framework for responsive and modern design'
-    },
-    {
-      name: 'JavaScript (ES6+)',
-      icon: <Code className="w-5 h-5" />,
-      description: 'Application scripting and interactivity'
-    },
-    {
-      name: 'localStorage API',
-      icon: <Database className="w-5 h-5" />,
-      description: 'Persistence for cart, user session, and preferences'
-    },
-    {
-      name: 'Netlify',
-      icon: <Globe2 className="w-5 h-5" />,
-      description: 'Static site deployment and hosting'
-    },
-    {
-      name: 'Git & GitHub',
-      icon: <Github className="w-5 h-5" />,
-      description: 'Version control and project repository'
-    }
-  ];
+  const [active, setActive] = useState<string>("highlights");
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
-  const toggleFeature = (featureId: string) => {
-    setExpandedFeature(expandedFeature === featureId ? null : featureId);
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        const top = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (top?.target?.id) setActive(top.target.id);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+    );
+    toc.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      sectionRefs.current[id] = el;
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 bg-white text-black${effectiveIsDark ? ' dark' : ''} dark:bg-gray-900 dark:text-white`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${
+        effectiveIsDark ? " dark" : ""
+      } dark:bg-gray-900 dark:text-white`}
+    >
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
-      
-      {/* Enhanced background pattern - lighter in dark mode */}
-      <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 -z-10"></div>
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-5 dark:opacity-10 -z-10"></div>
-      
-      <main className="pt-20">
+
+      <main>
+        {/* Full-width cover under navbar */}
+        <div className="relative h-40 sm:h-56 md:h-64 -z-10">
+          <div
+            className="absolute inset-0 bg-center bg-cover"
+            style={{ backgroundImage: `url('${coverSrc}')` }}
+          />
+          <div className="absolute inset-0 backdrop-blur-[6px] opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/5 dark:from-black/30 dark:via-transparent dark:to-black/20" />
+        </div>
+
         {/* Back Button */}
-        <div className="container mx-auto px-4 py-4 max-w-4xl">
+        <div className="container mx-auto px-5 pt-18 pb-8 max-w-6xl">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -184,274 +173,295 @@ const KfcClonePage = ({ isDark, toggleTheme }: KfcClonePageProps) => {
           </motion.button>
         </div>
 
-        {/* Hero Section */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm mb-6 font-medium border border-blue-200 dark:border-blue-800">
-              <Code className="w-3 h-3" />
-              Web Development
+        {/* Header */}
+        <header className="max-w-6xl mx-auto px-4 md:px-6 -mt-2 md:-mt-4">
+
+          <div className="flex items-start justify-between gap-6">
+            <div className="flex-1">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+                KFC Clone
+              </h1>
+              <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
+                A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on
+                performance, multilingual UX, and a clean component architecture.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {chips.map((c) => (
+                  <span
+                    key={c.name}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border
+                               border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
+                               text-gray-700 dark:text-gray-300"
+                  >
+                    <span className="text-gray-500 dark:text-gray-400">{c.icon}</span>
+                    {c.name}
+                  </span>
+                ))}
+              </div>
             </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500 bg-clip-text text-transparent leading-tight">
-              KFC Clone
-            </h1>
-            
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
-              A fully client-side, single-page food ordering application inspired by KFC Bangladesh. Built with Vue.js 3, showcasing modern web development, UX design, and internationalization.
-            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <motion.a 
-                href="https://kfc-bd.netlify.app/" 
-                target="_blank" 
+            {/* GitHub + Check it out */}
+            <div className="hidden sm:flex items-center gap-2">
+              <a
+                href="https://github.com/dhruba-datta/kfc-clone"
+                target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500 hover:from-blue-600 hover:via-indigo-600 hover:to-cyan-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+                aria-label="Source code on GitHub"
               >
-                <ExternalLink className="w-4 h-4" />
-                View Live Demo
-              </motion.a>
-              <motion.a 
-                href="https://github.com/dhruba-datta/kfc-clone" 
-                target="_blank" 
+                <Github className="w-5 h-5" />
+              </a>
+              <motion.a
+                href="https://kfc-bd.netlify.app/"
+                target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800/50 px-8 py-3 rounded-lg font-medium transition-all duration-200"
+                className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-full
+                           border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
+                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
               >
-                <Github className="w-4 h-4" />
-                Source Code
+                Check it out <ExternalLink className="w-4 h-4" />
               </motion.a>
             </div>
-          </motion.div>
+          </div>
+        </header>
 
-          {/* Enhanced Tech Stack Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3 mb-20"
-          >
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 px-4 py-2 rounded-full text-sm transition-all duration-200 border border-gray-200 dark:border-gray-700"
-              >
-                <span className="text-gray-600 dark:text-gray-400">{tech.icon}</span>
-                {tech.name}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        {/* Layout: main + right toc */}
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-14">
+          {/* MAIN */}
+          <article className="space-y-20">
+            {/* Feature Highlights — chevron on right + click/tap animation */}
+            <section id="highlights" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <TiPointOfInterest className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
+              </div>
 
-        {/* Features Section */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Application Features
-            </h2>
-            
-          </motion.div>
-
-          <div className="space-y-3">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 bg-white dark:bg-gray-800 hover:shadow-lg"
-              >
-                <button
-                  onClick={() => toggleFeature(feature.id)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-100 dark:border-blue-800/50">
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1 text-gray-900 dark:text-white">{feature.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm">{feature.summary}</p>
-                    </div>
-                  </div>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                      expandedFeature === feature.id ? 'rotate-180' : ''
-                    }`} 
-                  />
-                </button>
-                
-                <AnimatePresence>
-                  {expandedFeature === feature.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
+              <div className="rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
+                {features.map((f) => {
+                  const open = expanded === f.id;
+                  return (
+                    <div
+                      key={f.id}
+                      className="border-b last:border-none border-blue-200 dark:border-gray-700 bg-blue-50/30 dark:bg-gray-800"
                     >
-                      <div className="px-6 pb-6 pt-0 border-t border-gray-100 dark:border-gray-700">
-                        <ul className="mt-4 space-y-2">
-                          {feature.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                      <motion.button
+                        whileTap={{ scale: 0.995 }}
+                        onClick={() => setExpanded(open ? null : f.id)}
+                        className="w-full flex items-center justify-between gap-4 p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="mt-0.5 text-blue-500">{f.icon}</div>
+                          <div>
+                            <div className="font-semibold text-gray-900 dark:text-gray-100">{f.title}</div>
+                            {!open && (
+                              <div className="text-sm text-gray-600 dark:text-gray-300">{f.summary}</div>
+                            )}
+                          </div>
+                        </div>
+                        <ChevronDown
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                        />
+                      </motion.button>
 
-        {/* Tech Stack Used Section */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              Tech Stack Used
-            </h2>
-           
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {techStackDetailed.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-start gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 hover:shadow-lg group"
-              >
-                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex-shrink-0 border border-blue-100 dark:border-blue-800/50 group-hover:scale-105 transition-transform">
-                  {tech.icon}
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">{tech.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    {tech.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* What Makes It Unique */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              What Makes This Project Unique
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto">
-              <div className="space-y-6">
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-800/30"
-                >
-                  <div className="w-8 h-8 text-green-500 mt-1 flex-shrink-0">
-                    <Settings className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Built 100% by me</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Every feature, animation, and interaction coded from scratch</p>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/30"
-                >
-                  <div className="w-8 h-8 text-blue-500 mt-1 flex-shrink-0">
-                    <Globe2 className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Multilingual from the ground up</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Designed for Bangladesh's real user base with proper i18n</p>
-                  </div>
-                </motion.div>
+                      <AnimatePresence>
+                        {open && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-6 pb-5 pt-0">
+                              <p className="mb-3 text-sm text-gray-600 dark:text-gray-300">{f.summary}</p>
+                              <ul className="space-y-2">
+                                {f.details.map((d, i) => (
+                                  <motion.li
+                                    key={i}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.15, delay: i * 0.05 }}
+                                    className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300"
+                                  >
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2" />
+                                    <span>{d}</span>
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
-              
-              <div className="space-y-6">
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-800/30"
-                >
-                  <div className="w-8 h-8 text-purple-500 mt-1 flex-shrink-0">
-                    <Shield className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Production-ready</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Can be extended for real business use with minimal backend addition</p>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/30"
-                >
-                  <div className="w-8 h-8 text-indigo-500 mt-1 flex-shrink-0">
-                    <Users className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Recruiter-friendly</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Demonstrates hands-on Vue, state, UX, and multi-language SPA experience</p>
-                  </div>
-                </motion.div>
+            </section>
+
+            {/* Technologies Used */}
+            <section id="tech" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <BsAppIndicator className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
+              </div>
+
+              <ul className="space-y-2 text-gray-800 dark:text-gray-200">
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <FaVuejs className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Vue 3</b> — Components, routing & SPA.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <RiTailwindCssFill className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Tailwind CSS</b> — Utility-first styling.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <BiLogoTypescript className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>TypeScript/ES6+</b> — Safer, scalable code.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Languages className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Vue I18n</b> — Multilingual UI & persistence.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <GrStorage className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>localStorage</b> — Cart/session persistence.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <BiLogoNetlify className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Netlify</b> — Deploy & host.</span>
+                </li>
+              </ul>
+            </section>
+
+            {/* Use Cases */}
+            <section id="use-cases" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <LuSettings2 className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
+              </div>
+              <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
+                <li>Food ordering prototypes & demos</li>
+                <li>Real projects with quick API hookup</li>
+                <li>Portfolios showcasing SPA/i18n/UX</li>
+                <li>Training projects for Vue 3</li>
+              </ul>
+            </section>
+
+            {/* How to Use */}
+            <section id="how-to" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <GrDocument className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
+              </div>
+
+              <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-6 space-y-4">
+                <ol className="list-decimal list-inside space-y-2 text-gray-800 dark:text-gray-200">
+                  <li>
+                    Clone:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      git clone https://github.com/dhruba-datta/kfc-clone
+                    </code>
+                  </li>
+                  <li>
+                    Install deps:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      npm install
+                    </code>
+                    &nbsp;or&nbsp;
+                    <code className="px-1 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      pnpm i
+                    </code>
+                  </li>
+                  <li>
+                    Start dev server:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      npm run dev
+                    </code>
+                  </li>
+                  <li>
+                    Build:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      npm run build
+                    </code>
+                    &nbsp;→ preview:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      npm run preview
+                    </code>
+                  </li>
+                  <li>
+                    Deploy (Netlify): drag&nbsp;
+                    <code className="px-1 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
+                      dist
+                    </code>
+                    &nbsp;to Netlify or connect repo.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            
+          </article>
+
+          {/* RIGHT TOC */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-28">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                <AiOutlineAlignLeft className="w-3 h-3" />
+                On this page
+              </div>
+              <div className="relative pl-3">
+                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600" />
+                <nav className="space-y-1">
+                  {toc.map((t) => {
+                    const isActive = active === t.id;
+                    return (
+                      <button
+                        key={t.id}
+                        onClick={() => scrollTo(t.id)}
+                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${
+                          isActive
+                            ? "font-semibold text-gray-900 dark:text-gray-100"
+                            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
+                        }`}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {isActive && (
+                          <span className="absolute -left-[3px] top-1.5 h-4 w-[2px] rounded bg-gray-900 dark:bg-gray-100" />
+                        )}
+                        <span className="text-gray-400">{t.icon}</span>
+                        {t.label}
+                      </button>
+                    );
+                  })}
+                </nav>
               </div>
             </div>
-          </motion.div>
+          </aside>
         </div>
 
-        
+        {/* Mobile CTA */}
+        <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
+          <a
+            href="https://kfc-bd.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+          >
+            Check it out <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* Contact CTA Section */}
+        <ContactCTA 
+          title="Impressed by this project?"
+          description="I specialize in creating modern, scalable web applications. Let's discuss how we can work together on your next project."
+          primaryButtonText="Get In Touch"
+          secondaryButtonText="Explore More Work"
+        />
       </main>
-      
+
       <Footer />
     </div>
   );
