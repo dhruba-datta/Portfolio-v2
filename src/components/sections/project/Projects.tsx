@@ -28,7 +28,7 @@ const projects: Project[] = [
   },
   {
     id: 'ab-pharmacy-expo',
-    title: 'AB Pharmacy',
+    title: 'AB Pharmacy Expo',
     description:
       'Android app for medical store with direct ordering and comprehensive business management features.',
     longDescription:
@@ -42,7 +42,7 @@ const projects: Project[] = [
   },
   {
     id: 'photoBooth',
-    title: 'photoBooth',
+    title: 'PhotoBooth',
     description:
       'Social photo sharing app with advanced features, modern UI and comprehensive user engagement tools.',
     longDescription:
@@ -68,8 +68,8 @@ const projects: Project[] = [
     category: 'development',
   },
   {
-    id: 'myportfolio',
-    title: 'MyPortfolio',
+    id: 'portfolio-v1',
+    title: 'Portfolio v1',
     description:
       'Professional portfolio with clean sections and Google search visibility for enhanced online presence.',
     longDescription:
@@ -77,7 +77,7 @@ const projects: Project[] = [
     image: '/images/portfolio.png',
     tags: ['HTML', 'CSS', 'JavaScript'],
     link: 'https://dhruba-datta.netlify.app/',
-    github: 'https://github.com/dhruba-datta/MyPortfolio',
+    github: 'https://github.com/dhruba-datta/Portfolio-v1',
     featured: true,
     category: 'development',
   },

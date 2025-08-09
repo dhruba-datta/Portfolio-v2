@@ -1,230 +1,231 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Globe2, TrendingUp, Search, BarChart3, Newspaper, Smartphone, Code, Database, Palette, Zap, ChevronDown, Users, Layers, Settings, Shield, ArrowLeft, LineChart, Filter, Eye } from 'lucide-react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navigation from '../../components/ui/Navigation';
-import Footer from '../../components/ui/Footer';
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ExternalLink,
+  Github,
+  Globe2,
+  TrendingUp,
+  Search,
+  BarChart3,
+  Newspaper,
+  Smartphone,
+  Code,
+  Database,
+  Palette,
+  Zap,
+  ChevronDown,
+  ArrowLeft,
+  LineChart,
+} from "lucide-react";
+import { TiPointOfInterest } from "react-icons/ti";
+import { BsAppIndicator } from "react-icons/bs";
+import { LuSettings2 } from "react-icons/lu";
+import { GrDocument } from "react-icons/gr";
+import { AiOutlineAlignLeft } from "react-icons/ai";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import Navigation from "../../components/ui/Navigation";
+import Footer from "../../components/ui/Footer";
+import ContactCTA from "../../components/sections/ContactCTA";
 
 interface CryptoVersePageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
+  coverSrc?: string;
 }
 
-const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => {
+const CryptoVersePage = ({
+  isDark,
+  toggleTheme,
+  coverSrc = "/images/cryptoverse-cover.jpg",
+}: CryptoVersePageProps) => {
   const navigate = useNavigate();
-  
-  // Fallback local theme state if props not provided
+
+  // local theme fallback (aligns with KFC page)
   const [localDark, setLocalDark] = useState(false);
-  const effectiveIsDark = typeof isDark === 'boolean' ? isDark : localDark;
+  const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
-    typeof toggleTheme === 'function'
-      ? toggleTheme
-      : () => setLocalDark((d) => !d);
+    typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
 
-  const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
+  // chips under title
+  const chips = [
+    { name: "React", icon: <Code className="w-3.5 h-3.5" /> },
+    { name: "Redux Toolkit", icon: <Database className="w-3.5 h-3.5" /> },
+    { name: "Ant Design", icon: <Palette className="w-3.5 h-3.5" /> },
+    { name: "Chart.js", icon: <LineChart className="w-3.5 h-3.5" /> },
+    { name: "RapidAPI", icon: <Globe2 className="w-3.5 h-3.5" /> },
+    { name: "React Router", icon: <Globe2 className="w-3.5 h-3.5" /> },
+  ];
 
+  // features (accordion)
   const features = [
     {
-      id: 'dashboard',
+      id: "dashboard",
       icon: <TrendingUp className="w-5 h-5" />,
-      title: 'Real-Time Stats Dashboard',
-      summary: 'Live cryptocurrency metrics updated via RapidAPI',
+      title: "Real-Time Stats Dashboard",
+      summary: "Live cryptocurrency metrics via RapidAPI",
       details: [
-        'Global cryptocurrency market cap and 24h volume tracking',
-        'Real-time updates for total assets and market statistics',
-        'Live price feeds for over 100+ cryptocurrencies',
-        'Performance indicators with percentage changes',
-        'Market dominance charts and trending analysis'
-      ]
+        "Global market cap & 24h volume tracking",
+        "Real-time totals & market statistics",
+        "Live price feeds for 100+ coins",
+        "Performance % changes & dominance",
+        "Trending assets overview",
+      ],
     },
     {
-      id: 'search',
+      id: "search",
       icon: <Search className="w-5 h-5" />,
-      title: 'Search & Filtering',
-      summary: 'Advanced search and filter capabilities for crypto assets',
+      title: "Search & Filtering",
+      summary: "Advanced search and sort for assets",
       details: [
-        'Search cryptocurrencies by name, symbol, or market data',
-        'Real-time filtering with instant results display',
-        'Sort by market cap, price, volume, and percentage changes',
-        'Advanced filters for market categories and rankings',
-        'Bookmark and watchlist functionality for favorite coins'
-      ]
+        "Search by name, symbol or metrics",
+        "Instant filters with live results",
+        "Sort by cap, price, volume, change",
+        "Category/ranking filters",
+        "Watchlist & bookmarks",
+      ],
     },
     {
-      id: 'details',
+      id: "details",
       icon: <BarChart3 className="w-5 h-5" />,
-      title: 'Cryptocurrency Detail View',
-      summary: 'Interactive charts and comprehensive crypto analysis',
+      title: "Cryptocurrency Detail View",
+      summary: "Interactive charts & analysis",
       details: [
-        'Interactive price charts powered by Chart.js integration',
-        'Historical price data with multiple timeframe options',
-        'Volume trends and trading activity visualization',
-        'Market statistics including supply, market cap, and rankings',
-        'Technical indicators and price prediction insights'
-      ]
+        "Chart.js price charts & timeframes",
+        "Historical prices & volume trends",
+        "Supply, cap, rank & stats",
+        "Technical indicators (demo)",
+        "Insightful summaries",
+      ],
     },
     {
-      id: 'news',
+      id: "news",
       icon: <Newspaper className="w-5 h-5" />,
-      title: 'Latest Crypto News',
-      summary: 'Real-time cryptocurrency news and market updates',
+      title: "Latest Crypto News",
+      summary: "Real-time news & updates",
       details: [
-        'Latest crypto articles fetched via RapidAPI endpoints',
-        'Market analysis and expert opinions integration',
-        'Breaking news alerts for significant market movements',
-        'Categorized news by topics and cryptocurrency projects',
-        'Social sentiment analysis and community discussions'
-      ]
+        "Latest articles via RapidAPI",
+        "Market analysis & opinions",
+        "Breaking alerts for big moves",
+        "Topics/projects categorization",
+        "Sentiment & community buzz",
+      ],
     },
     {
-      id: 'responsive',
+      id: "responsive",
       icon: <Smartphone className="w-5 h-5" />,
-      title: 'Responsive Interface',
-      summary: 'Ant Design powered responsive layouts for all devices',
+      title: "Responsive Interface",
+      summary: "Ant Design layouts for all devices",
       details: [
-        'Mobile-first responsive design with Ant Design components',
-        'Adaptive layouts for tablets, mobile, and desktop screens',
-        'Touch-friendly interface with optimized mobile navigation',
-        'Progressive Web App features for offline functionality',
-        'Cross-browser compatibility and performance optimization'
-      ]
+        "Mobile-first responsive grid",
+        "Tablet/desktop adaptive views",
+        "Touch-friendly navigation",
+        "PWA-ready offline basics",
+        "Cross-browser optimized",
+      ],
     },
     {
-      id: 'navigation',
-      icon: <Eye className="w-5 h-5" />,
-      title: 'Smooth Navigation',
-      summary: 'React Router powered multi-page navigation system',
-      details: [
-        'Fast client-side routing between dashboard, markets, and news',
-        'Deep linking support for individual cryptocurrency pages',
-        'Breadcrumb navigation for improved user experience',
-        'Loading states and smooth transitions between routes',
-        'Browser history management and URL-based state persistence'
-      ]
-    },
-    {
-      id: 'state',
-      icon: <Database className="w-5 h-5" />,
-      title: 'Redux State Management',
-      summary: 'Redux Toolkit for efficient global state handling',
-      details: [
-        'Centralized state management for market data and user preferences',
-        'RTK Query for efficient API caching and data synchronization',
-        'Redux slices for crypto data, news items, and search filters',
-        'Optimistic updates and error handling for API operations',
-        'Persistent state for user settings and watchlist preferences'
-      ]
-    },
-    {
-      id: 'performance',
-      icon: <Zap className="w-5 h-5" />,
-      title: 'Performance Optimization',
-      summary: 'Optimized rendering and API management',
-      details: [
-        'Chart.js optimization for smooth real-time data visualization',
-        'API rate limiting and caching strategies for RapidAPI',
-        'Lazy loading for improved initial page load performance',
-        'Memoized components and efficient re-rendering patterns',
-        'Batched API requests to minimize network overhead'
-      ]
-    }
-  ];
-
-  const techStack = [
-    { name: 'React', icon: <Code className="w-4 h-4" /> },
-    { name: 'Redux Toolkit', icon: <Database className="w-4 h-4" /> },
-    { name: 'Ant Design', icon: <Palette className="w-4 h-4" /> },
-    { name: 'Chart.js', icon: <LineChart className="w-4 h-4" /> },
-    { name: 'RapidAPI', icon: <Globe2 className="w-4 h-4" /> }
-  ];
-
-  const techStackDetailed = [
-    {
-      name: 'React',
-      icon: <Code className="w-5 h-5" />,
-      description: 'Component-based UI development with hooks for interactive cryptocurrency dashboard features'
-    },
-    {
-      name: 'Redux Toolkit',
-      icon: <Database className="w-5 h-5" />,
-      description: 'Streamlined global state management for market data, filters, and user preferences with RTK Query'
-    },
-    {
-      name: 'Ant Design',
-      icon: <Palette className="w-5 h-5" />,
-      description: 'Professional pre-styled components for layout, cards, inputs, and responsive grid systems'
-    },
-    {
-      name: 'Chart.js',
-      icon: <LineChart className="w-5 h-5" />,
-      description: 'Interactive data visualization for price trends, volume analysis, and market performance charts'
-    },
-    {
-      name: 'RapidAPI',
+      id: "navigation",
       icon: <Globe2 className="w-5 h-5" />,
-      description: 'Real-time cryptocurrency data and news endpoints for live market information'
+      title: "Smooth Navigation",
+      summary: "Multi-page routing & deep links",
+      details: [
+        "Fast routes: dashboard/markets/news",
+        "Deep links for coin pages",
+        "Breadcrumb patterns",
+        "Graceful loading states",
+        "URL state persistence",
+      ],
     },
     {
-      name: 'React Router DOM',
-      icon: <Code className="w-5 h-5" />,
-      description: 'Client-side routing for seamless navigation between dashboard, markets, and detail views'
-    }
+      id: "state",
+      icon: <Database className="w-5 h-5" />,
+      title: "Redux State Management",
+      summary: "RTK & RTK Query for data flows",
+      details: [
+        "Centralized market & prefs state",
+        "RTK Query cache & sync",
+        "Slices for crypto/news/filters",
+        "Optimistic updates & errors",
+        "Persisted settings & watchlist",
+      ],
+    },
+    {
+      id: "performance",
+      icon: <Zap className="w-5 h-5" />,
+      title: "Performance Optimization",
+      summary: "Lean rendering & API strategy",
+      details: [
+        "Chart.js tuned for smoothness",
+        "Rate limiting & caching",
+        "Lazy loading & code split",
+        "Memoized components",
+        "Batched requests",
+      ],
+    },
   ];
 
-  const toggleFeature = (featureId: string) => {
-    setExpandedFeature(expandedFeature === featureId ? null : featureId);
+  const [expanded, setExpanded] = useState<string | null>("dashboard");
+
+  // Right TOC (same sections as KFC style)
+  const toc = [
+    { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
+    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
+    { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <GrDocument className="w-4 h-4" /> },
+  ] as const;
+
+  const [active, setActive] = useState<string>("highlights");
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        const top = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (top?.target?.id) setActive(top.target.id);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+    );
+    toc.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      sectionRefs.current[id] = el;
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 bg-white text-black${effectiveIsDark ? ' dark' : ''} dark:bg-gray-900 dark:text-white`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${
+        effectiveIsDark ? " dark" : ""
+      } dark:bg-gray-900 dark:text-white`}
+    >
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
-      
-      {/* Crypto-themed animated background */}
-      <div className="fixed inset-0 -z-10 pointer-events-none">
-        {/* Animated radial gradient overlay */}
-        <motion.div
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          style={{
-            background:
-              "radial-gradient(ellipse 65% 45% at 50% 14%,rgba(251,191,36,0.15),transparent 90%)",
-          }}
-        />
-        {/* Animated color blobs */}
-        <motion.div
-          className="absolute top-0 right-1/4 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.15, 1],
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-            opacity: [0.7, 1, 0.7],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-1/3 w-64 h-64 bg-orange-400/25 rounded-full blur-2xl"
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [0, 20, 0],
-            y: [0, -30, 0],
-            opacity: [0.6, 0.9, 0.6],
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        />
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_28px] opacity-10 [mask-image:radial-gradient(ellipse_60%_40%_at_50%_14%,#000_70%,transparent_120%)]"></div>
-      </div>
-      
-      <main className="pt-20">
+
+      <main>
+        {/* Full-width cover under navbar (matches KFC) */}
+        <div className="relative h-40 sm:h-56 md:h-64 -z-10">
+          <div
+            className="absolute inset-0 bg-center bg-cover"
+            style={{ backgroundImage: `url('${coverSrc}')` }}
+          />
+          <div className="absolute inset-0 backdrop-blur-[6px] opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/5 dark:from-black/30 dark:via-transparent dark:to-black/20" />
+        </div>
+
         {/* Back Button */}
-        <div className="container mx-auto px-4 py-4 max-w-4xl">
+        <div className="container mx-auto px-5 pt-18 pb-8 max-w-6xl">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate("/projects")}
             className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -232,272 +233,282 @@ const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => {
           </motion.button>
         </div>
 
-        {/* Hero Section */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 text-yellow-600 dark:text-yellow-400 px-4 py-2 rounded-full text-sm mb-6 font-medium border border-yellow-200 dark:border-yellow-800">
-              <Code className="w-3 h-3" />
-              Web Development
+        {/* Header */}
+        <header className="max-w-6xl mx-auto px-4 md:px-6 -mt-2 md:-mt-4">
+          <div className="flex items-start justify-between gap-6">
+            <div className="flex-1">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+                CryptoVerse
+              </h1>
+              <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
+                A real-time cryptocurrency dashboard built with React, Redux Toolkit & Chart.js. Live markets,
+                smart filters, detailed coin pages, and news—wrapped in a clean Ant Design UI.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {chips.map((c) => (
+                  <span
+                    key={c.name}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border
+                               border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
+                               text-gray-700 dark:text-gray-300"
+                  >
+                    <span className="text-gray-500 dark:text-gray-400">{c.icon}</span>
+                    {c.name}
+                  </span>
+                ))}
+              </div>
             </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 bg-clip-text text-transparent leading-tight">
-              CryptoVerse
-            </h1>
-            
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
-              A real-time, interactive cryptocurrency dashboard built with React, Redux Toolkit, and Chart.js. Features live market data, advanced filtering, and comprehensive crypto analysis with modern UI/UX design.
-            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <motion.a 
-                href="https://cryptoverse20.netlify.app/" 
-                target="_blank" 
+            {/* GitHub + Live */}
+            <div className="hidden sm:flex items-center gap-2">
+              <a
+                href="https://github.com/dhruba-datta/CryptoVerse"
+                target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:from-yellow-600 hover:via-orange-600 hover:to-red-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+                aria-label="Source code on GitHub"
               >
-                <ExternalLink className="w-4 h-4" />
-                View Live Demo
-              </motion.a>
-              <motion.a 
-                href="https://github.com/dhruba-datta/CryptoVerse" 
-                target="_blank" 
+                <Github className="w-5 h-5" />
+              </a>
+              <motion.a
+                href="https://cryptoverse20.netlify.app/"
+                target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800/50 px-8 py-3 rounded-lg font-medium transition-all duration-200"
+                className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-full
+                           border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
+                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
               >
-                <Github className="w-4 h-4" />
-                Source Code
+                Check it out <ExternalLink className="w-4 h-4" />
               </motion.a>
             </div>
-          </motion.div>
+          </div>
+        </header>
 
-          {/* Tech Stack Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3 mb-20"
-          >
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 px-4 py-2 rounded-full text-sm transition-all duration-200 border border-gray-200 dark:border-gray-700"
-              >
-                <span className="text-gray-600 dark:text-gray-400">{tech.icon}</span>
-                {tech.name}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        {/* Layout: main + right toc */}
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-14">
+          {/* MAIN */}
+          <article className="space-y-20">
+            {/* Feature Highlights */}
+            <section id="highlights" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <TiPointOfInterest className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
+              </div>
 
-        {/* Features Section */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Application Features
-            </h2>
-           
-          </motion.div>
-
-          <div className="space-y-3">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 bg-white dark:bg-gray-800 hover:shadow-lg"
-              >
-                <button
-                  onClick={() => toggleFeature(feature.id)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400 rounded-xl border border-yellow-100 dark:border-yellow-800/50">
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1 text-gray-900 dark:text-white">{feature.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm">{feature.summary}</p>
-                    </div>
-                  </div>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                      expandedFeature === feature.id ? 'rotate-180' : ''
-                    }`} 
-                  />
-                </button>
-                
-                <AnimatePresence>
-                  {expandedFeature === feature.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
+              <div className="rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
+                {features.map((f) => {
+                  const open = expanded === f.id;
+                  return (
+                    <div
+                      key={f.id}
+                      className="border-b last:border-none border-blue-200 dark:border-gray-700 bg-blue-50/30 dark:bg-gray-800"
                     >
-                      <div className="px-6 pb-6 pt-0 border-t border-gray-100 dark:border-gray-700">
-                        <ul className="mt-4 space-y-2">
-                          {feature.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                              <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                      <motion.button
+                        whileTap={{ scale: 0.995 }}
+                        onClick={() => setExpanded(open ? null : f.id)}
+                        className="w-full flex items-center justify-between gap-4 p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="mt-0.5 text-blue-500">{f.icon}</div>
+                          <div>
+                            <div className="font-semibold text-gray-900 dark:text-gray-100">{f.title}</div>
+                            {!open && (
+                              <div className="text-sm text-gray-600 dark:text-gray-300">{f.summary}</div>
+                            )}
+                          </div>
+                        </div>
+                        <ChevronDown
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                        />
+                      </motion.button>
 
-        {/* Tech Stack Used Section */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              Tech Stack Used
-            </h2>
-            
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {techStackDetailed.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-start gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 hover:shadow-lg group"
-              >
-                <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400 rounded-xl flex-shrink-0 border border-yellow-100 dark:border-yellow-800/50 group-hover:scale-105 transition-transform">
-                  {tech.icon}
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">{tech.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    {tech.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* What Makes It Unique */}
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              What Makes This Project Stand Out
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto">
-              <div className="space-y-6">
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-800/30"
-                >
-                  <div className="w-8 h-8 text-green-500 mt-1 flex-shrink-0">
-                    <Settings className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Built entirely by me</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Complete dashboard development from API integration to chart visualizations</p>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-100 dark:border-yellow-800/30"
-                >
-                  <div className="w-8 h-8 text-yellow-500 mt-1 flex-shrink-0">
-                    <TrendingUp className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Real-time data integration</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Live cryptocurrency market data with advanced charting and analytics</p>
-                  </div>
-                </motion.div>
+                      <AnimatePresence>
+                        {open && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-6 pb-5 pt-0">
+                              <p className="mb-3 text-sm text-gray-600 dark:text-gray-300">{f.summary}</p>
+                              <ul className="space-y-2">
+                                {f.details.map((d, i) => (
+                                  <motion.li
+                                    key={i}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.15, delay: i * 0.05 }}
+                                    className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300"
+                                  >
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2" />
+                                    <span>{d}</span>
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
-              
-              <div className="space-y-6">
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-800/30"
-                >
-                  <div className="w-8 h-8 text-orange-500 mt-1 flex-shrink-0">
-                    <Shield className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Production-ready architecture</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Redux Toolkit state management with optimized performance and error handling</p>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-800/30"
-                >
-                  <div className="w-8 h-8 text-red-500 mt-1 flex-shrink-0">
-                    <Users className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Fintech expertise showcase</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Demonstrates data visualization, API integration, and financial dashboard skills</p>
-                  </div>
-                </motion.div>
+            </section>
+
+            {/* Technologies Used */}
+            <section id="tech" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <BsAppIndicator className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
+              </div>
+
+              <ul className="space-y-2 text-gray-800 dark:text-gray-200">
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Code className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>React</b> — Component-driven UI with hooks.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Database className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Redux Toolkit</b> — RTK & RTK Query for state + caching.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Palette className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Ant Design</b> — Responsive components & layout.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <LineChart className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Chart.js</b> — Interactive price & volume charts.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>RapidAPI</b> — Market data & news endpoints.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>React Router</b> — Client-side navigation.</span>
+                </li>
+              </ul>
+            </section>
+
+            {/* Use Cases */}
+            <section id="use-cases" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <LuSettings2 className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
+              </div>
+              <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
+                <li>Investor dashboards & personal portfolio trackers</li>
+                <li>Fintech prototypes needing real-time market data</li>
+                <li>Education on Redux, RTK Query & data viz</li>
+                <li>News + markets hub for crypto communities</li>
+              </ul>
+            </section>
+
+            {/* How to Use */}
+            <section id="how-to" className="scroll-mt-28">
+              <div className="flex items-center gap-2 mb-4">
+                <GrDocument className="w-5 h-5 shrink-0 text-blue-500" />
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
+              </div>
+
+              <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-6 space-y-4">
+                <ol className="list-decimal list-inside space-y-2 text-gray-800 dark:text-gray-200">
+                  <li>
+                    Clone:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      git clone https://github.com/dhruba-datta/CryptoVerse
+                    </code>
+                  </li>
+                  <li>
+                    Install deps:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      npm install
+                    </code>
+                  </li>
+                  <li>
+                    Configure environment:&nbsp;Set your RapidAPI keys and API base URLs in <code>.env</code>.
+                  </li>
+                  <li>
+                    Start dev server:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      npm run dev
+                    </code>
+                  </li>
+                  <li>
+                    Build & deploy:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      npm run build
+                    </code>
+                    &nbsp;then deploy to Netlify/Vercel.
+                  </li>
+                </ol>
+              </div>
+            </section>
+          </article>
+
+          {/* RIGHT TOC */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-28">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                <AiOutlineAlignLeft className="w-3 h-3" />
+                On this page
+              </div>
+              <div className="relative pl-3">
+                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600" />
+                <nav className="space-y-1">
+                  {toc.map((t) => {
+                    const isActive = active === t.id;
+                    return (
+                      <button
+                        key={t.id}
+                        onClick={() => scrollTo(t.id)}
+                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${
+                          isActive
+                            ? "font-semibold text-gray-900 dark:text-gray-100"
+                            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
+                        }`}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {isActive && (
+                          <span className="absolute -left-[3px] top-1.5 h-4 w-[2px] rounded bg-gray-900 dark:bg-gray-100" />
+                        )}
+                        <span className="text-gray-400">{t.icon}</span>
+                        {t.label}
+                      </button>
+                    );
+                  })}
+                </nav>
               </div>
             </div>
-          </motion.div>
+          </aside>
         </div>
+
+        {/* Mobile CTA */}
+        <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
+          <a
+            href="https://cryptoverse20.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+          >
+            Check it out <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* Contact CTA Section */}
+        <ContactCTA
+          title="Like this fintech build?"
+          description="I craft data-heavy dashboards with crisp UX and real-time performance. Let’s talk about yours."
+          primaryButtonText="Get In Touch"
+          secondaryButtonText="Explore More Work"
+        />
       </main>
-      
+
       <Footer />
     </div>
   );

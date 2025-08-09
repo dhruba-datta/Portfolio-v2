@@ -2,24 +2,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Smartphone,
-  Search,
-  Calendar,
-  Bell,
+  Globe2,
   Code,
-  Database,
+  Palette,
+  Layers,
+  Smartphone,
   ChevronDown,
   ArrowLeft,
-  Package,
-  Store,
+  Search,
+  FileText,
 } from "lucide-react";
 import { TiPointOfInterest } from "react-icons/ti";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { GrDocument } from "react-icons/gr";
 import { AiOutlineAlignLeft } from "react-icons/ai";
-import { GrStorage } from "react-icons/gr";
-import { SiReact, SiExpo, SiJavascript, SiGooglesheets } from "react-icons/si";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,20 +24,20 @@ import Navigation from "../../components/ui/Navigation";
 import Footer from "../../components/ui/Footer";
 import ContactCTA from "../../components/sections/ContactCTA";
 
-interface ABPharmacyExpoPageProps {
+interface PortfolioV1PageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
   coverSrc?: string;
 }
 
-const ABPharmacyExpoPage = ({
+const PortfolioV1Page = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/ab-pharmacy-cover.jpg",
-}: ABPharmacyExpoPageProps) => {
+  coverSrc = "/images/myportfolio-cover.jpg",
+}: PortfolioV1PageProps) => {
   const navigate = useNavigate();
 
-  // local theme fallback (matches KFC page pattern)
+  // local theme fallback (aligns with other project pages)
   const [localDark, setLocalDark] = useState(false);
   const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
@@ -48,109 +45,65 @@ const ABPharmacyExpoPage = ({
 
   // chips under title
   const chips = [
-    { name: "React Native", icon: <SiReact className="w-3.5 h-3.5" /> },
-    { name: "Expo", icon: <SiExpo className="w-3.5 h-3.5" /> },
-    { name: "JavaScript ES6+", icon: <SiJavascript className="w-3.5 h-3.5" /> },
-    { name: "React Navigation", icon: <Code className="w-3.5 h-3.5" /> },
-    { name: "AsyncStorage", icon: <GrStorage className="w-3.5 h-3.5" /> },
-    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    { name: "HTML", icon: <Code className="w-3.5 h-3.5" /> },
+    { name: "CSS", icon: <Palette className="w-3.5 h-3.5" /> },
+    { name: "JavaScript", icon: <Code className="w-3.5 h-3.5" /> },
+    { name: "Bootstrap", icon: <Layers className="w-3.5 h-3.5" /> },
+    { name: "SEO", icon: <Search className="w-3.5 h-3.5" /> },
+    { name: "Netlify", icon: <Globe2 className="w-3.5 h-3.5" /> },
   ];
 
   // features (accordion)
   const features = [
     {
-      id: "native",
-      icon: <Smartphone className="w-5 h-5" />,
-      title: "Cross-Platform Native Experience",
-      summary: "Optimized for iOS & Android with native feel",
-      details: [
-        "Single codebase deployed to both platforms",
-        "Smooth navigation, gestures & haptics",
-        "Platform-specific UI polish & performance",
-      ],
-    },
-    {
-      id: "schedule",
-      icon: <Calendar className="w-5 h-5" />,
-      title: "Expo Schedule Management",
-      summary: "Real-time timeline, sessions & reminders",
-      details: [
-        "Interactive agenda with speaker/session details",
-        "Live updates & notifications",
-        "Calendar integration & offline caching",
-      ],
-    },
-    {
-      id: "directory",
-      icon: <Store className="w-5 h-5" />,
-      title: "Exhibitor Directory",
-      summary: "Searchable profiles with booth & contact info",
-      details: [
-        "Rich exhibitor profiles & product highlights",
-        "Advanced search & filtering",
-        "Interactive map & booth locations",
-      ],
-    },
-    {
-      id: "catalog",
-      icon: <Package className="w-5 h-5" />,
-      title: "Product & Service Catalog",
-      summary: "Categorized products with details & status",
-      details: [
-        "Clear categories & high-quality images",
-        "Specs, availability & pricing fields",
-        "Comparisons, recommendations & favorites",
-      ],
-    },
-    {
-      id: "search",
+      id: "seo",
       icon: <Search className="w-5 h-5" />,
-      title: "Real-Time Search & Filters",
-      summary: "Instant results across content types",
+      title: "SEO Indexed",
+      summary: "Fast, crawlable pages with proper meta tags",
       details: [
-        "Fast search across products & exhibitors",
-        "Multi-criteria filters, history & suggestions",
-        "Optional voice search pattern",
+        "Semantic HTML structure for better indexing",
+        "Meta title/description & Open Graph tags",
+        "Clean URLs & sitemap/robots setup ready",
       ],
     },
     {
-      id: "components",
-      icon: <Code className="w-5 h-5" />,
-      title: "Modular Components",
-      summary: "Reusable RN components with consistent UX",
+      id: "sections",
+      icon: <Layers className="w-5 h-5" />,
+      title: "Essential Sections",
+      summary: "About, skills, resume, projects & contact",
       details: [
-        "Shared card, list & detail components",
-        "Custom nav transitions & sheets",
-        "Forms with validation & errors",
+        "Dedicated sections for profile & achievements",
+        "Projects grid with role, stack & links",
+        "One-tap resume download & contact links",
       ],
     },
     {
-      id: "features",
-      icon: <Bell className="w-5 h-5" />,
-      title: "Advanced Mobile Features",
-      summary: "Notifications, offline, and integrations",
+      id: "responsive",
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "Responsive & Minimal",
+      summary: "Mobile-first layout with clean typography",
       details: [
-        "Push notifications for live updates",
-        "Offline data caching",
-        "Google Sheets login integration (demo)",
+        "Bootstrap grid & utility classes",
+        "Accessible contrast & focus states",
+        "Optimized spacing & readable line lengths",
       ],
     },
     {
-      id: "persistence",
-      icon: <Database className="w-5 h-5" />,
-      title: "Local Persistence",
-      summary: "AsyncStorage for session & preferences",
+      id: "showcase",
+      icon: <FileText className="w-5 h-5" />,
+      title: "Realistic Showcase",
+      summary: "Skills & projects presented credibly",
       details: [
-        "Persisted auth state & preferences",
-        "Pluggable data layer to swap APIs",
-        "Predictable storage utilities",
+        "Project cards with real descriptions",
+        "Distinguished tech stack badges",
+        "Clear CTAs to live demo & repo",
       ],
     },
   ];
 
-  const [expanded, setExpanded] = useState<string | null>("native");
+  const [expanded, setExpanded] = useState<string | null>("seo");
 
-  // Right TOC (same structure as KFC)
+  // Right TOC (same structure across pages)
   const toc = [
     { id: "highlights", label: "Feature Highlights", icon: <TiPointOfInterest className="w-4 h-4" /> },
     { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
@@ -192,7 +145,7 @@ const ABPharmacyExpoPage = ({
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
       <main>
-        {/* Full-width cover under navbar (matches KFC) */}
+        {/* Full-width cover under navbar */}
         <div className="relative h-40 sm:h-56 md:h-64 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
@@ -221,12 +174,11 @@ const ABPharmacyExpoPage = ({
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-                AB-Pharmacy Expo App
+                Portfolio v1
               </h1>
               <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
-                A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor
-                directory, product catalogs, and instant search—built with modular components and offline-first
-                UX.
+                A clean, SEO-friendly personal portfolio highlighting your skills, projects, and resume—built with
+                HTML/CSS/JS + Bootstrap and deployed on Netlify.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -244,10 +196,10 @@ const ABPharmacyExpoPage = ({
               </div>
             </div>
 
-            {/* GitHub + Demo */}
+            {/* GitHub + Live */}
             <div className="hidden sm:flex items-center gap-2">
               <a
-                href="https://github.com/dhruba-datta/AB-Pharmacy-Expo"
+                href="https://github.com/dhruba-datta/Portfolio-v1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
@@ -256,7 +208,7 @@ const ABPharmacyExpoPage = ({
                 <Github className="w-5 h-5" />
               </a>
               <motion.a
-                href="http://surl.li/lkiufr"
+                href="https://dhruba-datta.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
@@ -353,28 +305,24 @@ const ABPharmacyExpoPage = ({
 
               <ul className="space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiReact className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>React Native</b> — Native iOS/Android with one codebase.</span>
+                  <Code className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>HTML</b> — Semantic, accessible markup.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiExpo className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Expo</b> — Build, test, deploy & access device APIs.</span>
-                </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiJavascript className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>JavaScript (ES6+)</b> — Async flows, state & API logic.</span>
+                  <Palette className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>CSS</b> — Modern layout & typography.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
                   <Code className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>React Navigation</b> — Native navigation patterns.</span>
+                  <span><b>JavaScript</b> — Interactive components & routing stubs.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <GrStorage className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>AsyncStorage</b> — Offline cache & preferences.</span>
+                  <Layers className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Bootstrap</b> — Grid, utilities & responsive helpers.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Google Sheets</b> — Lightweight demo auth/data integration.</span>
+                  <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Netlify</b> — Simple deploys & global CDN.</span>
                 </li>
               </ul>
             </section>
@@ -386,10 +334,10 @@ const ABPharmacyExpoPage = ({
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
-                <li>Pharmacy & medical expos (attendee companion app)</li>
-                <li>Trade shows needing schedules, exhibitors & catalogs</li>
-                <li>Client demos for native app capability & UX</li>
-                <li>Starter kit for event-industry mobile products</li>
+                <li>Personal portfolio and resume website</li>
+                <li>Freelancer landing page with case studies</li>
+                <li>Job application showcase with live project links</li>
+                <li>Template starter for junior devs</li>
               </ul>
             </section>
 
@@ -405,34 +353,20 @@ const ABPharmacyExpoPage = ({
                   <li>
                     Clone:&nbsp;
                     <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      git clone https://github.com/dhruba-datta/AB-Pharmacy-Expo
+                      git clone https://github.com/dhruba-datta/Portfolio-v1
                     </code>
                   </li>
                   <li>
-                    Install deps:&nbsp;
+                    Open locally:&nbsp;double-click <code>index.html</code>, or run a local server:&nbsp;
                     <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npm install
+                      npx serve
                     </code>
                   </li>
                   <li>
-                    Start (Expo):&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo start
-                    </code>
-                    &nbsp;then run on device/emulator.
+                    Customize content in <code>about</code>, <code>skills</code>, <code>projects</code> & <code>contact</code> sections.
                   </li>
                   <li>
-                    Build (optional):&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo prebuild && npx expo run:android
-                    </code>
-                    &nbsp;/&nbsp;
-                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
-                      npx expo run:ios
-                    </code>
-                  </li>
-                  <li>
-                    Configure integrations (Sheets/auth) in <code>env</code> or config as needed.
+                    Deploy (Netlify): drag the folder or connect the repo for CI/CD.
                   </li>
                 </ol>
               </div>
@@ -479,7 +413,7 @@ const ABPharmacyExpoPage = ({
         {/* Mobile CTA */}
         <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
           <a
-            href="http://surl.li/lkiufr"
+            href="https://dhruba-datta.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
@@ -490,8 +424,8 @@ const ABPharmacyExpoPage = ({
 
         {/* Contact CTA Section */}
         <ContactCTA
-          title="Like what you see?"
-          description="I build performant, scalable native apps with a clean UX. Let’s discuss your event or product."
+          title="Want a portfolio like this?"
+          description="I build clean, SEO-friendly personal sites that convert. Let’s craft yours."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />
@@ -502,4 +436,4 @@ const ABPharmacyExpoPage = ({
   );
 };
 
-export default ABPharmacyExpoPage;
+export default PortfolioV1Page;
