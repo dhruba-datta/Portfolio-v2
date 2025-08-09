@@ -97,8 +97,8 @@ export interface PhotoItem {
   id: string;
   title: string;
   image: string;
+  location: string;
   description?: string;
-  instagramUrl?: string;
 }
 
 // Education types

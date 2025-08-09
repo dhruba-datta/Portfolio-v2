@@ -2,52 +2,45 @@
 export interface PhotoData {
   id: string;
   image: string;
-  caption: string;
-  instagramUrl: string;
+  location: string;
   alt: string;
 }
 
 export const photos: PhotoData[] = [
   {
     id: '1',
-    image: '/images/photos/photo1.jpg',
-    caption: 'Your photo caption here',
-    instagramUrl: 'https://www.instagram.com/p/your-post-1/',
-    alt: 'Photography sample 1'
+    image: '/images/photography/goa.jpg',
+    location: 'Goa, India',
+    alt: 'Beautiful sunset at Goa beach'
   },
   {
     id: '2',
-    image: '/images/photos/photo2.jpg',
-    caption: 'Your photo caption here',
-    instagramUrl: 'https://www.instagram.com/p/your-post-2/',
-    alt: 'Photography sample 2'
+    image: '/images/photography/manali.jpg',
+    location: 'Manali, India',
+    alt: 'Snow-capped mountains in Manali'
   },
   {
     id: '3',
-    image: '/images/photos/photo3.jpg',
-    caption: 'Your photo caption here',
-    instagramUrl: 'https://www.instagram.com/p/your-post-3/',
-    alt: 'Photography sample 3'
+    image: '/images/photography/kerala.jpg',
+    location: 'Kerala, India',
+    alt: 'Backwaters of Kerala'
   },
   {
     id: '4',
-    image: '/images/photos/photo4.jpg',
-    caption: 'Your photo caption here',
-    instagramUrl: 'https://www.instagram.com/p/your-post-4/',
-    alt: 'Photography sample 4'
+    image: '/images/photography/rajasthan.jpg',
+    location: 'Rajasthan, India',
+    alt: 'Desert landscape in Rajasthan'
   },
   {
     id: '5',
-    image: '/images/photos/photo5.jpg',
-    caption: 'Your photo caption here',
-    instagramUrl: 'https://www.instagram.com/p/your-post-5/',
-    alt: 'Photography sample 5'
+    image: '/images/photography/himachal.jpg',
+    location: 'Himachal Pradesh, India',
+    alt: 'Mountain valleys in Himachal Pradesh'
   },
   {
     id: '6',
-    image: '/images/photos/photo6.jpg',
-    caption: 'Your photo caption here',
-    instagramUrl: 'https://www.instagram.com/p/your-post-6/',
-    alt: 'Photography sample 6'
+    image: '/images/photography/mumbai.jpg',
+    location: 'Mumbai, India',
+    alt: 'Mumbai cityscape at sunset'
   }
 ];

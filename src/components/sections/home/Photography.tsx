@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ExternalLink, Camera, Heart, MessageCircle } from 'lucide-react';
+import { Camera, MapPin } from 'lucide-react';
 import { photos } from '../../../data/photos';
 
 const Photography = () => {
@@ -101,13 +101,8 @@ const Photography = () => {
               transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
               className="group"
             >
-              <a
-                href={photo.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
-                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1"
-              >
+              <div className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
+                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1">
                 {/* Image */}
                 <div className="relative aspect-square overflow-hidden">
                   <img
@@ -119,22 +114,13 @@ const Photography = () => {
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Instagram indicator */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full flex items-center justify-center">
-                      <ExternalLink className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-                    </div>
-                  </div>
-
-                  {/* Quick interaction icons */}
+                  {/* Location indicator */}
                   <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center gap-1 text-white">
-                        <Heart className="w-4 h-4" />
-                      </div>
-                      <div className="flex items-center gap-1 text-white">
-                        <MessageCircle className="w-4 h-4" />
-                      </div>
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full">
+                      <MapPin className="w-3 h-3 text-slate-700 dark:text-slate-300" />
+                      <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
+                        {photo.location}
+                      </span>
                     </div>
                   </div>
 
@@ -144,20 +130,17 @@ const Photography = () => {
                 {/* Content */}
                 <div className="p-4">
                   <div className="space-y-2">
-                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed line-clamp-2">
-                      {photo.caption}
-                    </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-500 dark:text-slate-400">
-                        Photography
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                        {photo.location}
                       </span>
                       <span className="text-xs text-purple-600 dark:text-violet-400 font-medium">
-                        View on Instagram
+                        Photography
                       </span>
                     </div>
                   </div>
                 </div>
-              </a>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -177,8 +160,7 @@ const Photography = () => {
               className="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold rounded-2xl bg-gradient-to-r from-purple-500 to-violet-600 dark:from-violet-500 dark:to-purple-600 text-white hover:from-purple-600 hover:to-violet-700 dark:hover:from-violet-600 dark:hover:to-purple-700 shadow-lg shadow-purple-500/25 dark:shadow-violet-500/20 hover:shadow-xl hover:shadow-purple-500/30 dark:hover:shadow-violet-500/25 transition-all duration-300 hover:scale-[1.02] group"
             >
               <Camera className="w-5 h-5" />
-              <span>Follow on Instagram</span>
-              <ExternalLink className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <span>View More Photography</span>
             </a>
           </motion.div>
         </div>
