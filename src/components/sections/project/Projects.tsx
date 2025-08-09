@@ -4,7 +4,6 @@ import { useMemo, useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
   Code2,
-  ExternalLink,
   Github,
   Smartphone,
   Layers,
@@ -28,7 +27,10 @@ import {
   SiOpenai,
   SiTrello,
   SiLinkedin,
-  SiTailwindcss
+  SiTypescript,
+  SiTailwindcss,
+  SiFramer,
+  SiVite
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
@@ -141,6 +143,27 @@ const projects: Project[] = [
     ],
     link: 'https://dhruba-datta.netlify.app/',
     github: 'https://github.com/dhruba-datta/Portfolio-v1',
+    featured: true,
+    category: 'development',
+  },
+  {
+    id: 'portfolio-v2',
+    title: 'Portfolio v2',
+    description:
+      'A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.',
+    longDescription:
+      'Modern React portfolio with TypeScript, Tailwind CSS, animations, and comprehensive project case studies.',
+    image: '/images/portfolio-v2.png',
+    tags: [
+      { name: "React 18", icon: <SiReact className="w-3.5 h-3.5" /> },
+      { name: "TypeScript", icon: <SiTypescript className="w-3.5 h-3.5" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3.5 h-3.5" /> },
+      { name: "Framer Motion", icon: <SiFramer className="w-3.5 h-3.5" /> },
+      { name: "Vite", icon: <SiVite className="w-3.5 h-3.5" /> },
+      { name: "Dark Theme", icon: <Palette className="w-3.5 h-3.5" /> },
+    ],
+    link: '#',
+    github: 'https://github.com/dhruba-datta/Portfolio-v2',
     featured: true,
     category: 'development',
   },

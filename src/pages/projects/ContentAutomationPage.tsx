@@ -16,6 +16,7 @@ import {
 import { SiN8N, SiOpenai, SiGooglesheets, SiTrello } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
+import { AiOutlineAlignLeft } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -403,7 +404,7 @@ const N8nContentAutomationPage = ({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                <FileJson className="w-3 h-3" />
+                <AiOutlineAlignLeft className="w-3 h-3" />
                 On this page
               </div>
               <div className="relative pl-3">

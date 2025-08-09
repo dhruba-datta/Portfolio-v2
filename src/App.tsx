@@ -6,6 +6,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import KfcClonePage from './pages/projects/KfcClonePage';
 import PortfolioV1Page from './pages/projects/PortfolioV1Page';
+import PortfolioV2Page from './pages/projects/PortfolioV2Page';
 import ABPharmacyExpoPage from './pages/projects/ABPharmacyExpoPage';
 import PhotoBoothPage from './pages/projects/PhotoBoothPage';
 import CryptoVersePage from './pages/projects/CryptoVersePage';
@@ -43,6 +44,7 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
       <Route path="/contact" element={<ContactPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/kfc-clone" element={<KfcClonePage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/portfolio-v1" element={<PortfolioV1Page isDark={isDark} toggleTheme={toggleTheme} />} />
+      <Route path="/projects/portfolio-v2" element={<PortfolioV2Page isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/content-automation" element={<ContentAutomationPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/linkedin-job-search" element={<LinkedInJobSearchPage isDark={isDark} toggleTheme={toggleTheme} />} />
       <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />

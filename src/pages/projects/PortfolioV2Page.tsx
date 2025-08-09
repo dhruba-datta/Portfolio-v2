@@ -3,22 +3,21 @@ import {
   ExternalLink,
   Github,
   Globe2,
-  Webhook,
-  Clock,
-  FileJson,
-  Code2,
-  Send,
-  AlertTriangle,
-  Activity,
+  Smartphone,
   ChevronDown,
   ArrowLeft,
-  Search,
-  Filter,
+  FileText,
+  Activity,
+  FileJson,
+  Zap,
+  Sparkles,
+  Monitor,
+  Accessibility,
 } from "lucide-react";
-import { SiN8N, SiGooglesheets, SiLinkedin } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineAlignLeft } from "react-icons/ai";
+import { SiReact, SiTypescript, SiTailwindcss, SiFramer, SiVite, SiNetlify } from "react-icons/si";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,111 +25,118 @@ import Navigation from "../../components/ui/Navigation";
 import Footer from "../../components/ui/Footer";
 import ContactCTA from "../../components/sections/ContactCTA";
 
-interface N8nLinkedinJobSearchPageProps {
+interface PortfolioV2PageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
   coverSrc?: string;
 }
 
-const N8nLinkedinJobSearchPage = ({
+const PortfolioV2Page = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/n8n-linkedin-cover.jpg",
-}: N8nLinkedinJobSearchPageProps) => {
+  coverSrc = "/images/portfolio-v2-cover.jpg",
+}: PortfolioV2PageProps) => {
   const navigate = useNavigate();
 
-  // Local theme fallback (same pattern as other project pages)
+  // local theme fallback (aligns with other project pages)
   const [localDark, setLocalDark] = useState(false);
   const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
     typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
 
-  // Chips under title
+  // chips under title
   const chips = [
-    { name: "n8n", icon: <SiN8N className="w-3.5 h-3.5" /> },
-    { name: "LinkedIn", icon: <SiLinkedin className="w-3.5 h-3.5" /> },
-    { name: "Web Scraping", icon: <Search className="w-3.5 h-3.5" /> },
-    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
-    { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
-    { name: "Data Extraction", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
+    { name: "React 18", icon: <SiReact className="w-3.5 h-3.5" /> },
+    { name: "TypeScript", icon: <SiTypescript className="w-3.5 h-3.5" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3.5 h-3.5" /> },
+    { name: "Framer Motion", icon: <SiFramer className="w-3.5 h-3.5" /> },
+    { name: "Vite", icon: <SiVite className="w-3.5 h-3.5" /> },
+    { name: "Responsive", icon: <Smartphone className="w-3.5 h-3.5" /> },
   ];
 
-  // Features (accordion) — tailored for LinkedIn Job Search automation
+  // features (accordion)
   const features = [
     {
-      id: "discovery",
-      icon: <Activity className="w-5 h-5" />,
-      title: "Job Discovery Pipeline",
-      summary: "Keyword + location search → normalize → store",
+      id: "modern",
+      icon: <Sparkles className="w-5 h-5" />,
+      title: "Modern Architecture",
+      summary: "React 18 + TypeScript with component-based architecture",
       details: [
-        "Fetch recent job posts from a data source/API with HTTP Request",
-        "Normalize fields (title, company, location, postedAt, applyUrl)",
-        "Map to a consistent schema for downstream steps",
+        "Built with React 18 functional components and hooks",
+        "Full TypeScript integration for type safety",
+        "Modular component structure with reusable UI elements",
+        "Clean separation of concerns with organized folder structure",
       ],
     },
     {
-      id: "filters",
-      icon: <Filter className="w-5 h-5" />,
-      title: "Smart Filters & De-duplication",
-      summary: "Tight control over results and no repeat alerts",
+      id: "animations",
+      icon: <SiFramer className="w-5 h-5" />,
+      title: "Smooth Animations",
+      summary: "Framer Motion for professional scroll-based animations",
       details: [
-        "Filter by keywords, locations, seniority, remote/on-site",
-        "De-dupe via hash/URL to avoid repeat notifications",
-        "Optional time-window filter (e.g., last 24–72 hours)",
+        "Scroll-triggered animations with viewport detection",
+        "Staggered animations for lists and grids",
+        "Smooth page transitions and hover effects",
+        "Performance-optimized with reduced motion support",
       ],
     },
     {
-      id: "scheduler",
-      icon: <Clock className="w-5 h-5" />,
-      title: "Scheduling & Triggers",
-      summary: "Run on a schedule or on-demand",
+      id: "responsive",
+      icon: <Monitor className="w-5 h-5" />,
+      title: "Responsive Design",
+      summary: "Mobile-first approach with Tailwind CSS utility classes",
       details: [
-        "Cron schedules for daily/weekly discovery runs",
-        "Webhook endpoint to trigger ad-hoc searches with params",
-        "Replay-safe execution with input validation",
+        "Mobile-first responsive design methodology",
+        "Tailwind CSS utility-first styling approach",
+        "Dark/light theme support with smooth transitions",
+        "Optimized for all screen sizes and devices",
       ],
     },
     {
-      id: "storage",
-      icon: <SiGooglesheets className="w-5 h-5" />,
-      title: "Storage & Tracking",
-      summary: "Persist results and track status",
+      id: "performance",
+      icon: <Zap className="w-5 h-5" />,
+      title: "Performance Optimized",
+      summary: "Fast loading with Vite build tool and optimized assets",
       details: [
-        "Append results to Google Sheets (or DB) as a job queue",
-        "Status columns for Not Applied / Applied / Interview",
-        "Automatic updates when a listing changes or duplicates are found",
+        "Vite for lightning-fast development and builds",
+        "Code splitting and lazy loading for optimal performance",
+        "Optimized images with proper loading strategies",
+        "Tree shaking and bundle optimization",
       ],
     },
     {
-      id: "alerts",
-      icon: <Send className="w-5 h-5" />,
-      title: "Notifications",
-      summary: "Get notified where you work",
+      id: "content",
+      icon: <FileText className="w-5 h-5" />,
+      title: "Comprehensive Sections",
+      summary: "Complete portfolio with all essential pages and sections",
       details: [
-        "Send email or Telegram alerts with top matches",
-        "Compact card-style messages with title/company/apply link",
-        "Batching & rate-limit friendly dispatch",
+        "Hero section with animated background effects",
+        "About page with experience, education, and research",
+        "Projects showcase with detailed case study pages",
+        "Skills and tech stack visualization",
+        "Photography portfolio and contact forms",
       ],
     },
     {
-      id: "safety",
-      icon: <AlertTriangle className="w-5 h-5" />,
-      title: "Reliability & Safety",
-      summary: "Error handling & secrets hygiene",
+      id: "accessibility",
+      icon: <Accessibility className="w-5 h-5" />,
+      title: "Accessible & SEO Ready",
+      summary: "WCAG compliant with proper semantic HTML and meta tags",
       details: [
-        "Dedicated error branch with alerts and retry/backoff",
-        "Credential scoping per integration",
-        "Graceful degradation if a source endpoint is down",
+        "Semantic HTML structure for better accessibility",
+        "Keyboard navigation and screen reader support",
+        "Proper meta tags and Open Graph integration",
+        "SEO-optimized structure ready for search engines",
       ],
     },
   ];
 
-  const [expanded, setExpanded] = useState<string | null>("discovery");
+  const [expanded, setExpanded] = useState<string | null>("modern");
 
-  // Right TOC (same layout/UX as other pages)
+  // Right TOC (same structure across pages)
   const toc = [
     { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-4 h-4" /> },
-    { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-4 h-4" /> },
+    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-4 h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
     { id: "how-to", label: "How to Use", icon: <FileJson className="w-4 h-4" /> },
   ] as const;
@@ -198,12 +204,10 @@ const N8nLinkedinJobSearchPage = ({
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-                LinkedIn Job Search (n8n)
+                Portfolio v2
               </h1>
               <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
-                A set of n8n workflows to automate your LinkedIn-style job discovery and notifications.
-                Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule
-                or on demand.
+                A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -221,19 +225,19 @@ const N8nLinkedinJobSearchPage = ({
               </div>
             </div>
 
-            {/* GitHub + Open folder */}
+            {/* GitHub + Live */}
             <div className="hidden sm:flex items-center gap-2">
               <a
-                href="https://github.com/dhruba-datta/n8n"
+                href="https://github.com/dhruba-datta/Portfolio-v2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
-                aria-label="Repository on GitHub"
+                aria-label="Source code on GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
               <motion.a
-                href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
@@ -242,7 +246,7 @@ const N8nLinkedinJobSearchPage = ({
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
               >
-                Open Folder <ExternalLink className="w-4 h-4" />
+                View Live <ExternalLink className="w-4 h-4" />
               </motion.a>
             </div>
           </div>
@@ -321,45 +325,41 @@ const N8nLinkedinJobSearchPage = ({
               </div>
             </section>
 
-            {/* Nodes & Tech Used */}
+            {/* Technologies Used */}
             <section id="tech" className="scroll-mt-28">
               <div className="flex items-center gap-2 mb-4">
                 <BsAppIndicator className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
+                <h2 className="text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
               </div>
 
               <ul className="space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiN8N className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>n8n Core</b> — Visual builder, credentials, error branches, sub-workflows.</span>
+                  <SiReact className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>React 18</b> — Modern functional components with hooks and concurrent features.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <SiTypescript className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>TypeScript</b> — Type-safe development with interfaces and strict typing.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <SiTailwindcss className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Tailwind CSS</b> — Utility-first CSS framework for rapid UI development.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <SiFramer className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Framer Motion</b> — Production-ready motion library for smooth animations.</span>
+                </li>
+                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
+                  <SiVite className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Vite</b> — Next-generation frontend tooling for fast development and builds.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
                   <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>HTTP Request</b> — Job source/API calls and data retrieval.</span>
+                  <span><b>React Router</b> — Declarative routing for single-page application navigation.</span>
                 </li>
                 <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Code2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Code (JS)</b> — Parsing, de-duplication, mapping, and scoring logic.</span>
-                </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Clock className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Cron</b> — Scheduled discovery & follow-ups.</span>
-                </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Webhook className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Webhook</b> — On-demand searches with query params.</span>
-                </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Google Sheets</b> — Persistent queue & status tracking.</span>
-                </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Send className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Email/Telegram</b> — Job alerts and error notifications.</span>
-                </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <FileJson className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Workflow JSON</b> — Importable templates to get started fast.</span>
+                  <SiNetlify className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
+                  <span><b>Deployment Ready</b> — Optimized for Netlify, Vercel, or any static hosting.</span>
                 </li>
               </ul>
             </section>
@@ -371,10 +371,12 @@ const N8nLinkedinJobSearchPage = ({
                 <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
-                <li>Daily job digests by role + location delivered to your inbox/Telegram</li>
-                <li>Team job board powered by Google Sheets with live updates</li>
-                <li>Lead a pipeline for applying later—tag, prioritize, and track status</li>
-                <li>Trigger ad-hoc searches from a form/webhook and notify instantly</li>
+                <li>Professional portfolio for software engineers and developers</li>
+                <li>Showcase for multidisciplinary expertise (development, QA, AI, research)</li>
+                <li>Template for modern React/TypeScript portfolio projects</li>
+                <li>Job application showcase with comprehensive project case studies</li>
+                <li>Photography portfolio integration with technical skills</li>
+                <li>Contact and networking platform for professional opportunities</li>
               </ul>
             </section>
 
@@ -388,30 +390,34 @@ const N8nLinkedinJobSearchPage = ({
               <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-6 space-y-4">
                 <ol className="list-decimal list-inside space-y-2 text-gray-800 dark:text-gray-200">
                   <li>
-                    Open folder:&nbsp;
-                    <a
-                      className="underline underline-offset-2"
-                      href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub — LinkedIn Job Search
-                    </a>
+                    Clone the repository:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      git clone https://github.com/dhruba-datta/Portfolio-v2
+                    </code>
                   </li>
                   <li>
-                    Import the workflow JSON(s): In n8n go to <b>Workflows → Import</b> and upload the <code>.json</code>.
+                    Install dependencies:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      npm install
+                    </code>
                   </li>
                   <li>
-                    Add credentials: job data source/API, Google Sheets, and your alert channel (Email/Telegram).
+                    Start development server:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      npm run dev
+                    </code>
                   </li>
                   <li>
-                    Set parameters: default keywords, locations, seniority, remote/on-site, and de-dup secret/hash field.
+                    Customize content in <code>src/components/sections/</code> and <code>src/pages/</code> directories.
                   </li>
                   <li>
-                    Choose triggers: attach a <b>Cron</b> schedule and/or expose a <b>Webhook</b> for ad-hoc searches.
+                    Build for production:&nbsp;
+                    <code className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600">
+                      npm run build
+                    </code>
                   </li>
                   <li>
-                    Test & enable: run once with sample inputs, check the sheet and notifications, then enable.
+                    Deploy to Netlify, Vercel, or any static hosting service.
                   </li>
                 </ol>
               </div>
@@ -458,21 +464,21 @@ const N8nLinkedinJobSearchPage = ({
         {/* Mobile CTA */}
         <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4 md:px-6">
           <a
-            href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
           >
-            Open Folder <ExternalLink className="w-4 h-4" />
+            View Live <ExternalLink className="w-4 h-4" />
           </a>
         </div>
 
         {/* Contact CTA Section */}
         <ContactCTA
-          title="Want to automate your job search?"
-          description="I build production-ready n8n workflows—discovery, filtering, storage, and alerts tailored to your stack."
+          title="Need a modern portfolio like this?"
+          description="I build professional, responsive portfolios with React, TypeScript, and modern animations. Let's create yours."
           primaryButtonText="Get In Touch"
-          secondaryButtonText="Explore More Work"
+          secondaryButtonText="View More Projects"
         />
       </main>
 
@@ -481,4 +487,4 @@ const N8nLinkedinJobSearchPage = ({
   );
 };
 
-export default N8nLinkedinJobSearchPage;
+export default PortfolioV2Page;
