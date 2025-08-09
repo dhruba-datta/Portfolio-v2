@@ -40,17 +40,17 @@ const Hero = () => {
     {
       name: 'GitHub',
       url: 'https://github.com/dhruba-datta',
-      icon: <FaGithub className="w-6 h-6" />,
+      icon: <FaGithub className="w-5 h-5" />,
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/dhruba-datta/',
-      icon: <FaLinkedinIn className="w-7 h-7" />,
+      icon: <FaLinkedinIn className="w-5 h-5" />,
     },
     {
       name: 'Google Scholar',
       url: 'https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH',
-      icon: <FaGoogleScholar className="w-6 h-6" />,
+      icon: <FaGoogleScholar className="w-5 h-5" />,
     },
   ];
 
@@ -238,12 +238,12 @@ const Hero = () => {
               </motion.p>
             </div>
 
-            {/* Social Links */}
+            {/* Social Links and Contact Button */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-4 justify-center lg:justify-start"
+              className="flex gap-4 justify-center lg:justify-start items-center"
             >
               {socialLinks.map((social) => (
                 <motion.a
@@ -254,7 +254,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.98 }}
               className={
-                `p-3 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 min-h-[48px] min-w-[48px] flex items-center justify-center ` +
+                `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 ` +
                 (social.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400' : '') +
                 (social.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400' : '') +
                 (social.name === 'Telegram' ? 'hover:text-blue-400 dark:hover:text-blue-300' : '') +
@@ -268,23 +268,22 @@ const Hero = () => {
                   {social.icon}
                 </motion.a>
               ))}
-            </motion.div>
-
-            {/* Contact Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex justify-center lg:justify-start"
-            >
-              <Link
-                to="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-1 min-h-[56px] text-base"
-                aria-label="Contact Me"
+              
+              {/* Contact Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
               >
-                Contact Me
-                <LuMessageSquareShare className="w-5 h-5 ml-0.5" aria-hidden="true" />
-              </Link>
+                <Link
+                  to="/contact"
+                  className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 font-medium px-4 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-1 text-sm"
+                  aria-label="Contact Me"
+                >
+                  Contact Me
+                  <LuMessageSquareShare className="w-4 h-4 ml-0.5 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
 
