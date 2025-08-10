@@ -2,10 +2,11 @@ import { useEffect, useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MdOutlineWork } from "react-icons/md";
+import { VscVscode } from "react-icons/vsc";
 import { projects } from '../../../data/projects';
 
 interface TechStackProps { isDark?: boolean }
-interface TechItem { name: string; icon: string; color?: string }
+interface TechItem { name: string; icon: string | React.ReactNode; color?: string }
 
 const TechStack = ({ isDark }: TechStackProps) => {
   // -------- tech rows (unchanged) --------
@@ -23,15 +24,20 @@ const TechStack = ({ isDark }: TechStackProps) => {
     { name: 'MongoDB', icon: 'https://cdn.simpleicons.org/mongodb' },
     { name: 'PostgreSQL', icon: 'https://cdn.simpleicons.org/postgresql' },
     { name: 'Python', icon: 'https://cdn.simpleicons.org/python' },
-    { name: 'Prisma', icon: 'https://cdn.simpleicons.org/prisma' },
+    { name: 'Java', icon: isDark ? 'https://cdn.simpleicons.org/openjdk/ffffff' : 'https://cdn.simpleicons.org/openjdk' },
+    { name: 'C++', icon: 'https://cdn.simpleicons.org/cplusplus' },
   ];
   const toolsTech: TechItem[] = [
     { name: 'Git', icon: 'https://cdn.simpleicons.org/git' },
     { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' },
-    { name: 'AWS', icon: 'https://cdn.simpleicons.org/amazonaws' },
-    { name: 'VS Code', icon: 'https://cdn.simpleicons.org/visualstudiocode' },
+    { name: 'VS Code', icon: <VscVscode className="w-5 h-5 text-[#007ACC]" /> },
     { name: 'Linux', icon: 'https://cdn.simpleicons.org/linux' },
     { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma' },
+    { name: 'Notion', icon: isDark ? 'https://cdn.simpleicons.org/notion/ffffff' : 'https://cdn.simpleicons.org/notion' },
+    { name: 'Jira', icon: 'https://cdn.simpleicons.org/jira' },
+    { name: 'Confluence', icon: 'https://cdn.simpleicons.org/confluence' },
+    { name: 'Trello', icon: 'https://cdn.simpleicons.org/trello' },
+    { name: 'Overleaf', icon: 'https://cdn.simpleicons.org/overleaf' },
   ];
 
   const TechScroll = ({
@@ -52,7 +58,11 @@ const TechStack = ({ isDark }: TechStackProps) => {
               className={`flex items-center gap-2 ${isDark ? 'bg-gray-800/30 border-gray-700/30' : 'bg-white border-gray-200'} backdrop-blur-sm rounded-lg px-3 py-2 border flex-shrink-0`}
               whileHover={{ scale: 1.05 }}
             >
-              <img src={t.icon} alt={t.name} className="w-5 h-5" />
+              {typeof t.icon === 'string' ? (
+                <img src={t.icon} alt={t.name} className="w-5 h-5" />
+              ) : (
+                t.icon
+              )}
               <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-gray-900'} whitespace-nowrap`}>{t.name}</span>
             </motion.div>
           ))}

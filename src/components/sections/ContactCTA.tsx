@@ -69,7 +69,7 @@ const ContactCTA = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col gap-3 sm:gap-4 justify-center items-center px-2"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2"
           >
             {/* Primary Button */}
             <motion.button
