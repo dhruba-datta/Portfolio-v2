@@ -225,7 +225,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     className="relative"
                   >
                     <h4 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 leading-tight text-blue-600 dark:text-blue-400 group-hover:underline">
-                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer">{pub.title}</a>
+                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="focus-override">{pub.title}</a>
                     </h4>
                     <div className="flex flex-col gap-1 text-xs sm:text-sm mb-2">
                       <div className={`flex flex-wrap items-center gap-1 sm:gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
@@ -247,7 +247,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2">
                       <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
                       <span className="font-medium text-blue-600 dark:text-blue-400 text-xs">DOI:</span>
-                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`font-mono text-xs hover:underline transition-colors duration-200 flex items-center gap-1 ${isDark ? 'text-blue-300' : 'text-blue-800'}`}> 
+                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`font-mono text-xs hover:underline transition-colors duration-200 flex items-center gap-1 focus-override ${isDark ? 'text-blue-300' : 'text-blue-800'}`}> 
                         {pub.doi}
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                       </a>

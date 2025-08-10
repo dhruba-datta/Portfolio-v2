@@ -65,7 +65,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label={link.name}
               className={
-                `p-3 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 min-h-[48px] min-w-[48px] flex items-center justify-center ` +
+                `p-3 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 min-h-[48px] min-w-[48px] flex items-center justify-center focus-override ` +
                 (link.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white' : '') +
                 (link.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400' : '') +
                 (link.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400' : '') +
@@ -84,7 +84,7 @@ const Footer = () => {
             <Link
               key={link.name}
               to={link.href}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base font-medium min-h-[44px] flex items-center px-2 py-2"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base font-medium min-h-[44px] flex items-center px-2 py-2 focus-override"
             >
               {link.name}
             </Link>

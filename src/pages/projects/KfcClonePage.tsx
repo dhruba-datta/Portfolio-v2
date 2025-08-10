@@ -167,7 +167,7 @@ const KfcClonePage = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => navigate('/projects')}
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group"
+            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
@@ -250,7 +250,7 @@ const KfcClonePage = ({
                       <motion.button
                         whileTap={{ scale: 0.995 }}
                         onClick={() => setExpanded(open ? null : f.id)}
-                        className="w-full flex items-center justify-between gap-4 p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
+                        className="w-full flex items-center justify-between gap-4 p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition focus-override"
                       >
                         <div className="flex items-start gap-3">
                           <div className="mt-0.5 text-blue-500">{f.icon}</div>

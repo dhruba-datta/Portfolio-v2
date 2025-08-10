@@ -163,7 +163,7 @@ const FoodOrderingSystemPage = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => navigate('/projects')}
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group"
+            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
