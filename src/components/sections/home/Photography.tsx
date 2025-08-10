@@ -103,7 +103,7 @@ const Photography = () => {
               className="group"
             >
               <a
-                href="https://www.instagram.com/dhrubz_/"
+                href={photo.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
