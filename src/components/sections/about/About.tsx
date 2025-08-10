@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail } from 'lucide-react';
+import { LuMessageSquareShare } from "react-icons/lu";
 
 interface AboutProps {
   isDark?: boolean;
@@ -170,7 +170,7 @@ const About = ({ isDark }: AboutProps) => {
                            border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5
                            text-slate-800 dark:text-gray-200 hover:shadow-md transition-all focus-override"
               >
-                <Mail className="w-4 h-4" />
+                <LuMessageSquareShare className="w-4 h-4" />
                 Contact
               </Link>
             </motion.div>

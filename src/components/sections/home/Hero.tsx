@@ -238,12 +238,12 @@ const Hero = () => {
               </motion.p>
             </div>
 
-            {/* Social Links and Contact Button */}
+            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-4 justify-center lg:justify-start items-center"
+              className="flex gap-4 justify-center lg:justify-start"
             >
               {socialLinks.map((social) => (
                 <motion.a
@@ -268,22 +268,25 @@ const Hero = () => {
                   {social.icon}
                 </motion.a>
               ))}
+            </motion.div>
               
-              {/* Contact Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
+            {/* Contact Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="flex justify-center lg:justify-start"
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-white
+                           bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
+                           shadow-lg transition-all focus-override"
+                aria-label="Contact"
               >
-                <Link
-                  to="/contact"
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:scale-110 flex items-center gap-1 text-sm focus-override"
-                  aria-label="Contact"
-                >
-                  Contact
-                  <LuMessageSquareShare className="w-4 h-4 ml-0.5 text-blue-600 dark:text-blue-400" aria-hidden="true" />
-                </Link>
-              </motion.div>
+                <LuMessageSquareShare className="w-4 h-4" />
+                Contact Me
+              </Link>
             </motion.div>
           </motion.div>
 

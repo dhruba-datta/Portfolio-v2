@@ -205,12 +205,6 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                       >
                         {exp.position}
                       </h4>
-                      {exp.current && (
-                        <div className="flex items-center gap-2 bg-green-500/20 text-green-500 px-3 py-1 rounded-full text-sm font-medium mt-2 lg:mt-0 w-fit">
-                          <div className="w-2 h-2 bg-green-500 rounded-full" />
-                          <span>Current</span>
-                        </div>
-                      )}
                     </div>
                   </div>
 
