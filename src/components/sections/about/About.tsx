@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Mail } from 'lucide-react';
 
 interface AboutProps {
   isDark?: boolean;
@@ -55,10 +56,6 @@ const About = ({ isDark }: AboutProps) => {
     if (d === slides.length - 1) return -1;// left
     return 2;                              // hidden
   };
-
-  const accentGrad = isDark
-    ? 'from-fuchsia-400 via-sky-400 to-indigo-400'
-    : 'from-pink-500 via-violet-500 to-blue-500';
 
   const dots = Array.from({ length: 8 }).map((_, i) => ({
     left: `${10 + i * 9}%`,
@@ -131,10 +128,7 @@ const About = ({ isDark }: AboutProps) => {
               transition={{ duration: 0.55 }}
               className="text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
             >
-              I’m Dhruba, a{' '}
-              <span className={`bg-clip-text text-transparent bg-gradient-to-r ${accentGrad} italic`}>
-                creative engineer
-              </span>
+              I’m Dhruba
             </motion.h2>
 
             <motion.div
@@ -176,6 +170,7 @@ const About = ({ isDark }: AboutProps) => {
                            border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5
                            text-slate-800 dark:text-gray-200 hover:shadow-md transition-all focus-override"
               >
+                <Mail className="w-4 h-4" />
                 Contact
               </Link>
             </motion.div>
@@ -191,7 +186,6 @@ const About = ({ isDark }: AboutProps) => {
               onTouchMove={(e) => {
                 if (touchStartX.current == null) return;
                 const delta = e.touches[0].clientX - touchStartX.current;
-                // simple threshold
                 if (Math.abs(delta) > 50) {
                   if (delta > 0) setIndex((i) => (i - 1 + slides.length) % slides.length);
                   else setIndex((i) => (i + 1) % slides.length);
@@ -304,11 +298,12 @@ const About = ({ isDark }: AboutProps) => {
                 })}
               </div>
 
-              {/* Controls + dots (icon-only; strong light/dark contrast) */}
+              {/* Controls + dots (icon-only; no blue focus ring) */}
               <div className="mt-6 flex items-center justify-center gap-8">
                 <button
+                  type="button"
                   onClick={() => setIndex((i) => (i - 1 + slides.length) % slides.length)}
-                  className="p-1.5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500
+                  className="p-1.5 rounded-full outline-none ring-0 focus:outline-none focus-visible:outline-none
                              text-slate-900 dark:text-slate-100 hover:scale-110 transition-transform"
                   aria-label="Previous image"
                   title="Previous"
@@ -321,6 +316,7 @@ const About = ({ isDark }: AboutProps) => {
                 <div className="flex gap-2">
                   {slides.map((_, i) => (
                     <button
+                      type="button"
                       key={i}
                       onClick={() => setIndex(i)}
                       className={`h-2 rounded-full transition-all duration-200 ${
@@ -335,8 +331,9 @@ const About = ({ isDark }: AboutProps) => {
                 </div>
 
                 <button
+                  type="button"
                   onClick={() => setIndex((i) => (i + 1) % slides.length)}
-                  className="p-1.5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500
+                  className="p-1.5 rounded-full outline-none ring-0 focus:outline-none focus-visible:outline-none
                              text-slate-900 dark:text-slate-100 hover:scale-110 transition-transform"
                   aria-label="Next image"
                   title="Next"

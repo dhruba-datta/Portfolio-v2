@@ -278,9 +278,9 @@ const Hero = () => {
                 <Link
                   to="/contact"
                   className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:scale-110 flex items-center gap-1 text-sm focus-override"
-                  aria-label="Contact Me"
+                  aria-label="Contact"
                 >
-                  Contact Me
+                  Contact
                   <LuMessageSquareShare className="w-4 h-4 ml-0.5 text-blue-600 dark:text-blue-400" aria-hidden="true" />
                 </Link>
               </motion.div>
