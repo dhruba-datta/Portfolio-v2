@@ -32,6 +32,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
     { name: 'Linux', icon: 'https://cdn.simpleicons.org/linux' },
     { name: 'Git', icon: 'https://cdn.simpleicons.org/git' },
     { name: 'GitHub', icon: isDark ? 'https://cdn.simpleicons.org/github/ffffff' : 'https://cdn.simpleicons.org/github' },
+    { name: 'Bitbucket', icon: 'https://cdn.simpleicons.org/bitbucket' },
   ];
   const toolsTech: TechItem[] = [
     { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' },

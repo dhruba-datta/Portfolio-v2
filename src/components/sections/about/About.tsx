@@ -9,7 +9,7 @@ interface AboutProps {
 
 type Slide = { src: string; caption: string; alt: string };
 
-const About = ({ isDark }: AboutProps) => {
+const About = ({ }: AboutProps) => {
   const prefersReducedMotion = useReducedMotion();
 
   // --- Slides ---
