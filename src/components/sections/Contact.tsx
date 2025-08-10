@@ -340,7 +340,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label={social.name}
                 className={
-                  `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 ` +
+                  `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 ` +
                   (social.name === "LinkedIn" ? "hover:text-blue-600 dark:hover:text-blue-400" : "") +
                   (social.name === "Instagram" ? "hover:text-pink-500 dark:hover:text-pink-400" : "") +
                   (social.name === "Telegram" ? "hover:text-blue-400 dark:hover:text-blue-300" : "") +

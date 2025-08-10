@@ -9,38 +9,38 @@ export interface PhotoData {
 export const photos: PhotoData[] = [
   {
     id: '1',
-    image: '/images/placeholder-photo.svg',
-    location: 'Goa, India',
-    alt: 'Beautiful sunset at Goa beach'
+    image: '/images/photography/01.webp',
+    location: 'Agra, India',
+    alt: 'Beautiful architecture and landscapes in Agra'
   },
   {
     id: '2',
-    image: '/images/placeholder-photo.svg',
-    location: 'Manali, India',
-    alt: 'Snow-capped mountains in Manali'
+    image: '/images/photography/02.webp',
+    location: 'Bandarban, Bangladesh',
+    alt: 'Scenic views from Bandarban'
   },
   {
     id: '3',
-    image: '/images/placeholder-photo.svg',
-    location: 'Kerala, India',
-    alt: 'Backwaters of Kerala'
+    image: '/images/photography/03.webp',
+    location: 'Shimla, India',
+    alt: 'Mountain landscapes in Shimla'
   },
   {
     id: '4',
-    image: '/images/placeholder-photo.svg',
-    location: 'Rajasthan, India',
-    alt: 'Desert landscape in Rajasthan'
+    image: '/images/photography/04.webp',
+    location: 'Goa, India',
+    alt: 'Urban and natural scenes from Goa'
   },
   {
     id: '5',
-    image: '/images/placeholder-photo.svg',
-    location: 'Himachal Pradesh, India',
-    alt: 'Mountain valleys in Himachal Pradesh'
+    image: '/images/photography/05.webp',
+    location: 'Rishikesh, India',
+    alt: 'Spiritual and natural beauty of Rishikesh'
   },
   {
     id: '6',
-    image: '/images/placeholder-photo.svg',
-    location: 'Mumbai, India',
-    alt: 'Mumbai cityscape at sunset'
+    image: '/images/photography/06.webp',
+    location: 'Jaipur, India',
+    alt: 'Colorful architecture and culture of Jaipur'
   }
 ];
