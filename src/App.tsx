@@ -16,6 +16,8 @@ const PhotoBoothPage = lazy(() => import('./pages/projects/PhotoBoothPage'));
 const CryptoVersePage = lazy(() => import('./pages/projects/CryptoVersePage'));
 const ContentAutomationPage = lazy(() => import('./pages/projects/ContentAutomationPage'));
 const LinkedInJobSearchPage = lazy(() => import('./pages/projects/LinkedInJobSearchPage'));
+const EasyCookingPage = lazy(() => import('./pages/projects/EasyCookingPage'));
+const FoodOrderingSystemPage = lazy(() => import('./pages/projects/FoodOrderingSystemPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -62,6 +64,8 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
         <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/projects/photoBooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/projects/cryptoverse" element={<CryptoVersePage isDark={isDark} toggleTheme={toggleTheme} />} />
+        <Route path="/projects/easy-cooking" element={<EasyCookingPage isDark={isDark} toggleTheme={toggleTheme} />} />
+        <Route path="/projects/food-ordering-system" element={<FoodOrderingSystemPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="*" element={<NotFoundPage isDark={isDark} toggleTheme={toggleTheme} />} />
       </Routes>
     </Suspense>

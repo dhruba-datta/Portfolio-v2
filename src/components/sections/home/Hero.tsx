@@ -208,7 +208,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-lg text-blue-600 dark:text-blue-400 font-medium"
+                className="text-lg text-blue-600 dark:text-blue-400 font-medium mb-1"
               >
                 Hello! I'm
               </motion.p>
@@ -216,7 +216,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white"
+                className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
               >
                 Dhruba <span className="text-blue-600 dark:text-blue-400">Datta</span>
               </motion.h1>
@@ -234,7 +234,7 @@ const Hero = () => {
                 transition={{ delay: 0.6 }}
                 className="text-lg text-gray-500 dark:text-gray-400 max-w-lg"
               >
-                Building elegant solutions to complex problems with modern technologies and ensuring quality through comprehensive testing strategies.
+                Tackling complex challenges with innovative tech and a passion for automation. Beyond building solutions, love to explore the world and capture memories.
               </motion.p>
             </div>
 

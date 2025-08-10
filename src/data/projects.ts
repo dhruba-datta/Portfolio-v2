@@ -14,6 +14,9 @@ import {
   Globe2,
   Webhook,
   FileJson,
+  Terminal,
+  Settings,
+  ShoppingCart,
 } from 'lucide-react';
 import { 
   SiN8N, 
@@ -27,7 +30,10 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiFramer,
-  SiVite
+  SiVite,
+  SiCplusplus,
+  SiHtml5,
+  SiCss3
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
@@ -159,6 +165,47 @@ export const projects: Project[] = [
     github: 'https://github.com/dhruba-datta/Portfolio-v2',
     featured: true,
     category: 'development',
+  },
+  {
+    id: 'easy-cooking',
+    title: 'EasyCooking',
+    description:
+      'A cooking tutorial website featuring recipes from different cuisines including Bengali, Chinese, and Indian. Built with pure HTML and CSS for optimal performance and cross-platform compatibility.',
+    longDescription:
+      'Fullscreen recipe viewing, multi-cuisine support, responsive design, and easy navigation across different cooking tutorials.',
+    image: '/images/placeholder-project.svg',
+    tags: [
+      { name: "HTML5", icon: React.createElement(SiHtml5, { className: "w-3.5 h-3.5" }) },
+      { name: "CSS3", icon: React.createElement(SiCss3, { className: "w-3.5 h-3.5" }) },
+      { name: "Responsive Design", icon: React.createElement(Smartphone, { className: "w-3.5 h-3.5" }) },
+      { name: "Multi-Cuisine", icon: React.createElement(Globe2, { className: "w-3.5 h-3.5" }) },
+      { name: "GitHub Pages", icon: React.createElement(Github, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: 'https://dhruba-datta.github.io/EasyCooking/',
+    github: 'https://github.com/dhruba-datta/EasyCooking',
+    featured: true,
+    category: 'development',
+  },
+  {
+    id: 'food-ordering-system',
+    title: 'Food Ordering System',
+    description:
+      'A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, and admin panel for order management. Features object-oriented design and file handling.',
+    longDescription:
+      'Complete food ordering system with customer interface, admin panel, order management, bill calculation, and data persistence.',
+    image: '/images/placeholder-project.svg',
+    tags: [
+      { name: "C++", icon: React.createElement(SiCplusplus, { className: "w-3.5 h-3.5" }) },
+      { name: "OOP", icon: React.createElement(Code, { className: "w-3.5 h-3.5" }) },
+      { name: "File Handling", icon: React.createElement(Database, { className: "w-3.5 h-3.5" }) },
+      { name: "Admin Panel", icon: React.createElement(Settings, { className: "w-3.5 h-3.5" }) },
+      { name: "Console App", icon: React.createElement(Terminal, { className: "w-3.5 h-3.5" }) },
+      { name: "Order Management", icon: React.createElement(ShoppingCart, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '',
+    github: 'https://github.com/dhruba-datta/FoodOrderingSystem',
+    featured: true,
+    category: 'app',
   },
   {
     id: 'content-automation',

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MdOutlineWork } from "react-icons/md";
 import { VscVscode } from "react-icons/vsc";
+import { SiAdobephotoshop, SiAdobeillustrator, SiAdobelightroom, SiCanva } from "react-icons/si";
 import { projects } from '../../../data/projects';
 
 interface TechStackProps { isDark?: boolean }
@@ -15,6 +16,8 @@ const TechStack = ({ isDark }: TechStackProps) => {
     { name: 'TypeScript', icon: 'https://cdn.simpleicons.org/typescript' },
     { name: 'Next.js', icon: isDark ? 'https://cdn.simpleicons.org/nextdotjs/ffffff' : 'https://cdn.simpleicons.org/nextdotjs' },
     { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss' },
+    { name: 'Bootstrap', icon: 'https://cdn.simpleicons.org/bootstrap' },
+    { name: 'WordPress', icon: 'https://cdn.simpleicons.org/wordpress' },
     { name: 'Vite', icon: 'https://cdn.simpleicons.org/vite' },
     { name: 'Framer Motion', icon: 'https://cdn.simpleicons.org/framer' },
   ];
@@ -26,13 +29,20 @@ const TechStack = ({ isDark }: TechStackProps) => {
     { name: 'Python', icon: 'https://cdn.simpleicons.org/python' },
     { name: 'Java', icon: isDark ? 'https://cdn.simpleicons.org/openjdk/ffffff' : 'https://cdn.simpleicons.org/openjdk' },
     { name: 'C++', icon: 'https://cdn.simpleicons.org/cplusplus' },
+    { name: 'Linux', icon: 'https://cdn.simpleicons.org/linux' },
+    { name: 'Git', icon: 'https://cdn.simpleicons.org/git' },
+    { name: 'GitHub', icon: isDark ? 'https://cdn.simpleicons.org/github/ffffff' : 'https://cdn.simpleicons.org/github' },
   ];
   const toolsTech: TechItem[] = [
-    { name: 'Git', icon: 'https://cdn.simpleicons.org/git' },
     { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' },
+    { name: 'Netlify', icon: 'https://cdn.simpleicons.org/netlify' },
+    { name: 'n8n', icon: 'https://cdn.simpleicons.org/n8n' },
     { name: 'VS Code', icon: <VscVscode className="w-5 h-5 text-[#007ACC]" /> },
-    { name: 'Linux', icon: 'https://cdn.simpleicons.org/linux' },
     { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma' },
+    { name: 'Photoshop', icon: <SiAdobephotoshop className="w-5 h-5 text-[#31A8FF]" /> },
+    { name: 'Lightroom', icon: <SiAdobelightroom className="w-5 h-5 text-[#31A8FF]" /> },
+    { name: 'Illustrator', icon: <SiAdobeillustrator className="w-5 h-5 text-[#FF9A00]" /> },
+    { name: 'Canva', icon: <SiCanva className="w-5 h-5 text-[#00C4CC]" /> },
     { name: 'Notion', icon: isDark ? 'https://cdn.simpleicons.org/notion/ffffff' : 'https://cdn.simpleicons.org/notion' },
     { name: 'Jira', icon: 'https://cdn.simpleicons.org/jira' },
     { name: 'Confluence', icon: 'https://cdn.simpleicons.org/confluence' },
