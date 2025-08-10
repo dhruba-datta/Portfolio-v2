@@ -38,14 +38,14 @@ const Hero = () => {
 
   const socialLinks = [
     {
-      name: 'GitHub',
-      url: 'https://github.com/dhruba-datta',
-      icon: <FaGithub className="w-5 h-5" />,
-    },
-    {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/dhruba-datta/',
       icon: <FaLinkedinIn className="w-5 h-5" />,
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/dhruba-datta',
+      icon: <FaGithub className="w-5 h-5" />,
     },
     {
       name: 'Google Scholar',

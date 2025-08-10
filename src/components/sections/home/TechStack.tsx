@@ -126,7 +126,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
     icon: React.ReactNode;
     cta?: string;
   }) => (
-    <Link to={to} className="block group focus:outline-none focus-visible:ring-0">
+    <Link to={to} className="block group focus-override">
       <div className={`${cardBase} p-6 lg:p-8 h-full flex flex-col justify-center relative min-h-[200px]`}>
         <div className="flex-1 flex flex-col justify-center">
           <div className="flex items-start gap-4">
