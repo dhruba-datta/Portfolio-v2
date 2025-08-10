@@ -17,6 +17,8 @@ import {
   Terminal,
   Settings,
   ShoppingCart,
+  FileText,
+  BookOpen,
 } from 'lucide-react';
 import { 
   SiN8N, 
@@ -33,7 +35,10 @@ import {
   SiVite,
   SiCplusplus,
   SiHtml5,
-  SiCss3
+  SiCss3,
+  SiWordpress,
+  SiPhp,
+  SiMysql
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
@@ -184,6 +189,29 @@ export const projects: Project[] = [
     ],
     link: 'https://dhruba-datta.netlify.app/',
     github: 'https://github.com/dhruba-datta/Portfolio-v1',
+    featured: true,
+    category: 'development',
+  },
+  {
+    id: 'kingsley-group',
+    title: 'Kingsley Group',
+    description:
+      'Complete WordPress website redesign for an environmental engineering company. Features modern responsive design, comprehensive content management, SEO optimization, blog/news sections, and multi-location business presence across Australia, Bangladesh, and China.',
+    longDescription:
+      'WordPress website redesign with custom theme development, SEO optimization, content management, blog system, news section, resource pages, and responsive design for environmental engineering services.',
+    image: '/images/placeholder-project.svg',
+    tags: [
+      { name: "WordPress", icon: React.createElement(SiWordpress, { className: "w-3.5 h-3.5" }) },
+      { name: "PHP", icon: React.createElement(SiPhp, { className: "w-3.5 h-3.5" }) },
+      { name: "MySQL", icon: React.createElement(SiMysql, { className: "w-3.5 h-3.5" }) },
+      { name: "SEO Optimization", icon: React.createElement(Search, { className: "w-3.5 h-3.5" }) },
+      { name: "Responsive Design", icon: React.createElement(Smartphone, { className: "w-3.5 h-3.5" }) },
+      { name: "Content Management", icon: React.createElement(FileText, { className: "w-3.5 h-3.5" }) },
+      { name: "Blog System", icon: React.createElement(BookOpen, { className: "w-3.5 h-3.5" }) },
+      { name: "Custom Theme", icon: React.createElement(Palette, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: 'https://kingsleygroup.co/',
+    github: '',
     featured: true,
     category: 'development',
   },
