@@ -218,7 +218,7 @@ const N8nContentAutomationPage = ({
                 href="https://github.com/dhruba-datta/n8n"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override"
                 aria-label="Repository on GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -231,7 +231,7 @@ const N8nContentAutomationPage = ({
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-full
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
-                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override"
               >
                 Open Folder <ExternalLink className="w-4 h-4" />
               </motion.a>

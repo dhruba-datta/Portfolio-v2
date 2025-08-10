@@ -119,7 +119,7 @@ const ProjectPreview = () => {
                 <Link
                   to={`/projects/${project.id}`}
                   className="block rounded-3xl overflow-hidden border border-blue-200/60 dark:border-white/[0.08] bg-blue-50/30 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500
-                             hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1 min-h-[44px]"
+                             hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1 min-h-[44px] focus-override"
                 >
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden">
