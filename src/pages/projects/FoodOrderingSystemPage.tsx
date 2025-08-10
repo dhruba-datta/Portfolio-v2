@@ -433,7 +433,7 @@ const FoodOrderingSystemPage = ({
 
         {/* Contact CTA Section */}
         <ContactCTA 
-          title="Interested in my programming skills?"
+          title="Interested in working together?"
           description="I have experience in multiple programming languages including C++, JavaScript, and Python. Let's discuss how I can contribute to your development team."
           primaryButtonText="Let's Talk"
           secondaryButtonText="See More Projects"
