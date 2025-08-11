@@ -151,7 +151,7 @@ const KfcClonePage = ({
 
       <main>
         {/* Full-width cover under navbar */}
-        <div className="relative h-40 sm:h-56 md:h-64 -z-10">
+        <div className="relative h-32 sm:h-40 md:h-48 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
             style={{ backgroundImage: `url('${coverSrc}')` }}
@@ -161,7 +161,7 @@ const KfcClonePage = ({
         </div>
 
         {/* Back Button */}
-        <div className="container mx-auto px-5 pt-18 pb-8 max-w-6xl">
+        <div className="container mx-auto px-5 pt-3 pb-4 max-w-6xl">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -175,7 +175,7 @@ const KfcClonePage = ({
         </div>
 
         {/* Header */}
-        <header className="max-w-6xl mx-auto px-4 md:px-6 -mt-2 md:-mt-4">
+        <header className="max-w-6xl mx-auto px-4 md:px-6 -mt-1 md:-mt-2">
 
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
