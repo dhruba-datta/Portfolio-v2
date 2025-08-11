@@ -68,7 +68,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-0 sm:pt-12 lg:pt-0"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-12 lg:pt-0"
     >
       {/* Subtle background effects - keeping it minimal like other sections */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
