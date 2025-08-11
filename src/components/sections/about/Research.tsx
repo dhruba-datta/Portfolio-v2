@@ -47,18 +47,19 @@ const achievements: Achievement[] = [
   },
   {
     id: 2,
-    title: "SEO-Optimized Portfolio Website",
-    description: "Built a personal portfolio website that ranked on the first page of Google search results.",
-    category: 'technical',
-    icon: "rocket"
-  },
-  {
-    id: 3,
     title: "LeetCode Achievement",
     description: "Solved 450+ problems with 3K+ reputation and 200K+ views, capturing coding enthusiasts worldwide.",
     category: 'technical',
     icon: "code"
   },
+  {
+    id: 3,
+    title: "SEO-Optimized Portfolio Website",
+    description: "Built a personal portfolio website that ranked on the first page of Google search results.",
+    category: 'technical',
+    icon: "rocket"
+  },
+  
   {
     id: 4,
     title: "1st Position - Wall Magazine",
