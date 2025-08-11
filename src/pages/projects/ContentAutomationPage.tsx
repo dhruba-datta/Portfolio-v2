@@ -45,19 +45,19 @@ const N8nContentAutomationPage = ({
 
   // chips under title
   const chips = [
-    { name: "n8n", icon: <SiN8N className="w-3.5 h-3.5" /> },
-    { name: "OpenAI", icon: <SiOpenai className="w-3.5 h-3.5" /> },
-    { name: "Google Sheets", icon: <SiGooglesheets className="w-3.5 h-3.5" /> },
-    { name: "Trello", icon: <SiTrello className="w-3.5 h-3.5" /> },
-    { name: "Webhook", icon: <Webhook className="w-3.5 h-3.5" /> },
-    { name: "Workflow JSON", icon: <FileJson className="w-3.5 h-3.5" /> },
+    { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "OpenAI", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Trello", icon: <SiTrello className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Webhook", icon: <Webhook className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Workflow JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
   // features (accordion) — tailored for Content Automation
   const features = [
     {
       id: "pipeline",
-      icon: <Activity className="w-5 h-5" />,
+      icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Content Pipeline Orchestrator",
       summary: "Ingest → Transform (AI/clean) → Publish/Queue",
       details: [
@@ -69,7 +69,7 @@ const N8nContentAutomationPage = ({
     },
     {
       id: "scheduler",
-      icon: <Clock className="w-5 h-5" />,
+      icon: <Clock className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Scheduling & Triggers",
       summary: "Cron triggers & on-demand webhooks",
       details: [
@@ -81,7 +81,7 @@ const N8nContentAutomationPage = ({
     },
     {
       id: "integrations",
-      icon: <Send className="w-5 h-5" />,
+      icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Integrations",
       summary: "Email, CMS, Sheets & social endpoints",
       details: [
@@ -93,7 +93,7 @@ const N8nContentAutomationPage = ({
     },
     {
       id: "blocks",
-      icon: <Code2 className="w-5 h-5" />,
+      icon: <Code2 className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Reusable Building Blocks",
       summary: "Set/Merge, Switch/If, Split in Batches",
       details: [
@@ -105,7 +105,7 @@ const N8nContentAutomationPage = ({
     },
     {
       id: "observability",
-      icon: <AlertTriangle className="w-5 h-5" />,
+      icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Observability & Safety",
       summary: "Error handling, notifications & audit trails",
       details: [
@@ -121,10 +121,10 @@ const N8nContentAutomationPage = ({
 
   // Right TOC (keep structure; section content adapted for n8n)
   const toc = [
-    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-4 h-4" /> },
-    { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-4 h-4" /> },
-    { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-4 h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <FileJson className="w-4 h-4" /> },
+    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
+    { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
+    { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
+    { id: "how-to", label: "How to Use", icon: <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
   ] as const;
 
   const [active, setActive] = useState<string>("highlights");
@@ -163,7 +163,7 @@ const N8nContentAutomationPage = ({
       <main>
         {/* Full-width cover under navbar */}
                 {/* Full-width cover under navbar (matches KFC) */}
-        <div className="relative h-32 sm:h-40 md:h-48 -z-10">
+        <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
             style={{ backgroundImage: `url('${coverSrc}')` }}
@@ -173,36 +173,36 @@ const N8nContentAutomationPage = ({
         </div>
 
         {/* Back Button */}
-        <div className="container mx-auto px-5 pt-3 pb-4 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-5 pt-2 sm:pt-3 pb-3 sm:pb-4 max-w-6xl">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => navigate("/projects")}
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
           </motion.button>
         </div>
 
         {/* Header */}
-        <header className="max-w-6xl mx-auto px-4 md:px-6 -mt-1 md:-mt-2">
-          <div className="flex items-start justify-between gap-6">
+        <header className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
                 Content Automation (n8n)
               </h1>
-              <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
+              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
                 A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to
                 scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {chips.map((c) => (
                   <span
                     key={c.name}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border
+                    className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium border
                                border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                                text-gray-700 dark:text-gray-300"
                   >
@@ -213,16 +213,42 @@ const N8nContentAutomationPage = ({
               </div>
             </div>
 
-            {/* GitHub + Open folder */}
-            <div className="hidden sm:flex items-center gap-2">
+            {/* Mobile buttons */}
+            <div className="flex lg:hidden items-center gap-2 mt-4">
               <a
                 href="https://github.com/dhruba-datta/n8n"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override"
+                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium"
                 aria-label="Repository on GitHub"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+              <motion.a
+                href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
+                           border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
+                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium"
+              >
+                Open Folder <ExternalLink className="w-3.5 h-3.5" />
+              </motion.a>
+            </div>
+            
+            {/* Desktop buttons */}
+            <div className="hidden lg:flex items-center gap-2 md:gap-3">
+              <a
+                href="https://github.com/dhruba-datta/n8n"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 lg:h-11 w-10 lg:w-11 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override"
+                aria-label="Repository on GitHub"
+              >
+                <Github className="w-4 h-4 lg:w-5 lg:h-5" />
               </a>
               <motion.a
                 href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
@@ -230,28 +256,28 @@ const N8nContentAutomationPage = ({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-full
+                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override"
               >
-                Open Folder <ExternalLink className="w-4 h-4" />
+                Open Folder <ExternalLink className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
               </motion.a>
             </div>
           </div>
         </header>
 
         {/* Layout: main + right toc */}
-        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
           {/* MAIN */}
-          <article className="space-y-20">
+          <article className="space-y-12 sm:space-y-16 md:space-y-20">
             {/* Feature Highlights */}
-            <section id="highlights" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-4">
-                <Activity className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
+            <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
 
-              <div className="rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
                   const open = expanded === f.id;
                   return (
@@ -262,19 +288,19 @@ const N8nContentAutomationPage = ({
                       <motion.button
                         whileTap={{ scale: 0.995 }}
                         onClick={() => setExpanded(open ? null : f.id)}
-                        className="w-full flex items-center justify-between gap-4 p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
+                        className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
                       >
-                        <div className="flex items-start gap-3">
-                          <div className="mt-0.5 text-blue-500">{f.icon}</div>
-                          <div>
-                            <div className="font-semibold text-gray-900 dark:text-gray-100">{f.title}</div>
+                        <div className="flex items-start gap-2 sm:gap-3">
+                          <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
+                          <div className="min-w-0 flex-1">
+                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
                             {!open && (
-                              <div className="text-sm text-gray-600 dark:text-gray-300">{f.summary}</div>
+                              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>
                             )}
                           </div>
                         </div>
                         <ChevronDown
-                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${open ? "rotate-180" : ""}`}
                         />
                       </motion.button>
 
@@ -287,8 +313,8 @@ const N8nContentAutomationPage = ({
                             transition={{ duration: 0.2, ease: "easeInOut" }}
                             className="overflow-hidden"
                           >
-                            <div className="px-6 pb-5 pt-0">
-                              <p className="mb-3 text-sm text-gray-600 dark:text-gray-300">{f.summary}</p>
+                            <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-0">
+                              <p className="mb-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{f.summary}</p>
                               <ul className="space-y-2">
                                 {f.details.map((d, i) => (
                                   <motion.li
@@ -296,10 +322,10 @@ const N8nContentAutomationPage = ({
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.15, delay: i * 0.05 }}
-                                    className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300"
+                                    className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700 dark:text-gray-300"
                                   >
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2" />
-                                    <span>{d}</span>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 sm:mt-2 shrink-0" />
+                                    <span className="leading-relaxed">{d}</span>
                                   </motion.li>
                                 ))}
                               </ul>
@@ -314,47 +340,47 @@ const N8nContentAutomationPage = ({
             </section>
 
             {/* Nodes & Tech Used */}
-            <section id="tech" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-4">
-                <BsAppIndicator className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
+            <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
               </div>
 
-              <ul className="space-y-2 text-gray-800 dark:text-gray-200">
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiN8N className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>n8n Core</b> — Visual builder, credentials, error workflows.</span>
+              <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Visual builder, credentials, error workflows.</span>
                 </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Webhook className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Webhook</b> — On-demand triggers for manual runs or integrations.</span>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Webhook:</b> On-demand triggers for manual runs or integrations.</span>
                 </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Clock className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Cron</b> — Scheduled publishing & batch jobs.</span>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Cron:</b> Scheduled publishing & batch jobs.</span>
                 </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Globe2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>HTTP Request</b> — Connect any REST API (CMS, socials, email).</span>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Connect any REST API (CMS, socials, email).</span>
                 </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <Code2 className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Code Node (JS)</b> — Transform, template, and validate payloads.</span>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Code Node (JS):</b> Transform, template, and validate payloads.</span>
                 </li>
-                <li className="grid grid-cols-[24px_1fr] items-start gap-3">
-                  <SiGooglesheets className="w-4 h-4 mt-1 text-gray-500 dark:text-gray-400" />
-                  <span><b>Sheets/DB</b> — Queues & audit logs via Google Sheets/SQL.</span>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Sheets/DB:</b> Queues & audit logs via Google Sheets/SQL.</span>
                 </li>
               </ul>
             </section>
 
             {/* Use Cases */}
-            <section id="use-cases" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-4">
-                <LuSettings2 className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
+            <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
+              <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                 <li>Auto-generate post drafts, titles, and social captions</li>
                 <li>Build a content queue from feeds, forms, or spreadsheets</li>
                 <li>Cross-post to blog, newsletter (e.g., Brevo), and socials</li>
@@ -363,18 +389,18 @@ const N8nContentAutomationPage = ({
             </section>
 
             {/* How to Use */}
-            <section id="how-to" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-4">
-                <FileJson className="w-5 h-5 shrink-0 text-blue-500" />
-                <h2 className="text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
+            <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
               </div>
 
-              <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-6 space-y-4">
-                <ol className="list-decimal list-inside space-y-2 text-gray-800 dark:text-gray-200">
-                  <li>
+              <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
+                <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
+                  <li className="leading-relaxed">
                     Open folder:&nbsp;
                     <a
-                      className="underline underline-offset-2"
+                      className="underline underline-offset-2 break-words"
                       href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -382,8 +408,8 @@ const N8nContentAutomationPage = ({
                       GitHub — Content Automation
                     </a>
                   </li>
-                  <li>
-                    Import workflow JSON:&nbsp;In n8n, go to <b>Workflows → Import</b> and upload the selected <code>.json</code>.
+                  <li className="leading-relaxed">
+                    Import workflow JSON:&nbsp;In n8n, go to <b>Workflows → Import</b> and upload the selected <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
                   </li>
                   <li>
                     Configure credentials:&nbsp;Add API keys/OAuth apps for channels you’ll publish to (e.g., email, CMS,
@@ -438,28 +464,7 @@ const N8nContentAutomationPage = ({
           </aside>
         </div>
 
-        {/* Mobile CTA - Show both GitHub and main action */}
-        <div className="sm:hidden mt-10 max-w-6xl mx-auto px-4">
-          <div className="flex flex-col gap-3">
-            <a
-              href="https://github.com/dhruba-datta/n8n"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-medium focus-override"
-            >
-              <Github className="w-4 h-4" />
-              View on GitHub
-            </a>
-            <a
-              href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors font-medium focus-override"
-            >
-              Open Folder <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
+
 
         {/* Contact CTA Section */}
         <ContactCTA
