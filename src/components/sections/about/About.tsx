@@ -69,7 +69,7 @@ const About = ({ }: AboutProps) => {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-start justify-center pt-28 md:pt-36 pb-20 overflow-hidden"
+      className="relative min-h-screen flex items-start justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-36 pb-16 sm:pb-20 overflow-hidden"
     >
       {/* Decorative background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -109,15 +109,15 @@ const About = ({ }: AboutProps) => {
         ))}
       </div>
 
-      <div className="container-max-width section-padding relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div className="container-max-width section-padding relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-6">
+        <div className="grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start">
           {/* Left: copy */}
-          <div className="md:col-span-7 space-y-6">
+          <div className="md:col-span-7 space-y-4 sm:space-y-5 md:space-y-6">
             <motion.p
               initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
-              className="text-[11px] tracking-[0.22em] font-semibold uppercase text-gray-500 dark:text-gray-400"
+              className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-gray-500 dark:text-gray-400"
             >
               More about me
             </motion.p>
@@ -126,7 +126,7 @@ const About = ({ }: AboutProps) => {
               initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
-              className="text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
             >
               I’m Dhruba
             </motion.h2>
@@ -135,7 +135,7 @@ const About = ({ }: AboutProps) => {
               initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
-              className="space-y-5 text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
+              className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
             >
               <p>
                 I’m a proactive full-stack developer passionate about creating dynamic web experiences. From frontend to
@@ -154,11 +154,11 @@ const About = ({ }: AboutProps) => {
               initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.08 }}
-              className="flex gap-3 pt-2"
+              className="flex flex-col sm:flex-row gap-3 pt-2"
             >
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-white
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
                            shadow-lg transition-all focus-override"
               >
@@ -166,20 +166,20 @@ const About = ({ }: AboutProps) => {
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium
                            border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5
                            text-slate-800 dark:text-gray-200 hover:shadow-md transition-all focus-override"
               >
                 <LuMessageSquareShare className="w-4 h-4" />
-                Contact
+                Contact Me
               </Link>
             </motion.div>
           </div>
 
-          {/* Right: 3D coverflow */}
-          <div className="md:col-span-5">
+          {/* Right: 3D coverflow - Hidden on mobile */}
+          <div className="hidden md:block md:col-span-5">
             <div
-              className="relative h-[480px] sm:h-[530px] flex flex-col items-center justify-start select-none"
+              className="relative h-[480px] lg:h-[530px] flex flex-col items-center justify-start select-none"
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
               onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
@@ -196,7 +196,7 @@ const About = ({ }: AboutProps) => {
               style={{ perspective: 1600 }}
             >
               <div
-                className="relative mt-2 h-[360px] sm:h-[410px] w-full flex items-center justify-center"
+                className="relative mt-2 h-[300px] sm:h-[350px] md:h-[360px] lg:h-[410px] w-full flex items-center justify-center"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {slides.map((s, i) => {
@@ -220,9 +220,9 @@ const About = ({ }: AboutProps) => {
                   return (
                     <motion.figure
                       key={i}
-                      className="absolute w-[64%] sm:w-[70%] max-w-md rounded-[20px] overflow-hidden
-                                 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)]
-                                 dark:shadow-[0_28px_70px_-22px_rgba(0,0,0,0.85)]
+                      className="absolute w-[72%] sm:w-[68%] md:w-[64%] lg:w-[70%] max-w-md rounded-[20px] overflow-hidden
+                                 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] sm:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)]
+                                 dark:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.8)] dark:sm:shadow-[0_28px_70px_-22px_rgba(0,0,0,0.85)]
                                  border border-white/20 dark:border-white/10 bg-white/5 backdrop-blur-[2px]"
                       style={{
                         zIndex: map.zIndex,
@@ -250,7 +250,7 @@ const About = ({ }: AboutProps) => {
                       <img
                         src={s.src}
                         alt={s.alt}
-                        className="h-[360px] sm:h-[410px] w-full object-cover object-center select-none"
+                        className="h-[300px] sm:h-[350px] md:h-[360px] lg:h-[410px] w-full object-cover object-center select-none"
                         draggable={false}
                         loading="lazy"
                         onLoad={() =>
