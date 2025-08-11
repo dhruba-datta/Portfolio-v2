@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import emailjs from "emailjs-com";
 import {
   FaFacebookF,
@@ -56,6 +56,7 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<ErrorType>({});
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const prefersReducedMotion = useReducedMotion();
 
   async function sendEmail(params: FormType) {
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -91,7 +92,7 @@ const Contact: React.FC = () => {
   const bgDots = Array.from({ length: 9 }).map((_, i) => ({
     left: `${8 + i * 10}%`,
     top: `${20 + i * 8}%`,
-    size: 20 + Math.random() * 16,
+    size: 14 + Math.random() * 12,
     opacity: 0.08 + Math.random() * 0.09,
     duration: 6 + i,
     delay: i * 0.8,
@@ -100,11 +101,10 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="lg:min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden py-16 lg:py-0"
+      className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-row lg:items-center lg:justify-center lg:py-0"
     >
       {/* --- Dynamic Background --- */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Soft mesh glow */}
         <motion.div
           className="absolute inset-0"
           initial={{ opacity: 0 }}
@@ -112,33 +112,27 @@ const Contact: React.FC = () => {
           transition={{ duration: 1.1 }}
           style={{
             background:
-              "radial-gradient(1000px 520px at 50% 5%, rgba(99,102,241,0.18), transparent 70%), radial-gradient(900px 560px at 80% 90%, rgba(236,72,153,0.16), transparent 72%), radial-gradient(900px 560px at 10% 85%, rgba(59,130,246,0.16), transparent 72%)",
+              "radial-gradient(900px 460px at 50% 6%, rgba(99,102,241,0.18), transparent 70%), radial-gradient(760px 520px at 82% 92%, rgba(236,72,153,0.16), transparent 72%), radial-gradient(760px 520px at 8% 88%, rgba(59,130,246,0.16), transparent 72%)",
           }}
         />
 
-        {/* Animated gradient orbs */}
-        <motion.div
-          className="absolute -top-20 left-1/4 w-[28rem] h-[28rem] rounded-full blur-3xl bg-gradient-to-tr from-blue-500/30 via-indigo-500/25 to-fuchsia-500/25"
-          animate={{
-            y: [0, 24, 0],
-            x: [0, 32, 0],
-            scale: [1, 1.08, 1],
-            opacity: [0.8, 1, 0.8],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-24 right-1/5 w-[24rem] h-[24rem] rounded-full blur-3xl bg-gradient-to-tl from-fuchsia-400/25 via-purple-500/20 to-blue-500/25"
-          animate={{
-            y: [0, -26, 0],
-            x: [0, -28, 0],
-            scale: [1, 1.06, 1],
-            opacity: [0.7, 0.95, 0.7],
-          }}
-          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {!prefersReducedMotion && (
+          <>
+            {/* Orbs scaled for responsiveness */}
+            <motion.div
+              className="absolute -top-24 left-1/4 w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full blur-3xl bg-gradient-to-tr from-blue-500/30 via-indigo-500/25 to-fuchsia-500/25"
+              animate={{ y: [0, 24, 0], x: [0, 32, 0], scale: [1, 1.06, 1], opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute -bottom-28 right-1/5 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[24rem] lg:h-[24rem] rounded-full blur-3xl bg-gradient-to-tl from-fuchsia-400/25 via-purple-500/20 to-blue-500/25"
+              animate={{ y: [0, -26, 0], x: [0, -28, 0], scale: [1, 1.05, 1], opacity: [0.7, 0.95, 0.7] }}
+              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </>
+        )}
 
-        {/* Subtle grid with radial mask */}
+        {/* Grid + dots */}
         <div
           className="absolute inset-0 opacity-10
             [mask-image:radial-gradient(ellipse_60%_40%_at_50%_14%,#000_70%,transparent_120%)]
@@ -147,155 +141,131 @@ const Contact: React.FC = () => {
             bg-[size:18px_28px]"
         />
 
-        {/* Floating micro-dots */}
-        {bgDots.map((r, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-blue-400 dark:bg-indigo-300"
-            style={{
-              left: r.left,
-              top: r.top,
-              width: r.size,
-              height: r.size,
-              opacity: r.opacity,
-              filter: "blur(1px)",
-            }}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -18, 0], opacity: [r.opacity, r.opacity * 1.4, r.opacity] }}
-            transition={{
-              duration: r.duration,
-              repeat: Infinity,
-              delay: r.delay,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {!prefersReducedMotion &&
+          bgDots.map((r, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-blue-400 dark:bg-indigo-300"
+              style={{ left: r.left, top: r.top, width: r.size, height: r.size, opacity: r.opacity, filter: "blur(1px)" }}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -18, 0], opacity: [r.opacity, r.opacity * 1.4, r.opacity] }}
+              transition={{ duration: r.duration, repeat: Infinity, delay: r.delay, ease: "easeInOut" }}
+            />
+          ))}
 
-        {/* Slow rotating conic sheen */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            background:
-              "conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,0.06), transparent 30%, rgba(255,255,255,0.06) 60%, transparent 80%, rgba(255,255,255,0.06))",
-          }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        />
+        {!prefersReducedMotion && (
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              background:
+                "conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,0.06), transparent 30%, rgba(255,255,255,0.06) 60%, transparent 80%, rgba(255,255,255,0.06))",
+            }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          />
+        )}
       </div>
 
-      {/* --- 2 Column Main Content --- */}
-      <div className="w-full max-w-5xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center px-4 md:px-6 lg:px-2">
-        {/* --- Left: Profile/Intro --- */}
+      {/* --- Content wrapper --- */}
+      <div className="w-full max-w-5xl mx-auto px-4 md:px-6 lg:px-2 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+        {/* --- LEFT: Intro (mobile centered, desktop left aligned) --- */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4 pt-10 md:pt-16 lg:pt-0"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative flex flex-col justify-start pt-44 lg:justify-center items-center text-center lg:items-start lg:text-left space-y-3 lg:space-y-4 lg:pt-0"
+          style={{ minHeight: "100svh" }}
         >
-          {/* Animated Profile */}
+          {/* Avatar block */}
           <motion.div
-            whileHover={{ scale: 1.08 }}
-            animate={{ y: [0, -8, 0] }}
-            transition={{ y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
-            className="relative mb-3"
+            whileHover={{ scale: 1.05 }}
+            className="relative mb-4"
+            animate={!prefersReducedMotion ? { y: [0, -6, 0] } : undefined}
+            transition={!prefersReducedMotion ? { y: { duration: 4, repeat: Infinity, ease: "easeInOut" } } : undefined}
           >
-            {/* Outer animated glow ring */}
-            <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-30 blur-2xl"
-              animate={{ rotate: 360, scale: [1, 1.1, 1] }}
-              transition={{
-                rotate: { duration: 7, repeat: Infinity, ease: "linear" },
-                scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-              }}
-              style={{ transform: "scale(1.13)" }}
-            />
-            {/* Floating geometric shapes */}
-            <motion.div
-              className="absolute -top-8 right-2 w-6 h-6 border-2 border-purple-400 opacity-60"
-              style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
-              animate={{
-                rotate: [0, 360],
-                y: [0, -10, 0],
-                opacity: [0.6, 1, 0.6],
-              }}
-              transition={{
-                rotate: { duration: 6, repeat: Infinity, ease: "linear" },
-                y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-            <motion.div
-              className="absolute -left-8 bottom-8 w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-400 opacity-70"
-              style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
-              animate={{
-                rotate: [0, -360],
-                x: [0, 8, 0],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                scale: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-            {/* Floating sparkles */}
-            <motion.div
-              className="absolute -top-3 -left-3 w-2 h-2 bg-yellow-400 rounded-full shadow-lg"
-              animate={{
-                scale: [0, 1, 0],
-                rotate: [0, 180, 360],
-                opacity: [0, 1, 0],
-                x: [0, 3, 0],
-                y: [0, -3, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: 1,
-                ease: "easeInOut",
-              }}
-            />
-            <motion.div
-              className="absolute -bottom-2 -right-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-lg"
-              animate={{
-                scale: [0, 1.2, 0],
-                opacity: [0, 1, 0],
-                x: [0, -2, 0],
-                y: [0, 2, 0],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                delay: 0.5,
-                ease: "easeInOut",
-              }}
-            />
-            {/* Main profile image */}
+            {!prefersReducedMotion && (
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-30 blur-2xl"
+                animate={{ rotate: 360, scale: [1, 1.08, 1] }}
+                transition={{ rotate: { duration: 7, repeat: Infinity, ease: "linear" }, scale: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+                style={{ transform: "scale(1.08)" }}
+              />
+            )}
+
+            {/* small floating bits */}
+            {!prefersReducedMotion && (
+              <>
+                <motion.div
+                  className="absolute -top-6 lg:-top-8 right-1 lg:right-2 w-4 lg:w-6 h-4 lg:h-6 border-2 border-purple-400 opacity-60"
+                  style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+                  animate={{ rotate: [0, 360], y: [0, -8, 0], opacity: [0.6, 1, 0.6] }}
+                  transition={{ rotate: { duration: 6, repeat: Infinity, ease: "linear" }, y: { duration: 3, repeat: Infinity, ease: "easeInOut" }, opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+                />
+                <motion.div
+                  className="absolute -left-6 lg:-left-8 bottom-6 lg:bottom-8 w-3 lg:w-4 h-3 lg:h-4 bg-gradient-to-r from-blue-400 to-purple-400 opacity-70"
+                  style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
+                  animate={{ rotate: [0, -360], x: [0, 6, 0], scale: [1, 1.15, 1] }}
+                  transition={{ rotate: { duration: 8, repeat: Infinity, ease: "linear" }, x: { duration: 4, repeat: Infinity, ease: "easeInOut" }, scale: { duration: 2.5, repeat: Infinity, ease: "easeInOut" } }}
+                />
+                {/* Floating sparkles */}
+                <motion.div
+                  className="absolute -top-2 lg:-top-3 -left-2 lg:-left-3 w-1.5 lg:w-2 h-1.5 lg:h-2 bg-yellow-400 rounded-full shadow-lg"
+                  animate={{
+                    scale: [0, 1, 0],
+                    rotate: [0, 180, 360],
+                    opacity: [0, 1, 0],
+                    x: [0, 3, 0],
+                    y: [0, -3, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: 1,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.div
+                  className="absolute -bottom-1 lg:-bottom-2 -right-2 lg:-right-3 w-1 lg:w-1.5 h-1 lg:h-1.5 bg-blue-400 rounded-full shadow-lg"
+                  animate={{
+                    scale: [0, 1.2, 0],
+                    opacity: [0, 1, 0],
+                    x: [0, -2, 0],
+                    y: [0, 2, 0],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    delay: 0.5,
+                    ease: "easeInOut",
+                  }}
+                />
+              </>
+            )}
+
             <img
               src="/images/Headshot.png"
               alt="Profile"
-              className="relative z-10 w-32 h-32 rounded-full object-cover shadow-2xl"
+              className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-32 lg:h-32 rounded-full object-cover shadow-2xl"
               draggable={false}
             />
-            {/* Status indicator */}
+
+            {!prefersReducedMotion && (
+              <motion.div
+                className="absolute -top-0.5 lg:-top-1 -right-0.5 lg:-right-1 w-3 lg:w-4 h-3 lg:h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
+                animate={{
+                  scale: [1, 1.18, 1],
+                  boxShadow: [
+                    "0 0 0 0 rgba(34, 197, 94, 0.4)",
+                    "0 0 0 8px rgba(34, 197, 94, 0)",
+                    "0 0 0 0 rgba(34, 197, 94, 0)",
+                  ],
+                }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            )}
             <motion.div
-              className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
-              animate={{
-                scale: [1, 1.22, 1],
-                boxShadow: [
-                  "0 0 0 0 rgba(34, 197, 94, 0.4)",
-                  "0 0 0 8px rgba(34, 197, 94, 0)",
-                  "0 0 0 0 rgba(34, 197, 94, 0)",
-                ],
-              }}
-              transition={{
-                duration: 2.2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <motion.div
-              className="absolute -top-2 left-2 w-2 h-2 bg-yellow-300 rounded-full shadow"
+              className="absolute -top-1 lg:-top-2 left-1 lg:left-2 w-1.5 lg:w-2 h-1.5 lg:h-2 bg-yellow-300 rounded-full shadow"
               animate={{
                 scale: [0, 1.05, 0],
                 opacity: [0, 1, 0],
@@ -310,28 +280,29 @@ const Contact: React.FC = () => {
             />
           </motion.div>
 
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+          {/* ---- ELEMENTS UNDER THE IMAGE ---- */}
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100">
             Dhruba <span className="text-blue-600 dark:text-blue-400">Datta</span>
           </h1>
 
-          <div className="flex items-center gap-2 bg-green-100/80 dark:bg-green-900/40 rounded-full px-4 py-1 w-fit mt-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-green-700 dark:text-green-300 font-medium text-sm">
+          <div className="flex items-center gap-1.5 lg:gap-2 bg-green-100/80 dark:bg-green-900/40 rounded-full px-3 lg:px-4 py-1 w-fit mt-1">
+            <span className="w-2 lg:w-2.5 h-2 lg:h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span className="text-green-700 dark:text-green-300 font-medium text-xs lg:text-sm">
               Open for New Opportunities
             </span>
           </div>
 
-          <div className="text-blue-600 dark:text-blue-400 font-medium text-xl">
-            Bringing Ideas to Life - Let's build together
+          <div className="text-blue-600 dark:text-blue-400 font-medium text-base sm:text-lg lg:text-xl mt-2">
+            Bringing Ideas to Life - Let&apos;s build together
           </div>
 
-          <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-2 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-3 text-sm sm:text-base lg:text-lg leading-relaxed mt-2">
             Got an idea, a question, or just want to chat?
             <br />
             Connect on social media for updates, or use the form for detailed inquiries.
           </p>
 
-          <div className="flex gap-4 mb-2 justify-center lg:justify-start">
+          <div className="flex gap-3 lg:gap-4 mb-2 justify-center lg:justify-start">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -340,7 +311,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label={social.name}
                 className={
-                  `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 ` +
+                  `p-1.5 lg:p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 ` +
                   (social.name === "LinkedIn" ? "hover:text-blue-600 dark:hover:text-blue-400" : "") +
                   (social.name === "Instagram" ? "hover:text-pink-500 dark:hover:text-pink-400" : "") +
                   (social.name === "Telegram" ? "hover:text-blue-400 dark:hover:text-blue-300" : "") +
@@ -348,28 +319,48 @@ const Contact: React.FC = () => {
                   (social.name === "Facebook" ? "hover:text-blue-700 dark:hover:text-blue-500" : "")
                 }
               >
-                {social.icon}
+                <div className="w-4 lg:w-5 h-4 lg:h-5">
+                  {social.icon}
+                </div>
               </a>
             ))}
           </div>
+
+          {/* --- Mobile-only scroll indicator --- */}
+          <button
+            type="button"
+            onClick={() =>
+              document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+            className="lg:hidden absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+            aria-label="Scroll to contact form"
+          >
+            <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">scroll</span>
+            <span className="h-10 w-7 rounded-full border border-gray-400 dark:border-gray-600/70 bg-gray-200 dark:bg-gray-900/50 backdrop-blur-sm shadow flex items-start justify-center">
+              <motion.span
+                className="h-1.5 w-1.5 rounded-full bg-gray-600 dark:bg-gray-200"
+                animate={!prefersReducedMotion ? { y: [6, 18, 6], opacity: [1, 0.35, 1] } : undefined}
+                transition={!prefersReducedMotion ? { duration: 1.6, repeat: Infinity, ease: "easeInOut" } : undefined}
+              />
+            </span>
+          </button>
         </motion.div>
 
-        {/* --- Right: Form --- */}
+        {/* --- RIGHT: Form --- */}
         <motion.form
+          id="contact-form"
           onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full space-y-5 pb-10 md:pb-16 lg:pb-0"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full space-y-4 lg:space-y-5 pb-10 md:pb-12 lg:pb-0 pt-6 lg:pt-0 scroll-mt-24 md:scroll-mt-28"
           aria-label="Contact Form"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
             {/* Name */}
             <div>
-              <label
-                htmlFor="name"
-                className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1"
-              >
+              <label htmlFor="name" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
                 Name <span className="text-red-400">*</span>
               </label>
               <input
@@ -377,9 +368,9 @@ const Contact: React.FC = () => {
                 name="name"
                 type="text"
                 autoComplete="name"
-                className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${
+                className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
                   errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-700"
-                } rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400`}
+                } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 text-sm lg:text-base`}
                 value={form.name}
                 onChange={(e) => {
                   setForm((f) => ({ ...f, name: e.target.value }));
@@ -398,10 +389,7 @@ const Contact: React.FC = () => {
             </div>
             {/* Email */}
             <div>
-              <label
-                htmlFor="email"
-                className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1"
-              >
+              <label htmlFor="email" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
                 Email <span className="text-red-400">*</span>
               </label>
               <input
@@ -409,9 +397,9 @@ const Contact: React.FC = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
-                className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${
+                className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
                   errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-700"
-                } rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400`}
+                } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 text-sm lg:text-base`}
                 value={form.email}
                 onChange={(e) => {
                   setForm((f) => ({ ...f, email: e.target.value }));
@@ -429,21 +417,19 @@ const Contact: React.FC = () => {
               )}
             </div>
           </div>
+
           {/* Subject */}
           <div>
-            <label
-              htmlFor="subject"
-              className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1"
-            >
+            <label htmlFor="subject" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
               Subject <span className="text-red-400">*</span>
             </label>
             <input
               id="subject"
               name="subject"
               type="text"
-              className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${
+              className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
                 errors.subject ? "border-red-500" : "border-gray-300 dark:border-gray-700"
-              } rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400`}
+              } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 text-sm lg:text-base`}
               value={form.subject}
               onChange={(e) => {
                 setForm((f) => ({ ...f, subject: e.target.value }));
@@ -460,22 +446,20 @@ const Contact: React.FC = () => {
               </div>
             )}
           </div>
+
           {/* Message */}
           <div className="relative">
-            <label
-              htmlFor="message"
-              className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1"
-            >
+            <label htmlFor="message" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
               Message <span className="text-red-400">*</span>
             </label>
             <textarea
               id="message"
               name="message"
-              rows={5}
+              rows={4}
               maxLength={500}
-              className={`w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-800 border ${
+              className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
                 errors.message ? "border-red-500" : "border-gray-300 dark:border-gray-700"
-              } rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 resize-none`}
+              } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 resize-none text-sm lg:text-base`}
               value={form.message}
               onChange={(e) => {
                 setForm((f) => ({ ...f, message: e.target.value }));
@@ -486,8 +470,7 @@ const Contact: React.FC = () => {
               placeholder="How can I help you?"
               required
             />
-            {/* Char count bottom-right, always visible */}
-            <span className="absolute bottom-2 right-3 text-[11px] text-gray-400">
+            <span className="absolute bottom-2 right-3 text-[10px] lg:text-[11px] text-gray-400">
               {form.message.length}/500
             </span>
             {errors.message && (
@@ -499,10 +482,10 @@ const Contact: React.FC = () => {
           {/* Button */}
           <motion.button
             type={status === "success" ? "button" : "submit"}
-            whileHover={{ scale: status === "idle" ? 1.04 : 1 }}
-            whileTap={{ scale: status === "idle" ? 0.97 : 1 }}
+            whileHover={{ scale: status === "idle" ? 1.03 : 1 }}
+            whileTap={{ scale: status === "idle" ? 0.98 : 1 }}
             className={
-              "w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-base focus-override " +
+              "w-full font-semibold py-3 lg:py-3.5 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm lg:text-base " +
               (loading
                 ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow"
                 : status === "success"
@@ -512,72 +495,33 @@ const Contact: React.FC = () => {
                 : "bg-red-600 text-white")
             }
             disabled={loading || status === "success"}
-            tabIndex={0}
             aria-live="polite"
           >
             {loading ? (
               <>
                 <span>Sending...</span>
-                <svg
-                  className="animate-spin w-5 h-5 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    className="opacity-25"
-                  />
-                  <path
-                    d="M4 12a8 8 0 018-8"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    className="opacity-75"
-                  />
+                <svg className="animate-spin w-4 lg:w-5 h-4 lg:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25" />
+                  <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75" />
                 </svg>
               </>
             ) : status === "success" ? (
               <>
                 <span>Message Sent</span>
-                <FaCheck className="w-5 h-5 ml-1 text-white-400" aria-hidden="true" />
+                <FaCheck className="w-4 lg:w-5 h-4 lg:h-5 ml-1 text-white/90" aria-hidden="true" />
               </>
             ) : status === "error" ? (
               <>
                 <span>Failed. Try again.</span>
-                {/* Modern error icon: circle with X */}
-                <svg
-                  className="w-5 h-5 ml-2 text-red-200"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="#ef4444"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 9l6 6M15 9l-6 6"
-                    stroke="#fff"
-                    strokeWidth="2"
-                  />
+                <svg className="w-4 lg:w-5 h-4 lg:h-5 ml-2 text-red-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#ef4444" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l6 6M15 9l-6 6" stroke="#fff" strokeWidth="2" />
                 </svg>
               </>
             ) : (
               <>
                 <span>Send Message</span>
-                <IoIosSend className="w-5 h-5 ml-0.5" aria-hidden="true" />
+                <IoIosSend className="w-4 lg:w-5 h-4 lg:h-5 ml-0.5" aria-hidden="true" />
               </>
             )}
           </motion.button>
