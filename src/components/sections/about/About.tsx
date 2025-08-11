@@ -128,7 +128,7 @@ const About = ({ }: AboutProps) => {
               transition={{ duration: 0.55 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
             >
-              I’m Dhruba
+              I’m <span className="text-blue-600 dark:text-blue-400">Dhruba</span>
             </motion.h2>
 
             <motion.div
