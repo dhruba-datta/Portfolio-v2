@@ -2,15 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Globe2,
   Upload,
   Search,
   Heart,
   User,
   Smartphone,
   Code,
-  Database,
-  Palette,
   Zap,
   ChevronDown,
   ArrowLeft,
@@ -18,6 +15,7 @@ import {
   Activity,
   FileJson,
 } from "lucide-react";
+import { SiReact, SiSanity, SiTailwindcss, SiGoogle, SiReactrouter, SiNetlify } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineAlignLeft } from "react-icons/ai";
@@ -51,12 +49,12 @@ const PhotoBoothPage = ({
 
   // chips under title
   const chips = [
-    { name: "React", icon: <Code className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Sanity.io", icon: <Database className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Tailwind CSS", icon: <Palette className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Google OAuth", icon: <User className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "React Router", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Netlify", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Sanity.io", icon: <SiSanity className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Google OAuth", icon: <SiGoogle className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "React Router", icon: <SiReactrouter className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Netlify", icon: <SiNetlify className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
   // features (accordion)
@@ -392,27 +390,27 @@ const PhotoBoothPage = ({
 
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>React</b> — Component-driven UI with hooks.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Database className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiSanity className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Sanity.io</b> — Headless CMS for images, users & comments.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Tailwind CSS</b> — Utility-first responsive styling.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiGoogle className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Google OAuth</b> — Secure auth & session persistence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiReactrouter className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>React Router</b> — Smooth client-side navigation.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Netlify</b> — CI/CD & global CDN hosting.</span>
                 </li>
               </ul>
