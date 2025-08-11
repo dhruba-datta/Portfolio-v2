@@ -2,18 +2,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Globe2,
-  Code,
-  Palette,
-  Layers,
   Smartphone,
   ChevronDown,
   ArrowLeft,
-  Search,
   FileText,
   Activity,
   FileJson,
+  Search,
 } from "lucide-react";
+import { BsLayers } from "react-icons/bs";
+import { SiHtml5, SiCss3, SiJavascript, SiBootstrap, SiNetlify } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineAlignLeft } from "react-icons/ai";
@@ -45,12 +43,11 @@ const PortfolioV1Page = ({
 
   // chips under title
   const chips = [
-    { name: "HTML", icon: <Code className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "CSS", icon: <Palette className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "JavaScript", icon: <Code className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Bootstrap", icon: <Layers className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "SEO", icon: <Search className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Netlify", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "HTML", icon: <SiHtml5 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "CSS", icon: <SiCss3 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "JavaScript", icon: <SiJavascript className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Bootstrap", icon: <SiBootstrap className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Netlify", icon: <SiNetlify className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
   // features (accordion)
@@ -68,7 +65,7 @@ const PortfolioV1Page = ({
     },
     {
       id: "sections",
-      icon: <Layers className="w-4 sm:w-5 h-4 sm:h-5" />,
+      icon: <BsLayers className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Essential Sections",
       summary: "About, skills, resume, projects & contact",
       details: [
@@ -331,23 +328,23 @@ const PortfolioV1Page = ({
 
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiHtml5 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>HTML</b> — Semantic, accessible markup.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiCss3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>CSS</b> — Modern layout & typography.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>JavaScript</b> — Interactive components & routing stubs.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiBootstrap className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Bootstrap</b> — Grid, utilities & responsive helpers.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Netlify</b> — Simple deploys & global CDN.</span>
                 </li>
               </ul>

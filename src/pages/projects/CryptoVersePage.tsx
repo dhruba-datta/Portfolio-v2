@@ -8,7 +8,6 @@ import {
   BarChart3,
   Newspaper,
   Smartphone,
-  Code,
   Database,
   Palette,
   Zap,
@@ -18,6 +17,7 @@ import {
   Activity,
   FileJson,
 } from "lucide-react";
+import { SiReact, SiReactrouter, SiRedux, SiAntdesign } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineAlignLeft } from "react-icons/ai";
@@ -47,14 +47,14 @@ const CryptoVersePage = ({
   const effectiveToggleTheme =
     typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
 
-  // chips under title
+  // chips under title (updated to match PhotoBoothPage style)
   const chips = [
-    { name: "React", icon: <Code className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Redux Toolkit", icon: <Database className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Ant Design", icon: <Palette className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Redux Toolkit", icon: <SiRedux className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Ant Design", icon: <SiAntdesign className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     { name: "Chart.js", icon: <LineChart className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     { name: "RapidAPI", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "React Router", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "React Router", icon: <SiReactrouter className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
   // features (accordion)
@@ -395,15 +395,15 @@ const CryptoVersePage = ({
 
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>React</b> — Component-driven UI with hooks.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Database className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiRedux className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Redux Toolkit</b> — RTK & RTK Query for state + caching.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiAntdesign className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>Ant Design</b> — Responsive components & layout.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
@@ -415,7 +415,7 @@ const CryptoVersePage = ({
                   <span className="text-sm sm:text-base"><b>RapidAPI</b> — Market data & news endpoints.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <SiReactrouter className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
                   <span className="text-sm sm:text-base"><b>React Router</b> — Client-side navigation.</span>
                 </li>
               </ul>
