@@ -141,7 +141,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     
                     {/* Institution */}
                     <h3 className={`text-base sm:text-lg font-semibold ${
-                      isDark ? 'text-gray-200' : 'text-gray-700'
+                      isDark ? 'text-green-400' : 'text-green-600'
                     }`}>
                       {edu.institution}
                     </h3>
@@ -197,7 +197,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                       </div>
                     )}
                     <h3 className={`text-lg lg:text-xl font-semibold mb-1 ${
-                      isDark ? 'text-gray-200' : 'text-gray-700'
+                      isDark ? 'text-green-400' : 'text-green-600'
                     }`}>
                       {edu.institution}
                     </h3>

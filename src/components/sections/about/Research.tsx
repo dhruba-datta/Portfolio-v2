@@ -291,7 +291,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     viewport={{ once: true }}
                   />
                   <span className="font-semibold text-xs sm:text-sm lg:text-base text-gray-800 dark:text-white">{a.title}</span>
-                  <span className={`text-[11px] sm:text-xs mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400`}>{a.description}</span>
+                  <span className={`text-sm sm:text-xs mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400`}>{a.description}</span>
                 </motion.li>
               ))}
             </motion.ol>
