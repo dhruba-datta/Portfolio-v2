@@ -161,13 +161,13 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                 {/* Mobile Layout */}
                 <div className="lg:hidden relative pl-8">
                   {/* Mobile Timeline Dot */}
-                  <motion.div
-                    className="absolute left-[0.375rem] top-6 w-2 h-2 bg-blue-500 rounded-full z-10 shadow-lg -translate-x-1/2"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
-                    viewport={{ once: true }}
-                  />
+                    <motion.div
+                      className="absolute left-[0.375rem] top-9 w-2 h-2 bg-blue-500 rounded-full z-10 shadow-lg -translate-x-1/2"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
+                      viewport={{ once: true }}
+                    />
                   
                   {/* Mobile Content */}
                   <div className="space-y-2">
@@ -272,9 +272,9 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     <div className="mb-6">
                       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-3 mb-2">
                         <h4
-                          className={`text-xl font-bold ${
-                            isDark ? 'text-white' : 'text-gray-900'
-                          }`}
+                            className={`text-xl font-bold ${
+                              isDark ? 'text-blue-400' : 'text-blue-600'
+                            }`}
                         >
                           {exp.position}
                         </h4>
