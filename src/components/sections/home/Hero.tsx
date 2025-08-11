@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { motion, useReducedMotion } from 'framer-motion';
+import { FaGithub, FaLinkedinIn, FaInstagram, FaTelegramPlane } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
 import { LuMessageSquareShare } from "react-icons/lu";
 
@@ -12,6 +12,7 @@ interface MousePosition {
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+  const prefersReducedMotion = useReducedMotion();
 
   const codeLines = [
     "// Software Engineer",
@@ -40,24 +41,34 @@ const Hero = () => {
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/dhruba-datta/',
-      icon: <FaLinkedinIn className="w-5 h-5" />,
+      icon: <FaLinkedinIn className="w-4 sm:w-5 h-4 sm:h-5" />,
     },
     {
       name: 'GitHub',
       url: 'https://github.com/dhruba-datta',
-      icon: <FaGithub className="w-5 h-5" />,
+      icon: <FaGithub className="w-4 sm:w-5 h-4 sm:h-5" />,
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/dhrubz_/',
+      icon: <FaInstagram className="w-4 sm:w-5 h-4 sm:h-5" />,
+    },
+    {
+      name: 'Telegram',
+      url: 'https://t.me/dhruba_datta_anjan',
+      icon: <FaTelegramPlane className="w-4 sm:w-5 h-4 sm:h-5" />,
     },
     {
       name: 'Google Scholar',
       url: 'https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH',
-      icon: <FaGoogleScholar className="w-5 h-5" />,
+      icon: <FaGoogleScholar className="w-4 sm:w-5 h-4 sm:h-5" />,
     },
   ];
 
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-0 sm:pt-12 lg:pt-0"
     >
       {/* Subtle background effects - keeping it minimal like other sections */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -74,24 +85,24 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" style={{ top: '-300px', height: 'calc(100% + 300px)' }}></div>
 
       {/* Main content */}
-      <div className="relative z-10 container-max-width section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 container-max-width section-padding -mt-16 sm:-mt-20 lg:mt-0">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           
           {/* Left side - Profile and Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left space-y-8"
+            className="text-center lg:text-left space-y-4 sm:space-y-6 lg:space-y-8 relative pb-24 sm:pb-28 lg:pb-0"
           >
             {/* Introduction */}
-            <div className="space-y-4">
+            <div className="space-y-2 sm:space-y-3 lg:space-y-4">
               {/* Mobile Profile Image */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                className="lg:hidden flex justify-center mb-8"
+                className="lg:hidden flex justify-center mb-4 sm:mb-6"
               >
                 <motion.div
                   whileHover={{ 
@@ -136,7 +147,7 @@ const Hero = () => {
                   <motion.img
                     src="/images/Headshot.png"
                     alt="Profile"
-                    className="relative z-10 w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover shadow-2xl transition-all duration-300"
+                    className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-2xl transition-all duration-300"
                     animate={{
                       boxShadow: [
                         "0 20px 40px -12px rgba(0, 0, 0, 0.25)",
@@ -208,7 +219,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-lg text-blue-600 dark:text-blue-400 font-medium mb-1"
+                className="text-sm sm:text-base lg:text-lg text-blue-600 dark:text-blue-400 font-medium mb-1"
               >
                 Hello! I'm
               </motion.p>
@@ -216,7 +227,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
               >
                 Dhruba <span className="text-blue-600 dark:text-blue-400">Datta</span>
               </motion.h1>
@@ -224,7 +235,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
                 Researcher & Software Engineer
               </motion.p>
@@ -232,7 +243,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="text-lg text-gray-500 dark:text-gray-400 max-w-lg"
+                className="text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-lg"
               >
                 Tackling complex challenges with innovative tech and a passion for automation. Beyond building solutions, love to explore the world and capture memories.
               </motion.p>
@@ -243,10 +254,10 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-4 justify-center lg:justify-start"
+              className="flex gap-2 sm:gap-3 lg:gap-4 justify-center lg:justify-start py-2 sm:py-3 lg:py-0"
             >
               {socialLinks.map((social) => (
-                <motion.a
+                  <motion.a
                   key={social.name}
                   href={social.url}
                   target="_blank"
@@ -254,7 +265,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.98 }}
               className={
-                `p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 focus-override ` +
+                `p-1.5 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 focus-override ` +
                 (social.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400' : '') +
                 (social.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400' : '') +
                 (social.name === 'Telegram' ? 'hover:text-blue-400 dark:hover:text-blue-300' : '') +
@@ -275,19 +286,44 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex justify-center lg:justify-start"
+              className="flex justify-center lg:justify-start mb-16 sm:mb-20 lg:mb-0"
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-white
+                className="inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
                            shadow-lg transition-all focus-override"
                 aria-label="Contact"
               >
-                <LuMessageSquareShare className="w-4 h-4" />
+                <LuMessageSquareShare className="w-3 sm:w-4 h-3 sm:h-4" />
                 Contact Me
               </Link>
             </motion.div>
+
+            {/* Mobile-only scroll indicator */}
+            <motion.button
+              type="button"
+              onClick={() => {
+                const nextSection = document.querySelector('#about, .next-section, main > section:nth-child(2)');
+                if (nextSection) {
+                  nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              className="lg:hidden absolute bottom-0 sm:bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+              aria-label="Explore more"
+            >
+              <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">explore</span>
+              <span className="h-10 w-7 rounded-full border border-gray-400 dark:border-gray-600/70 bg-gray-200 dark:bg-gray-900/50 backdrop-blur-sm shadow flex items-start justify-center">
+                <motion.span
+                  className="h-1.5 w-1.5 rounded-full bg-gray-600 dark:bg-gray-200"
+                  animate={!prefersReducedMotion ? { y: [6, 18, 6], opacity: [1, 0.35, 1] } : undefined}
+                  transition={!prefersReducedMotion ? { duration: 1.6, repeat: Infinity, ease: "easeInOut" } : undefined}
+                />
+              </span>
+            </motion.button>
           </motion.div>
 
           {/* Right side - Code Block */}

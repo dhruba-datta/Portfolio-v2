@@ -61,19 +61,19 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-4 pb-4 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-2 md:pt-4 pb-2 md:pb-4 ${
         scrolled 
           ? 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm' 
           : 'bg-white/20 dark:bg-gray-900/20 backdrop-blur-none'
       }`}
     >
-      <nav className="mx-auto max-w-7xl px-6">
-        <div className="flex items-center justify-between h-16">
+      <nav className="mx-auto max-w-7xl px-4 md:px-6">
+        <div className="flex items-center justify-between h-12 md:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 focus-override">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">DD</span>
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-base md:text-lg">DD</span>
               </div>
             </Link>
           </div>
@@ -99,17 +99,17 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
           </div>
 
           {/* Right Side - Theme Toggle */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
+              className="p-2.5 md:p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
             >
               {isDark ? (
-                <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
                 </svg>
               ) : (
-                <svg className="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                 </svg>
               )}
@@ -117,23 +117,23 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
+              className="md:hidden p-2.5 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <div className="w-6 h-6 flex flex-col justify-center items-center relative">
+              <div className="w-5 h-5 flex flex-col justify-center items-center relative">
                 <span
-                  className={`w-5 h-0.5 bg-gray-700 dark:bg-gray-300 absolute transition-all duration-200 ${
-                    isOpen ? 'rotate-45 translate-y-0' : 'rotate-0 -translate-y-1.5'
+                  className={`w-4 h-0.5 bg-gray-700 dark:bg-gray-300 absolute transition-all duration-200 ${
+                    isOpen ? 'rotate-45 translate-y-0' : 'rotate-0 -translate-y-1'
                   }`}
                 />
                 <span
-                  className={`w-5 h-0.5 bg-gray-700 dark:bg-gray-300 absolute transition-all duration-200 ${
+                  className={`w-4 h-0.5 bg-gray-700 dark:bg-gray-300 absolute transition-all duration-200 ${
                     isOpen ? 'opacity-0' : 'opacity-100'
                   }`}
                 />
                 <span
-                  className={`w-5 h-0.5 bg-gray-700 dark:bg-gray-300 absolute transition-all duration-200 ${
-                    isOpen ? '-rotate-45 translate-y-0' : 'rotate-0 translate-y-1.5'
+                  className={`w-4 h-0.5 bg-gray-700 dark:bg-gray-300 absolute transition-all duration-200 ${
+                    isOpen ? '-rotate-45 translate-y-0' : 'rotate-0 translate-y-1'
                   }`}
                 />
               </div>
