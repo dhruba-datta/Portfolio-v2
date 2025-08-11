@@ -9,7 +9,6 @@ import {
   Newspaper,
   Smartphone,
   Database,
-  Palette,
   Zap,
   ChevronDown,
   ArrowLeft,
@@ -202,9 +201,8 @@ const CryptoVersePage = ({
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${
-        effectiveIsDark ? " dark" : ""
-      } dark:bg-gray-900 dark:text-white`}
+      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${effectiveIsDark ? " dark" : ""
+        } dark:bg-gray-900 dark:text-white`}
     >
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
@@ -285,7 +283,7 @@ const CryptoVersePage = ({
                 Check it out <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
             </div>
-            
+
             {/* Desktop buttons */}
             <div className="hidden lg:flex items-center gap-2 md:gap-3">
               <a
@@ -493,11 +491,10 @@ const CryptoVersePage = ({
                       <button
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${
-                          isActive
+                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${isActive
                             ? "font-semibold text-gray-900 dark:text-gray-100"
                             : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
-                        }`}
+                          }`}
                         aria-current={isActive ? "page" : undefined}
                       >
                         {isActive && (
