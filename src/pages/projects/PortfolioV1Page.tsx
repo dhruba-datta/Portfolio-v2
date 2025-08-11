@@ -209,7 +209,7 @@ const PortfolioV1Page = ({
                 GitHub
               </a>
               <motion.a
-                href="https://dhruba-datta.netlify.app/"
+                href="https://dhruba-datta-v1.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
@@ -234,7 +234,7 @@ const PortfolioV1Page = ({
                 <Github className="w-4 h-4 lg:w-5 lg:h-5" />
               </a>
               <motion.a
-                href="https://dhruba-datta.netlify.app/"
+                href="https://dhruba-datta-v1.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}

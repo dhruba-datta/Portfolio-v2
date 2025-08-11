@@ -238,7 +238,7 @@ const PortfolioV2Page = ({
                 GitHub
               </a>
               <motion.a
-                href="#"
+                href="https://dhruba-datta.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
@@ -247,7 +247,7 @@ const PortfolioV2Page = ({
                            border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
                            text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium"
               >
-                View Live <ExternalLink className="w-3.5 h-3.5" />
+                Check it out <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
             </div>
             
@@ -263,7 +263,7 @@ const PortfolioV2Page = ({
                 <Github className="w-4 h-4 lg:w-5 lg:h-5" />
               </a>
               <motion.a
-                href="#"
+                href="https://dhruba-datta.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
@@ -272,7 +272,7 @@ const PortfolioV2Page = ({
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override"
               >
-                View Live <ExternalLink className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
+                Check it out <ExternalLink className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
               </motion.a>
             </div>
           </div>
