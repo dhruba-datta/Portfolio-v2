@@ -69,7 +69,8 @@ const About = ({ }: AboutProps) => {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-start justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-36 pb-16 sm:pb-20 overflow-hidden"
+      className="relative min-h-screen flex items-start justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-36 pb-2 sm:pb-20 overflow-hidden"
+      style={{ marginBottom: '0.1rem' }}
     >
       {/* Decorative background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -109,8 +110,8 @@ const About = ({ }: AboutProps) => {
         ))}
       </div>
 
-      <div className="container-max-width section-padding relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-6">
-        <div className="grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start">
+  <div className="container-max-width section-padding relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-6">
+    <div className="grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start">
           {/* Left: copy */}
           <div className="md:col-span-7 space-y-4 sm:space-y-5 md:space-y-6">
             <motion.p
@@ -154,7 +155,8 @@ const About = ({ }: AboutProps) => {
               initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.08 }}
-              className="flex flex-col sm:flex-row gap-3 pt-2"
+              className="flex flex-col sm:flex-row gap-3 pt-1"
+              style={{ marginBottom: '0.1rem' }}
             >
               <Link
                 to="/projects"

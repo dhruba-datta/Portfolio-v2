@@ -329,10 +329,10 @@ const Contact: React.FC = () => {
           {/* --- Mobile-only scroll indicator --- */}
           <button
             type="button"
-            onClick={() =>
-              document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className="lg:hidden absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+            tabIndex={-1}
+            disabled
+            style={{ pointerEvents: 'none', opacity: 1 }}
+            className="lg:hidden absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-default"
             aria-label="Scroll to contact form"
           >
             <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">scroll</span>
