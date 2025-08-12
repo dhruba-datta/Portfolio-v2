@@ -46,7 +46,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
     { name: 'Canva', icon: <SiCanva className="w-4 sm:w-5 h-4 sm:h-5 text-[#00C4CC]" /> },
     { name: 'Notion', icon: isDark ? 'https://cdn.simpleicons.org/notion/ffffff' : 'https://cdn.simpleicons.org/notion' },
     { name: 'Jira', icon: 'https://cdn.simpleicons.org/jira' },
-    { name: 'Confluence', icon: 'https://cdn.simpleicons.org/confluence' },
+  { name: 'Confluence', icon: <img src="https://cdn.simpleicons.org/confluence" alt="Confluence" style={{ filter: 'brightness(0) saturate(100%) invert(24%) sepia(99%) saturate(747%) hue-rotate(191deg) brightness(97%) contrast(101%)' }} className="w-4 sm:w-5 h-4 sm:h-5" /> },
     { name: 'Trello', icon: 'https://cdn.simpleicons.org/trello' },
     { name: 'Overleaf', icon: 'https://cdn.simpleicons.org/overleaf' },
   ];

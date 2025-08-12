@@ -18,10 +18,10 @@ const Hero = () => {
     "// Software Engineer",
     "const developer = {",
     "    name: 'Dhruba Datta',",
-    "    skills: ['React', 'TypeScript', 'WordPress'],",
-    "    focuses: ['Full-Stack', 'QA Automation'],",
+    "    skills: ['n8n', 'C++', 'React', 'Photography'],",
+    "    focuses: ['Automation', 'Full-Stack'],",
     "    learning: 'Always',",
-    "    available: true",
+    "    available for coffee: true",
     "};"
   ];
 
