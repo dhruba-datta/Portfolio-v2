@@ -8,18 +8,28 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | string>('all');
   const [mounted, setMounted] = useState(false); // prevent first-time thumb animation
   const [visibleCount, setVisibleCount] = useState(6); // load-more
+  const [projectsLoaded, setProjectsLoaded] = useState(false); // track if all projects loaded
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     // Enable animations after first paint to avoid the initial "All" slide-in
     const id = requestAnimationFrame(() => setMounted(true));
+    // Check sessionStorage for loaded flag
+    if (sessionStorage.getItem('projectsLoaded') === 'true') {
+      setProjectsLoaded(true);
+      setVisibleCount(projects.length); // show all
+    }
     return () => cancelAnimationFrame(id);
   }, []);
 
   // Reset visible items when category changes
   useEffect(() => {
-    setVisibleCount(6);
-  }, [activeCategory]);
+    if (!projectsLoaded) {
+      setVisibleCount(6);
+    } else {
+      setVisibleCount(projects.length);
+    }
+  }, [activeCategory, projectsLoaded]);
 
   const filteredProjects =
     activeCategory === 'all'
@@ -287,10 +297,14 @@ const Projects = () => {
         </div>
 
         {/* Load More */}
-        {filteredProjects.length > visibleCount && (
+        {filteredProjects.length > visibleCount && !projectsLoaded && (
           <div className="flex justify-center mt-6 sm:mt-7 lg:mt-8">
             <button
-              onClick={() => setVisibleCount(filteredProjects.length)}
+              onClick={() => {
+                setVisibleCount(filteredProjects.length);
+                setProjectsLoaded(true);
+                sessionStorage.setItem('projectsLoaded', 'true');
+              }}
               className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] focus-override"
             >
               Load more
