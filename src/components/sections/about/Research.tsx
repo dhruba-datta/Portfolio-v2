@@ -62,17 +62,10 @@ const achievements: Achievement[] = [
   
   {
     id: 4,
-    title: "1st Position - Wall Magazine",
-    description: "Secured 1st position among 250+ teams at DRMC National Science Festival '16.",
+    title: "Science Fair Achievements",
+    description: "Secured 1st place out of 250+ teams (DRMC National Science Festival 2016) and 3rd place out of 120 teams (SGHS Inter-School Science Festival 2016).",
     category: 'competition',
     icon: "trophy"
-  },
-  {
-    id: 5,
-    title: "3rd Position - Science Project",
-    description: "Achieved 3rd position out of 120 teams at SGHS Inter-School Science Festival '16.",
-    category: 'competition',
-    icon: "medal"
   }
 ];
 

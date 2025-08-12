@@ -1,3 +1,4 @@
+import { TbLocationFilled } from "react-icons/tb";
 import { motion } from 'framer-motion';
 
 interface VolunteerProps {
@@ -172,9 +173,7 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     <div className={`flex items-center gap-2 text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
                     }`}>
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
+                      <TbLocationFilled className="w-4 h-4" />
                       <span>{exp.location}</span>
                     </div>
                     
@@ -216,9 +215,7 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     <div className={`flex items-center gap-2 mb-4 text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
                     } ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
+                      <TbLocationFilled className="w-4 h-4" />
                       <span>{exp.location}</span>
                     </div>
                   </div>

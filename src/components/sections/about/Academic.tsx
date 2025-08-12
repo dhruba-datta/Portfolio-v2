@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { TbLocationFilled } from "react-icons/tb";
 
 interface AcademicProps {
   isDark?: boolean;
@@ -33,7 +34,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
       duration: "JUL 2016 - AUG 2018",
       location: "Dhaka, Bangladesh",
       grade: "GPA: 5.00/5.00",
-      field: ""
+      field: "Field of Study: Science"
     },
     {
       id: 3,
@@ -42,7 +43,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
       duration: "JAN 2006 - JUN 2016",
       location: "Dhaka, Bangladesh",
       grade: "GPA: 5.00/5.00",
-      field: ""
+      field: "Field of Study: Science"
     }
   ];
 
@@ -132,8 +133,8 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     {edu.field && (
                       <div className={`inline-block px-3 py-1 text-xs font-medium rounded-full mb-1 ${
                         isDark 
-                          ? 'bg-green-500/20 text-green-400' 
-                          : 'bg-green-500/20 text-green-600'
+                          ? 'bg-gray-700 text-gray-200' 
+                          : 'bg-gray-100 text-gray-700'
                       }`}>
                         {edu.field}
                       </div>
@@ -150,9 +151,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     <div className={`flex items-center gap-2 text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
                     }`}>
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
+                      <TbLocationFilled className="w-4 h-4" />
                       <span>{edu.location}</span>
                     </div>
                     
@@ -188,11 +187,11 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                       {edu.degree}
                     </h4>
                     {edu.field && (
-                      <div className={`inline-block px-3 py-1 text-sm font-medium rounded-full ${
+                      <div className={`inline-block px-3 py-1 text-sm font-medium rounded-full mb-4 ${
                         isDark 
-                          ? 'bg-green-500/20 text-green-400' 
-                          : 'bg-green-500/20 text-green-600'
-                      } mb-4`}>
+                          ? 'bg-gray-700 text-gray-200' 
+                          : 'bg-gray-100 text-gray-700'
+                      }`}>
                         {edu.field}
                       </div>
                     )}
@@ -204,9 +203,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     <div className={`flex items-center gap-2 mb-4 text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
                     } ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
+                      <TbLocationFilled className="w-4 h-4" />
                       <span>{edu.location}</span>
                     </div>
                   </div>
