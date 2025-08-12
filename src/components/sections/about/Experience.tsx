@@ -29,12 +29,10 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       type: "Remote",
       current: true,
       description: [
-        "Architected CMS-driven reusable pagebuilder blocks with Sanity & Contentful; optimized GROQ queries for faster content delivery.",
-        "Delivered high-performance Next.js/React apps (SSG/SSR), improving engagement and Core Web Vitals.",
-        "Implemented TypeScript end-to-end to reduce production defects and improve maintainability.",
-        "Scaled team productivity with Turborepo monorepo and rigorous peer reviews (40+ hours/week contribution).",
-        "Shipped WCAG 2.1 AA-compliant UI with Agile sprints in Linear and collaboration via Slack.",
-        "Boosted SEO & performance with lazy loading, code splitting, and best-practice SEO."
+        "Lead research on emerging tools, technologies, and best practices to optimize workflows and enhance client outcomes.",
+        "Design, develop, and deploy innovative automation solutions, including n8n workflows and AI-driven systems, to improve operational efficiency.",
+        "Create and maintain detailed technical documentation in Confluence, driving knowledge sharing and team effectiveness.",
+        "Collaborate seamlessly with cross-functional teams to streamline processes and contribute to marketing and content initiatives."
       ],
       technologies: ["TypeScript","Next.js","Sanity CMS","Contentful CMS","Tailwind CSS","Figma","Turborepo","Vercel AI SDK","Agile","Teamwork","Research","Problem-solving"]
     },
@@ -47,10 +45,10 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       type: "Remote",
       current: true,
       description: [
-        "Lead AI model training to enhance coding capabilities using competitive programming methodologies.",
-        "Develop algorithms/data structures for ML use cases focusing on financial reasoning & optimization.",
-        "Improve model performance on coding assessments and financial analysis tasks.",
-        "Apply best practices for large-scale training dataset optimization."
+        "Develop and solve advanced competitive programming challenges to train and evaluate AI model coding capabilities.",
+        "Analyze AI model performance, providing actionable feedback to refine reasoning and problem-solving.",
+        "Implement optimized, efficient code solutions to benchmark and elevate AI model accuracy and efficiency.",
+        "Document problem solutions and evaluation insights comprehensively to support collaborative AI research and innovation."
       ],
       technologies: ["Python","Competitive Programming","Data Structures","Algorithms","AI Training","Machine Learning","Financial Analysis","Problem-solving"]
     },
@@ -63,11 +61,10 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       type: "Remote",
       current: false,
       description: [
-        "Owned QA & automation to uphold reliability standards across the Kounsel platform.",
-        "Built Selenium test plans/cases, cutting manual testing time by ~60%.",
-        "Used Jira for robust bug tracking and workflow visibility.",
-        "Partnered with cross-functional teams to resolve issues quickly.",
-        "Leveraged Bitbucket for CI and code quality controls."
+        "Owned QA processes and developed automation frameworks for both mobile and web platforms to ensure high reliability standards.",
+        "Created comprehensive test plans, wrote detailed test cases, and maintained technical documentation to support quality assurance efforts.",
+        "Managed database updates in MongoDB, handling new client information and approvals to streamline onboarding workflows.",
+        "Collaborated with cross-functional teams using Jira and Bitbucket to track bugs, maintain CI pipelines, and ensure rapid issue resolution and code quality control."
       ],
       technologies: ["Selenium","Jira","Bitbucket","Kotlin","MongoDB","Docker","Test Automation","Quality Assurance"]
     },
@@ -80,11 +77,10 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       type: "On-site",
       current: false,
       description: [
-        "Redesigned corporate site to improve UX & SEO; increased organic traffic by ~45%.",
-        "Built micro-sites, landing pages, and blogs to lift conversions.",
-        "Shipped clean UI with intuitive navigation and modern patterns.",
-        "Executed SEO strategies to raise search visibility.",
-        "Produced social content for brand & demand gen."
+        "Redesigned the corporate website to enhance user experience and SEO, resulting in approximately 45% increase in organic traffic.",
+        "Developed micro-sites, landing pages, and blogs to improve conversion rates and support marketing goals.",
+        "Created compelling social media posters and business profiles using Illustrator, Notebook, and other design tools to boost brand presence.",
+        "Delivered clean, modern UI with intuitive navigation, while executing SEO strategies to increase search visibility and drive demand generation."
       ],
       technologies: ["Front-End Development","Web Design","WordPress","SEO","Digital Marketing","UI/UX Design"]
     },
@@ -97,11 +93,10 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       type: "On-site",
       current: false,
       description: [
-        "Hands-on UI and front-end development across real projects.",
-        "Contributed to micro-sites, landing pages, and web apps.",
-        "Applied core design principles for usable, attractive UIs.",
-        "Built responsive layouts with HTML & CSS best practices.",
-        "Verified cross-browser/device compatibility."
+        "Executed UI and front-end development on live projects, ensuring high usability and aesthetic appeal.",
+        "Contributed to building micro-sites, landing pages, and web applications aligned with project goals.",
+        "Applied core design principles to create responsive layouts using HTML and CSS best practices.",
+        "Tested and verified cross-browser and device compatibility to deliver consistent user experiences."
       ],
       technologies: ["HTML","CSS","UI Design","Responsive Design","Figma","Cross-browser Compatibility"]
     }
