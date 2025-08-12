@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { MdOutlineWork } from "react-icons/md";
 import { VscVscode } from "react-icons/vsc";
 import { SiAdobephotoshop, SiAdobeillustrator, SiAdobelightroom, SiCanva } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { FcLinux } from "react-icons/fc";
 import { projects } from '../../../data/projects';
 
 interface TechStackProps { isDark?: boolean }
@@ -27,9 +29,9 @@ const TechStack = ({ isDark }: TechStackProps) => {
     { name: 'MongoDB', icon: 'https://cdn.simpleicons.org/mongodb' },
     { name: 'PostgreSQL', icon: 'https://cdn.simpleicons.org/postgresql' },
     { name: 'Python', icon: 'https://cdn.simpleicons.org/python' },
-    { name: 'Java', icon: isDark ? 'https://cdn.simpleicons.org/openjdk/ffffff' : 'https://cdn.simpleicons.org/openjdk' },
-    { name: 'C++', icon: 'https://cdn.simpleicons.org/cplusplus' },
-    { name: 'Linux', icon: 'https://cdn.simpleicons.org/linux' },
+  { name: 'Java', icon: <FaJava className="w-4 sm:w-5 h-4 sm:h-5" /> },
+  { name: 'C++', icon: 'https://cdn.simpleicons.org/cplusplus' },
+  { name: 'Linux', icon: <FcLinux className="w-4 sm:w-5 h-4 sm:h-5" /> },
     { name: 'Git', icon: 'https://cdn.simpleicons.org/git' },
     { name: 'GitHub', icon: isDark ? 'https://cdn.simpleicons.org/github/ffffff' : 'https://cdn.simpleicons.org/github' },
     { name: 'Bitbucket', icon: 'https://cdn.simpleicons.org/bitbucket' },
