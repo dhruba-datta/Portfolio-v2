@@ -15,8 +15,8 @@ const About = ({ }: AboutProps) => {
   // --- Slides ---
   const slides: Slide[] = useMemo(
     () => [
-      { src: '/images/me1.jpg', caption: 'I Build', alt: 'Building things' },
-      { src: '/images/me2.jpg', caption: 'I Create', alt: 'Creative work' },
+      { src: '/images/me1.jpg', caption: 'I Code', alt: 'Building things' },
+      { src: '/images/me2.jpg', caption: 'I Explore', alt: 'Creative work' },
       { src: '/images/me.jpg',  caption: 'I Learn', alt: 'Learning & tinkering' },
     ],
     []
@@ -69,7 +69,7 @@ const About = ({ }: AboutProps) => {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-start justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-36 pb-2 sm:pb-20 overflow-hidden"
+  className="relative min-h-screen flex items-start justify-center pt-14 sm:pt-24 md:pt-28 lg:pt-36 pb-2 sm:pb-20 overflow-hidden"
       style={{ marginBottom: '0.1rem' }}
     >
       {/* Decorative background */}
@@ -139,15 +139,12 @@ const About = ({ }: AboutProps) => {
               className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
             >
               <p>
-                I’m a proactive full-stack developer passionate about creating dynamic web experiences. From frontend to
-                backend, I love solving complex problems with clean, efficient code. My expertise spans React, Next.js and
-                Node.js.
+                Proactive Software Engineer passionate about advancing AI through innovative solutions. Serving as R&D Lead at SEG, specializing in n8n automations to simplify workflows. Skilled in solving complex problems with clean, efficient code, with expertise in AI Automation and Full-Stack Development.
               </p>
               <p>
-                When I’m not immersed in work, I’m exploring new ideas and staying curious. Balance matters—code, create,
-                recharge, repeat.
+                My creativity finds an outlet in photography and travel. This blend of analytical and creative thinking fuels my interest in AI & ML research, driving me to contribute to innovative breakthroughs in these fields.
               </p>
-              <p>I believe in waking up each day eager to make a difference!</p>
+              <p>Eager to innovate, inspire & make a meaningful impact everyday.</p>
             </motion.div>
 
             {/* CTAs */}

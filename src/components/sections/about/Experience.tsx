@@ -43,7 +43,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       company: "AfterQuery Experts",
       position: "AI Model Trainer",
       duration: "APR 2025 - PRESENT",
-      location: "United States",
+      location: "California, United States",
       type: "Remote",
       current: true,
       description: [
