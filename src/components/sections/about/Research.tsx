@@ -142,7 +142,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             transition={timelineAnimated ? { duration: 1, ease: "easeInOut" } : { duration: 0 }}
             className={`relative pb-4`}
           >
-            <h3 className={`text-base sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}> 
+            <h3 className={`text-lg sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}> 
               Publications
             </h3>
             
@@ -183,10 +183,10 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     viewport={{ once: true }}
                     className="relative"
                   >
-                    <h4 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 leading-tight text-blue-600 dark:text-blue-400 group-hover:underline">
+                    <h4 className="text-base sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 leading-tight text-blue-600 dark:text-blue-400 group-hover:underline">
                       <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="focus-override">{pub.title}</a>
                     </h4>
-                    <div className="flex flex-col gap-1 text-[11px] sm:text-xs lg:text-sm mb-2">
+                    <div className="flex flex-col gap-1 text-xs sm:text-xs lg:text-sm mb-2">
                       <div className={`flex flex-wrap items-center gap-1 sm:gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
                         <svg className="w-3 sm:w-4 h-3 sm:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                         <span className="font-medium">Authors:</span> {pub.authors.map((author, i) => (
@@ -205,15 +205,15 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     </div>
                     <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2">
                       <svg className="w-3 sm:w-4 h-3 sm:h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
-                      <span className="font-medium text-blue-600 dark:text-blue-400 text-[10px] sm:text-xs">DOI:</span>
-                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`font-mono text-[10px] sm:text-xs hover:underline transition-colors duration-200 flex items-center gap-1 focus-override ${isDark ? 'text-blue-300' : 'text-blue-800'}`}> 
+                      <span className="font-medium text-blue-600 dark:text-blue-400 text-xs sm:text-xs">DOI:</span>
+                      <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`font-mono text-xs sm:text-xs hover:underline transition-colors duration-200 flex items-center gap-1 focus-override ${isDark ? 'text-blue-300' : 'text-blue-800'}`}> 
                         {pub.doi}
                         <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                       </a>
                     </div>
                     <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2">
-                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold rounded-full ${isDark ? 'bg-green-500/15 text-green-400 border border-green-500/30' : 'bg-green-50 text-green-700 border border-green-200'}`}>{pub.status}</span>
-                      <span className={`text-[10px] sm:text-xs ${isDark ? 'text-gray-300' : 'text-gray-400'}`}>{pub.date}</span>
+                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-xs font-semibold rounded-full ${isDark ? 'bg-green-500/15 text-green-400 border border-green-500/30' : 'bg-green-50 text-green-700 border border-green-200'}`}>{pub.status}</span>
+                      <span className={`text-xs sm:text-xs ${isDark ? 'text-gray-300' : 'text-gray-400'}`}>{pub.date}</span>
                     </div>
                   </motion.div>
                 </motion.li>
@@ -242,7 +242,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
 
           {/* Achievements Timeline */}
           <div className="relative pb-4">
-            <h3 className={`text-base sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}> 
+            <h3 className={`text-lg sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}> 
               Achievements
             </h3>
             
@@ -283,7 +283,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
                     viewport={{ once: true }}
                   />
-                  <span className="font-semibold text-xs sm:text-sm lg:text-base text-gray-800 dark:text-white">{a.title}</span>
+                  <span className="font-semibold text-sm sm:text-sm lg:text-base text-gray-800 dark:text-white">{a.title}</span>
                   <span className={`text-sm sm:text-xs mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400`}>{a.description}</span>
                 </motion.li>
               ))}
