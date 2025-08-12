@@ -420,8 +420,9 @@ const N8nLinkedinJobSearchPage = ({
                       href="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"
                       target="_blank"
                       rel="noopener noreferrer"
+                      style={{ outline: "none", boxShadow: "none" }}
                     >
-                      GitHub — LinkedIn Job Search
+                      GitHub - LinkedIn Job Search
                     </a>
                   </li>
                   <li className="leading-relaxed">

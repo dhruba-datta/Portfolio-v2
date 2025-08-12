@@ -404,6 +404,7 @@ const N8nContentAutomationPage = ({
                       href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
                       target="_blank"
                       rel="noopener noreferrer"
+                      style={{ outline: "none", boxShadow: "none" }}
                     >
                       GitHub - Content Automation
                     </a>
