@@ -224,8 +224,8 @@ const ABPharmacyExpoPage = ({
                 AB Pharmacy Expo
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor
-                directory, product catalogs, and instant search—built with modular components and offline-first
+                A production-ready React Native Expo app for pharmacy trade shows: live schedules, exhibitor
+                directory, product catalogs, and instant search, built with modular components and offline-first
                 UX.
               </p>
 
@@ -380,27 +380,27 @@ const ABPharmacyExpoPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Native</b> — Native iOS/Android with one codebase.</span>
+                  <span className="text-sm sm:text-base"><b>React Native:</b> Native iOS/Android with one codebase.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiExpo className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Expo</b> — Build, test, deploy & access device APIs.</span>
+                  <span className="text-sm sm:text-base"><b>Expo:</b> Build, test, deploy & access device APIs.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>JavaScript (ES6+)</b> — Async flows, state & API logic.</span>
+                  <span className="text-sm sm:text-base"><b>JavaScript (ES6+):</b> Async flows, state & API logic.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Navigation</b> — Native navigation patterns.</span>
+                  <span className="text-sm sm:text-base"><b>React Navigation:</b> Native navigation patterns.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <GrStorage className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>AsyncStorage</b> — Offline cache & preferences.</span>
+                  <span className="text-sm sm:text-base"><b>AsyncStorage:</b> Offline cache & preferences.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets</b> — Lightweight demo auth/data integration.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Lightweight demo auth/data integration.</span>
                 </li>
               </ul>
             </section>

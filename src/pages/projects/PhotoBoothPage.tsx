@@ -391,27 +391,27 @@ const PhotoBoothPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React</b> — Component-driven UI with hooks.</span>
+                  <span className="text-sm sm:text-base"><b>React:</b> Component-driven UI with hooks.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiSanity className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Sanity.io</b> — Headless CMS for images, users & comments.</span>
+                  <span className="text-sm sm:text-base"><b>Sanity.io:</b> Headless CMS for images, users & comments.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Tailwind CSS</b> — Utility-first responsive styling.</span>
+                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first responsive styling.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGoogle className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google OAuth</b> — Secure auth & session persistence.</span>
+                  <span className="text-sm sm:text-base"><b>Google OAuth:</b> Secure auth & session persistence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReactrouter className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Router</b> — Smooth client-side navigation.</span>
+                  <span className="text-sm sm:text-base"><b>React Router:</b> Smooth client-side navigation.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Netlify</b> — CI/CD & global CDN hosting.</span>
+                  <span className="text-sm sm:text-base"><b>Netlify:</b> CI/CD & global CDN hosting.</span>
                 </li>
               </ul>
             </section>

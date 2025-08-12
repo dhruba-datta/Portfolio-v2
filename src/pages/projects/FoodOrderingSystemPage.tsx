@@ -312,27 +312,27 @@ const FoodOrderingSystemPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCplusplus className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>C++</b> — Core programming language with STL usage.</span>
+                  <span className="text-sm sm:text-base"><b>C++:</b> Core programming language with STL usage.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Object-Oriented Programming</b> — Classes, inheritance, and encapsulation.</span>
+                  <span className="text-sm sm:text-base"><b>Object-Oriented Programming:</b> Classes, inheritance, and encapsulation.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Database className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>File Handling</b> — Persistent data storage using file streams.</span>
+                  <span className="text-sm sm:text-base"><b>File Handling:</b> Persistent data storage using file streams.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Console Interface</b> — Text-based user interaction and menu navigation.</span>
+                  <span className="text-sm sm:text-base"><b>Console Interface:</b> Text-based user interaction and menu navigation.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Admin Controls</b> — Management interface for system administration.</span>
+                  <span className="text-sm sm:text-base"><b>Admin Controls:</b> Management interface for system administration.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Order Management</b> — Cart system with bill calculation and processing.</span>
+                  <span className="text-sm sm:text-base"><b>Order Management:</b> Cart system with bill calculation and processing.</span>
                 </li>
               </ul>
             </section>

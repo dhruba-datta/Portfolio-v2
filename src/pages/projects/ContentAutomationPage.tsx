@@ -194,7 +194,7 @@ const N8nContentAutomationPage = ({
                 Content Automation (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to
+                A collection of n8n workflows to automate your content lifecycle, from ingestion and enrichment to
                 scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.
               </p>
 
@@ -405,7 +405,7 @@ const N8nContentAutomationPage = ({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      GitHub — Content Automation
+                      GitHub - Content Automation
                     </a>
                   </li>
                   <li className="leading-relaxed">

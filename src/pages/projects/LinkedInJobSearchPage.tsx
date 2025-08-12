@@ -201,8 +201,8 @@ const N8nLinkedinJobSearchPage = ({
                 LinkedIn Job Search (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A set of n8n workflows to automate your LinkedIn-style job discovery and notifications.
-                Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule
+                A set of n8n workflows to automate your LinkedIn job discovery and notifications.
+                Search by keywords & location, filter results, store them in Sheets and get instant alerts on a schedule
                 or on demand.
               </p>
 
@@ -357,35 +357,35 @@ const N8nLinkedinJobSearchPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core</b> — Visual builder, credentials, error branches, sub-workflows.</span>
+                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Visual builder, credentials, error branches, sub-workflows.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request</b> — Job source/API calls and data retrieval.</span>
+                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Job source/API calls and data retrieval.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Code (JS)</b> — Parsing, de-duplication, mapping, and scoring logic.</span>
+                  <span className="text-sm sm:text-base"><b>Code (JS):</b> Parsing, de-duplication, mapping, and scoring logic.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Cron</b> — Scheduled discovery & follow-ups.</span>
+                  <span className="text-sm sm:text-base"><b>Cron:</b> Scheduled discovery & follow-ups.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook</b> — On-demand searches with query params.</span>
+                  <span className="text-sm sm:text-base"><b>Webhook:</b> On-demand searches with query params.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets</b> — Persistent queue & status tracking.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Persistent queue & status tracking.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Email/Telegram</b> — Job alerts and error notifications.</span>
+                  <span className="text-sm sm:text-base"><b>Email/Telegram:</b> Job alerts and error notifications.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FileJson className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Workflow JSON</b> — Importable templates to get started fast.</span>
+                  <span className="text-sm sm:text-base"><b>Workflow JSON:</b> Importable templates to get started fast.</span>
                 </li>
               </ul>
             </section>

@@ -359,43 +359,43 @@ const KingsleyGroupPage = ({
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FaWordpress className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>WordPress</b> — Custom theme setup, structured content model.
+                    <b>WordPress:</b> Custom theme setup, structured content model.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoPhp className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>PHP 8</b> — Template logic and performance-minded hooks.
+                    <b>PHP 8:</b> Template logic and performance-minded hooks.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiMysql className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>MySQL</b> — Reliable data layer with query optimization.
+                    <b>MySQL:</b> Reliable data layer with query optimization.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>ACF + Custom Post Types</b> — Resources, News, and flexible blocks.
+                    <b>ACF + Custom Post Types:</b> Resources, News, and flexible blocks.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiYoast className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>Yoast SEO</b> — Meta, sitemaps, schema integration.
+                    <b>Yoast SEO:</b> Meta, sitemaps, schema integration.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGoogleanalytics className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>GA4</b> — Events for forms, downloads, and outbound links.
+                    <b>GA4:</b> Events for forms, downloads, and outbound links.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCloudflare className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>Cloudflare</b> — CDN, caching, and security hardening.
+                    <b>Cloudflare:</b> CDN, caching, and security hardening.
                   </span>
                 </li>
               </ul>

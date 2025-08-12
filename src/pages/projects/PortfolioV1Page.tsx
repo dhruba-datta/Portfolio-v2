@@ -173,8 +173,7 @@ const PortfolioV1Page = ({
                 Portfolio v1
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A clean, SEO-friendly personal portfolio highlighting your skills, projects, and resume—built with
-                HTML/CSS/JS + Bootstrap and deployed on Netlify.
+                A clean, SEO-friendly personal portfolio highlighting your skills, projects and resume. Built with a basic Bootstrap template using HTML/CSS/JS and later deployed on Netlify.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -328,23 +327,23 @@ const PortfolioV1Page = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiHtml5 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTML</b> — Semantic, accessible markup.</span>
+                  <span className="text-sm sm:text-base"><b>HTML:</b> Semantic, accessible markup.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCss3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>CSS</b> — Modern layout & typography.</span>
+                  <span className="text-sm sm:text-base"><b>CSS:</b> Modern layout & typography.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>JavaScript</b> — Interactive components & routing stubs.</span>
+                  <span className="text-sm sm:text-base"><b>JavaScript:</b> Interactive components & routing stubs.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiBootstrap className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Bootstrap</b> — Grid, utilities & responsive helpers.</span>
+                  <span className="text-sm sm:text-base"><b>Bootstrap:</b> Grid, utilities & responsive helpers.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Netlify</b> — Simple deploys & global CDN.</span>
+                  <span className="text-sm sm:text-base"><b>Netlify:</b> Simple deploys & global CDN.</span>
                 </li>
               </ul>
             </section>

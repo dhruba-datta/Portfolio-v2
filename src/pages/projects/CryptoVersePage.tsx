@@ -240,7 +240,7 @@ const CryptoVersePage = ({
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
                 A real-time cryptocurrency dashboard built with React, Redux Toolkit & Chart.js. Live markets,
-                smart filters, detailed coin pages, and news—wrapped in a clean Ant Design UI.
+                smart filters, detailed coin pages and news wrapped in a clean Ant Design UI.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -394,27 +394,27 @@ const CryptoVersePage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React</b> — Component-driven UI with hooks.</span>
+                  <span className="text-sm sm:text-base"><b>React:</b> Component-driven UI with hooks.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiRedux className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Redux Toolkit</b> — RTK & RTK Query for state + caching.</span>
+                  <span className="text-sm sm:text-base"><b>Redux Toolkit:</b> RTK & RTK Query for state + caching.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiAntdesign className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Ant Design</b> — Responsive components & layout.</span>
+                  <span className="text-sm sm:text-base"><b>Ant Design:</b> Responsive components & layout.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <LineChart className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Chart.js</b> — Interactive price & volume charts.</span>
+                  <span className="text-sm sm:text-base"><b>Chart.js:</b> Interactive price & volume charts.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>RapidAPI</b> — Market data & news endpoints.</span>
+                  <span className="text-sm sm:text-base"><b>RapidAPI:</b> Market data & news endpoints.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReactrouter className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Router</b> — Client-side navigation.</span>
+                  <span className="text-sm sm:text-base"><b>React Router:</b> Client-side navigation.</span>
                 </li>
               </ul>
             </section>

@@ -337,27 +337,27 @@ const KfcClonePage = ({
               <ul className="space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FaVuejs className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Vue 3</b> — Components, routing & SPA.</span>
+                  <span className="text-sm sm:text-base"><b>Vue 3:</b> Components, routing & SPA.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <RiTailwindCssFill className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Tailwind CSS</b> — Utility-first styling.</span>
+                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first styling.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoTypescript className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>TypeScript/ES6+</b> — Safer, scalable code.</span>
+                  <span className="text-sm sm:text-base"><b>TypeScript/ES6+:</b> Safer, scalable code.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Languages className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Vue I18n</b> — Multilingual UI & persistence.</span>
+                  <span className="text-sm sm:text-base"><b>Vue I18n:</b> Multilingual UI & persistence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <GrStorage className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>localStorage</b> — Cart/session persistence.</span>
+                  <span className="text-sm sm:text-base"><b>localStorage:</b> Cart/session persistence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoNetlify className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Netlify</b> — Deploy & host.</span>
+                  <span className="text-sm sm:text-base"><b>Netlify:</b> Deploy & host.</span>
                 </li>
               </ul>
             </section>

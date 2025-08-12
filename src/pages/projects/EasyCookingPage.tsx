@@ -330,23 +330,23 @@ const EasyCookingPage = ({
               <ul className="space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiHtml5 className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>HTML5</b> — Semantic markup for recipe content and structure.</span>
+                  <span className="text-sm sm:text-base"><b>HTML5:</b> Semantic markup for recipe content and structure.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCss3 className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>CSS3</b> — Modern styling with responsive design patterns.</span>
+                  <span className="text-sm sm:text-base"><b>CSS3:</b> Modern styling with responsive design patterns.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Smartphone className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Responsive Design</b> — Mobile-first approach for all devices.</span>
+                  <span className="text-sm sm:text-base"><b>Responsive Design:</b> Mobile-first approach for all devices.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Multi-Cuisine Layout</b> — Organized sections for different cooking styles.</span>
+                  <span className="text-sm sm:text-base"><b>Multi-Cuisine Layout:</b> Organized sections for different cooking styles.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Github className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>GitHub Pages</b> — Free static hosting with automatic deployment.</span>
+                  <span className="text-sm sm:text-base"><b>GitHub Pages:</b> Free static hosting with automatic deployment.</span>
                 </li>
               </ul>
             </section>
