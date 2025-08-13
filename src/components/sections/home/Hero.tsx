@@ -54,14 +54,14 @@ const Hero = () => {
       icon: <FaInstagram className="w-4 sm:w-5 h-4 sm:h-5" />,
     },
     {
-      name: 'Telegram',
-      url: 'https://t.me/dhruba_datta_anjan',
-      icon: <FaTelegramPlane className="w-4 sm:w-5 h-4 sm:h-5" />,
-    },
-    {
       name: 'Google Scholar',
       url: 'https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH',
       icon: <FaGoogleScholar className="w-4 sm:w-5 h-4 sm:h-5" />,
+    },
+    {
+      name: 'Telegram',
+      url: 'https://t.me/dhruba_datta_anjan',
+      icon: <FaTelegramPlane className="w-4 sm:w-5 h-4 sm:h-5" />,
     },
   ];
 
