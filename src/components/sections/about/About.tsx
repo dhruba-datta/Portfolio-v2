@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { LuMessageSquareShare } from "react-icons/lu";
+import { ArrowRight } from 'lucide-react';
 
 interface AboutProps {
   isDark?: boolean;
@@ -161,7 +162,20 @@ const About = ({ }: AboutProps) => {
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
                            shadow-lg transition-all focus-override"
               >
-                View Projects <span>→</span>
+                <span>View Projects</span>
+                <span>
+                  <motion.div
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="group-hover:translate-x-2"
+                  >
+                    <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300" />
+                  </motion.div>
+                </span>
               </Link>
               <Link
                 to="/contact"

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaInstagram, FaTelegramPlane } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
-import { LuMessageSquareShare } from "react-icons/lu";
+import { BsBookmarkHeartFill } from "react-icons/bs";
 
 interface MousePosition {
   x: number;
@@ -289,14 +289,14 @@ const Hero = () => {
               className="flex justify-center lg:justify-start mb-16 sm:mb-20 lg:mb-0"
             >
               <Link
-                to="/contact"
+                to="/about"
                 className="inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
                            shadow-lg transition-all focus-override"
-                aria-label="Contact"
+                aria-label="About"
               >
-                <LuMessageSquareShare className="w-3 sm:w-4 h-3 sm:h-4" />
-                Contact Me
+                <BsBookmarkHeartFill className="w-3 sm:w-4 h-3 sm:h-4" />
+                About Me
               </Link>
             </motion.div>
 
