@@ -70,7 +70,7 @@ const About = ({ }: AboutProps) => {
   return (
     <section
       id="about"
-  className="relative min-h-screen flex items-start justify-center pt-14 sm:pt-24 md:pt-28 lg:pt-36 pb-2 sm:pb-20 overflow-hidden"
+      className="relative min-h-screen flex items-start justify-center pt-14 sm:pt-24 md:pt-28 lg:pt-36 pb-2 sm:pb-20 overflow-hidden"
       style={{ marginBottom: '0.1rem' }}
     >
       {/* Decorative background */}
@@ -111,8 +111,13 @@ const About = ({ }: AboutProps) => {
         ))}
       </div>
 
-  <div className="container-max-width section-padding relative z-10 w-full max-w-6xl mx-auto px-7 sm:px-6 md:px-6">
-    <div className="grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start">
+      <motion.div
+        className="container-max-width section-padding relative z-10 w-full max-w-6xl mx-auto px-7 sm:px-6 md:px-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start">
           {/* Left: copy */}
           <div className="md:col-span-7 space-y-4 sm:space-y-5 md:space-y-6">
             <motion.p
@@ -360,7 +365,7 @@ const About = ({ }: AboutProps) => {
           </div>
           {/* /carousel */}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
