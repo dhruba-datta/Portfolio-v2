@@ -24,7 +24,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       id: 1,
       company: "Social Engagement Group",
       position: "Research & Development Lead",
-      duration: "JAN 2025 - PRESENT",
+      duration: "JUL 2025 - PRESENT",
       location: "Florida, United States",
       type: "Remote",
       current: true,
