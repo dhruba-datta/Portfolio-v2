@@ -67,11 +67,16 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
         <div className="flex items-center justify-between h-12 md:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 focus-override">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-base md:text-lg">DD</span>
-              </div>
-            </Link>
+              <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 focus-override">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-transparent rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
+                  <img
+                    src="/images/logo.png"
+                    alt="Logo"
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                    style={{ filter: isDark ? 'brightness(1.1)' : 'none' }}
+                  />
+                </div>
+              </Link>
           </div>
 
           {/* Center Navigation */}
