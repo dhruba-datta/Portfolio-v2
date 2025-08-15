@@ -68,12 +68,14 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
           {/* Logo */}
           <div className="flex-shrink-0">
               <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 focus-override">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-transparent rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
+                <div
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shadow-xl overflow-hidden border border-white/30 dark:border-0 bg-white dark:bg-[#111827] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                  style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
+                >
                   <img
-                    src="/images/logo.png"
+                    src="/images/logo.svg"
                     alt="Logo"
-                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
-                    style={{ filter: isDark ? 'brightness(1.1)' : 'none' }}
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-lg"
                   />
                 </div>
               </Link>
