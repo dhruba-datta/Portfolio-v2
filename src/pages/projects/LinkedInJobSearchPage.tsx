@@ -201,9 +201,7 @@ const N8nLinkedinJobSearchPage = ({
                 LinkedIn Job Search (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A set of n8n workflows to automate your LinkedIn job discovery and notifications.
-                Search by keywords & location, filter results, store them in Sheets and get instant alerts on a schedule
-                or on demand.
+                Automate your job hunt with this n8n workflow. It automatically searches LinkedIn by keyword and location, filters results, saves them to a Google Sheet, and sends you instant alerts, saving you valuable time.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -211,8 +209,8 @@ const N8nLinkedinJobSearchPage = ({
                   <span
                     key={c.name}
                     className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium border
-                               border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
-                               text-gray-700 dark:text-gray-300"
+                      border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
+                      text-gray-700 dark:text-gray-300"
                   >
                     <span className="text-gray-500 dark:text-gray-400">{c.icon}</span>
                     {c.name}
@@ -240,13 +238,13 @@ const N8nLinkedinJobSearchPage = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
-                           border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
-                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium"
+                  border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
+                  text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium"
               >
                 Open Folder <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
             </div>
-            
+
             {/* Desktop buttons */}
             <div className="hidden lg:flex items-center gap-2 md:gap-3">
               <a
@@ -265,8 +263,8 @@ const N8nLinkedinJobSearchPage = ({
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base
-                           border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
-                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override"
+                  border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
+                  text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override"
               >
                 Open Folder <ExternalLink className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
               </motion.a>

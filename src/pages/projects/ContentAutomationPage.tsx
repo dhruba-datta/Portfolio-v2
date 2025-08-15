@@ -4,7 +4,6 @@ import {
   Github,
   Globe2,
   Webhook,
-  Clock,
   FileJson,
   Code2,
   Send,
@@ -53,73 +52,56 @@ const N8nContentAutomationPage = ({
     { name: "Workflow JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
-  // features (accordion) — tailored for Content Automation
+  // features (accordion) — tailored for Content Ideation + Trello only
   const features = [
     {
       id: "pipeline",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Content Pipeline Orchestrator",
-      summary: "Ingest → Transform (AI/clean) → Publish/Queue",
+      title: "Content Idea Generator & Organizer",
+      summary: "Ingest → Brainstorm (AI) → Create Cards",
       details: [
-        "Ingest content from forms/APIs/feeds via Webhook & HTTP Request nodes",
-        "Normalize & enrich fields (title, tags, canonical URL)",
-        "Optional AI assist for summaries/captions via Code/HTTP nodes",
-        "Branching for multi-channel outputs (blog, newsletter, socials)",
-      ],
-    },
-    {
-      id: "scheduler",
-      icon: <Clock className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Scheduling & Triggers",
-      summary: "Cron triggers & on-demand webhooks",
-      details: [
-        "Cron schedules for daily/weekly runs",
-        "Instant Webhook endpoints for manual publish",
-        "Replay-friendly runs with input validation",
-        "Idempotent guards to prevent duplicate posts",
+        "Fetch content topics and client info from a Google Sheet",
+        "Automatically brainstorm 3 new ideas per topic via ChatGPT",
+        "Enrich content with hooks, subtitles, and CTAs",
+        "Create a Trello card for each new idea in the client's board backlog",
       ],
     },
     {
       id: "integrations",
       icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Integrations",
-      summary: "Email, CMS, Sheets & social endpoints",
+      summary: "Google Sheets & Trello only",
       details: [
-        "Email/newsletter providers (e.g., Brevo) for campaign drafts",
-        "CMS/Docs (Notion/Markdown repos/Headless CMS) via HTTP",
-        "Spreadsheets/DB (Google Sheets/SQL) for content queues",
-        "Social endpoints (X/LinkedIn) ready via HTTP & OAuth creds",
+        "Google Sheets for client data and content idea input/output",
+        "Trello Board for organizing and visualizing new content ideas",
       ],
     },
     {
       id: "blocks",
       icon: <Code2 className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Reusable Building Blocks",
-      summary: "Set/Merge, Switch/If, Split in Batches",
+      summary: "Set/Merge fields, batch and split topics",
       details: [
-        "Reusable sub-workflows for parsing & templating",
-        "Batch processing with retry & backoff patterns",
-        "Field mapping with Set/Merge nodes",
-        "Switch/If for channel-specific formats",
+        "Batch process multiple content types/clients at once",
+        "Validate and map fields for AI generation and Trello card creation",
+        "Split topics for parallel AI idea generation",
       ],
     },
     {
       id: "observability",
       icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Observability & Safety",
-      summary: "Error handling, notifications & audit trails",
+      summary: "Error handling, notifications, audit trails",
       details: [
-        "Dedicated error workflows with alerts to email/Slack",
-        "Run-level metadata & checkpoints for traceability",
-        "Secret-scoped credentials per integration",
-        "Graceful degradation when an endpoint is down",
+        "Error guards and notifications for failures in Sheets/Trello integration",
+        "Traceable workflow steps for debugging and audit",
       ],
     },
   ];
 
   const [expanded, setExpanded] = useState<string | null>("pipeline");
 
-  // Right TOC (keep structure; section content adapted for n8n)
+  // Right TOC (keep structure)
   const toc = [
     { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
     { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
@@ -162,7 +144,6 @@ const N8nContentAutomationPage = ({
 
       <main>
         {/* Full-width cover under navbar */}
-                {/* Full-width cover under navbar (matches KFC) */}
         <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
@@ -191,11 +172,10 @@ const N8nContentAutomationPage = ({
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
-                Content Automation (n8n)
+                Content Idea Generator (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A collection of n8n workflows to automate your content lifecycle, from ingestion and enrichment to
-                scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.
+                Automate content ideation with this n8n workflow. It pulls topics from Google Sheets, generates three ideas per topic with OpenAI, and creates Trello cards automatically. This single automation saves you 20+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -238,7 +218,6 @@ const N8nContentAutomationPage = ({
                 Open Folder <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
             </div>
-            
             {/* Desktop buttons */}
             <div className="hidden lg:flex items-center gap-2 md:gap-3">
               <a
@@ -353,15 +332,11 @@ const N8nContentAutomationPage = ({
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook:</b> On-demand triggers for manual runs or integrations.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Cron:</b> Scheduled publishing & batch jobs.</span>
+                  <span className="text-sm sm:text-base"><b>Webhook:</b> Manual or integration-triggered runs.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Connect any REST API (CMS, socials, email).</span>
+                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Connect to REST APIs as needed.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
@@ -369,7 +344,11 @@ const N8nContentAutomationPage = ({
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Sheets/DB:</b> Queues & audit logs via Google Sheets/SQL.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Input and source of content ideas.</span>
+                </li>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <SiTrello className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Trello:</b> Organize new content ideas as cards in the backlog.</span>
                 </li>
               </ul>
             </section>
@@ -381,10 +360,10 @@ const N8nContentAutomationPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Auto-generate post drafts, titles, and social captions</li>
-                <li>Build a content queue from feeds, forms, or spreadsheets</li>
-                <li>Cross-post to blog, newsletter (e.g., Brevo), and socials</li>
-                <li>Create weekly digests from curated links & publish on schedule</li>
+                <li>Auto-generate 3 unique ideas (hooks, subtitles, CTAs) for every content topic</li>
+                <li>Build a content backlog from spreadsheet input (Google Sheets)</li>
+                <li>Create and organize Trello cards for each new idea seamlessly</li>
+                <li>Centralize idea management with no manual copying between Sheets and Trello</li>
               </ul>
             </section>
 
@@ -410,18 +389,16 @@ const N8nContentAutomationPage = ({
                     </a>
                   </li>
                   <li className="leading-relaxed">
-                    Import workflow JSON:&nbsp;In n8n, go to <b>Workflows → Import</b> and upload the selected <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
+                    Import workflow JSON:&nbsp;Go to <b>Workflows → Import</b> in n8n and upload the included <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
                   </li>
                   <li>
-                    Configure credentials:&nbsp;Add API keys/OAuth apps for channels you’ll publish to (e.g., email, CMS,
-                    Sheets, socials).
+                    Configure credentials:&nbsp;Add your Google Sheets API and Trello API keys.
                   </li>
                   <li>
-                    Set triggers:&nbsp;Attach a <b>Cron</b> schedule and/or expose a <b>Webhook</b> for manual runs.
+                    Trigger a test run:&nbsp;Use the manual trigger to process input from Google Sheets. The workflow will automatically generate idea sets using AI and push cards to the Trello board.
                   </li>
                   <li>
-                    Test & ship:&nbsp;Run once with sample input, verify outputs, then enable the workflow. Deploy on n8n
-                    Cloud or your Docker instance.
+                    Review Trello board:&nbsp;See new cards added for each idea. Continue idea organization directly in Trello.
                   </li>
                 </ol>
               </div>
@@ -465,8 +442,6 @@ const N8nContentAutomationPage = ({
           </aside>
         </div>
 
-
-
         {/* Contact CTA Section */}
         <ContactCTA
           title="Need custom n8n automations?"
@@ -480,5 +455,5 @@ const N8nContentAutomationPage = ({
     </div>
   );
 };
- 
+
 export default N8nContentAutomationPage;

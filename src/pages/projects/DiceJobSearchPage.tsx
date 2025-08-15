@@ -55,7 +55,7 @@ const DiceJobSearchPage = ({
     { name: "Data Extraction", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
-  // Features for Dice automation
+  // Features (accordion)
   const features = [
     {
       id: "discovery",
@@ -201,8 +201,7 @@ const DiceJobSearchPage = ({
                 Dice Job Search (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                Automated Dice.com job discovery & notifications using n8n workflows.
-                Scrape job posts, filter, store to Sheets, and get instant alerts—scheduled or on-demand.
+                This n8n workflow automates your tech job search on Dice.com, saving you valuable time. It scrapes new job posts, applies your custom filters, and saves the relevant listings directly into a Google Sheet. You also receive instant alerts, ensuring you're always one step ahead without the need for endless manual browsing.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -239,8 +238,8 @@ const DiceJobSearchPage = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
-                  border border-indigo-200 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20
-                  text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition focus-override text-sm font-medium"
+                  border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
+                  text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium"
               >
                 Open Folder <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
@@ -280,25 +279,25 @@ const DiceJobSearchPage = ({
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-indigo-500" />
+                <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
 
-              <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-indigo-200 dark:border-gray-700 bg-indigo-50/50 dark:bg-gray-800">
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
                   const open = expanded === f.id;
                   return (
                     <div
                       key={f.id}
-                      className="border-b last:border-none border-indigo-200 dark:border-gray-700 bg-indigo-50/30 dark:bg-gray-800"
+                      className="border-b last:border-none border-blue-200 dark:border-gray-700 bg-blue-50/30 dark:bg-gray-800"
                     >
                       <motion.button
                         whileTap={{ scale: 0.995 }}
                         onClick={() => setExpanded(open ? null : f.id)}
-                        className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-indigo-100/50 dark:hover:bg-gray-700 transition"
+                        className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
                       >
                         <div className="flex items-start gap-2 sm:gap-3">
-                          <div className="mt-0.5 text-indigo-500 text-sm sm:text-base">{f.icon}</div>
+                          <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
                           <div className="min-w-0 flex-1">
                             <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
                             {!open && (
@@ -331,7 +330,7 @@ const DiceJobSearchPage = ({
                                     transition={{ duration: 0.15, delay: i * 0.05 }}
                                     className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700 dark:text-gray-300"
                                   >
-                                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 sm:mt-2 shrink-0" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 sm:mt-2 shrink-0" />
                                     <span className="leading-relaxed">{d}</span>
                                   </motion.li>
                                 ))}
@@ -349,7 +348,7 @@ const DiceJobSearchPage = ({
             {/* Nodes & Tech Used */}
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-indigo-500" />
+                <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
               </div>
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
@@ -391,7 +390,7 @@ const DiceJobSearchPage = ({
             {/* Use Cases */}
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-indigo-500" />
+                <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
@@ -405,10 +404,10 @@ const DiceJobSearchPage = ({
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-indigo-500" />
+                <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
               </div>
-              <div className="rounded-lg sm:rounded-xl border border-indigo-200 dark:border-gray-700 bg-indigo-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
+              <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                   <li>
                     Open folder:&nbsp;

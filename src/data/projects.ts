@@ -49,7 +49,7 @@ import { GrStorage } from 'react-icons/gr';
 export const projects: Project[] = [
   {
     id: 'content-automation',
-    title: 'Content Automation (n8n)',
+    title: 'Content Idea Generator (n8n)',
     description:
       'A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.',
     longDescription:
