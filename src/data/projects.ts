@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { Project } from '../types';
 import {
   Code2,
@@ -171,6 +172,7 @@ export const projects: Project[] = [
     featured: true,
     category: 'development',
   },
+
   {
     id: 'portfolio-v1',
     title: 'Portfolio v1',
@@ -192,6 +194,30 @@ export const projects: Project[] = [
     featured: true,
     category: 'development',
   },
+
+  // Dice Job Search (n8n) automation project
+  {
+    id: 'dice-job-search',
+    title: 'Dice Job Search (n8n)',
+    description:
+      'Automate Dice.com job search and notifications with n8n. Search by keywords/location, filter, store in Sheets, and get alerts—scheduled or on demand.',
+    longDescription:
+      'n8n workflow for Dice.com job search automation: dynamic search, web scraping, Google Sheets integration, and instant notifications.',
+    image: '/images/placeholder-project.svg',
+    tags: [
+      { name: 'n8n', icon: React.createElement(SiN8N, { className: 'w-3.5 h-3.5' }) },
+      { name: 'Dice.com', icon: React.createElement(Search, { className: 'w-3.5 h-3.5' }) },
+      { name: 'Web Scraping', icon: React.createElement(Search, { className: 'w-3.5 h-3.5' }) },
+      { name: 'Google Sheets', icon: React.createElement(SiGooglesheets, { className: 'w-3.5 h-3.5' }) },
+      { name: 'Webhook', icon: React.createElement(Webhook, { className: 'w-3.5 h-3.5' }) },
+      { name: 'Workflow JSON', icon: React.createElement(FileJson, { className: 'w-3.5 h-3.5' }) },
+    ],
+    link: '/projects/dice-job-search',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Dice%20Job%20Search',
+    featured: true,
+    category: 'automation',
+  },
+
   {
     id: 'kingsley-group',
     title: 'Kingsley Group',

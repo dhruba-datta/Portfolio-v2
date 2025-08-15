@@ -19,6 +19,7 @@ const LinkedInJobSearchPage = lazy(() => import('./pages/projects/LinkedInJobSea
 const EasyCookingPage = lazy(() => import('./pages/projects/EasyCookingPage'));
 const FoodOrderingSystemPage = lazy(() => import('./pages/projects/FoodOrderingSystemPage'));
 const KingsleyGroupPage = lazy(() => import('./pages/projects/KingsleyGroupPage'));
+const DiceJobSearchPage = lazy(() => import('./pages/projects/DiceJobSearchPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -65,7 +66,8 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
         <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/projects/photoBooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/projects/cryptoverse" element={<CryptoVersePage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/kingsley-group" element={<KingsleyGroupPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/kingsley-group" element={<KingsleyGroupPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/dice-job-search" element={<DiceJobSearchPage />} />
         <Route path="/projects/easy-cooking" element={<EasyCookingPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/projects/food-ordering-system" element={<FoodOrderingSystemPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="*" element={<NotFoundPage isDark={isDark} toggleTheme={toggleTheme} />} />

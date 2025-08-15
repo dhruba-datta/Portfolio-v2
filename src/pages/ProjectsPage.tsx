@@ -1,14 +1,20 @@
 
+
 import Navigation from '../components/ui/Navigation';
 import Projects from '../components/sections/project/Projects';
 import Footer from '../components/ui/Footer';
+import { useSearchParams } from 'react-router-dom';
 
 interface ProjectsPageProps {
   isDark: boolean;
   toggleTheme: () => void;
 }
 
+
 const ProjectsPage = ({ isDark, toggleTheme }: ProjectsPageProps) => {
+  const [searchParams] = useSearchParams();
+  const tab = searchParams.get('tab');
+  // Pass tab as prop to Projects
   return (
     <div className={
       `min-h-screen transition-colors duration-300 ` +
@@ -23,7 +29,7 @@ const ProjectsPage = ({ isDark, toggleTheme }: ProjectsPageProps) => {
         </>
       )}
       <main className="pt-20 pb-0">
-        <Projects />
+        <Projects initialCategory={tab} />
       </main>
       <Footer />
     </div>

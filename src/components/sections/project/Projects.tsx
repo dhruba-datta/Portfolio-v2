@@ -4,8 +4,12 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Layers, Code2 } from 'lucide-react';
 import { projects, categories, categoryMeta } from '../../../data/projects';
 
-const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState<'all' | string>('all');
+interface ProjectsProps {
+  initialCategory?: string | null;
+}
+
+const Projects = ({ initialCategory }: ProjectsProps) => {
+  const [activeCategory, setActiveCategory] = useState<'all' | string>(initialCategory && ['all','development','app','automation'].includes(initialCategory) ? initialCategory : 'all');
   const [mounted, setMounted] = useState(false); // prevent first-time thumb animation
   const [visibleCount, setVisibleCount] = useState(6); // load-more
   const [projectsLoaded, setProjectsLoaded] = useState(false); // track if all projects loaded

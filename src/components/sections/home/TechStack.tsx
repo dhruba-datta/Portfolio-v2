@@ -209,15 +209,6 @@ const TechStack = ({ isDark }: TechStackProps) => {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
-              {/* Scholarship - Link to about page */}
-              <Link to="/about" className="block group focus-override">
-                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
-                  <div className="flex-1">
-                    <div className="text-xs sm:text-xs lg:text-sm font-semibold leading-snug">ICCR Government Scholarship</div>
-                  </div>
-                  <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Scholarship</div>
-                </div>
-              </Link>
 
               {/* Publications - Link to Google Scholar */}
               <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group focus-override">
@@ -228,6 +219,16 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Paper Published</div>
                 </div>
               </a>
+
+              {/* Total Automation - Link to projects page with automation tab */}
+              <Link to="/projects?tab=automation" className="block group focus-override">
+                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
+                  <div className="flex-1">
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">{projects.filter(p => p.category === 'automation').length}</div>
+                  </div>
+                  <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Automation</div>
+                </div>
+              </Link>
 
               {/* Projects - Link to projects page */}
               <Link to="/projects" className="block group focus-override">
