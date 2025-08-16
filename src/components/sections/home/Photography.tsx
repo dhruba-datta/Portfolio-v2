@@ -82,17 +82,17 @@ const Photography = () => {
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="uppercase tracking-[0.2em] text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
+            <span className="uppercase tracking-[0.2em] text-[9px] sm:text-[11px] text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
               Photography
             </span>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
+            <h2 className="mt-2 sm:mt-3 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
               Travel Stories
             </h2>
           </motion.div>
         </div>
 
         {/* Photo Grid */}
-        <div className="grid gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-8 sm:mb-10 lg:mb-12">
+  <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-8 sm:mb-10 lg:mb-12">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
@@ -107,11 +107,11 @@ const Photography = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
-                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer min-h-[44px] focus-override"
+                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer min-h-[180px] focus-override"
                 aria-label={`View ${photo.location} photography on Instagram`}
               >
                 {/* Image */}
-                <div className="relative aspect-square overflow-hidden">
+                <div className="relative aspect-[5/6] overflow-hidden min-h-[180px]">
                   <img
                     src={photo.image}
                     alt={photo.alt}
@@ -125,7 +125,7 @@ const Photography = () => {
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 transition-opacity duration-300">
                     <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full">
                       <MapPin className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-slate-700 dark:text-slate-300" />
-                      <span className="text-[10px] sm:text-xs font-medium text-slate-700 dark:text-slate-300">
+                      <span className="text-[9px] sm:text-xs font-medium text-slate-700 dark:text-slate-300">
                         {photo.location}
                       </span>
                     </div>
@@ -157,7 +157,7 @@ const Photography = () => {
               href="https://www.instagram.com/dhrubz_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 hover:-translate-y-1 group min-h-[48px] sm:min-h-[56px] focus-override"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-base font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 hover:-translate-y-1 group min-h-[48px] sm:min-h-[56px] focus-override"
               aria-label="Follow on Instagram for more photography"
             >
               <div className="flex items-center justify-center w-5 sm:w-6 h-5 sm:h-6">
