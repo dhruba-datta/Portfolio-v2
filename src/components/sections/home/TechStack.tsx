@@ -208,9 +208,9 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </h3>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
-
-              {/* Publications - Link to Google Scholar */}
+            {/* Mobile: 3 in first row, 2 in second row. Desktop: original grid. */}
+            <div className="hidden sm:grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
+              {/* Publications */}
               <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group focus-override">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
@@ -219,8 +219,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Paper Published</div>
                 </div>
               </a>
-
-              {/* Total Automation - Link to projects page with automation tab */}
+              {/* Total Automation */}
               <Link to="/projects?tab=automation" className="block group focus-override">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
@@ -229,8 +228,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Automation</div>
                 </div>
               </Link>
-
-              {/* Projects - Link to projects page */}
+              {/* Projects */}
               <Link to="/projects" className="block group focus-override">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
@@ -239,8 +237,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
                 </div>
               </Link>
-
-              {/* LeetCode - Link to LeetCode profile */}
+              {/* LeetCode */}
               <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group focus-override">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
@@ -249,8 +246,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Solved Leetcode</div>
                 </div>
               </a>
-
-              {/* Countries - Link to Instagram */}
+              {/* Countries */}
               <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group focus-override">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
@@ -259,6 +255,36 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">visited Country</div>
                 </div>
               </a>
+            </div>
+            {/* Mobile: only 3 highlights in a single row */}
+            <div className="block sm:hidden mb-4">
+              <div className="grid grid-cols-3 gap-3">
+                {/* First row: 3 items */}
+                <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group focus-override">
+                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
+                    <div className="flex-1">
+                      <div className="text-xl font-extrabold leading-none">1</div>
+                    </div>
+                    <div className="text-[9px] uppercase tracking-[0.14em] opacity-70 mt-auto">Paper Published</div>
+                  </div>
+                </a>
+                <Link to="/projects?tab=automation" className="block group focus-override">
+                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
+                    <div className="flex-1">
+                      <div className="text-xl font-extrabold leading-none">{projects.filter(p => p.category === 'automation').length}</div>
+                    </div>
+                    <div className="text-[9px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Automation</div>
+                  </div>
+                </Link>
+                <Link to="/projects" className="block group focus-override">
+                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
+                    <div className="flex-1">
+                      <div className="text-xl font-extrabold leading-none">{projects.length}</div>
+                    </div>
+                    <div className="text-[9px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
 
