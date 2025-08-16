@@ -145,7 +145,7 @@ const ProjectPreview = () => {
                     <div className="flex-1 p-4 sm:p-5 lg:p-6 flex flex-col justify-between">
                       <div>
                         <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                          <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+                          <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
                             {project.title}
                           </h3>
                         </div>
