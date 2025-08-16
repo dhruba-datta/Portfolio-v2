@@ -190,7 +190,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
           <div className={`lg:col-span-2 ${cardBase} p-4 sm:p-5 lg:p-8`}>
             <div className="mb-4 sm:mb-5 lg:mb-8">
               <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
-                Tech  <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Stack</span>
+                My <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Toolbox</span>
               </h3>
             </div>
             <div className="space-y-2 sm:space-y-3 lg:space-y-4">
