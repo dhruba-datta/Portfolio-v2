@@ -85,7 +85,7 @@ const Photography = () => {
             <span className="uppercase tracking-[0.2em] text-[9px] sm:text-[11px] text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
               Photography
             </span>
-            <h2 className="mt-2 sm:mt-3 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
+            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
               Travel Stories
             </h2>
           </motion.div>
