@@ -48,7 +48,7 @@ import { GrStorage } from 'react-icons/gr';
 
 export const projects: Project[] = [
   {
-    id: 'content-automation',
+  id: 'content-idea-generator-n8n',
     title: 'Content Idea Generator (n8n)',
     description:
       'A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     category: 'automation',
   },
   {
-    id: 'linkedin-job-search',
+  id: 'linkedin-job-search-n8n',
     title: 'LinkedIn Job Search (n8n)',
     description:
       'A set of n8n workflows to automate your LinkedIn-style job discovery and notifications. Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule or on demand.',
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     category: 'automation',
   },
   {
-    id: 'photoBooth',
+  id: 'photobooth',
     title: 'PhotoBooth',
     description:
       'A Pinterest-inspired social photo sharing app with modern UI. Features include Google OAuth, real-time uploads, social engagement (likes/comments), advanced search/filtering, and responsive design for seamless cross-platform experience.',
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     category: 'development',
   },
   {
-    id: 'ab-pharmacy-expo',
+  id: 'ab-pharmacy-expo',
     title: 'AB Pharmacy Expo',
     description:
       'A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search—built with modular components and offline-first UX.',
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     category: 'app',
   },
   {
-    id: 'cryptoverse',
+  id: 'cryptoverse',
     title: 'CryptoVerse',
     description:
       'A comprehensive cryptocurrency dashboard offering real-time market data, detailed analytics, trending news, and interactive charts. Features responsive design, advanced search/filtering, and seamless API integrations for up-to-date crypto insights.',
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     category: 'development',
   },
   {
-    id: 'portfolio-v2',
+  id: 'portfolio-v2',
     title: 'Portfolio v2',
     description:
       'A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.',
@@ -174,7 +174,7 @@ export const projects: Project[] = [
   },
 
   {
-    id: 'portfolio-v1',
+  id: 'portfolio-v1',
     title: 'Portfolio v1',
     description:
       'A minimalist, SEO-optimized personal portfolio featuring essential sections (about, skills, projects, contact), clean responsive design, and Google search visibility. Built with vanilla HTML/CSS/JavaScript for optimal performance and accessibility.',
@@ -197,7 +197,7 @@ export const projects: Project[] = [
 
   // Dice Job Search (n8n) automation project
   {
-    id: 'dice-job-search',
+  id: 'dice-job-search-n8n',
     title: 'Dice Job Search (n8n)',
     description:
       'Automate Dice.com job search and notifications with n8n. Search by keywords/location, filter, store in Sheets, and get alerts—scheduled or on demand.',
@@ -212,14 +212,14 @@ export const projects: Project[] = [
       { name: 'Webhook', icon: React.createElement(Webhook, { className: 'w-3.5 h-3.5' }) },
       { name: 'Workflow JSON', icon: React.createElement(FileJson, { className: 'w-3.5 h-3.5' }) },
     ],
-    link: '/projects/dice-job-search',
+  link: '/projects/dice-job-search-n8n',
     github: 'https://github.com/dhruba-datta/n8n/tree/main/Dice%20Job%20Search',
     featured: true,
     category: 'automation',
   },
 
   {
-    id: 'kingsley-group',
+  id: 'kingsley-group',
     title: 'Kingsley Group',
     description:
       'Complete WordPress website redesign for an environmental engineering company. Features modern responsive design, comprehensive content management, SEO optimization, blog/news sections, and multi-location business presence across Australia, Bangladesh, and China.',
@@ -242,7 +242,7 @@ export const projects: Project[] = [
     category: 'development',
   },
   {
-    id: 'kfc-clone',
+  id: 'kfc-clone',
     title: 'KFC Clone',
     description:
       'A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on performance, multilingual UX, and a clean component architecture.',
@@ -263,7 +263,7 @@ export const projects: Project[] = [
     category: 'development',
   },
   {
-    id: 'easy-cooking',
+  id: 'easycooking',
     title: 'EasyCooking',
     description:
       'A cooking tutorial website featuring recipes from different cuisines including Bengali, Chinese, and Indian. Built with pure HTML and CSS for optimal performance and cross-platform compatibility.',
@@ -283,7 +283,7 @@ export const projects: Project[] = [
     category: 'development',
   },
   {
-    id: 'food-ordering-system',
+  id: 'food-ordering-system',
     title: 'Food Ordering System',
     description:
       'A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, and admin panel for order management. Features object-oriented design and file handling.',

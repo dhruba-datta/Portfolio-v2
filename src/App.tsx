@@ -58,18 +58,18 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
         <Route path="/about" element={<AboutPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/projects" element={<ProjectsPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="/contact" element={<ContactPage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/kfc-clone" element={<KfcClonePage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/portfolio-v1" element={<PortfolioV1Page isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/portfolio-v2" element={<PortfolioV2Page isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/content-automation" element={<ContentAutomationPage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/linkedin-job-search" element={<LinkedInJobSearchPage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/photoBooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/cryptoverse" element={<CryptoVersePage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/kfc-clone" element={<KfcClonePage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/portfolio-v1" element={<PortfolioV1Page isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/portfolio-v2" element={<PortfolioV2Page isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/content-idea-generator-n8n" element={<ContentAutomationPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/linkedin-job-search-n8n" element={<LinkedInJobSearchPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/photobooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/cryptoverse" element={<CryptoVersePage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/kingsley-group" element={<KingsleyGroupPage isDark={isDark} toggleTheme={toggleTheme} />} />
-  <Route path="/projects/dice-job-search" element={<DiceJobSearchPage />} />
-        <Route path="/projects/easy-cooking" element={<EasyCookingPage isDark={isDark} toggleTheme={toggleTheme} />} />
-        <Route path="/projects/food-ordering-system" element={<FoodOrderingSystemPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/dice-job-search-n8n" element={<DiceJobSearchPage />} />
+  <Route path="/projects/easycooking" element={<EasyCookingPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/food-ordering-system" element={<FoodOrderingSystemPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="*" element={<NotFoundPage isDark={isDark} toggleTheme={toggleTheme} />} />
       </Routes>
     </Suspense>
