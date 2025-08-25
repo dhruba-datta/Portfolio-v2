@@ -14,7 +14,7 @@ const PortfolioV2Page = lazy(() => import('./pages/projects/PortfolioV2Page'));
 const ABPharmacyExpoPage = lazy(() => import('./pages/projects/ABPharmacyExpoPage'));
 const PhotoBoothPage = lazy(() => import('./pages/projects/PhotoBoothPage'));
 const CryptoVersePage = lazy(() => import('./pages/projects/CryptoVersePage'));
-const ContentAutomationPage = lazy(() => import('./pages/projects/ContentAutomationPage'));
+const ContentIdeaGeneratorPage = lazy(() => import('./pages/projects/ContentIdeaGeneratorPage'));
 const LinkedInJobSearchPage = lazy(() => import('./pages/projects/LinkedInJobSearchPage'));
 const EasyCookingPage = lazy(() => import('./pages/projects/EasyCookingPage'));
 const FoodOrderingSystemPage = lazy(() => import('./pages/projects/FoodOrderingSystemPage'));
@@ -61,7 +61,7 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
   <Route path="/projects/kfc-clone" element={<KfcClonePage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/portfolio-v1" element={<PortfolioV1Page isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/portfolio-v2" element={<PortfolioV2Page isDark={isDark} toggleTheme={toggleTheme} />} />
-  <Route path="/projects/content-idea-generator-n8n" element={<ContentAutomationPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/content-idea-generator-n8n" element={<ContentIdeaGeneratorPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/linkedin-job-search-n8n" element={<LinkedInJobSearchPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/ab-pharmacy-expo" element={<ABPharmacyExpoPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/photobooth" element={<PhotoBoothPage isDark={isDark} toggleTheme={toggleTheme} />} />
