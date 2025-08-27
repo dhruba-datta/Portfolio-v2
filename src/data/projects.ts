@@ -51,7 +51,7 @@ export const projects: Project[] = [
   id: 'content-idea-generator-n8n',
     title: 'Content Idea Generator (n8n)',
     description:
-      'A collection of n8n workflows to automate your content lifecycle—from ingestion and enrichment to scheduling and multi-channel publishing. Import ready-made JSONs, add credentials, and ship.',
+      'Automate content ideation with this n8n workflow. It pulls topics from Google Sheets, generates three ideas per topic with OpenAI, and creates Trello cards automatically. This single automation saves you 20+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.',
     longDescription:
       'Automated content creation workflow with Google Sheets integration, AI content generation, and Trello management.',
     image: '/images/placeholder-project.svg',
@@ -72,7 +72,7 @@ export const projects: Project[] = [
   id: 'linkedin-job-search-n8n',
     title: 'LinkedIn Job Search (n8n)',
     description:
-      'A set of n8n workflows to automate your LinkedIn-style job discovery and notifications. Search by keywords & location, filter results, store them in Sheets, and get instant alerts—on a schedule or on demand.',
+      'Automate your job hunt with this n8n workflow. It automatically searches LinkedIn by keyword and location, filters results, saves them to a Google Sheet, and sends you instant alerts, saving you valuable time.',
     longDescription:
       'Web form-driven job search automation with dynamic URL building, data extraction, and Google Sheets integration.',
     image: '/images/placeholder-project.svg',
@@ -93,7 +93,7 @@ export const projects: Project[] = [
   id: 'photobooth',
     title: 'PhotoBooth',
     description:
-      'A Pinterest-inspired social photo sharing app with modern UI. Features include Google OAuth, real-time uploads, social engagement (likes/comments), advanced search/filtering, and responsive design for seamless cross-platform experience.',
+      'A modern photo-sharing web app to upload, discover, and engage with images. Built with React + Tailwind + Sanity.io, featuring Google authentication, real-time social interactions, and an immersive gallery.',
     longDescription:
       'Fullscreen mode, Google authentication, create/edit/delete posts, like/comment, search/filter images.',
     image: '/images/placeholder-project.svg',
@@ -114,7 +114,7 @@ export const projects: Project[] = [
   id: 'ab-pharmacy-expo',
     title: 'AB Pharmacy Expo',
     description:
-      'A production-ready React Native/Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search—built with modular components and offline-first UX.',
+      'A production-ready React Native Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search, built with modular components and offline-first UX.',
     longDescription:
       'Sort by categories, search/filter products, add to cart, WhatsApp integration, and more.',
     image: '/images/placeholder-project.svg',
@@ -135,7 +135,7 @@ export const projects: Project[] = [
   id: 'cryptoverse',
     title: 'CryptoVerse',
     description:
-      'A comprehensive cryptocurrency dashboard offering real-time market data, detailed analytics, trending news, and interactive charts. Features responsive design, advanced search/filtering, and seamless API integrations for up-to-date crypto insights.',
+      'A real-time cryptocurrency dashboard built with React, Redux Toolkit & Chart.js. Live markets, smart filters, detailed coin pages and news wrapped in a clean Ant Design UI.',
     longDescription: 'Search/filter cryptocurrencies, latest news, detailed info, cross-platform.',
     image: '/images/placeholder-project.svg',
     tags: [
@@ -177,7 +177,7 @@ export const projects: Project[] = [
   id: 'portfolio-v1',
     title: 'Portfolio v1',
     description:
-      'A minimalist, SEO-optimized personal portfolio featuring essential sections (about, skills, projects, contact), clean responsive design, and Google search visibility. Built with vanilla HTML/CSS/JavaScript for optimal performance and accessibility.',
+      'A clean, SEO-friendly personal portfolio highlighting your skills, projects and resume. Built with a basic Bootstrap template using HTML/CSS/JS and later deployed on Netlify.',
     longDescription:
       'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
     image: '/images/placeholder-project.svg',
@@ -200,7 +200,7 @@ export const projects: Project[] = [
   id: 'dice-job-search-n8n',
     title: 'Dice Job Search (n8n)',
     description:
-      'Automate Dice.com job search and notifications with n8n. Search by keywords/location, filter, store in Sheets, and get alerts—scheduled or on demand.',
+      "This n8n workflow automates your tech job search on Dice.com, saving you valuable time. It scrapes new job posts, applies your custom filters, and saves the relevant listings directly into a Google Sheet. You also receive instant alerts, ensuring you're always one step ahead without the need for endless manual browsing.",
     longDescription:
       'n8n workflow for Dice.com job search automation: dynamic search, web scraping, Google Sheets integration, and instant notifications.',
     image: '/images/placeholder-project.svg',
@@ -222,7 +222,7 @@ export const projects: Project[] = [
   id: 'kingsley-group',
     title: 'Kingsley Group',
     description:
-      'Complete WordPress website redesign for an environmental engineering company. Features modern responsive design, comprehensive content management, SEO optimization, blog/news sections, and multi-location business presence across Australia, Bangladesh, and China.',
+      'Corporate WordPress redesign for an environmental engineering company. Added Resources, Blog, and News sections, implemented end-to-end SEO, optimized performance, and built a scalable content model for a multi-location presence (Australia, Bangladesh, China).',
     longDescription:
       'WordPress website redesign with custom theme development, SEO optimization, content management, blog system, news section, resource pages, and responsive design for environmental engineering services.',
     image: '/images/placeholder-project.svg',
@@ -286,7 +286,7 @@ export const projects: Project[] = [
   id: 'food-ordering-system',
     title: 'Food Ordering System',
     description:
-      'A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, and admin panel for order management. Features object-oriented design and file handling.',
+      'A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, and admin panel for order management. Features object-oriented design and file handling for data persistence.',
     longDescription:
       'Complete food ordering system with customer interface, admin panel, order management, bill calculation, and data persistence.',
     image: '/images/placeholder-project.svg',
