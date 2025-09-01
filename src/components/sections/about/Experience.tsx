@@ -72,7 +72,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       id: 4,
       company: "Kingsley Engineering Service Co.",
       position: "Software Engineer",
-      duration: "AUG 2023 - JUL 2024",
+      duration: "AUG 2023 - JUN 2024",
       location: "Dhaka, Bangladesh",
       type: "On-site",
       current: false,
