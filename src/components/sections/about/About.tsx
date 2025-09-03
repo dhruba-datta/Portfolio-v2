@@ -73,7 +73,7 @@ const About = ({ }: AboutProps) => {
       className="relative min-h-screen flex items-start justify-center pt-14 sm:pt-24 md:pt-28 lg:pt-36 pb-2 sm:pb-20 overflow-hidden"
       style={{ marginBottom: '0.1rem' }}
     >
-      {/* Decorative background */}
+      {/* Decorative background (grid overlay removed to prevent vertical line over photo) */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <motion.div
           className="absolute inset-0"
@@ -84,13 +84,6 @@ const About = ({ }: AboutProps) => {
             background:
               'radial-gradient(1000px 520px at 60% 0%, rgba(99,102,241,0.16), transparent 70%), radial-gradient(900px 540px at 15% 100%, rgba(236,72,153,0.14), transparent 72%)',
           }}
-        />
-        <div
-          className="absolute inset-0 opacity-10
-          [mask-image:radial-gradient(ellipse_60%_45%_at_50%_10%,#000_70%,transparent_120%)]
-          bg-[linear-gradient(to_right,#64748b33_1px,transparent_1px),linear-gradient(to_bottom,#64748b33_1px,transparent_1px)]
-          dark:bg-[linear-gradient(to_right,#94a3b833_1px,transparent_1px),linear-gradient(to_bottom,#94a3b833_1px,transparent_1px)]
-          bg-[size:18px_28px]"
         />
         {dots.map((d, i) => (
           <motion.span
@@ -238,10 +231,7 @@ const About = ({ }: AboutProps) => {
                   return (
                     <motion.figure
                       key={i}
-                      className="absolute w-[72%] sm:w-[68%] md:w-[64%] lg:w-[70%] max-w-md rounded-[20px] overflow-hidden
-                                 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] sm:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)]
-                                 dark:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.8)] dark:sm:shadow-[0_28px_70px_-22px_rgba(0,0,0,0.85)]
-                                 border border-white/20 dark:border-white/10 bg-white/5 backdrop-blur-[2px]"
+                      className="absolute w-[72%] sm:w-[68%] md:w-[64%] lg:w-[70%] max-w-md rounded-[20px] overflow-hidden"
                       style={{
                         zIndex: map.zIndex,
                         filter: map.filter as any,
@@ -309,8 +299,7 @@ const About = ({ }: AboutProps) => {
                         </div>
                       </div>
 
-                      {/* inner ring */}
-                      <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-white/15 dark:ring-white/10" />
+                      {/* inner ring removed to prevent line artifact */}
                     </motion.figure>
                   );
                 })}
