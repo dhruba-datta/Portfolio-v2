@@ -227,7 +227,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
-                      <CountUp from={0} to={projects.filter(p => p.category === 'automation').length} duration={1.8} delay={0.4} />
+                      <CountUp from={0} to={projects.filter(p => p.category === 'automation').length} duration={1.5} delay={0.2} />+
                     </div>
                   </div>
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Automation</div>
@@ -238,7 +238,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
-                      <CountUp from={0} to={projects.length} duration={2} delay={0.6} />
+                      <CountUp from={0} to={projects.length} duration={1.5} delay={0.2} />+
                     </div>
                   </div>
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
@@ -249,7 +249,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
-                      <CountUp from={0} to={480} duration={2.5} delay={0.8} separator="," />+
+                      <CountUp from={0} to={480} duration={1.5} delay={0.2} separator="," />+
                     </div>
                   </div>
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Solved Leetcode</div>
@@ -285,7 +285,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
                     <div className="flex-1">
                       <div className="text-xl font-extrabold leading-none">
-                        <CountUp from={0} to={projects.filter(p => p.category === 'automation').length} duration={1.8} delay={0.4} />
+                        <CountUp from={0} to={projects.filter(p => p.category === 'automation').length} duration={1.5} delay={0.2} />+
                       </div>
                     </div>
                     <div className="text-[9px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Automation</div>
@@ -295,7 +295,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
                     <div className="flex-1">
                       <div className="text-xl font-extrabold leading-none">
-                        <CountUp from={0} to={projects.length} duration={2} delay={0.6} />
+                        <CountUp from={0} to={projects.length} duration={1.5} delay={0.2} />+
                       </div>
                     </div>
                     <div className="text-[9px] uppercase tracking-[0.14em] opacity-70 mt-auto">Total Projects</div>
