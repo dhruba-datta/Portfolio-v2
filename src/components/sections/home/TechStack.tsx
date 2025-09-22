@@ -249,7 +249,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
-                      <CountUp from={0} to={480} duration={1.5} delay={0.2} separator="," />+
+                      <CountUp from={0} to={500} duration={0.5} delay={0.2} separator="," />+
                     </div>
                   </div>
                   <div className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.14em] opacity-70 mt-auto">Solved Leetcode</div>

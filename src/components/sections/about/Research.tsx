@@ -52,7 +52,7 @@ const achievements: Achievement[] = [
   {
     id: 2,
     title: "LeetCode Achievement",
-    description: "Solved 450+ problems with 3K+ reputation and 200K+ views, capturing coding enthusiasts worldwide.",
+    description: "Solved 500+ problems with 3K+ reputation and 250K+ views, capturing coding enthusiasts worldwide.",
     category: 'technical',
     icon: "code"
   },
