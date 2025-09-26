@@ -272,7 +272,7 @@ const Hero = () => {
                 (social.name === 'YouTube' ? 'hover:text-red-500 dark:hover:text-red-400' : '') +
                 (social.name === 'Facebook' ? 'hover:text-blue-700 dark:hover:text-blue-500' : '') +
                 (social.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white' : '') +
-                (social.name === 'Google Scholar' ? 'hover:text-blue-400' : '')
+                (social.name === 'Google Scholar' ? 'hover:text-gray-900 dark:hover:text-white' : '')
               }
                   aria-label={social.name}
                 >
