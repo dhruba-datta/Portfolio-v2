@@ -1,13 +1,5 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaLinkedinIn, FaInstagram, FaTelegramPlane, FaYoutube, FaGithub } from 'react-icons/fa';
-
-const footerLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Contact', href: '/contact' },
-];
 
 const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/dhruba-datta/', icon: <FaLinkedinIn className="w-5 h-5" /> },
@@ -28,13 +20,13 @@ const Footer = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-10">
         {/* Left: Copyright */}
-        <div className="flex flex-col items-center md:items-start gap-1.5 md:gap-2 md:w-1/3">
+        <div className="flex flex-col items-center md:items-start gap-1.5 md:gap-2">
           <span className="text-sm md:text-base font-semibold text-gray-900 dark:text-white">Dhruba Datta</span>
-          <p className="text-[11px] md:text-xs text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} | All rights reserved.</p>
+          <p className="text-[11px] md:text-xs text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} | All rights reserved</p>
         </div>
 
-        {/* Center: Social Icons */}
-        <div className="flex justify-center md:justify-center gap-4 md:gap-5 md:w-1/3 order-last md:order-none py-2 md:py-0">
+        {/* Right: Social Icons */}
+        <div className="flex justify-center md:justify-end gap-4 md:gap-5 py-2 md:py-0 -mr-2.5 md:-mr-3">
           {socialLinks.map(link => (
             <a
               key={link.name}
@@ -55,19 +47,6 @@ const Footer = () => {
             </a>
           ))}
         </div>
-
-        {/* Right: Navigation */}
-        <nav aria-label="Footer Navigation" className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-2 md:gap-y-4 justify-center md:justify-end md:w-1/3">
-          {footerLinks.map(link => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors min-h-[40px] md:min-h-[44px] flex items-center px-1.5 py-1.5 md:px-2 md:py-2 focus-override font-medium"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
       </div>
     </motion.footer>
   );
