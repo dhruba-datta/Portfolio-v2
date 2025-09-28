@@ -19,7 +19,7 @@ const Hero = () => {
     "const developer = {",
     "    name: 'Dhruba Datta',",
     "    skills: ['n8n', 'C++', 'React', 'Photography'],",
-    "    focuses: ['Automation', 'Full-Stack'],",
+    "    focuses: ['Automation', 'ML & AI'],",
     "    learning: 'Always',",
     "    available for coffee: true",
     "};"
