@@ -70,7 +70,7 @@ const About = ({ }: AboutProps) => {
   return (
     <section 
       id="about" 
-      className="h-[82vh] md:h-[90vh] flex flex-col items-center relative overflow-hidden"
+      className="h-[80vh] md:h-[90vh] flex flex-col items-center relative overflow-hidden"
       style={{ margin: 0, padding: 0 }}
     >
       {/* Decorative background (grid overlay removed to prevent vertical line over photo) */}

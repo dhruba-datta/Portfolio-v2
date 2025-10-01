@@ -50,7 +50,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
   return (
     <section
       id="academic"
-      className="py-2 sm:py-12 lg:py-20 transition-colors duration-300"
+      className="pt-8 pb-2 sm:py-12 lg:py-20 transition-colors duration-300"
       style={{ marginTop: '0.1rem' }}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
