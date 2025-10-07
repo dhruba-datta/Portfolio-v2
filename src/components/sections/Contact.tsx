@@ -288,7 +288,7 @@ const Contact: React.FC = () => {
           <div className="flex items-center gap-1.5 lg:gap-2 bg-green-100/80 dark:bg-green-900/40 rounded-full px-3 lg:px-4 py-1 w-fit mt-1">
             <span className="w-2 lg:w-2.5 h-2 lg:h-2.5 rounded-full bg-green-500 animate-pulse"></span>
             <span className="text-green-700 dark:text-green-300 font-medium text-xs lg:text-sm">
-              Open for New Opportunities
+              Open for Collaboration
             </span>
           </div>
 
