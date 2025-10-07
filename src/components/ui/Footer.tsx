@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
-import { FaLinkedinIn, FaInstagram, FaTelegramPlane, FaYoutube, FaGithub } from 'react-icons/fa';
+import { FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
+import { FaGoogleScholar } from 'react-icons/fa6';
+import { SiGmail } from 'react-icons/si';
 
 const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/dhruba-datta/', icon: <FaLinkedinIn className="w-5 h-5" /> },
   { name: 'GitHub', href: 'https://github.com/dhruba-datta', icon: <FaGithub className="w-5 h-5" /> },
+  { name: 'Gmail', href: 'mailto:dhrubadatta2@gmail.com', icon: <SiGmail className="w-5 h-5" /> },
+  { name: 'Google Scholar', href: 'https://scholar.google.co.uk/citations?user=RGxdIVkAAAAJ', icon: <FaGoogleScholar className="w-5 h-5" /> },
   { name: 'Instagram', href: 'https://www.instagram.com/dhrubz_/', icon: <FaInstagram className="w-5 h-5" /> },
-  { name: 'Telegram', href: 'https://t.me/dhruba_datta_anjan', icon: <FaTelegramPlane className="w-5 h-5" /> },
-  { name: 'YouTube', href: 'https://www.youtube.com/DhrubaDattaAnjan', icon: <FaYoutube className="w-5 h-5" /> },
 ];
 
 const Footer = () => {
@@ -39,8 +41,8 @@ const Footer = () => {
                 (link.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white ' : '') +
                 (link.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400 ' : '') +
                 (link.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400 ' : '') +
-                (link.name === 'Telegram' ? 'hover:text-blue-400 dark:hover:text-blue-300 ' : '') +
-                (link.name === 'YouTube' ? 'hover:text-red-500 dark:hover:text-red-400 ' : '')
+                (link.name === 'Google Scholar' ? 'hover:text-blue-600 dark:hover:text-blue-500 ' : '') +
+                (link.name === 'Gmail' ? 'hover:text-red-500 dark:hover:text-red-400 ' : '')
               }
             >
               {link.icon}
