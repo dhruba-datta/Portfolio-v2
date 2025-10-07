@@ -231,9 +231,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             <div className="mt-6 sm:mt-8 lg:mt-12 hidden sm:block">
               <h3 className={`text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>Research Interests</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 sm:gap-x-4 lg:gap-x-6 gap-y-1.5 sm:gap-y-2 lg:gap-y-3">
-                {[{ id: 1, area: "Computer Vision", color: "from-blue-500 to-cyan-500" },
-                  { id: 2, area: "Artificial Intelligence", color: "from-purple-500 to-pink-500" },
-                  { id: 3, area: "Machine Learning", color: "from-green-500 to-teal-500" },
+                {[{ id: 1, area: "Artificial Intelligence", color: "from-purple-500 to-pink-500" },
+                  { id: 2, area: "Machine Learning", color: "from-green-500 to-teal-500" },
+                  { id: 3, area: "Computer Vision", color: "from-blue-500 to-cyan-500" },
                   { id: 4, area: "Natural Language Processing", color: "from-orange-500 to-red-500" }].map((interest) => (
                   <div key={interest.id} className="flex items-center gap-2 sm:gap-3">
                     <div className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${interest.color} flex-shrink-0`} />
