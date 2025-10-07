@@ -311,12 +311,12 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label={social.name}
                 className={
-                  `p-1.5 lg:p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 ` +
-                  (social.name === "LinkedIn" ? "hover:text-blue-600 dark:hover:text-blue-400" : "") +
-                  (social.name === "Instagram" ? "hover:text-pink-500 dark:hover:text-pink-400" : "") +
-                  (social.name === "Telegram" ? "hover:text-blue-400 dark:hover:text-blue-300" : "") +
-                  (social.name === "YouTube" ? "hover:text-red-500 dark:hover:text-red-400" : "") +
-                  (social.name === "Facebook" ? "hover:text-blue-700 dark:hover:text-blue-500" : "")
+                  `rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 ` +
+                  (social.name === "LinkedIn" ? "hover:text-blue-600 dark:hover:text-blue-400 pl-0 pr-1.5 lg:pr-2 py-1.5 lg:py-2" : "p-1.5 lg:p-2") +
+                  (social.name === "Facebook" ? "hover:text-[#1877F2] dark:hover:text-[#1877F2] " : "") +
+                  (social.name === "Instagram" ? "hover:text-pink-500 dark:hover:text-pink-400 " : "") +
+                  (social.name === "Telegram" ? "hover:text-[#0088cc] dark:hover:text-[#0088cc] " : "") +
+                  (social.name === "YouTube" ? "hover:text-[#FF0000] dark:hover:text-[#FF0000] " : "")
                 }
               >
                 <div className="w-4 lg:w-5 h-4 lg:h-5">
