@@ -6,7 +6,7 @@ import { SiGmail } from 'react-icons/si';
 const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/dhruba-datta/', icon: <FaLinkedinIn className="w-5 h-5" /> },
   { name: 'GitHub', href: 'https://github.com/dhruba-datta', icon: <FaGithub className="w-5 h-5" /> },
-  { name: 'Gmail', href: 'mailto:dhrubadatta2@gmail.com', icon: <SiGmail className="w-5 h-5" /> },
+  { name: 'Gmail', href: 'mailto:dhrubadattaanjan@gmail.com', icon: <SiGmail className="w-5 h-5" /> },
   { name: 'Google Scholar', href: 'https://scholar.google.co.uk/citations?user=RGxdIVkAAAAJ', icon: <FaGoogleScholar className="w-5 h-5" /> },
   { name: 'Instagram', href: 'https://www.instagram.com/dhrubz_/', icon: <FaInstagram className="w-5 h-5" /> },
 ];
