@@ -172,6 +172,25 @@ export const projects: Project[] = [
     featured: true,
     category: 'development',
   },
+  {
+  id: 'ab-pharmacy-orders',
+    title: 'AB Pharmacy Orders',
+    description:
+      'A lightweight web ordering interface for pharmacies, backed by Google Sheets for product and order storage, with WhatsApp-based confirmations.',
+    longDescription:
+      'Sheet-backed ordering system with product catalog, order creation, and simple admin flow. Built as a fast prototype using React + Tailwind and Google Sheets as a backend.',
+    image: '/images/projects/AB Pharmacy Orders.svg',
+    tags: [
+      { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
+      { name: "Tailwind CSS", icon: React.createElement(SiTailwindcss, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Netlify", icon: React.createElement(BiLogoNetlify, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: 'https://abpharmacy-order.netlify.app/',
+    github: 'https://github.com/dhruba-datta/AB-Pharmacy-Order-Management',
+    featured: false,
+    category: 'development',
+  },
 
   {
   id: 'portfolio-v1',
