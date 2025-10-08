@@ -54,7 +54,7 @@ export const projects: Project[] = [
       'Automate content ideation with this n8n workflow. It pulls topics from Google Sheets, generates three ideas per topic with OpenAI, and creates Trello cards automatically. This single automation saves you 20+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.',
     longDescription:
       'Automated content creation workflow with Google Sheets integration, AI content generation, and Trello management.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/Content Idea Generator (n8n).svg',
     tags: [
       { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
       { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
@@ -75,7 +75,7 @@ export const projects: Project[] = [
       'Automate your job hunt with this n8n workflow. It automatically searches LinkedIn by keyword and location, filters results, saves them to a Google Sheet, and sends you instant alerts, saving you valuable time.',
     longDescription:
       'Web form-driven job search automation with dynamic URL building, data extraction, and Google Sheets integration.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/LinkedIn Job Search (n8n).svg',
     tags: [
       { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
       { name: "LinkedIn", icon: React.createElement(SiLinkedin, { className: "w-3.5 h-3.5" }) },
@@ -96,7 +96,7 @@ export const projects: Project[] = [
       'A modern photo-sharing web app to upload, discover, and engage with images. Built with React + Tailwind + Sanity.io, featuring Google authentication, real-time social interactions, and an immersive gallery.',
     longDescription:
       'Fullscreen mode, Google authentication, create/edit/delete posts, like/comment, search/filter images.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/photobooth.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Sanity CMS", icon: React.createElement(Database, { className: "w-3.5 h-3.5" }) },
@@ -117,7 +117,7 @@ export const projects: Project[] = [
       'A production-ready React Native Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search, built with modular components and offline-first UX.',
     longDescription:
       'Sort by categories, search/filter products, add to cart, WhatsApp integration, and more.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/AB Pharmacy Expo.svg',
     tags: [
       { name: "React Native", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Expo", icon: React.createElement(SiExpo, { className: "w-3.5 h-3.5" }) },
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     description:
       'A real-time cryptocurrency dashboard built with React, Redux Toolkit & Chart.js. Live markets, smart filters, detailed coin pages and news wrapped in a clean Ant Design UI.',
     longDescription: 'Search/filter cryptocurrencies, latest news, detailed info, cross-platform.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/CryptoVerse.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Redux Toolkit", icon: React.createElement(Database, { className: "w-3.5 h-3.5" }) },
@@ -158,7 +158,7 @@ export const projects: Project[] = [
       'A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.',
     longDescription:
       'Modern React portfolio with TypeScript, Tailwind CSS, animations, and comprehensive project case studies.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/Portfolio v2.svg',
     tags: [
       { name: "React 18", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "TypeScript", icon: React.createElement(SiTypescript, { className: "w-3.5 h-3.5" }) },
@@ -180,7 +180,7 @@ export const projects: Project[] = [
       'A clean, SEO-friendly personal portfolio highlighting your skills, projects and resume. Built with a basic Bootstrap template using HTML/CSS/JS and later deployed on Netlify.',
     longDescription:
       'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/Portfolio v1.svg',
     tags: [
       { name: "HTML5", icon: React.createElement(Code, { className: "w-3.5 h-3.5" }) },
       { name: "CSS3", icon: React.createElement(Palette, { className: "w-3.5 h-3.5" }) },
@@ -203,7 +203,7 @@ export const projects: Project[] = [
       "This n8n workflow automates your tech job search on Dice.com, saving you valuable time. It scrapes new job posts, applies your custom filters, and saves the relevant listings directly into a Google Sheet. You also receive instant alerts, ensuring you're always one step ahead without the need for endless manual browsing.",
     longDescription:
       'n8n workflow for Dice.com job search automation: dynamic search, web scraping, Google Sheets integration, and instant notifications.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/Dice Job Search (n8n).svg',
     tags: [
       { name: 'n8n', icon: React.createElement(SiN8N, { className: 'w-3.5 h-3.5' }) },
       { name: 'Dice.com', icon: React.createElement(Search, { className: 'w-3.5 h-3.5' }) },
@@ -225,7 +225,7 @@ export const projects: Project[] = [
       'Corporate WordPress redesign for an environmental engineering company. Added Resources, Blog, and News sections, implemented end-to-end SEO, optimized performance, and built a scalable content model for a multi-location presence (Australia, Bangladesh, China).',
     longDescription:
       'WordPress website redesign with custom theme development, SEO optimization, content management, blog system, news section, resource pages, and responsive design for environmental engineering services.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/Kingsley Group.svg',
     tags: [
       { name: "WordPress", icon: React.createElement(SiWordpress, { className: "w-3.5 h-3.5" }) },
       { name: "PHP", icon: React.createElement(SiPhp, { className: "w-3.5 h-3.5" }) },
@@ -247,7 +247,7 @@ export const projects: Project[] = [
     description:
       'A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on performance, multilingual UX, and a clean component architecture.',
     longDescription: 'Seamless UI, dynamic menu, multi-language, and e-commerce features.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/KFC Clone.svg',
     tags: [
       { name: "Vue 3", icon: React.createElement(FaVuejs, { className: "w-3.5 h-3.5" }) },
       { name: "TailwindCSS", icon: React.createElement(RiTailwindCssFill, { className: "w-3.5 h-3.5" }) },
@@ -269,7 +269,7 @@ export const projects: Project[] = [
       'A cooking tutorial website featuring recipes from different cuisines including Bengali, Chinese, and Indian. Built with pure HTML and CSS for optimal performance and cross-platform compatibility.',
     longDescription:
       'Fullscreen recipe viewing, multi-cuisine support, responsive design, and easy navigation across different cooking tutorials.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/EasyCooking.svg',
     tags: [
       { name: "HTML5", icon: React.createElement(SiHtml5, { className: "w-3.5 h-3.5" }) },
       { name: "CSS3", icon: React.createElement(SiCss3, { className: "w-3.5 h-3.5" }) },
@@ -289,7 +289,7 @@ export const projects: Project[] = [
       'A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, and admin panel for order management. Features object-oriented design and file handling for data persistence.',
     longDescription:
       'Complete food ordering system with customer interface, admin panel, order management, bill calculation, and data persistence.',
-    image: '/images/placeholder-project.svg',
+    image: '/images/projects/Food Ordering System.svg',
     tags: [
       { name: "C++", icon: React.createElement(SiCplusplus, { className: "w-3.5 h-3.5" }) },
       { name: "OOP", icon: React.createElement(Code, { className: "w-3.5 h-3.5" }) },
