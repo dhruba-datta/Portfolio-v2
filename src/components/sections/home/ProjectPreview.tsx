@@ -149,8 +149,8 @@ const ProjectPreview = () => {
                             {project.title}
                           </h3>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-200 leading-relaxed mb-3 sm:mb-4 min-h-[40px]">
-                          {truncateDescription(project.description, 90)}
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 min-h-[40px]">
+                          {truncateDescription(project.description, 110)}
                         </p>
                       </div>
                       {/* Tech Stack */}
