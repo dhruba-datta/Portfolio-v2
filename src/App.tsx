@@ -21,6 +21,7 @@ const EasyCookingPage = lazy(() => import('./pages/projects/EasyCookingPage'));
 const FoodOrderingSystemPage = lazy(() => import('./pages/projects/FoodOrderingSystemPage'));
 const KingsleyGroupPage = lazy(() => import('./pages/projects/KingsleyGroupPage'));
 const DiceJobSearchPage = lazy(() => import('./pages/projects/DiceJobSearchPage'));
+const BrevoEmailMarketingPage = lazy(() => import('./pages/projects/BrevoEmailMarketingPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -72,6 +73,7 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
   <Route path="/projects/dice-job-search-n8n" element={<DiceJobSearchPage />} />
   <Route path="/projects/easycooking" element={<EasyCookingPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/food-ordering-system" element={<FoodOrderingSystemPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/brevo-email-marketing-n8n" element={<BrevoEmailMarketingPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="*" element={<NotFoundPage isDark={isDark} toggleTheme={toggleTheme} />} />
       </Routes>
     </Suspense>

@@ -39,7 +39,9 @@ import {
   SiCss3,
   SiWordpress,
   SiPhp,
-  SiMysql
+  SiMysql,
+  SiBrevo,
+  SiWebflow
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
@@ -47,6 +49,27 @@ import { BiLogoNetlify, BiLogoTypescript } from 'react-icons/bi';
 import { GrStorage } from 'react-icons/gr';
 
 export const projects: Project[] = [
+  {
+  id: 'brevo-email-marketing-n8n',
+    title: 'Brevo Email Marketing (n8n)',
+    description:
+      'Automate your email marketing campaigns with this n8n workflow. It pulls subscriber data from Google Sheets or Webflow CMS, sends personalized emails via Brevo, and tracks engagement automatically. This single automation saves you 15+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.',
+    longDescription:
+      'Email marketing automation workflow with Google Sheets/Webflow CMS integration, Brevo email delivery, and engagement tracking.',
+    image: '/images/projects/Brevo Email Marketing (n8n).svg',
+    tags: [
+      { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
+      { name: "Brevo", icon: React.createElement(SiBrevo, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Webflow", icon: React.createElement(SiWebflow, { className: "w-3.5 h-3.5" }) },
+      { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
+      { name: "Workflow JSON", icon: React.createElement(FileJson, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Brevo%20Email%20Marketing',
+    featured: true,
+    category: 'automation',
+  },
   {
   id: 'content-idea-generator-n8n',
     title: 'Content Idea Generator (n8n)',
