@@ -1,8 +1,13 @@
 // scripts/generate-sitemap.js
 // Automated sitemap generator for Vite + React projects
-const fs = require("fs");
-const path = require("path");
-const { SitemapStream, streamToPromise } = require("sitemap");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { SitemapStream, streamToPromise } from "sitemap";
+
+// Get __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const BASE_URL = "https://dhruba-datta.netlify.app";
 const pagesDir = path.join(__dirname, "../src/pages");
@@ -46,6 +51,7 @@ function getRoutes() {
   return routes;
 }
 
+// Run the script
 (async () => {
   const routes = getRoutes();
   const sitemap = new SitemapStream({ hostname: BASE_URL });
