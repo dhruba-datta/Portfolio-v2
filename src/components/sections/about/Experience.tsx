@@ -16,6 +16,7 @@ interface Experience {
   description: string[];
   technologies: string[]; // kept in data shape, not rendered
   current: boolean;
+  companyUrl?: string; // Make company URL optional
 }
 
 const Experience = ({ isDark = false }: ExperienceProps) => {
@@ -28,6 +29,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       location: "Florida, United States",
       type: "Remote",
       current: true,
+      companyUrl: "https://www.linkedin.com/company/social-engagement-group/",
       description: [
         "Lead research on emerging tools, technologies, and best practices to optimize workflows and enhance client outcomes.",
         "Design, develop, and deploy innovative automation solutions, including n8n workflows and AI-driven systems, to improve operational efficiency.",
@@ -44,6 +46,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       location: "California, United States",
       type: "Remote",
       current: true,
+      companyUrl: "https://www.linkedin.com/company/afterquery-experts/",
       description: [
         "Develop and solve advanced competitive programming challenges to train and evaluate AI model coding capabilities.",
         "Analyze AI model performance, providing actionable feedback to refine reasoning and problem-solving.",
@@ -60,6 +63,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       location: "California, United States",
       type: "Remote",
       current: false,
+      companyUrl: "https://www.linkedin.com/company/kounsel",
       description: [
         "Owned QA processes and developed automation frameworks for both mobile and web platforms to ensure high reliability standards.",
         "Created comprehensive test plans, wrote detailed test cases, and maintained technical documentation to support quality assurance efforts.",
@@ -76,6 +80,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       location: "Dhaka, Bangladesh",
       type: "On-site",
       current: false,
+      companyUrl: "https://www.linkedin.com/company/kingsley-engineering-service-company/",
       description: [
         "Redesigned the corporate website to enhance user experience and SEO, resulting in approximately 45% increase in organic traffic.",
         "Developed micro-sites, landing pages, and blogs to improve conversion rates and support marketing goals.",
@@ -92,6 +97,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       location: "Dhaka, Bangladesh",
       type: "On-site",
       current: false,
+      companyUrl: "https://www.linkedin.com/company/revinns/",
       description: [
         "Executed UI and front-end development on live projects, ensuring high usability and aesthetic appeal.",
         "Contributed to building micro-sites, landing pages, and web applications aligned with project goals.",
@@ -100,7 +106,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       ],
       technologies: ["HTML","CSS","UI Design","Responsive Design","Figma","Cross-browser Compatibility"]
     }
-  ];
+  ];;
 
   return (
     <section id="experience" className="py-10 sm:py-12 lg:py-20 transition-colors duration-300">
@@ -177,7 +183,18 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     <h3 className={`text-base sm:text-lg font-bold ${
                       isDark ? 'text-white' : 'text-gray-900'
                     }`}>
-                      {exp.company}
+                      {exp.companyUrl ? (
+                        <a 
+                          href={exp.companyUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className={`${isDark ? 'hover:text-blue-400' : 'hover:text-blue-600'} transition-colors duration-200 focus-override`}
+                        >
+                          {exp.company}
+                        </a>
+                      ) : (
+                        exp.company
+                      )}
                     </h3>
                     
                     {/* Location and Type */}
@@ -230,12 +247,23 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     >
                       {exp.duration}
                     </div>
-                    <h3
+                                        <h3
                       className={`text-xl font-bold mb-2 ${
                         isDark ? 'text-white' : 'text-gray-900'
                       }`}
                     >
-                      {exp.company}
+                      {exp.companyUrl ? (
+                        <a 
+                          href={exp.companyUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className={`${isDark ? 'hover:text-blue-400' : 'hover:text-blue-600'} transition-colors duration-200 focus-override`}
+                        >
+                          {exp.company}
+                        </a>
+                      ) : (
+                        exp.company
+                      )}
                     </h3>
                     <div
                       className={`flex flex-col lg:items-end gap-1 text-sm ${
