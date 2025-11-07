@@ -70,7 +70,7 @@ const About = ({ }: AboutProps) => {
   return (
     <section 
       id="about" 
-      className="h-[80vh] md:h-[90vh] flex flex-col items-center relative overflow-hidden"
+      className="min-h-[100vh] md:h-[90vh] flex flex-col items-center relative overflow-hidden"
       style={{ margin: 0, padding: 0 }}
     >
       {/* Decorative background (grid overlay removed to prevent vertical line over photo) */}
@@ -110,7 +110,8 @@ const About = ({ }: AboutProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center w-full">
+        {/* Changed from grid md:grid-cols-12 to flex flex-col on mobile, and grid on md+ */}
+        <div className="flex flex-col md:grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center w-full">
           {/* Left: copy */}
           <div className="md:col-span-7 space-y-4 sm:space-y-5 md:space-y-6">
             <motion.p
@@ -187,10 +188,11 @@ const About = ({ }: AboutProps) => {
             </motion.div>
           </div>
 
-          {/* Right: 3D coverflow - Hidden on mobile */}
-          <div className="hidden md:block md:col-span-5">
+          {/* Right: 3D coverflow - Now visible on mobile */}
+          {/* Changed from hidden md:block to block */}
+          <div className="block md:col-span-5 w-full">
             <div
-              className="relative h-[480px] lg:h-[530px] flex flex-col items-center justify-center select-none"
+              className="relative h-[400px] sm:h-[480px] lg:h-[530px] flex flex-col items-center justify-center select-none"
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
               onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
