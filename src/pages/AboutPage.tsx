@@ -19,7 +19,7 @@ const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
       (isDark ? 'bg-gray-900' : 'bg-gray-50')
     }>
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
-      {/* Background pattern to match hero, only in dark mode */}
+      {/* Background pattern to match hero yes, only in dark mode */}
       {isDark && (
         <>
           <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 -z-10"></div>
