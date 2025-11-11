@@ -57,11 +57,24 @@ A modern, responsive personal portfolio website built with React, TypeScript, Vi
    ```sh
    npm install
    ```
-3. **Start the development server:**
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add your EmailJS credentials:
+   ```env
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_USER_ID=your_user_id
+   ```
+   
+   Alternatively, you can copy the example file:
+   ```sh
+   cp .env.example .env
+   ```
+   Then replace the placeholder values with your actual EmailJS credentials.
+4. **Start the development server:**
    ```sh
    npm run dev
    ```
-4. **Build for production:**
+5. **Build for production:**
    ```sh
    npm run build
    ```
@@ -71,6 +84,20 @@ A modern, responsive personal portfolio website built with React, TypeScript, Vi
 ## Deployment
 
 This project is ready to deploy on platforms like [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/). Configuration files like `netlify.toml` are included for easy deployment.
+
+### Deploying to Netlify
+
+1. Connect your GitHub repository to Netlify
+2. In the Netlify dashboard, go to your site settings
+3. Under "Build & deploy" → "Environment", add the following environment variables:
+   - `VITE_EMAILJS_SERVICE_ID`
+   - `VITE_EMAILJS_TEMPLATE_ID`
+   - `VITE_EMAILJS_USER_ID`
+4. Make sure the build settings are:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+
+These environment variables are required for the contact form to work properly.
 
 <br>
 
