@@ -88,23 +88,6 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
         "Delivered clean, modern UI with intuitive navigation, while executing SEO strategies to increase search visibility and drive demand generation."
       ],
       technologies: ["Front-End Development","Web Design","WordPress","SEO","Digital Marketing","UI/UX Design"]
-    },
-    {
-      id: 5,
-      company: "Revinns Limited",
-      position: "Web Developer Intern",
-      duration: "JUN 2022 - JUL 2022",
-      location: "Dhaka, Bangladesh",
-      type: "On-site",
-      current: false,
-      companyUrl: "https://www.linkedin.com/company/revinns/",
-      description: [
-        "Executed UI and front-end development on live projects, ensuring high usability and aesthetic appeal.",
-        "Contributed to building micro-sites, landing pages, and web applications aligned with project goals.",
-        "Applied core design principles to create responsive layouts using HTML and CSS best practices.",
-        "Tested and verified cross-browser and device compatibility to deliver consistent user experiences."
-      ],
-      technologies: ["HTML","CSS","UI Design","Responsive Design","Figma","Cross-browser Compatibility"]
     }
   ];;
 
