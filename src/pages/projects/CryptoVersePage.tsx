@@ -185,7 +185,7 @@ const CryptoVersePage = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -492,8 +492,8 @@ const CryptoVersePage = ({
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
                         className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${isActive
-                            ? "font-semibold text-gray-900 dark:text-gray-100"
-                            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
+                          ? "font-semibold text-gray-900 dark:text-gray-100"
+                          : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                           }`}
                         aria-current={isActive ? "page" : undefined}
                       >

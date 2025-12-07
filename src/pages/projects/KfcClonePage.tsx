@@ -126,7 +126,7 @@ const KfcClonePage = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -143,9 +143,8 @@ const KfcClonePage = ({
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${
-        effectiveIsDark ? " dark" : ""
-      } dark:bg-gray-900 dark:text-white`}
+      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${effectiveIsDark ? " dark" : ""
+        } dark:bg-gray-900 dark:text-white`}
     >
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
@@ -226,7 +225,7 @@ const KfcClonePage = ({
                 Check it out <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
             </div>
-            
+
             {/* Desktop buttons */}
             <div className="hidden lg:flex items-center gap-2">
               <a
@@ -428,7 +427,7 @@ const KfcClonePage = ({
               </div>
             </section>
 
-            
+
           </article>
 
           {/* RIGHT TOC */}
@@ -447,11 +446,10 @@ const KfcClonePage = ({
                       <button
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-1.5 sm:gap-2 w-full text-left px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm transition ${
-                          isActive
+                        className={`relative flex items-center gap-1.5 sm:gap-2 w-full text-left px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm transition ${isActive
                             ? "font-semibold text-gray-900 dark:text-gray-100"
                             : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
-                        }`}
+                          }`}
                         aria-current={isActive ? "page" : undefined}
                       >
                         {isActive && (
@@ -469,7 +467,7 @@ const KfcClonePage = ({
         </div>
 
         {/* Contact CTA Section */}
-        <ContactCTA 
+        <ContactCTA
           title="Impressed by this project?"
           description="I specialize in creating modern, scalable web applications. Let's discuss how we can work together on your next project."
           primaryButtonText="Get In Touch"
