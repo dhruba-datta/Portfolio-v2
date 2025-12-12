@@ -59,74 +59,74 @@ const PortfolioV2Page = ({
     {
       id: "modern",
       icon: <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Modern Architecture",
-      summary: "React 18 + TypeScript with component-based architecture",
+      title: "Modern Component Architecture",
+      summary: "Scalable and maintainable codebase built on React 18 functional principles",
       details: [
-        "Built with React 18 functional components and hooks",
-        "Full TypeScript integration for type safety",
-        "Modular component structure with reusable UI elements",
-        "Clean separation of concerns with organized folder structure",
+        "Utilization of React 18 hooks and functional components for clean, declarative UI logic",
+        "Strict TypeScript integration ensuring compile-time safety and self-documenting code",
+        "Modular component design promoting reusability and consistent styling across all pages",
+        "Architecture organized by feature and domain for improved long-term maintainability",
       ],
     },
     {
       id: "animations",
       icon: <SiFramer className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Smooth Animations",
-      summary: "Framer Motion for professional scroll-based animations",
+      title: "Professional Motion Design",
+      summary: "High-fidelity micro-interactions and transitions powered by Framer Motion",
       details: [
-        "Scroll-triggered animations with viewport detection",
-        "Staggered animations for lists and grids",
-        "Smooth page transitions and hover effects",
-        "Performance-optimized with reduced motion support",
+        "Scroll-triggered reveal animations providing a dynamic and engaging browsing experience",
+        "Staggered entrance effects for list items and grids to guide user attention",
+        "Seamless page transitions and polished hover states for a premium app-like feel",
+        "Performance-aware implementation respecting users' reduced motion preferences",
       ],
     },
     {
       id: "responsive",
       icon: <Monitor className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Responsive Design",
-      summary: "Mobile-first approach with Tailwind CSS utility classes",
+      title: "Adaptive Responsive Layouts",
+      summary: "Fluid design system that ensures perfect rendering on any device or viewport",
       details: [
-        "Mobile-first responsive design methodology",
-        "Tailwind CSS utility-first styling approach",
-        "Dark/light theme support with smooth transitions",
-        "Optimized for all screen sizes and devices",
+        "Mobile-first development methodology guaranteeing core functionality on smaller screens",
+        "Tailwind CSS utility classes for rapid, breakpoint-specific layout adjustments",
+        "Comprehensive dark/light mode theming with smooth, system-aware color transitions",
+        "Rigorous testing across mobile, tablet, and desktop resolutions for visual consistency",
       ],
     },
     {
       id: "performance",
       icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Performance Optimized",
-      summary: "Fast loading with Vite build tool and optimized assets",
+      title: "High-Performance Optimization",
+      summary: "Engineered for speed, achieving top-tier Core Web Vitals scores",
       details: [
-        "Vite for lightning-fast development and builds",
-        "Code splitting and lazy loading for optimal performance",
-        "Optimized images with proper loading strategies",
-        "Tree shaking and bundle optimization",
+        "Powered by Vite for instant development server starts and optimized production bundles",
+        "Strategic code splitting and route-based lazy loading to minimize initial payload",
+        "Next-gen image optimization and adaptive loading strategies for rapid content paint",
+        "Aggressive tree-shaking to eliminate unused code and keep the application lightweight",
       ],
     },
     {
       id: "content",
       icon: <FileText className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Comprehensive Sections",
-      summary: "Complete portfolio with all essential pages and sections",
+      title: "Comprehensive Content Strategy",
+      summary: "A holistic digital presence covering all professional dimensions",
       details: [
-        "Hero section with animated background effects",
-        "About page with experience, education, and research",
-        "Projects showcase with detailed case study pages",
-        "Skills and tech stack visualization",
-        "Photography portfolio and contact forms",
+        "Immersive hero section with animated backgrounds to make a strong first impression",
+        "Detailed 'About' narrative covering professional experience, education, and research work",
+        "Rich project case studies with deep dives into problem solving and tech stacks",
+        "Interactive visualization of technical skills and proficiency levels",
+        "Integrated photography portfolio showcasing creative interests alongside technical ones",
       ],
     },
     {
       id: "accessibility",
       icon: <Accessibility className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Accessible & SEO Ready",
-      summary: "WCAG compliant with proper semantic HTML and meta tags",
+      title: "Accessibility & SEO Standards",
+      summary: "Built to be inclusive and discoverable by sticking to web best practices",
       details: [
-        "Semantic HTML structure for better accessibility",
-        "Keyboard navigation and screen reader support",
-        "Proper meta tags and Open Graph integration",
-        "SEO-optimized structure ready for search engines",
+        "Strict semantic HTML hierarchy (headings, landmarks) for screen reader compatibility",
+        "Full keyboard navigability ensuring all interactive elements are reachable without a mouse",
+        "Comprehensive meta-tagging and Open Graph data for rich social media sharing",
+        "SEO-forward routing and structure designed for effective search engine indexing",
       ],
     },
   ];
@@ -152,7 +152,7 @@ const PortfolioV2Page = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -207,7 +207,10 @@ const PortfolioV2Page = ({
                 Portfolio v2
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.
+                A state-of-the-art personal portfolio website designed to deliver an immersive and interactive user experience. 
+                Built with the latest React 18 capabilities, strongly typed with TypeScript, and styled with utility-first Tailwind CSS, 
+                this project exemplifies modern frontend engineering. It features professional-grade animations powered by Framer Motion, 
+                full dark mode support, and a comprehensive showcase of multidisciplinary expertise across software engineering, AI, and QA.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -361,31 +364,31 @@ const PortfolioV2Page = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React 18:</b> Modern functional components with hooks and concurrent features.</span>
+                  <span className="text-sm sm:text-base"><b>React 18:</b> Utilizing modern concurrent features, custom hooks, and functional components for a reactive UI.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiTypescript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>TypeScript:</b> Type-safe development with interfaces and strict typing.</span>
+                  <span className="text-sm sm:text-base"><b>TypeScript:</b> Ensuring robust code quality through static typing, interfaces, and enhanced developer tooling support.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first CSS framework for rapid UI development.</span>
+                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first framework enabling rapid, constraint-based design implementation and effortless responsiveness.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiFramer className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Framer Motion:</b> Production-ready motion library for smooth animations.</span>
+                  <span className="text-sm sm:text-base"><b>Framer Motion:</b> Production-grade animation library for complex gestures, layout transitions, and scroll effects.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Vite:</b> Next-generation frontend tooling for fast development and builds.</span>
+                  <span className="text-sm sm:text-base"><b>Vite:</b> Next-generation frontend build tool offering HMR (Hot Module Replacement) and optimized production builds.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Router:</b> Declarative routing for single-page application navigation.</span>
+                  <span className="text-sm sm:text-base"><b>React Router:</b> Industry-standard routing solution for seamless client-side navigation in Single Page Applications (SPAs).</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Deployment Ready:</b> Optimized for Netlify, Vercel, or any static hosting.</span>
+                  <span className="text-sm sm:text-base"><b>Deployment Ready:</b> configured for automated CI/CD pipelines on platforms like Netlify or Vercel for instant updates.</span>
                 </li>
               </ul>
             </section>
@@ -397,12 +400,12 @@ const PortfolioV2Page = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Professional portfolio for software engineers and developers</li>
-                <li>Showcase for multidisciplinary expertise (development, QA, AI, research)</li>
-                <li>Template for modern React/TypeScript portfolio projects</li>
-                <li>Job application showcase with comprehensive project case studies</li>
-                <li>Photography portfolio integration with technical skills</li>
-                <li>Contact and networking platform for professional opportunities</li>
+                <li>Primary professional portfolio for senior software engineers and developers</li>
+                <li>Strategic showcase for highlighting multidisciplinary expertise (e.g., Development, QA, AI)</li>
+                <li>Robust starting template for building modern, high-performance React/TypeScript applications</li>
+                <li>Comprehensive career hub for job applications, featuring detailed case studies and CV integration</li>
+                <li>Unified personal brand platform merging technical projects with creative pursuits like photography</li>
+                <li>Centralized networking node providing easy access to social profiles and contact channels</li>
               </ul>
             </section>
 

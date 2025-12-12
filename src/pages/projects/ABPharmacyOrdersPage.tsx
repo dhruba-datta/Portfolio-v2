@@ -42,56 +42,56 @@ const ABPharmacyOrdersPage = ({
     {
       id: "orders",
       icon: <ShoppingCartPlaceholder />,
-      title: "Order Management",
-      summary: "Pending, regular and urgent orders with history",
+      title: "Intelligent Order Management",
+      summary: "Comprehensive tracking system for pending, regular, and urgent procurement needs",
       details: [
-        "Track pending, regular and urgent pharmacy orders",
-        "View full order history and status changes",
-        "Prioritization and simple processing workflow",
+        "Real-time categorization of orders into urgent (STAT) and regular fulfillment queues",
+        "Granular status tracking from submission to supplier confirmation and final delivery",
+        "Automated history logging providing a searchable audit trail of all past transactions",
       ],
     },
     {
       id: "inventory",
       icon: <Package className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Inventory Management",
-      summary: "Products, stock tracking and categories",
+      title: "Inventory & Stock Control",
+      summary: "Centralized product database with intelligent categorization and alert mechanisms",
       details: [
-        "Add, update and categorize pharmacy products",
-        "Monitor stock levels with low-stock alerts",
-        "Organize products by categories for faster lookup",
+        "Dynamic CRUD operations for managing a diverse catalog of pharmaceutical products",
+        "Automated low-stock threshold alerts preventing critical medication shortages",
+        "Intuitive category-based filtering for rapid product lookup during high-volume periods",
       ],
     },
     {
       id: "sales",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Sales & Analytics",
-      summary: "Sales history, calculator and reports",
+      title: "Sales Analytics & Reporting",
+      summary: "Data-driven insights with integrated financial tools and export capabilities",
       details: [
-        "View sales history and transactions",
-        "Built-in calculator for quick calculations",
-        "Generate PDF reports (jsPDF) and inventory reports",
+        "Interactive dashboard visualizing daily sales trends and high-performing product lines",
+        "Builtpointer-in financial calculator for instant margin and tax computations",
+        "One-click PDF generation using jsPDF for standardized daily and monthly inventory reports",
       ],
     },
     {
       id: "contacts",
       icon: <User className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Contact Management",
-      summary: "Companies, medical reps and deliveries",
+      title: "Supplier Relationship Management",
+      summary: "Digital rolodex for managing pharmaceutical companies and medical representatives",
       details: [
-        "Manage pharmaceutical company contacts",
-        "Track medical representative relationships",
-        "Organize delivery schedules and tracking",
+        "Centralized directory of pharmaceutical suppliers and their contact points",
+        "Relationship tracking with medical representatives for streamlined reordering",
+        "Integrated delivery schedule monitoring to optimize stock intake logistics",
       ],
     },
     {
       id: "users",
       icon: <LuSettings2 className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "User Management",
-      summary: "Authentication, profiles and role-based access",
+      title: "Secure User Administration",
+      summary: "Robust authentication system with role-based access control (RBAC)",
       details: [
-        "Secure authentication with Firebase Auth",
-        "Profile management and customization",
-        "Role-based access control for staff and admins",
+        "Enterprise-grade authentication powered by Firebase Auth for secure login sessions",
+        "Detailed profile management allowing distinct user preferences and settings",
+        "Strict role-based permission gating to separate staff operational views from admin controls",
       ],
     },
   ];
@@ -116,7 +116,7 @@ const ABPharmacyOrdersPage = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -168,7 +168,9 @@ const ABPharmacyOrdersPage = ({
                 AB Pharmacy Orders
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A streamlined web interface for placing and managing pharmacy orders. Uses a Google Sheets-powered backend and lightweight UI for quick order flow and WhatsApp confirmations.
+                A streamlined web application designed to digitize and optimize pharmacy procurement workflows. 
+                Integrating a React-based frontend with a flexible Google Sheets-powered backend, this solution facilitates rapid order placement, 
+                intelligent status tracking, and automated WhatsApp confirmations, significantly reducing manual errors in inventory replenishment.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -316,27 +318,27 @@ const ABPharmacyOrdersPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React:</b> Component-driven UI for product & order flows.</span>
+                  <span className="text-sm sm:text-base"><b>React:</b> Component-driven UI architecture facilitating seamless product browsing and complex order flow tracking.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Vite:</b> Fast dev server and build tool.</span>
+                  <span className="text-sm sm:text-base"><b>Vite:</b> Ultra-fast frontend build tool enabling rapid development cycles and optimized asset delivery.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first styling and responsive layout.</span>
+                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first CSS framework ensuring a highly responsive, uniform, and maintainable design system.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>JavaScript (ES6+):</b> App logic, fetch and form handling.</span>
+                  <span className="text-sm sm:text-base"><b>JavaScript (ES6+):</b> Modern standard scripting handling asynchronous API interactions, state management, and form logic.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiFirebase className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Firebase:</b> Firestore, Auth & Cloud Functions for backend and auth.</span>
+                  <span className="text-sm sm:text-base"><b>Firebase Platform:</b> Comprehensive backend solution managing Cloud Firestore databases, Auth, and Cloud Functions.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FileJson className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>jsPDF:</b> PDF generation for reports and exports.</span>
+                  <span className="text-sm sm:text-base"><b>jsPDF:</b> specialized client-side library for generating dynamic, printable PDF inventory and sales reports.</span>
                 </li>
               </ul>
             </section>
@@ -347,12 +349,14 @@ const ABPharmacyOrdersPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Manage pharmacy orders by status: pending, regular, urgent</li>
-                <li>Track and update product inventory with stock alerts</li>
-                <li>View sales history and generate reports</li>
-                <li>Organize products by category for easier access</li>
-                <li>Manage contacts for companies and medical reps</li>
-                <li>Secure user login with roles for staff and admins</li>
+              <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
+                <li>Streamlining pharmacy operations by prioritizing urgent (STAT) vs. regular inventory replenishment</li>
+                <li>Real-time tracking of product stock levels to prevent shortages in critical medication supplies</li>
+                <li>Digital sales tracking and automated report generation for better financial oversight</li>
+                <li>Rapid product lookup and categorization to assist pharmacists during peak customer hours</li>
+                <li>Centralized management of supplier interactions and delivery scheduling logistics</li>
+                <li>Secure, role-based access preventing unauthorized changes to sensitive inventory data</li>
+              </ul>
               </ul>
             </section>
 

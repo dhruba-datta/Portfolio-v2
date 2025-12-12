@@ -54,48 +54,48 @@ const EasyCookingPage = ({
       id: "multi-cuisine",
       icon: <Globe2 className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Multi-Cuisine Support",
-      summary: "Bengali, Chinese, and Indian cooking recipes",
+      summary: "Extensive library of authentic recipes spanning Bengali, Chinese, and Indian culinary traditions",
       details: [
-        "Dedicated pages for each cuisine type",
-        "Traditional and authentic recipes",
-        "Easy navigation between cuisines",
-        "Cultural diversity in food presentation",
+        "Dedicated, culturally distinct sections for each cuisine type providing an immersive thematic experience",
+        "Collection of traditional and authentic recipes curated for both beginners and experienced cooks",
+        "Seamless and intuitive navigation system allowing users to effortlessly switch between culinary regions",
+        "Rich visual presentation showcasing the cultural diversity and vibrancy of each food category",
       ],
     },
     {
       id: "responsive",
       icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Cross-Platform Design",
-      summary: "Optimized for all devices and screen sizes",
+      summary: "Fully responsive architecture ensuring a flawless reading experience on any device",
       details: [
-        "Mobile-first responsive design",
-        "Touch-friendly interface",
-        "Consistent experience across devices",
-        "Fast loading on all platforms",
+        "Mobile-first design approach prioritizing readability and usability on smartphones and tablets",
+        "Touch-friendly interface elements designed for easy interaction in a kitchen environment",
+        "Consistent visual hierarchy and user experience maintained across desktops, tablets, and phones",
+        "Optimized layout that adapts fluidly to different screen sizes without compromising content accessibility",
       ],
     },
     {
       id: "fullscreen",
       icon: <BadgeCheck className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Fullscreen Mode",
-      summary: "Immersive recipe viewing experience",
+      summary: "Distraction-free immersive viewing mode designed specifically for active cooking sessions",
       details: [
-        "Distraction-free reading mode",
-        "Easy-to-follow recipe steps",
-        "Large, clear text for cooking",
-        "Perfect for kitchen use",
+        "Dedicated reading mode that removes UI clutter to focus purely on ingredients and instructions",
+        "Structured step-by-step breakdown of recipes to ensure clarity and ease of following",
+        "Typography optimized for legibility at a distance, perfect for glancing while cooking",
+        "Enhanced visual layout that turns your device into a smart kitchen companion",
       ],
     },
     {
       id: "performance",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Pure HTML/CSS",
-      summary: "Lightning-fast performance with minimal dependencies",
+      title: "Pure HTML/CSS Architecture",
+      summary: "Ultra-lightweight implementation delivering instant page loads and superior performance",
       details: [
-        "No JavaScript frameworks - pure vanilla",
-        "Minimal file sizes for fast loading",
-        "SEO-friendly static pages",
-        "Easy to maintain and update",
+        "Zero-dependency architecture built without heavy JavaScript frameworks for maximum speed",
+        "Minimal file sizes ensuring near-instant loading times even on slower network connections",
+        "Semantic HTML structure providing excellent accessibility and out-of-the-box SEO optimization",
+        "Clean, maintainable codebase that is easy to extend with new recipes or styling updates",
       ],
     },
   ];
@@ -175,8 +175,9 @@ const EasyCookingPage = ({
                 EasyCooking
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A cooking tutorial website featuring recipes from different cuisines including Bengali, Chinese, and Indian.
-                Built with pure HTML and CSS for optimal performance and cross-platform compatibility.
+                A comprehensive and immersive cooking tutorial platform dedicated to exploring culinary traditions from around the globe. 
+                Featuring a curated collection of authentic recipes from Bengali, Chinese, and Indian cuisines, the platform provides detailed, step-by-step guidance for home cooks. 
+                Built entirely with semantic HTML5 and modern CSS3, it offers lightning-fast performance, zero-dependency loading, and a seamless cross-platform experience optimized for both desktop and mobile viewing.
               </p>
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {chips.map((c) => (
@@ -329,23 +330,23 @@ const EasyCookingPage = ({
               <ul className="space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiHtml5 className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>HTML5:</b> Semantic markup for recipe content and structure.</span>
+                  <span className="text-sm sm:text-base"><b>HTML5:</b> Semantic and accessible markup structure ensuring SEO optimization and a readable, maintainable codebase.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCss3 className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>CSS3:</b> Modern styling with responsive design patterns.</span>
+                  <span className="text-sm sm:text-base"><b>CSS3:</b> Modern styling techniques utilizing Flexbox/Grid layouts and custom animations for a polished look.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Smartphone className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Responsive Design:</b> Mobile-first approach for all devices.</span>
+                  <span className="text-sm sm:text-base"><b>Responsive Design:</b> Fluid, mobile-first approach ensuring consistent rendering and usability across all devices and screen sizes.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Multi-Cuisine Layout:</b> Organized sections for different cooking styles.</span>
+                  <span className="text-sm sm:text-base"><b>Multi-Cuisine Architecture:</b> Modularly organized content sections dedicated to distinct culinary styles for easy navigation.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Github className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>GitHub Pages:</b> Free static hosting with automatic deployment.</span>
+                  <span className="text-sm sm:text-base"><b>GitHub Pages:</b> Reliable and free static site hosting solution with automated deployment pipelines from the repository.</span>
                 </li>
               </ul>
             </section>
@@ -357,11 +358,11 @@ const EasyCookingPage = ({
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
-                <li className="text-sm sm:text-base">Home cooking enthusiasts learning new cuisines</li>
-                <li className="text-sm sm:text-base">Cultural food exploration and traditional recipes</li>
-                <li className="text-sm sm:text-base">Simple recipe reference for kitchen use</li>
-                <li className="text-sm sm:text-base">Educational resource for cooking basics</li>
-                <li className="text-sm sm:text-base">Template for other recipe-sharing websites</li>
+                <li className="text-sm sm:text-base">Ideal for home cooking enthusiasts eager to explore and master new international cuisines</li>
+                <li className="text-sm sm:text-base">A digital gateway for cultural food exploration, preserving and sharing traditional recipes</li>
+                <li className="text-sm sm:text-base">A practical, distraction-free kitchen companion for following recipes in real-time</li>
+                <li className="text-sm sm:text-base">An accessible educational resource for beginners learning the fundamentals of cooking</li>
+                <li className="text-sm sm:text-base">A clean, high-performance web template suitable for other content-focused recipe blogs</li>
               </ul>
             </section>
 

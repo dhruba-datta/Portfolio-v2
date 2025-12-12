@@ -55,45 +55,45 @@ const PortfolioV1Page = ({
     {
       id: "seo",
       icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "SEO Indexed",
-      summary: "Fast, crawlable pages with proper meta tags",
+      title: "Optimized SEO Architecture",
+      summary: "Built for maximum discoverability with semantic markup and meta-data optimization",
       details: [
-        "Semantic HTML structure for better indexing",
-        "Meta title/description & Open Graph tags",
-        "Clean URLs & sitemap/robots setup ready",
+        "Implementation of comprehensive Open Graph and Twitter Card tags for rich social sharing previews",
+        "Strict adherence to semantic HTML5 standards (header, nav, main, footer) to enhance search engine indexing",
+        "XML sitemap and robots.txt configuration to guide crawler access and improve organic search ranking",
       ],
     },
     {
       id: "sections",
       icon: <BsLayers className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Essential Sections",
-      summary: "About, skills, resume, projects & contact",
+      title: "Strategic Content Layout",
+      summary: "Professionally structured sections designed to effectively narrate the career journey",
       details: [
-        "Dedicated sections for profile & achievements",
-        "Projects grid with role, stack & links",
-        "One-tap resume download & contact links",
+        "Dedicated 'About Me' and 'Skills' sections to clearly communicate professional value and core competencies",
+        "Dynamic project grid featuring detailed role descriptions, technology stacks, and direct repository links",
+        "Prominent Call-to-Actions (CTAs) for instant resume download and one-click contact methods",
       ],
     },
     {
       id: "responsive",
       icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Responsive & Minimal",
-      summary: "Mobile-first layout with clean typography",
+      title: "Responsive Minimalist Design",
+      summary: "Mobile-first philosophy ensuring seamless usability across all device form factors",
       details: [
-        "Bootstrap grid & utility classes",
-        "Accessible contrast & focus states",
-        "Optimized spacing & readable line lengths",
+        "Utilization of Bootstrap's responsive grid system for fluid layout adaptation from mobile to desktop",
+        "High-readability typography choices and calculated whitespace to reduce cognitive load",
+        "Accessible color contrast ratios and clearly defined focus states for inclusive navigation",
       ],
     },
     {
       id: "showcase",
       icon: <FileText className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Realistic Showcase",
-      summary: "Skills & projects presented credibly",
+      title: "Professional Project Showcase",
+      summary: "Credible presentation of technical work with authentic case study details",
       details: [
-        "Project cards with real descriptions",
-        "Distinguished tech stack badges",
-        "Clear CTAs to live demo & repo",
+        "Individual project cards showcasing real-world problem statements and deployed solutions",
+        "Visual technology badges providing a quick snapshot of the stack used for each project",
+        "Integrated linking strategy connecting visitors directly to live demos and GitHub source code",
       ],
     },
   ];
@@ -173,7 +173,9 @@ const PortfolioV1Page = ({
                 Portfolio v1
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A clean, SEO-friendly personal portfolio highlighting your skills, projects and resume. Built with a basic Bootstrap template using HTML/CSS/JS and later deployed on Netlify.
+                The inaugural version of my personal digital portfolio, designed to be a lightweight, high-performance showcase of technical skills and professional achievements.
+                Engineered with semantic HTML5, modern CSS3, and the Bootstrap framework, this project prioritizes essential web vitals—speed, accessibility, and 
+                SEO-friendliness—providing a solid foundation for personal branding on the open web.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -327,23 +329,23 @@ const PortfolioV1Page = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiHtml5 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTML:</b> Semantic, accessible markup.</span>
+                  <span className="text-sm sm:text-base"><b>HTML5:</b> Semantic, accessible markup structure ensuring broad compatibility and SEO efficiency.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCss3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>CSS:</b> Modern layout & typography.</span>
+                  <span className="text-sm sm:text-base"><b>CSS3:</b> Modern styling capabilities used for layout precision, typography, and visual responsiveness.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>JavaScript:</b> Interactive components & routing stubs.</span>
+                  <span className="text-sm sm:text-base"><b>JavaScript (ES6):</b> Lightweight scripting for interactive UI components, smooth scrolling, and dynamic interactions.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiBootstrap className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Bootstrap:</b> Grid, utilities & responsive helpers.</span>
+                  <span className="text-sm sm:text-base"><b>Bootstrap Framework:</b> Rapid development toolkit providing a robust responsive grid system and pre-built components.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Netlify:</b> Simple deploys & global CDN.</span>
+                  <span className="text-sm sm:text-base"><b>Netlify:</b> Modern hosting platform offering continuous deployment (CD) and global edge network delivery.</span>
                 </li>
               </ul>
             </section>
@@ -355,10 +357,10 @@ const PortfolioV1Page = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Personal portfolio and resume website</li>
-                <li>Freelancer landing page with case studies</li>
-                <li>Job application showcase with live project links</li>
-                <li>Template starter for junior devs</li>
+                <li>Professional personal portfolio and interactive digital resume for career advancement</li>
+                <li>Conversion-optimized landing page for freelancers showcasing case studies and services</li>
+                <li>Job application hub allowing recruiters to explore detailed project narratives and live links</li>
+                <li>Clean, accessible starter template for junior developers engaging in personal branding</li>
               </ul>
             </section>
 

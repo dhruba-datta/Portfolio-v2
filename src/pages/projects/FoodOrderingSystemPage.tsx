@@ -38,16 +38,33 @@ const FoodOrderingSystemPage = ({
   const [localDark, setLocalDark] = useState(false);
   const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
-    typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
+    typeof toggleTheme === "function"
+      ? toggleTheme
+      : () => setLocalDark((d) => !d);
 
   // chips under title
   const chips = [
-    { name: "C++", icon: <SiCplusplus className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    {
+      name: "C++",
+      icon: <SiCplusplus className="w-3 sm:w-3.5 h-3 sm:h-3.5" />,
+    },
     { name: "OOP", icon: <Code className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "File Handling", icon: <Database className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Admin Panel", icon: <Settings className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Console App", icon: <Terminal className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Order Management", icon: <ShoppingCart className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    {
+      name: "File Handling",
+      icon: <Database className="w-3 sm:w-3.5 h-3 sm:h-3.5" />,
+    },
+    {
+      name: "Admin Panel",
+      icon: <Settings className="w-3 sm:w-3.5 h-3 sm:h-3.5" />,
+    },
+    {
+      name: "Console App",
+      icon: <Terminal className="w-3 sm:w-3.5 h-3 sm:h-3.5" />,
+    },
+    {
+      name: "Order Management",
+      icon: <ShoppingCart className="w-3 sm:w-3.5 h-3 sm:h-3.5" />,
+    },
   ];
 
   // features
@@ -55,49 +72,49 @@ const FoodOrderingSystemPage = ({
     {
       id: "ordering-system",
       icon: <ShoppingCart className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Complete Ordering System",
-      summary: "Customer interface for browsing menu and placing orders",
+      title: "Smart Ordering System",
+      summary: "Interactive and user-friendly menu interface with real-time cost calculations",
       details: [
-        "Interactive menu with multiple food categories",
-        "Order selection and customization",
-        "Real-time bill calculation",
-        "Order confirmation and tracking",
+        "Diverse interactive menu featuring categorized items like Tea, Dosa, Pizza, and more",
+        "Automated financial logic for precise bill totaling and change return calculations",
+        "Smart algorithms to estimate food preparation time based on order quantity and complexity",
+        "Unique token generation system to efficiently track and manage individual customer orders",
       ],
     },
     {
       id: "admin-panel",
       icon: <Settings className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Admin Panel",
-      summary: "Management interface for orders and menu items",
+      title: "Secure Admin Panel",
+      summary: "Password-protected administrative dashboard for comprehensive system management",
       details: [
-        "View and manage customer orders",
-        "Modify menu items and prices",
-        "Order status management",
-        "Customer data overview",
+        "Secure credential-based login system (Default credentials: Dhruba/2020) for restricted access",
+        "Complete visibility into all active and past token-based order files stored in the system",
+        "Ability to inspect specific customer receipts and order details for verification",
+        "Administrative controls to delete or modify order records to maintain system hygiene",
       ],
     },
     {
       id: "oop-design",
       icon: <Code className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Object-Oriented Design",
-      summary: "Clean C++ architecture with proper class structure",
+      title: "Object-Oriented Architecture",
+      summary: "Robust software architecture built on core C++ Object-Oriented principles",
       details: [
-        "Modular class-based architecture",
-        "Encapsulation and data abstraction",
-        "Inheritance for code reusability",
-        "Polymorphism for flexible functionality",
+        "Utilization of Inheritance (Customer -> getData) for efficient shared data access",
+        "Strict encapsulation of data members to ensure data security and integrity",
+        "Modular function design separating concerns like display, calculation, and storage",
+        "Implementation of Polymorphism for flexible and scalable functional behavior",
       ],
     },
     {
       id: "data-persistence",
       icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "File-Based Storage",
-      summary: "Persistent data storage using file handling",
+      title: "File System Storage",
+      summary: "Reliable text-file based database system for permanent data retention",
       details: [
-        "Order history preservation",
-        "Menu data persistence",
-        "Customer information storage",
-        "Data integrity and validation",
+        "Generation of individual text files for each unique order (e.g., 1.txt, 2.txt) for separation",
+        "Persistent storage capability ensuring order history survives application restarts",
+        "Standardized receipt layout within files for consistent data parsing and reading",
+        "Direct system-level file manipulation for efficient reading, writing, and deletion",
       ],
     },
   ];
@@ -105,10 +122,26 @@ const FoodOrderingSystemPage = ({
 
   // Right TOC
   const toc = [
-    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
+    {
+      id: "highlights",
+      label: "Feature Highlights",
+      icon: <Activity className="w-3.5 sm:w-4 h-3.5 sm:h-4" />,
+    },
+    {
+      id: "tech",
+      label: "Technologies Used",
+      icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" />,
+    },
+    {
+      id: "use-cases",
+      label: "Use Cases",
+      icon: <LuSettings2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" />,
+    },
+    {
+      id: "how-to",
+      label: "How to Use",
+      icon: <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4" />,
+    },
   ] as const;
 
   const [active, setActive] = useState<string>("highlights");
@@ -122,7 +155,7 @@ const FoodOrderingSystemPage = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -134,7 +167,9 @@ const FoodOrderingSystemPage = ({
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -162,7 +197,7 @@ const FoodOrderingSystemPage = ({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate("/projects")}
             className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
           >
             <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
@@ -178,8 +213,10 @@ const FoodOrderingSystemPage = ({
                 Food Ordering System
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, 
-                and admin panel for order management. Features object-oriented design and file handling for data persistence.
+                A comprehensive console-based C++ application designed to simulate a real-world food ordering experience. 
+                It features a robust menu selection system, automated bill calculation with change determination, 
+                and a secure admin panel for managing order lifecycles. The system allows for token-based order tracking, 
+                intelligent time estimation for food preparation, and reliable file-handling mechanisms ensuring data persistence across sessions.
               </p>
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {chips.map((c) => (
@@ -189,7 +226,9 @@ const FoodOrderingSystemPage = ({
                                border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                                text-gray-700 dark:text-gray-300"
                   >
-                    <span className="text-gray-500 dark:text-gray-400">{c.icon}</span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      {c.icon}
+                    </span>
                     {c.name}
                   </span>
                 ))}
@@ -237,7 +276,9 @@ const FoodOrderingSystemPage = ({
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">
+                  Feature Highlights
+                </h2>
               </div>
 
               <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
@@ -254,16 +295,24 @@ const FoodOrderingSystemPage = ({
                         className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
                       >
                         <div className="flex items-start gap-2 sm:gap-3">
-                          <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
+                          <div className="mt-0.5 text-blue-500 text-sm sm:text-base">
+                            {f.icon}
+                          </div>
                           <div className="min-w-0 flex-1">
-                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
+                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">
+                              {f.title}
+                            </div>
                             {!open && (
-                              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>
+                              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+                                {f.summary}
+                              </div>
                             )}
                           </div>
                         </div>
                         <ChevronDown
-                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${open ? "rotate-180" : ""}`}
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${
+                            open ? "rotate-180" : ""
+                          }`}
                         />
                       </motion.button>
 
@@ -277,14 +326,19 @@ const FoodOrderingSystemPage = ({
                             className="overflow-hidden"
                           >
                             <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-0">
-                              <p className="mb-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{f.summary}</p>
+                              <p className="mb-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                                {f.summary}
+                              </p>
                               <ul className="space-y-2">
                                 {f.details.map((d, i) => (
                                   <motion.li
                                     key={i}
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.15, delay: i * 0.05 }}
+                                    transition={{
+                                      duration: 0.15,
+                                      delay: i * 0.05,
+                                    }}
                                     className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700 dark:text-gray-300"
                                   >
                                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 sm:mt-2 shrink-0" />
@@ -306,33 +360,47 @@ const FoodOrderingSystemPage = ({
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">
+                  Technologies Used
+                </h2>
               </div>
 
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCplusplus className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>C++:</b> Core programming language with STL usage.</span>
+                  <span className="text-sm sm:text-base">
+                    <b>C++:</b> High-performance core programming language utilizing the Standard Template Library (STL) for efficient data processing.
+                  </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Object-Oriented Programming:</b> Classes, inheritance, and encapsulation.</span>
+                  <span className="text-sm sm:text-base">
+                    <b>Object-Oriented Programming:</b> Robust architecture employing Classes (Customer, getData), Multi-level Inheritance, and Encapsulation for modularity.
+                  </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Database className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>File Handling:</b> Persistent data storage using file streams.</span>
+                  <span className="text-sm sm:text-base">
+                    <b>File Handling:</b> Persistent data storage mechanism using <code>fstream</code> library for creating, reading, and appending to text files.
+                  </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Console Interface:</b> Text-based user interaction and menu navigation.</span>
+                  <span className="text-sm sm:text-base">
+                    <b>Console Interface:</b> Interactive text-based user interface (TUI) with intuitive navigation menus and system commands.
+                  </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Admin Controls:</b> Management interface for system administration.</span>
+                  <span className="text-sm sm:text-base">
+                    <b>Admin Controls:</b> Secured, password-protected management dashboard allowing full control over order history and deletion.
+                  </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Order Management:</b> Cart system with bill calculation and processing.</span>
+                  <span className="text-sm sm:text-base">
+                    <b>Core Logic:</b> Complex algorithms handling real-time bill calculation, change determination, and preparation time estimation.
+                  </span>
                 </li>
               </ul>
             </section>
@@ -341,15 +409,17 @@ const FoodOrderingSystemPage = ({
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">
+                  Use Cases
+                </h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Educational project for learning C++ OOP concepts</li>
-                <li>Small restaurant or cafe management system</li>
-                <li>Foundation for larger point-of-sale systems</li>
-                <li>Demonstration of file handling and data persistence</li>
-                <li>Template for console-based business applications</li>
-                <li>Academic assignments and programming coursework</li>
+                <li>Comprehensive educational resource for mastering core C++ OOP concepts</li>
+                <li>Lightweight management solution suitable for small-scale restaurants, cafeterias, or local diners</li>
+                <li>Foundational codebase for building larger, more complex point-of-sale (POS) systems</li>
+                <li>Practical demonstration of file handling, stream manipulation, and data persistence in C++</li>
+                <li>Scalable template for developing other console-based business logic applications</li>
+                <li>Ideal reference project for academic assignments and undergraduate programming coursework</li>
               </ul>
             </section>
 
@@ -357,7 +427,9 @@ const FoodOrderingSystemPage = ({
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">
+                  How to Use
+                </h2>
               </div>
 
               <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
@@ -365,7 +437,8 @@ const FoodOrderingSystemPage = ({
                   <li className="leading-relaxed">
                     Clone the repository:&nbsp;
                     <code className="text-xs sm:text-sm px-1.5 py-0.5 rounded bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 text-gray-800 dark:text-gray-200">
-                      git clone https://github.com/dhruba-datta/FoodOrderingSystem
+                      git clone
+                      https://github.com/dhruba-datta/FoodOrderingSystem
                     </code>
                   </li>
                   <li className="leading-relaxed">
@@ -386,8 +459,9 @@ const FoodOrderingSystemPage = ({
                     &nbsp;(Windows)
                   </li>
                   <li>Follow the console menu to navigate between customer and admin interfaces</li>
-                  <li>For customers: Browse menu, add items to cart, and place orders</li>
-                  <li>For admin: Manage orders, update menu items, and view customer data</li>
+                  <li>In the Admin Panel (Option 2), use default credentials &rarr; Name: <b>Dhruba</b>, Password: <b>2020</b>.</li>
+                  <li>For customers: Browse menu, add items to cart, place orders, and an order receipt.</li>
+                  <li>For admin: View order files or delete them to manage history.</li>
                 </ol>
               </div>
             </section>
@@ -430,9 +504,8 @@ const FoodOrderingSystemPage = ({
           </aside>
         </div>
 
-
         {/* Contact CTA Section */}
-        <ContactCTA 
+        <ContactCTA
           title="Interested in working together?"
           description="I have experience in multiple programming languages including C++, JavaScript, and Python. Let's discuss how I can contribute to your development team."
           primaryButtonText="Let's Talk"

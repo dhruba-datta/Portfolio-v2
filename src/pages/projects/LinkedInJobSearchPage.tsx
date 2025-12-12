@@ -55,72 +55,72 @@ const N8nLinkedinJobSearchPage = ({
     { name: "Data Extraction", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
-  // Features (accordion) — tailored for LinkedIn Job Search automation
+  // Features (accordion)
   const features = [
     {
       id: "discovery",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Job Discovery Pipeline",
-      summary: "Keyword + location search → normalize → store",
+      title: "Automated Job Scraping Pipeline",
+      summary: "High-frequency polling of LinkedIn for real-time job market data",
       details: [
-        "Fetch recent job posts from a data source/API with HTTP Request",
-        "Normalize fields (title, company, location, postedAt, applyUrl)",
-        "Map to a consistent schema for downstream steps",
+        "Configurable HTTP Request nodes mimicking browser behavior to fetch raw job listings",
+        "Robust HTML parsing (or API consumption) to extract key metadata like salary and tech stack",
+        "Normalization of unstructured data fields into a consistent JSON schema for processing",
       ],
     },
     {
       id: "filters",
       icon: <Filter className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Smart Filters & De-duplication",
-      summary: "Tight control over results and no repeat alerts",
+      title: "Intelligent Filtering & Deduplication",
+      summary: "Advanced logic gates ensuring only relevant, unique opportunities are surfaced",
       details: [
-        "Filter by keywords, locations, seniority, remote/on-site",
-        "De-dupe via hash/URL to avoid repeat notifications",
-        "Optional time-window filter (e.g., last 24–72 hours)",
+        "Granular exclusion criteria filtering out recruiters, contract roles, or specific keywords",
+        "Smart de-duplication hash algorithms preventing alert fatigue from reposted listings",
+        "Context-aware filtering based on job freshness (e.g., 'Posted within 24 hours')",
       ],
     },
     {
       id: "scheduler",
       icon: <Clock className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Scheduling & Triggers",
-      summary: "Run on a schedule or on-demand",
+      title: "Flexible Trigger Mechanisms",
+      summary: "Hybrid execution model supporting cron schedules and on-demand alerts",
       details: [
-        "Cron schedules for daily/weekly discovery runs",
-        "Webhook endpoint to trigger ad-hoc searches with params",
-        "Replay-safe execution with input validation",
+        "Customizable cron expressions for automated daily 'morning coffee' digests",
+        "Webhook endpoints enabling instantaneous manual triggers via CLI or dashboard",
+        "Stateful execution ensuring no scheduled runs overlap or cause race conditions",
       ],
     },
     {
       id: "storage",
       icon: <SiGooglesheets className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Storage & Tracking",
-      summary: "Persist results and track status",
+      title: "Centralized Application Tracking",
+      summary: "Automated database maintenance for your personal job hunt pipeline",
       details: [
-        "Append results to Google Sheets (or DB) as a job queue",
-        "Status columns for Not Applied / Applied / Interview",
-        "Automatic updates when a listing changes or duplicates are found",
+        "Append-only logic writing clean, structured job data into Google Sheets",
+        "Status columns (Applied, Interview, Offer) enabling long-term pipeline management",
+        "Historical data retention allowing for retrospective analysis of application trends",
       ],
     },
     {
       id: "alerts",
       icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Notifications",
-      summary: "Get notified where you work",
+      title: "Multi-Channel Alert System",
+      summary: "Instant notifications delivered to your preferred communication platforms",
       details: [
-        "Send email or Telegram alerts with top matches",
-        "Compact card-style messages with title/company/apply link",
-        "Batching & rate-limit friendly dispatch",
+        "Real-time Telegram or Slack messages for high-priority 'Urgent' job postings",
+        "Rich-text email digests summarizing the day's top opportunities in a readable format",
+        "Actionable notification buttons (e.g., 'Apply Now') linking directly to the application portal",
       ],
     },
     {
       id: "safety",
       icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Reliability & Safety",
-      summary: "Error handling & secrets hygiene",
+      title: "Enterprise-Grade Reliability",
+      summary: "Production-ready error handling and secure credential management",
       details: [
-        "Dedicated error branch with alerts and retry/backoff",
-        "Credential scoping per integration",
-        "Graceful degradation if a source endpoint is down",
+        "Comprehensive 'Error Trigger' nodes capturing and logging workflow failures",
+        "Secure storage of API keys and sensitive tokens using n8n's credential vault",
+        "Graceful degradation strategies ensuring partial successes (e.g., one failed alert) don't crash the run",
       ],
     },
   ];
@@ -200,7 +200,9 @@ const N8nLinkedinJobSearchPage = ({
                 LinkedIn Job Search (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                Automate your job hunt with this n8n workflow. It automatically searches LinkedIn by keyword and location, filters results, saves them to a Google Sheet, and sends you instant alerts, saving you valuable time.
+                A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. 
+                This system autonomously monitors LinkedIn for varied tech roles, applying complex filtering logic to curate high-quality opportunities. 
+                It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -354,35 +356,35 @@ const N8nLinkedinJobSearchPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Visual builder, credentials, error branches, sub-workflows.</span>
+                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Powerful workflow orchestration engine handling control flow, merging, and logic nodes.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Job source/API calls and data retrieval.</span>
+                  <span className="text-sm sm:text-base"><b>HTTP Request Node:</b> Flexible client for executing complex GET/POST requests to fetch external data.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Code (JS):</b> Parsing, de-duplication, mapping, and scoring logic.</span>
+                  <span className="text-sm sm:text-base"><b>Function Node (JS):</b> Custom JavaScript execution block for advanced data transformation and deduplication.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Cron:</b> Scheduled discovery & follow-ups.</span>
+                  <span className="text-sm sm:text-base"><b>Cron Trigger:</b> Time-based scheduler ensuring consistent, unattended workflow execution.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook:</b> On-demand searches with query params.</span>
+                  <span className="text-sm sm:text-base"><b>Webhook Node:</b> Event-driven entry point allowing external systems or scripts to trigger the pipeline.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Persistent queue & status tracking.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets Node:</b> Crucial integration for persisting job data in a structured, accessible spreadsheet format.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Email/Telegram:</b> Job alerts and error notifications.</span>
+                  <span className="text-sm sm:text-base"><b>Email/Telegram Node:</b> Communication bridge sending formatted alerts to user devices.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FileJson className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Workflow JSON:</b> Importable templates to get started fast.</span>
+                  <span className="text-sm sm:text-base"><b>JSON Data Structure:</b> Standardized data interchange format used throughout the workflow lifecycle.</span>
                 </li>
               </ul>
             </section>
@@ -394,10 +396,10 @@ const N8nLinkedinJobSearchPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Daily job digests by role + location delivered to your inbox/Telegram</li>
-                <li>Team job board powered by Google Sheets with live updates</li>
-                <li>Lead a pipeline for applying later—tag, prioritize, and track status</li>
-                <li>Trigger ad-hoc searches from a form/webhook and notify instantly</li>
+                <li>Automated daily surveillance of LinkedIn for niche technical roles using custom search parameters</li>
+                <li>Centralized job application tracking system powered by real-time Google Sheets synchronization</li>
+                <li>Instant mobile alerts for high-priority listings via Telegram integration, enabling rapid response times</li>
+                <li>Scalable boilerplate for web scraping and data aggregation workflows using n8n's low-code platform</li>
               </ul>
             </section>
 
@@ -423,19 +425,24 @@ const N8nLinkedinJobSearchPage = ({
                     </a>
                   </li>
                   <li className="leading-relaxed">
-                    Import the workflow JSON(s): In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
+                    Import workflow:&nbsp;
+                    In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.
                   </li>
-                  <li>
-                    Add credentials: job data source/API, Google Sheets, and your alert channel (Email/Telegram).
+                  <li className="leading-relaxed">
+                    Add credentials:&nbsp;
+                    Configure LinkedIn source (cookie/login), Google Sheets, and your alert integrations.
                   </li>
-                  <li>
-                    Set parameters: default keywords, locations, seniority, remote/on-site, and de-dup secret/hash field.
+                  <li className="leading-relaxed">
+                    Set parameters:&nbsp;
+                    Define job titles, location IDs, and filtering logic (e.g., exclude "senior" or "intern").
                   </li>
-                  <li>
-                    Choose triggers: attach a <b>Cron</b> schedule and/or expose a <b>Webhook</b> for ad-hoc searches.
+                  <li className="leading-relaxed">
+                    Enable:&nbsp;
+                    Turn on the <b>Cron</b> schedule or use the <b>Webhook</b> for on-demand execution.
                   </li>
-                  <li>
-                    Test & enable: run once with sample inputs, check the sheet and notifications, then enable.
+                  <li className="leading-relaxed">
+                    Test:&nbsp;
+                    Run manually to verify data flow to sheets and notifications before full deployment.
                   </li>
                 </ol>
               </div>

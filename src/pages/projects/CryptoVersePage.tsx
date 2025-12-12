@@ -61,105 +61,89 @@ const CryptoVersePage = ({
     {
       id: "dashboard",
       icon: <TrendingUp className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Real-Time Stats Dashboard",
-      summary: "Live cryptocurrency metrics via RapidAPI",
+      title: "Live Global Crypto Metrics",
+      summary: "Real-time aggregation of global market capitalization and trading activity",
       details: [
-        "Global market cap & 24h volume tracking",
-        "Real-time totals & market statistics",
-        "Live price feeds for 100+ coins",
-        "Performance % changes & dominance",
-        "Trending assets overview",
+        "Instant tracking of global crypto market cap and 24-hour trading volumes",
+        "Live-updating ticker for total active cryptocurrencies and market pairs",
+        "Dynamic leaderboard showcasing top trending coins, gainers, and losers",
       ],
     },
     {
       id: "search",
       icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Search & Filtering",
-      summary: "Advanced search and sort for assets",
+      title: "Advanced Asset Filtering",
+      summary: "High-performance search engine with multi-parameter sorting capabilities",
       details: [
-        "Search by name, symbol or metrics",
-        "Instant filters with live results",
-        "Sort by cap, price, volume, change",
-        "Category/ranking filters",
-        "Watchlist & bookmarks",
+        "Fuzzy search implementation allowing users to find assets by name, symbol, or tags",
+        "Granular filtering options to sort results by market cap, price, or 24h performance",
+        "Integrated watchlist functionality enabling users to bookmark and track favorite tokens",
       ],
     },
     {
       id: "details",
       icon: <BarChart3 className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Cryptocurrency Detail View",
-      summary: "Interactive charts & analysis",
+      title: "Deep-Dive Token Analytics",
+      summary: "Comprehensive individual asset pages with interactive data visualization",
       details: [
-        "Chart.js price charts & timeframes",
-        "Historical prices & volume trends",
-        "Supply, cap, rank & stats",
-        "Technical indicators (demo)",
-        "Insightful summaries",
+        "Interactive Chart.js implementations offering multiple timeframe views (24h, 7d, 30d, 1y)",
+        "Detailed breakdown of supply metrics (circulating vs. total) and historical price performance",
+        "Rich statistical summaries including rank, trading volume, and all-time high/low data points",
       ],
     },
     {
       id: "news",
       icon: <Newspaper className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Latest Crypto News",
-      summary: "Real-time news & updates",
+      title: "Aggregated News Intelligence",
+      summary: "Curated real-time news feed drawn from reputable crypto media outlets",
       details: [
-        "Latest articles via RapidAPI",
-        "Market analysis & opinions",
-        "Breaking alerts for big moves",
-        "Topics/projects categorization",
-        "Sentiment & community buzz",
+        "Context-sensitive news aggregation related to specific tokens or general market trends",
+        "Categorized article feeds allowing users to filter news by topic (e.g., DeFi, Regulations)",
+        "Sentiment analysis indicators helping users gauge community reactions and market buzz",
       ],
     },
     {
       id: "responsive",
       icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Responsive Interface",
-      summary: "Ant Design layouts for all devices",
+      title: "Adaptive Responsive Interface",
+      summary: "Professional Ant Design layout optimized for all device form factors",
       details: [
-        "Mobile-first responsive grid",
-        "Tablet/desktop adaptive views",
-        "Touch-friendly navigation",
-        "PWA-ready offline basics",
-        "Cross-browser optimized",
+        "Mobile-first responsive grid ensuring usability on smartphones and tablets",
+        "Adaptive navigation sidebar that collapses into a drawer on smaller screens",
+        "Touch-optimized interactive elements ensuring a native app-like experience on mobile",
       ],
     },
     {
       id: "navigation",
       icon: <Globe2 className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Smooth Navigation",
-      summary: "Multi-page routing & deep links",
+      title: "Seamless SPA Navigation",
+      summary: "Fluid client-side routing with deep-linking capabilities",
       details: [
-        "Fast routes: dashboard/markets/news",
-        "Deep links for coin pages",
-        "Breadcrumb patterns",
-        "Graceful loading states",
-        "URL state persistence",
+        "Instant page transitions managed by React Router without browser reloads",
+        "Deep-linking support allowing users to share direct URLs to specific coin details or news",
+        "Breadcrumb navigation trails improving user orientation within the application hierarchy",
       ],
     },
     {
       id: "state",
       icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Redux State Management",
-      summary: "RTK & RTK Query for data flows",
+      title: "Enterprise State Management",
+      summary: "Robust Redux Toolkit implementation for scalable data handling",
       details: [
-        "Centralized market & prefs state",
-        "RTK Query cache & sync",
-        "Slices for crypto/news/filters",
-        "Optimistic updates & errors",
-        "Persisted settings & watchlist",
+        "Centralized store managing global application state, user preferences, and cached API data",
+        "Utilization of RTK Query for automated data fetching, caching, and cache invalidation",
+        "Optimistic UI updates providing immediate feedback before server confirmation",
       ],
     },
     {
       id: "performance",
       icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Performance Optimization",
-      summary: "Lean rendering & API strategy",
+      title: "Optimized Rendering Strategy",
+      summary: "Performance-tuned architecture ensuring consistent 60fps interactions",
       details: [
-        "Chart.js tuned for smoothness",
-        "Rate limiting & caching",
-        "Lazy loading & code split",
-        "Memoized components",
-        "Batched requests",
+        "Memoization of expensive chart computations to prevent unnecessary re-renders",
+        "Lazy loading of heavy route components to minimize the initial JavaScript bundle size",
+        "Efficient API request batching and rate-limit handling to ensure stability under load",
       ],
     },
   ];
@@ -239,8 +223,10 @@ const CryptoVersePage = ({
                 CryptoVerse
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A real-time cryptocurrency dashboard built with React, Redux Toolkit & Chart.js. Live markets,
-                smart filters, detailed coin pages and news wrapped in a clean Ant Design UI.
+                A comprehensive real-time cryptocurrency analysis dashboard engineered with the robust React ecosystem. 
+                Integrating Redux Toolkit Query for efficient data caching and Chart.js for data visualization, this application 
+                delivers instant global market metrics, detailed individual token analytics, and aggregated news feeds—all presented 
+                within a cohesive, professional interface designed with the Ant Design system.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -394,27 +380,27 @@ const CryptoVersePage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React:</b> Component-driven UI with hooks.</span>
+                  <span className="text-sm sm:text-base"><b>React:</b> Component-based architecture driving the dynamic, single-page user interface.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiRedux className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Redux Toolkit:</b> RTK & RTK Query for state + caching.</span>
+                  <span className="text-sm sm:text-base"><b>Redux Toolkit (RTK Query):</b> Advanced data fetching, caching, and state management logic.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiAntdesign className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Ant Design:</b> Responsive components & layout.</span>
+                  <span className="text-sm sm:text-base"><b>Ant Design:</b> Professional-grade UI component library ensuring design consistency.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <LineChart className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Chart.js:</b> Interactive price & volume charts.</span>
+                  <span className="text-sm sm:text-base"><b>Chart.js:</b> Flexible canvas-based charting library for visualizing complex financial datasets.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>RapidAPI:</b> Market data & news endpoints.</span>
+                  <span className="text-sm sm:text-base"><b>RapidAPI:</b> Gateway integration for accessing third-party crypto market and news APIs.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReactrouter className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Router:</b> Client-side navigation.</span>
+                  <span className="text-sm sm:text-base"><b>React Router:</b> Handling dynamic client-side routing and URL parameter management.</span>
                 </li>
               </ul>
             </section>
@@ -426,10 +412,10 @@ const CryptoVersePage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Investor dashboards & personal portfolio trackers</li>
-                <li>Fintech prototypes needing real-time market data</li>
-                <li>Education on Redux, RTK Query & data viz</li>
-                <li>News + markets hub for crypto communities</li>
+                <li>Personalized investor dashboards for tracking portfolios across disparate exchanges</li>
+                <li>Prototype architecture for scalable FinTech applications utilizing real-time third-party data</li>
+                <li>Educational resource for developers mastering Redux Toolkit Query and complex state flows</li>
+                <li>Centralized information hub for crypto communities aggregating market data and relevant news</li>
               </ul>
             </section>
 

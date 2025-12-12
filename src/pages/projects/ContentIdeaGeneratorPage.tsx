@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Globe2,
   Webhook,
   FileJson,
   Code2,
@@ -52,49 +51,50 @@ const N8nContentAutomationPage = ({
     { name: "Workflow JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
-  // features (accordion) — tailored for Content Ideation + Trello only
+  // features (accordion)
   const features = [
     {
       id: "pipeline",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Content Idea Generator & Organizer",
-      summary: "Ingest → Brainstorm (AI) → Create Cards",
+      title: "End-to-End Content Pipeline",
+      summary: "Automated lifecycle from raw topic ingestion to actionable backlog items",
       details: [
-        "Fetch content topics and client info from a Google Sheet",
-        "Automatically brainstorm 3 new ideas per topic via ChatGPT",
-        "Enrich content with hooks, subtitles, and CTAs",
-        "Create a Trello card for each new idea in the client's board backlog",
+        "Ingests raw thematic inputs and client-specific constraints directly from Google Sheets",
+        "Orchestrates OpenAI API calls to brainstorm, expand, and structure three distinct content variations per topic",
+        "Automatically populates a Trello board with structured cards, complete with hooks, captions, and CTAs",
       ],
     },
     {
       id: "integrations",
       icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Integrations",
-      summary: "Google Sheets & Trello only",
+      title: "Seamless Ecosystem Integration",
+      summary: "Frictionless data synchronization between productivity tools and AI services",
       details: [
-        "Google Sheets for client data and content idea input/output",
-        "Trello Board for organizing and visualizing new content ideas",
+        "Bi-directional connectivity with Google Sheets for dynamic batch processing of content calendars",
+        "Deep Trello integration facilitating automated board management, list sorting, and card labeling",
+        "Robust OpenAI API implementation leveraging GPT models for high-quality, context-aware copy generation",
       ],
     },
     {
       id: "blocks",
       icon: <Code2 className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Reusable Building Blocks",
-      summary: "Set/Merge fields, batch and split topics",
+      title: "Modular Processing Logic",
+      summary: "Scalable workflow architecture designed for flexibility and complex transformations",
       details: [
-        "Batch process multiple content types/clients at once",
-        "Validate and map fields for AI generation and Trello card creation",
-        "Split topics for parallel AI idea generation",
+        "Advanced list splitting and merging logic to handle large batch operations efficiently",
+        "Conditional validation steps ensuring only high-quality, complete concepts reach the production board",
+        "Reusable sub-workflows enabling easy adaptation for different content formats (e.g., LinkedIn vs. Twitter)",
       ],
     },
     {
       id: "observability",
       icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Observability & Safety",
-      summary: "Error handling, notifications, audit trails",
+      title: "Operational Resilience",
+      summary: "Enterprise-grade error handling and execution monitoring",
       details: [
-        "Error guards and notifications for failures in Sheets/Trello integration",
-        "Traceable workflow steps for debugging and audit",
+        "Granular error catching mechanisms preventing API rate limits from disrupting the entire batch",
+        "Detailed execution logs providing full traceability of every generated idea and API interaction",
+        "Automated alerts for failed operations ensuring data integrity across the integrated stack",
       ],
     },
   ];
@@ -174,7 +174,8 @@ const N8nContentAutomationPage = ({
                 Content Idea Generator (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                Automate content ideation with this n8n workflow. It pulls topics from Google Sheets, generates three ideas per topic with OpenAI, and creates Trello cards automatically. This single automation saves you 20+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.
+                A powerful AI-driven content orchestration engine built on n8n. This workflow seamlessly bridges Google Sheets and Trello, using OpenAI's generative capabilities to transform raw topics into fully fleshed-out content plans. 
+                By automating the ideation, drafting, and organization phases, it eliminates hours of manual administrative work, enabling creators and teams to scale their output exponentially.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -327,27 +328,27 @@ const N8nContentAutomationPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Visual builder, credentials, error workflows.</span>
+                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Workflow automation engine managing control flow, data branching, and API orchestration.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook:</b> Manual or integration-triggered runs.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Connect to REST APIs as needed.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Code Node (JS):</b> Transform, template, and validate payloads.</span>
+                  <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>OpenAI (GPT):</b> Generative AI engine producing creative copy, headlines, and strategic content angles.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Input and source of content ideas.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Structured data input layer for batch-loading topics and campaign parameters.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiTrello className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Trello:</b> Organize new content ideas as cards in the backlog.</span>
+                  <span className="text-sm sm:text-base"><b>Trello:</b> Project management destination where generated ideas are turned into actionable Kanban cards.</span>
+                </li>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Webhook Node:</b> Event receiver allowing the workflow to be triggered programmatically from external apps.</span>
+                </li>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Code Node (JS):</b> Custom scripting block for complex JSON transformation and data payload validation.</span>
                 </li>
               </ul>
             </section>
@@ -359,10 +360,10 @@ const N8nContentAutomationPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Auto-generate 3 unique ideas (hooks, subtitles, CTAs) for every content topic</li>
-                <li>Build a content backlog from spreadsheet input (Google Sheets)</li>
-                <li>Create and organize Trello cards for each new idea seamlessly</li>
-                <li>Centralize idea management with no manual copying between Sheets and Trello</li>
+                <li>Automated brainstorming engine generating creative angles, hooks, and call-to-actions for any topic</li>
+                <li>Batch processing system for marketing agencies managing multiple client content calendars simultaneously</li>
+                <li>Seamless bridge between strategy (spreadsheets) and execution (Trello), eliminating copy-paste fatigue</li>
+                <li>Scalable foundation for building complex AI-driven operational workflows in n8n</li>
               </ul>
             </section>
 
@@ -388,16 +389,24 @@ const N8nContentAutomationPage = ({
                     </a>
                   </li>
                   <li className="leading-relaxed">
-                    Import workflow JSON:&nbsp;Go to <b>Workflows → Import</b> in n8n and upload the included <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
+                    Import workflow:&nbsp;
+                    In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.
                   </li>
-                  <li>
-                    Configure credentials:&nbsp;Add your Google Sheets API and Trello API keys.
+                  <li className="leading-relaxed">
+                    Add credentials:&nbsp;
+                    Configure OpenAI API key, Google Sheets service account, and Trello token/key.
                   </li>
-                  <li>
-                    Trigger a test run:&nbsp;Use the manual trigger to process input from Google Sheets. The workflow will automatically generate idea sets using AI and push cards to the Trello board.
+                  <li className="leading-relaxed">
+                    Set parameters:&nbsp;
+                    Define your prompt templates, target Trello lists (Backlog/To Do), and sheet range.
                   </li>
-                  <li>
-                    Review Trello board:&nbsp;See new cards added for each idea. Continue idea organization directly in Trello.
+                  <li className="leading-relaxed">
+                    Enable:&nbsp;
+                    Turn on the <b>Webhook</b> trigger or use a <b>Cron</b> node for scheduled batch creation.
+                  </li>
+                  <li className="leading-relaxed">
+                    Test:&nbsp;
+                    Run with sample ideas in your sheet to verify AI output quality and card creation.
                   </li>
                 </ol>
               </div>

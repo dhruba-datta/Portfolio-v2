@@ -53,7 +53,7 @@ export const projects: Project[] = [
   id: 'brevo-email-marketing-n8n',
     title: 'Brevo Email Marketing (n8n)',
     description:
-      'Automate your email marketing campaigns with this n8n workflow. It pulls subscriber data from Google Sheets or Webflow CMS, sends personalized emails via Brevo, and tracks engagement automatically. This single automation saves you 15+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.',
+      'A sophisticated email automation system engineered with n8n to streamline sophisticated marketing workflows. By orchestrating data flow between Google Sheets, Webflow CMS, and Brevo\'s transactional API, this solution enables hyper-personalized communication at scale. It replaces manual list management with intelligent, event-driven triggers, ensuring the right message reaches the right user at the perfect moment.',
     longDescription:
       'Email marketing automation workflow with Google Sheets/Webflow CMS integration, Brevo email delivery, and engagement tracking.',
     image: '/images/projects/Brevo Email Marketing (n8n).svg',
@@ -74,7 +74,7 @@ export const projects: Project[] = [
   id: 'content-idea-generator-n8n',
     title: 'Content Idea Generator (n8n)',
     description:
-      'Automate content ideation with this n8n workflow. It pulls topics from Google Sheets, generates three ideas per topic with OpenAI, and creates Trello cards automatically. This single automation saves you 20+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.',
+      'A powerful AI-driven content orchestration engine built on n8n. This workflow seamlessly bridges Google Sheets and Trello, using OpenAI\'s generative capabilities to transform raw topics into fully fleshed-out content plans. By automating the ideation, drafting, and organization phases, it eliminates hours of manual administrative work, enabling creators and teams to scale their output exponentially.',
     longDescription:
       'Automated content creation workflow with Google Sheets integration, AI content generation, and Trello management.',
     image: '/images/projects/Content Idea Generator (n8n).svg',
@@ -95,9 +95,9 @@ export const projects: Project[] = [
   id: 'linkedin-job-search-n8n',
     title: 'LinkedIn Job Search (n8n)',
     description:
-      'Automate your job hunt with this n8n workflow. It automatically searches LinkedIn by keyword and location, filters results, saves them to a Google Sheet, and sends you instant alerts, saving you valuable time.',
+      'A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. This system autonomously monitors LinkedIn for varied tech roles, applying complex filtering logic to curate high-quality opportunities. It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening.',
     longDescription:
-      'Web form-driven job search automation with dynamic URL building, data extraction, and Google Sheets integration.',
+      'Automated job scraping workflow using n8n to fetch, filter, and alert on new LinkedIn job listings via Telegram/Email.',
     image: '/images/projects/LinkedIn Job Search (n8n).svg',
     tags: [
       { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
@@ -116,9 +116,9 @@ export const projects: Project[] = [
   id: 'photobooth',
     title: 'PhotoBooth',
     description:
-      'A modern photo-sharing web app to upload, discover, and engage with images. Built with React + Tailwind + Sanity.io, featuring Google authentication, real-time social interactions, and an immersive gallery.',
+      'A visually stunning, high-performance social photo-sharing platform engineered to deliver a premium user experience. Powered by Sanity.io content lake and React component ecosystem, this application features secure Google OAuth authentication, real-time social interactions, and a responsive masonry layout that adapts beautifully to any device.',
     longDescription:
-      'Fullscreen mode, Google authentication, create/edit/delete posts, like/comment, search/filter images.',
+      'Full-stack social photo app with Google login, drag-and-drop uploads, comments, likes, and pin-style masonry layout.',
     image: '/images/projects/photobooth.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
@@ -137,9 +137,9 @@ export const projects: Project[] = [
   id: 'ab-pharmacy-expo',
     title: 'AB Pharmacy Expo',
     description:
-      'A production-ready React Native Expo app for pharmacy trade shows: live schedules, exhibitor directory, product catalogs, and instant search, built with modular components and offline-first UX.',
+      'A production-ready cross-platform mobile application engineered with React Native and Expo to serve as a comprehensive digital companion for pharmacy trade shows. Featuring real-time event scheduling, an interactive exhibitor directory, detailed product catalogs, and offline-first functionalities, this app delivers a seamless native experience on both iOS and Android devices.',
     longDescription:
-      'Sort by categories, search/filter products, add to cart, WhatsApp integration, and more.',
+      'Cross-platform React Native Expo app for pharmacy trade shows with live scheduling, exhibitor directory, product catalog, offline capabilities, and instant search.',
     image: '/images/projects/AB Pharmacy Expo.svg',
     tags: [
       { name: "React Native", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
@@ -158,8 +158,9 @@ export const projects: Project[] = [
   id: 'cryptoverse',
     title: 'CryptoVerse',
     description:
-      'A real-time cryptocurrency dashboard built with React, Redux Toolkit & Chart.js. Live markets, smart filters, detailed coin pages and news wrapped in a clean Ant Design UI.',
-    longDescription: 'Search/filter cryptocurrencies, latest news, detailed info, cross-platform.',
+      'A comprehensive real-time cryptocurrency analysis dashboard engineered with the robust React ecosystem. Integrating Redux Toolkit Query for efficient data caching and Chart.js for data visualization, this application delivers instant global market metrics, detailed individual token analytics, and aggregated news feeds—all presented within a cohesive, professional interface designed with the Ant Design system.',
+    longDescription:
+      'Real-time crypto stats, interactive Chart.js visualizations, Redux Toolkit Query state management, Ant Design UI, and aggregated news intelligence.',
     image: '/images/projects/CryptoVerse.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
@@ -178,9 +179,9 @@ export const projects: Project[] = [
   id: 'portfolio-v2',
     title: 'Portfolio v2',
     description:
-      'A modern, responsive portfolio website showcasing multidisciplinary expertise with React 18, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, dark theme, and comprehensive project showcases.',
+      'A state-of-the-art personal portfolio website designed to deliver an immersive and interactive user experience. Built with the latest React 18 capabilities, strongly typed with TypeScript, and styled with utility-first Tailwind CSS, this project exemplifies modern frontend engineering. It features professional-grade animations powered by Framer Motion, full dark mode support, and a comprehensive showcase of multidisciplinary expertise across software engineering, AI, and QA.',
     longDescription:
-      'Modern React portfolio with TypeScript, Tailwind CSS, animations, and comprehensive project case studies.',
+      'Modern, highly interactive portfolio built with React 18, TypeScript, and Tailwind CSS. Features advanced Framer Motion animations, comprehensive case studies, a fully responsive design, and seamless dark mode integration.',
     image: '/images/projects/Portfolio v2.svg',
     tags: [
       { name: "React 18", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
@@ -199,9 +200,9 @@ export const projects: Project[] = [
   id: 'ab-pharmacy-orders',
     title: 'AB Pharmacy Orders',
     description:
-      'A lightweight web ordering interface for pharmacies, backed by Google Sheets for product and order storage, with WhatsApp-based confirmations.',
+      'A streamlined web application designed to digitize and optimize pharmacy procurement workflows. Integrating a React-based frontend with a flexible Google Sheets-powered backend, this solution facilitates rapid order placement, intelligent status tracking, and automated WhatsApp confirmations, significantly reducing manual errors in inventory replenishment.',
     longDescription:
-      'Sheet-backed ordering system with product catalog, order creation, and simple admin flow. Built as a fast prototype using React + Tailwind and Google Sheets as a backend.',
+      'Pharmacy order management system with Google Sheets backend integration, WhatsApp order confirmation, and streamlined UI for quick order placement and status tracking.',
     image: '/images/projects/AB Pharmacy Orders.svg',
     tags: [
       { name: "React", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
@@ -219,9 +220,9 @@ export const projects: Project[] = [
   id: 'portfolio-v1',
     title: 'Portfolio v1',
     description:
-      'A clean, SEO-friendly personal portfolio highlighting your skills, projects and resume. Built with a basic Bootstrap template using HTML/CSS/JS and later deployed on Netlify.',
+      'The inaugural version of my personal digital portfolio, designed to be a lightweight, high-performance showcase of technical skills and professional achievements. Engineered with semantic HTML5, modern CSS3, and the Bootstrap framework, this project prioritizes essential web vitals—speed, accessibility, and SEO-friendliness—providing a solid foundation for personal branding on the open web.',
     longDescription:
-      'SEO indexed personal portfolio with about, skills, resume, projects, and contact sections.',
+      'Lightweight, SEO-focused personal portfolio built with semantic HTML5, CSS3, and Bootstrap. Features a responsive grid layout, accessible design, and Netlify deployment for high performance.',
     image: '/images/projects/Portfolio v1.svg',
     tags: [
       { name: "HTML5", icon: React.createElement(Code, { className: "w-3.5 h-3.5" }) },
@@ -242,9 +243,9 @@ export const projects: Project[] = [
   id: 'dice-job-search-n8n',
     title: 'Dice Job Search (n8n)',
     description:
-      "This n8n workflow automates your tech job search on Dice.com, saving you valuable time. It scrapes new job posts, applies your custom filters, and saves the relevant listings directly into a Google Sheet. You also receive instant alerts, ensuring you're always one step ahead without the need for endless manual browsing.",
+      'A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. This system autonomously monitors Dice.com for varied tech roles, applying complex filtering logic to curate high-quality opportunities. It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening.',
     longDescription:
-      'n8n workflow for Dice.com job search automation: dynamic search, web scraping, Google Sheets integration, and instant notifications.',
+      'Automated job scraping workflow using n8n to fetch, filter, and alert on new Dice.com job listings via Telegram/Email.',
     image: '/images/projects/Dice Job Search (n8n).svg',
     tags: [
       { name: 'n8n', icon: React.createElement(SiN8N, { className: 'w-3.5 h-3.5' }) },
@@ -264,9 +265,9 @@ export const projects: Project[] = [
   id: 'kingsley-group',
     title: 'Kingsley Group',
     description:
-      'Corporate WordPress redesign for an environmental engineering company. Added Resources, Blog, and News sections, implemented end-to-end SEO, optimized performance, and built a scalable content model for a multi-location presence (Australia, Bangladesh, China).',
+      'A comprehensive corporate website redesign for a leading environmental engineering firm. This project focused on building a scalable, multi-regional digital platform featuring advanced content hubs for News and Resources, end-to-end SEO implementation, and high-performance architecture to support operations in Australia, Bangladesh, and China.',
     longDescription:
-      'WordPress website redesign with custom theme development, SEO optimization, content management, blog system, news section, resource pages, and responsive design for environmental engineering services.',
+      'Corporate WordPress redesign featuring custom post types for resources & news, granular SEO optimization, Cloudflare performance hardening, and a multi-regional content strategy.',
     image: '/images/projects/Kingsley Group.svg',
     tags: [
       { name: "WordPress", icon: React.createElement(SiWordpress, { className: "w-3.5 h-3.5" }) },
@@ -287,8 +288,9 @@ export const projects: Project[] = [
   id: 'kfc-clone',
     title: 'KFC Clone',
     description:
-      'A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on performance, multilingual UX, and a clean component architecture.',
-    longDescription: 'Seamless UI, dynamic menu, multi-language, and e-commerce features.',
+      'A high-fidelity, single-page food ordering application designed to replicate the premium digital experience of KFC. Built with the modern Vue 3 ecosystem and utility-first Tailwind CSS, this project delivers a lightning-fast, interactive, and responsive user interface. It features advanced capabilities such as real-time multilingual support, dynamic cart management, and location-based services powered by Leaflet.js, all optimized for performance and scalability.',
+    longDescription:
+      'Advanced Vue 3 food ordering SPA featuring internationalization (i18n), dynamic cart management, location-based services with Leaflet.js, and a robust component architecture with data persistence.',
     image: '/images/projects/KFC Clone.svg',
     tags: [
       { name: "Vue 3", icon: React.createElement(FaVuejs, { className: "w-3.5 h-3.5" }) },
@@ -308,9 +310,9 @@ export const projects: Project[] = [
   id: 'easycooking',
     title: 'EasyCooking',
     description:
-      'A cooking tutorial website featuring recipes from different cuisines including Bengali, Chinese, and Indian. Built with pure HTML and CSS for optimal performance and cross-platform compatibility.',
+      'A comprehensive and immersive cooking tutorial platform dedicated to exploring culinary traditions from around the globe. Featuring a curated collection of authentic recipes from Bengali, Chinese, and Indian cuisines, the platform provides detailed, step-by-step guidance for home cooks. Built entirely with semantic HTML5 and modern CSS3, it offers lightning-fast performance, zero-dependency loading, and a seamless cross-platform experience optimized for both desktop and mobile viewing.',
     longDescription:
-      'Fullscreen recipe viewing, multi-cuisine support, responsive design, and easy navigation across different cooking tutorials.',
+      'Immersive multi-cuisine cooking tutorial platform featuring authentic Bengali, Chinese, and Indian recipes. Built with semantic HTML5 and CSS3 for distraction-free reading, lightning-fast zero-dependency performance, and a fully responsive cross-device experience.',
     image: '/images/projects/EasyCooking.svg',
     tags: [
       { name: "HTML5", icon: React.createElement(SiHtml5, { className: "w-3.5 h-3.5" }) },
@@ -328,9 +330,9 @@ export const projects: Project[] = [
   id: 'food-ordering-system',
     title: 'Food Ordering System',
     description:
-      'A console-based C++ application for food ordering with menu selection, bill calculation, payment processing, and admin panel for order management. Features object-oriented design and file handling for data persistence.',
+      'A comprehensive console-based C++ application designed to simulate a real-world food ordering experience. It features a robust menu selection system, automated bill calculation with change determination, and a secure admin panel for managing order lifecycles. The system allows for token-based order tracking, intelligent time estimation for food preparation, and reliable file-handling mechanisms ensuring data persistence across sessions.',
     longDescription:
-      'Complete food ordering system with customer interface, admin panel, order management, bill calculation, and data persistence.',
+      'Robust C++ ordering system featuring token-based tracking, smart time estimation, automated billing, and secure password-protected admin panel with persistent file storage.',
     image: '/images/projects/Food Ordering System.svg',
     tags: [
       { name: "C++", icon: React.createElement(SiCplusplus, { className: "w-3.5 h-3.5" }) },

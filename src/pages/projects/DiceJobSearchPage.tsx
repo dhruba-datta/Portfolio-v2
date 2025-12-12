@@ -60,67 +60,67 @@ const DiceJobSearchPage = ({
     {
       id: "discovery",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Job Discovery Pipeline",
-      summary: "Keyword + location search → normalize → store",
+      title: "Automated Job Scraping Pipeline",
+      summary: "High-frequency polling of Dice.com for real-time job market data",
       details: [
-        "Scrape or fetch jobs from Dice job search results via HTTP or API",
-        "Normalize fields (title, company, location, postedAt, jobUrl)",
-        "Map each job post to a consistent schema for downstream processing",
+        "Configurable HTTP Request nodes mimicking browser behavior to fetch raw job listings",
+        "Robust HTML parsing (or API consumption) to extract key metadata like salary and tech stack",
+        "Normalization of unstructured data fields into a consistent JSON schema for processing",
       ],
     },
     {
       id: "filters",
       icon: <Filter className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Smart Filters & De-duplication",
-      summary: "Filter results for relevance; avoid notifying about duplicates",
+      title: "Intelligent Filtering & Deduplication",
+      summary: "Advanced logic gates ensuring only relevant, unique opportunities are surfaced",
       details: [
-        "Filter by keywords, skills, cities, remote/onsite & job type",
-        "De-duplicate using URL/hash/id to prevent repeat alerts",
-        "Time windows: e.g., jobs posted in last 24–72 hours only",
+        "Granular exclusion criteria filtering out recruiters, contract roles, or specific keywords",
+        "Smart de-duplication hash algorithms preventing alert fatigue from reposted listings",
+        "Context-aware filtering based on job freshness (e.g., 'Posted within 24 hours')",
       ],
     },
     {
       id: "scheduler",
       icon: <Clock className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Scheduling & Triggers",
-      summary: "Run the workflow on a schedule or via webhook",
+      title: "Flexible Trigger Mechanisms",
+      summary: "Hybrid execution model supporting cron schedules and on-demand alerts",
       details: [
-        "Cron schedule for daily or weekly scans",
-        "Webhook endpoint to launch ad-hoc searches with custom params",
-        "Replay-safe: sanity checks to avoid duplicates & ensure atomicity",
+        "Customizable cron expressions for automated daily 'morning coffee' digests",
+        "Webhook endpoints enabling instantaneous manual triggers via CLI or dashboard",
+        "Stateful execution ensuring no scheduled runs overlap or cause race conditions",
       ],
     },
     {
       id: "storage",
       icon: <SiGooglesheets className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Storage & Tracking",
-      summary: "Save and track results long-term",
+      title: "Centralized Application Tracking",
+      summary: "Automated database maintenance for your personal job hunt pipeline",
       details: [
-        "Append results to Google Sheets (or a DB) as a job queue",
-        "Status tracking: Not Applied / Applied / Rejected / Interview / Offer",
-        "Auto-update entries when new data or duplicates detected",
+        "Append-only logic writing clean, structured job data into Google Sheets",
+        "Status columns (Applied, Interview, Offer) enabling long-term pipeline management",
+        "Historical data retention allowing for retrospective analysis of application trends",
       ],
     },
     {
       id: "alerts",
       icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Notifications",
-      summary: "Get job matches delivered to your channel",
+      title: "Multi-Channel Alert System",
+      summary: "Instant notifications delivered to your preferred communication platforms",
       details: [
-        "Send batch email or Telegram alerts with top opportunities",
-        "Compact card-style notification (title/company/apply link/posted date)",
-        "Batch alerts for rate-limited delivery and daily digests",
+        "Real-time Telegram or Slack messages for high-priority 'Urgent' job postings",
+        "Rich-text email digests summarizing the day's top opportunities in a readable format",
+        "Actionable notification buttons (e.g., 'Apply Now') linking directly to the application portal",
       ],
     },
     {
       id: "safety",
       icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Reliability & Safety",
-      summary: "Robust error handling and credential management",
+      title: "Enterprise-Grade Reliability",
+      summary: "Production-ready error handling and secure credential management",
       details: [
-        "Error branches with retries and failure alerts",
-        "Credential separation for Dice, Telegram/email, Google Sheets, etc.",
-        "Graceful degradation if Dice is down or responses are invalid",
+        "Comprehensive 'Error Trigger' nodes capturing and logging workflow failures",
+        "Secure storage of API keys and sensitive tokens using n8n's credential vault",
+        "Graceful degradation strategies ensuring partial successes (e.g., one failed alert) don't crash the run",
       ],
     },
   ];
@@ -200,7 +200,9 @@ const DiceJobSearchPage = ({
                 Dice Job Search (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                This n8n workflow automates your tech job search on Dice.com, saving you valuable time. It scrapes new job posts, applies your custom filters, and saves the relevant listings directly into a Google Sheet. You also receive instant alerts, ensuring you're always one step ahead without the need for endless manual browsing.
+                A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. 
+                This system autonomously monitors Dice.com for varied tech roles, applying complex filtering logic to curate high-quality opportunities. 
+                It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -353,35 +355,35 @@ const DiceJobSearchPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Visual builder, scopes, integrations, error handling.</span>
+                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Powerful workflow orchestration engine handling control flow, merging, and logic nodes.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Scrape or fetch Dice jobs results for your query.</span>
+                  <span className="text-sm sm:text-base"><b>HTTP Request Node:</b> Flexible client for executing complex GET/POST requests to fetch external data.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Code (JS):</b> Mapping, deduplication, business logic.</span>
+                  <span className="text-sm sm:text-base"><b>Function Node (JS):</b> Custom JavaScript execution block for advanced data transformation and deduplication.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Cron:</b> Scheduled scans and follow-ups.</span>
+                  <span className="text-sm sm:text-base"><b>Cron Trigger:</b> Time-based scheduler ensuring consistent, unattended workflow execution.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook:</b> On-demand launches for custom queries.</span>
+                  <span className="text-sm sm:text-base"><b>Webhook Node:</b> Event-driven entry point allowing external systems or scripts to trigger the pipeline.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Persistent results queue & job state/notes.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets Node:</b> Crucial integration for persisting job data in a structured, accessible spreadsheet format.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Email/Telegram:</b> Job match & error notifications.</span>
+                  <span className="text-sm sm:text-base"><b>Email/Telegram Node:</b> Communication bridge sending formatted alerts to user devices.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FileJson className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Workflow JSON:</b> Importable n8n template.</span>
+                  <span className="text-sm sm:text-base"><b>JSON Data Structure:</b> Standardized data interchange format used throughout the workflow lifecycle.</span>
                 </li>
               </ul>
             </section>
@@ -393,10 +395,10 @@ const DiceJobSearchPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Daily Dice tech job alerts delivered via email or Telegram</li>
-                <li>Team job tracker powered by Google Sheets, updated live</li>
-                <li>Manage an applicant pipeline—prioritize, tag and log job outcomes</li>
-                <li>Launch ad-hoc job searches with any filters from a webhook endpoint</li>
+                <li>Automated daily surveillance of Dice.com for niche technical roles using custom search parameters</li>
+                <li>Centralized job application tracking system powered by real-time Google Sheets synchronization</li>
+                <li>Instant mobile alerts for high-priority listings via Telegram integration, enabling rapid response times</li>
+                <li>Scalable boilerplate for web scraping and data aggregation workflows using n8n's low-code platform</li>
               </ul>
             </section>
 
@@ -408,7 +410,7 @@ const DiceJobSearchPage = ({
               </div>
               <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                  <li>
+                  <li className="leading-relaxed">
                     Open folder:&nbsp;
                     <a
                       className="underline underline-offset-2 break-words"
@@ -420,21 +422,25 @@ const DiceJobSearchPage = ({
                       GitHub - Dice Job Search
                     </a>
                   </li>
-                  <li>
-                    Import the workflow JSON(s): In n8n go to <b>Workflows → Import</b> and upload the{" "}
-                    <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
+                  <li className="leading-relaxed">
+                    Import workflow:&nbsp;
+                    In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.
                   </li>
-                  <li>
-                    Add credentials: job source (Dice), Google Sheets, and alert integrations (Email/Telegram).
+                  <li className="leading-relaxed">
+                    Add credentials:&nbsp;
+                    Configure Dice source, Google Sheets, and your alert integrations (Email/Telegram).
                   </li>
-                  <li>
-                    Set parameters: keywords, tech stacks, cities/remote type, de-duplication secret/hash field.
+                  <li className="leading-relaxed">
+                    Set parameters:&nbsp;
+                    Define keywords, tech stacks, cities/remote type, and de-duplication logic.
                   </li>
-                  <li>
-                    Enable <b>Cron</b> schedule and/or <b>Webhook</b> for automated or manual launches.
+                  <li className="leading-relaxed">
+                    Enable:&nbsp;
+                    Turn on the <b>Cron</b> schedule or use the <b>Webhook</b> for on-demand execution.
                   </li>
-                  <li>
-                    Test runs—make sure sheets and notifications update as expected—then enable!
+                  <li className="leading-relaxed">
+                    Test:&nbsp;
+                    Run manually to verify data flow to sheets and notifications before full deployment.
                   </li>
                 </ol>
               </div>

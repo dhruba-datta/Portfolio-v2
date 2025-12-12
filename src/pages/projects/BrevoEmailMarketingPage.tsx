@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  Globe2,
   Webhook,
   FileJson,
   Code2,
@@ -52,52 +51,50 @@ const BrevoEmailMarketingPage = ({
     { name: "Workflow JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
-  // features (accordion) — tailored for Email Marketing Automation
+  // features (accordion)
   const features = [
     {
       id: "pipeline",
       icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Email Marketing Automation Pipeline",
-      summary: "Trigger → Enrich → Send → Track",
+      title: "End-to-End Campaign Automation",
+      summary: "Full lifecycle management from subscriber ingestion to analytics tracking",
       details: [
-        "Trigger workflow via Webhook or schedule",
-        "Fetch subscriber data from Google Sheets or Webflow CMS",
-        "Enrich contact data with custom fields and tags",
-        "Send personalized emails via Brevo SMTP API",
-        "Track delivery, opens, clicks and bounces automatically",
+        "Automated polling of multiple data sources (Sheets, Webflow) to detect new qualified leads",
+        "Dynamic enrichment of user profiles with behavioral tags and custom attribute mapping",
+        "Orchestrated dispatch of personalized HTML email templates via Brevo's SMTP relay",
       ],
     },
     {
       id: "integrations",
       icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Integrations",
-      summary: "Brevo, Google Sheets, Webflow CMS",
+      title: "Unified Data Ecosystem",
+      summary: "Seamless synchronization across CRM, CMS, and marketing platforms",
       details: [
-        "Brevo for email delivery and tracking",
-        "Google Sheets for subscriber lists and campaign data",
-        "Webflow CMS for dynamic content management",
+        "Bi-directional sync with Google Sheets for real-time audience segmentation and status updates",
+        "Deep integration with Webflow CMS to pull dynamic content blocks for newsletters",
+        "Native Brevo API connectivity for high-deliverability sending and granular event tracking",
       ],
     },
     {
       id: "blocks",
       icon: <Code2 className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Reusable Building Blocks",
-      summary: "Set/Merge fields, batch processing, error handling",
+      title: "Advanced Segmentation & Logic",
+      summary: "Data-driven control flow for hyper-targeted messaging",
       details: [
-        "Batch process subscribers for large campaigns",
-        "Validate and map fields for personalized email generation",
-        "Split campaigns for A/B testing and parallel processing",
+        "Conditional routing logic to split audiences based on engagement scores or user attributes",
+        "Batch processing capabilities handling thousands of contacts efficiently without API timeouts",
+        "Regex-based data validation ensuring only clean, formatted email addresses enter the sending queue",
       ],
     },
     {
       id: "observability",
       icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Observability & Safety",
-      summary: "Error handling, notifications, audit trails",
+      title: "Enterprise-Grade Reliability",
+      summary: "Production-ready error handling and execution monitoring",
       details: [
-        "Error guards and notifications for failures in integrations",
-        "Traceable workflow steps for debugging and audit",
-        "Rate limiting compliance for API usage",
+        "Automated error catching nodes that log failures to Slack/Telegram for immediate resolution",
+        "Idempotent workflow design preventing duplicate sends during retries or network blips",
+        "Comprehensive execution history for auditing compliance and debugging delivery issues",
       ],
     },
   ];
@@ -123,7 +120,7 @@ const BrevoEmailMarketingPage = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -178,7 +175,9 @@ const BrevoEmailMarketingPage = ({
                 Brevo Email Marketing (n8n)
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                Automate your email marketing campaigns with this n8n workflow. It pulls subscriber data from Google Sheets or Webflow CMS, sends personalized emails via Brevo, and tracks engagement automatically. This single automation saves you 15+ hours a month by eliminating manual tasks, freeing you to focus on creating great content.
+                A sophisticated email automation system engineered with n8n to streamline sophisticated marketing workflows. 
+                By orchestrating data flow between Google Sheets, Webflow CMS, and Brevo's transactional API, this solution enables hyper-personalized communication at scale. 
+                It replaces manual list management with intelligent, event-driven triggers, ensuring the right message reaches the right user at the perfect moment.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -331,31 +330,27 @@ const BrevoEmailMarketingPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Visual builder, credentials, error workflows.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook:</b> Manual or integration-triggered runs.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request:</b> Connect to REST APIs as needed.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Code Node (JS):</b> Transform, template, and validate payloads.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Subscriber lists and campaign data.</span>
+                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Workflow orchestration engine managing complex data transformations and API choreography.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiBrevo className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Brevo:</b> Email delivery and engagement tracking.</span>
+                  <span className="text-sm sm:text-base"><b>Brevo (Sendinblue):</b> Transactional email infrastructure providing high-deliverability SMTP services.</span>
+                </li>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Flexible database for managing subscriber lists, campaign logs, and analytics.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiWebflow className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webflow CMS:</b> Dynamic content management.</span>
+                  <span className="text-sm sm:text-base"><b>Webflow CMS:</b> Source of truth for dynamic content assets used in automated newsletters.</span>
+                </li>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Webhook Node:</b> Real-time listener enabling instant triggers from signup forms or external apps.</span>
+                </li>
+                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
+                  <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Code Node (JS):</b> Custom Javascript logic for parsing JSON payloads and formatting HTML strings.</span>
                 </li>
               </ul>
             </section>
@@ -367,11 +362,10 @@ const BrevoEmailMarketingPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Automate newsletter campaigns from Google Sheets or Webflow CMS</li>
-                <li>Send personalized emails with dynamic content blocks</li>
-                <li>Track email engagement metrics (opens, clicks, bounces)</li>
-                <li>Segment subscribers based on engagement and behavior</li>
-                <li>Centralize campaign management with no manual copying between tools</li>
+                <li>Automated weekly newsletters aggregating content from Webflow CMS and dispatching via Brevo</li>
+                <li>Intelligent lead nurturing sequences triggered by real-time updates in Google Sheets pipelines</li>
+                <li>Transactional system alerts ensuring critical notifications are delivered with high reliability</li>
+                <li>Scalable boilerplate for any email marketing workflow requiring advanced segmentation and personalization</li>
               </ul>
             </section>
 
@@ -397,16 +391,24 @@ const BrevoEmailMarketingPage = ({
                     </a>
                   </li>
                   <li className="leading-relaxed">
-                    Import workflow JSON:&nbsp;Go to <b>Workflows → Import</b> in n8n and upload the included <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">.json</code>.
+                    Import workflow:&nbsp;
+                    In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.
                   </li>
-                  <li>
-                    Configure credentials:&nbsp;Add your Brevo API key, Google Sheets API key, and Webflow API key.
+                  <li className="leading-relaxed">
+                    Add credentials:&nbsp;
+                    Configure Brevo API key, Google Sheets, and Webflow API token.
                   </li>
-                  <li>
-                    Trigger a test run:&nbsp;Use the manual trigger to process input from Google Sheets or Webflow CMS. The workflow will automatically send emails via Brevo and track engagement metrics.
+                  <li className="leading-relaxed">
+                    Set parameters:&nbsp;
+                    Define your sender identity, template IDs, and campaign tags.
                   </li>
-                  <li>
-                    Review engagement reports:&nbsp;See delivery, open, and click rates in your Brevo dashboard. Continue campaign optimization directly in Brevo.
+                  <li className="leading-relaxed">
+                    Enable:&nbsp;
+                    Activate the <b>Webhook</b> trigger or set up a polling schedule for new rows/items.
+                  </li>
+                  <li className="leading-relaxed">
+                    Test:&nbsp;
+                    Trigger a manual run to send a test email to your own address and verify Brevo tracking.
                   </li>
                 </ol>
               </div>

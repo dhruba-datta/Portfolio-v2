@@ -60,78 +60,78 @@ const KingsleyGroupPage = ({
     {
       id: "redesign",
       icon: <BadgeCheck className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Full Website Redesign",
-      summary: "Modern UI, improved IA, and conversion-focused layouts",
+      title: "Strategic Website Redesign",
+      summary: "Modern, high-conversion UI/UX overhaul focusing on usability and brand aesthetics",
       details: [
-        "Reworked information architecture (clear menus & URL strategy)",
-        "Reusable templates for Services, Industries, and Locations",
-        "Consistent visual system and readable typography",
+        "Completely reworked information architecture with intuitive navigation menus and logical URL structures",
+        "Development of modular, reusable templates for varied content needs across Services, Industries, and Location pages",
+        "Implementation of a cohesive visual design system with accessible color palettes and readable typography standards",
       ],
     },
     {
       id: "seo",
       icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "SEO & Content Hub",
-      summary: "On-page SEO, schema, internal linking, and content strategy",
+      title: "Advanced SEO & Content Strategy",
+      summary: "Comprehensive on-page and technical SEO implementation for maximum organic visibility",
       details: [
-        "Yoast titles, meta, Open Graph & social previews",
-        "FAQ/HowTo/Article schema where relevant",
-        "Topic clusters & internal links to boost discoverability",
+        "Granular control over titles, meta descriptions, and Open Graph tags via Yoast SEO integration",
+        "Deployment of structured data (Schema markup) for FAQs, Articles, and How-tos to capture rich snippets",
+        "Strategic topic clustering and automated internal linking structures to enhance domain authority and crawlability",
       ],
     },
     {
       id: "blog",
       icon: <FileJson className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Blogs, News & Media",
-      summary: "Editorial workflow with categories, tags & related posts",
+      title: "Dynamic Blog & Media Hub",
+      summary: "Sophisticated editorial workflow management system for content-rich publishing",
       details: [
-        "Custom taxonomies for cleaner content organization",
-        "Featured image standards + author/profile structure",
-        "Related posts & ‘latest’ widgets for engagement",
+        "Custom taxonomies and categorization for streamlined organization of diverse content types",
+        "Standardized featured image protocols and rich author profiles to build thought leadership credentials",
+        "Intelligent 'Related Posts' logic and 'Latest Updates' widgets to drive sustained user engagement",
       ],
     },
     {
       id: "resources",
       icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Resources Library",
-      summary: "Downloadable assets & case studies with tracking",
+      title: "Digital Resources Library",
+      summary: "Centralized repository for downloadable assets enabling lead generation and sales enablement",
       details: [
-        "CPT for Resources (files, whitepapers, brochures)",
-        "Clear CTAs; optional gated/ungated strategy",
-        "UTM-ready links for campaign attribution",
+        "Custom Post Type (CPT) architecture dedicated to managing Whitepapers, Brochures, and Technical Files",
+        "Strategic placement of Call-to-Actions (CTAs) with flexible gated/ungated content permission controls",
+        "Full integration of UTM-ready links to accurately track campaign performance and attribution",
       ],
     },
     {
       id: "performance",
       icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Performance & Core Web Vitals",
-      summary: "Caching, CDN, lazy-loading, and media optimization",
+      summary: "Technical optimizations ensuring rapid load times and passing Core Web Vitals metrics",
       details: [
-        "Cloudflare CDN + page caching",
-        "Responsive images, WebP & lazy-loading",
-        "Minified assets and reduced third-party bloat",
+        "Global content delivery and edge caching powered by Cloudflare CDN integration",
+        "Next-gen image optimization (WebP), responsive sizing, and intelligent lazy-loading implementation",
+        "Aggressive asset minification and deferral of non-critical third-party scripts to reduce blocking time",
       ],
     },
     {
       id: "accessibility",
       icon: <ShieldCheck className="w-4 sm:w-5 h-4 sm:h-5" />,
       title: "Accessibility & Compliance",
-      summary: "Baseline WCAG practices for usable, inclusive pages",
+      summary: "Commitment to inclusive design principles following WCAG guidelines",
       details: [
-        "Semantic headings and labelled forms",
-        "Keyboard-friendly navigation & focus states",
-        "Color contrast checks on critical components",
+        "Semantic HTML hierarchy with proper heading structures and accessible form labeling",
+        "Full keyboard navigability and visible focus indicators for power users and assistive technologies",
+        "Rigorous color contrast auditing to ensure readability for users with visual impairments",
       ],
     },
     {
       id: "analytics",
       icon: <Gauge className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Analytics & Events",
-      summary: "GA4 with meaningful events for content & CTA tracking",
+      title: "Data-Driven Analytics",
+      summary: "Robust tracking setup using GA4 to capture meaningful user interactions and conversion events",
       details: [
-        "Outbound link and file download events",
-        "Form submission tracking",
-        "Site search query capture for content insights",
+        "Precision tracking of high-value actions including outbound clicks, form fills, and file downloads",
+        "Detailed capture of site search queries to inform future content strategy and identify user intent",
+        "Custom event modeling to visualize the complete user journey from landing to conversion",
       ],
     },
   ];
@@ -157,7 +157,7 @@ const KingsleyGroupPage = ({
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0.1, 0.25, 0.5] }
     );
     toc.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -213,10 +213,11 @@ const KingsleyGroupPage = ({
                 Kingsley Group
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                Corporate WordPress redesign for an environmental engineering company. Added{" "}
-                <b>Resources</b>, <b>Blog</b>, and <b>News</b> sections, implemented end-to-end{" "}
-                <b>SEO</b>, optimized performance, and built a scalable content model for a
-                multi-location presence (Australia, Bangladesh, China).
+                A comprehensive corporate website redesign and development project for a leading environmental engineering firm. 
+                This platform features not just a visual overhaul but a robust, scalable digital infrastructure supporting an 
+                expanded content strategy with <b>Resources</b>, <b>Blog</b>, and <b>News</b> libraries. Implemented with end-to-end  
+                <b> SEO</b> best practices and performance optimization, it serves as a multi-regional digital headquarters for 
+                operations in Australia, Bangladesh, and China.
               </p>
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {chips.map((c) => (
@@ -359,43 +360,43 @@ const KingsleyGroupPage = ({
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FaWordpress className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>WordPress:</b> Custom theme setup, structured content model.
+                    <b>WordPress CMS:</b> Sophisticated custom theme development utilizing proper hierarchy and structured content models for long-term scalability.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoPhp className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>PHP 8:</b> Template logic and performance-minded hooks.
+                    <b>PHP 8:</b> Modern server-side scripting powering dynamic template logic, performance-optimized hooks, and secure data processing.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiMysql className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>MySQL:</b> Reliable data layer with query optimization.
+                    <b>MySQL:</b> Reliable and efficient relational database management system handling complex queries and structured data storage.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>ACF + Custom Post Types:</b> Resources, News, and flexible blocks.
+                    <b>ACF & Custom Post Types:</b> Advanced content architecture for managing bespoke data types like Resources, News, and flexible layout blocks.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiYoast className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>Yoast SEO:</b> Meta, sitemaps, schema integration.
+                    <b>Yoast SEO:</b> Industry-standard suite for complete on-page optimization, XML sitemap generation, and detailed schema integration.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGoogleanalytics className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>GA4:</b> Events for forms, downloads, and outbound links.
+                    <b>Google Analytics 4 (GA4):</b> Comprehensive analytics implementation tracking granular events like form submissions, file downloads, and interactions.
                   </span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCloudflare className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
                   <span className="text-sm sm:text-base">
-                    <b>Cloudflare:</b> CDN, caching, and security hardening.
+                    <b>Cloudflare:</b> Enterprise-grade Content Delivery Network (CDN) providing edge caching, DDoS protection, and security hardening.
                   </span>
                 </li>
               </ul>
@@ -408,11 +409,11 @@ const KingsleyGroupPage = ({
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
-                <li className="text-sm sm:text-base">Corporate site redesign for professional services</li>
-                <li className="text-sm sm:text-base">SEO-driven content hub (Blogs, News, Resources)</li>
-                <li className="text-sm sm:text-base">Sales enablement via downloadable resources</li>
-                <li className="text-sm sm:text-base">Multi-location service and regional landing pages</li>
-                <li className="text-sm sm:text-base">Editorial workflow for marketing teams</li>
+                <li className="text-sm sm:text-base">Corporate website redesign initiatives for mid-to-large professional services firms</li>
+                <li className="text-sm sm:text-base">Implementation of SEO-driven content hubs (Blogs, News, Resources) to drive organic growth</li>
+                <li className="text-sm sm:text-base">Digital sales enablement through centralized, tracked downloadable resource libraries</li>
+                <li className="text-sm sm:text-base">Architecture for multi-location businesses requiring regional landing pages and content localization</li>
+                <li className="text-sm sm:text-base">Streamlined editorial workflows designed for marketing teams to publish without developer intervention</li>
               </ul>
             </section>
 

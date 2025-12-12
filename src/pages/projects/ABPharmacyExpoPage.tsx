@@ -61,89 +61,89 @@ const ABPharmacyExpoPage = ({
     {
       id: "native",
       icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Cross-Platform Native Experience",
-      summary: "Optimized for iOS & Android with native feel",
+      title: "Unified Cross-Platform Architecture",
+      summary: "Single codebase ensuring consistent, high-performance execution on both iOS and Android platforms",
       details: [
-        "Single codebase deployed to both platforms",
-        "Smooth navigation, gestures & haptics",
-        "Platform-specific UI polish & performance",
+        "Utilization of the Expo ecosystem for rapid iteration and seamless over-the-air updates",
+        "Implementation of native navigation patterns (stacks, tabs) for an intuitive, platform-specific feel",
+        "Optimized gesture handling and haptic feedback to enhance tactile user interaction",
       ],
     },
     {
       id: "schedule",
       icon: <Calendar className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Expo Schedule Management",
-      summary: "Real-time timeline, sessions & reminders",
+      title: "Live Interactive Scheduling",
+      summary: "Dynamic agenda management with real-time session tracking and reminders",
       details: [
-        "Interactive agenda with speaker/session details",
-        "Live updates & notifications",
-        "Calendar integration & offline caching",
+        "Personalized timeline view allowing attendees to bookmark and manage their interests",
+        "Instant push notifications for session starts, room changes, or keynote announcements",
+        "Smart caching strategies ensuring schedule availability even in offline connectivity zones",
       ],
     },
     {
       id: "directory",
       icon: <Store className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Exhibitor Directory",
-      summary: "Searchable profiles with booth & contact info",
+      title: "Smart Exhibitor Directory",
+      summary: "Searchable database connecting attendees with exhibitors via interactive profiles",
       details: [
-        "Rich exhibitor profiles & product highlights",
-        "Advanced search & filtering",
-        "Interactive map & booth locations",
+        "Rich exhibitor profiles featuring company bios, key contacts, and booth location integration",
+        "Advanced filtering capabilities to sort exhibitors by product category or hall location",
+        "Interactive floor map linking directly to exhibitor details for streamlined navigation",
       ],
     },
     {
       id: "catalog",
       icon: <Package className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Product & Service Catalog",
-      summary: "Categorized products with details & status",
+      title: "Comprehensive Digital Catalog",
+      summary: "Extensive product showcase with detailed specifications and comparison tools",
       details: [
-        "Clear categories & high-quality images",
-        "Specs, availability & pricing fields",
-        "Comparisons, recommendations & favorites",
+        "High-fidelity image galleries with zoom capabilities for deep product inspection",
+        "Detailed specification sheets including pricing, availability, and technical documentation",
+        "Favorites list functionality allowing users to shortlist interesting products for later review",
       ],
     },
     {
       id: "search",
       icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Real-Time Search & Filters",
-      summary: "Instant results across content types",
+      title: "Instant Global Search",
+      summary: "High-speed text search engine spanning products, exhibitors, and sessions",
       details: [
-        "Fast search across products & exhibitors",
-        "Multi-criteria filters, history & suggestions",
-        "Optional voice search pattern",
+        "Unified search bar providing instantaneous results across all app content modules",
+        "Smart autocomplete suggestions and history tracking to speed up information retrieval",
+        "Multi-parameter filtering to narrow down search results by type, date, or category",
       ],
     },
     {
       id: "components",
       icon: <Code className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Modular Components",
-      summary: "Reusable RN components with consistent UX",
+      title: "Modular Component Library",
+      summary: "Scalable UI system built with reusable, atomic React Native elements",
       details: [
-        "Shared card, list & detail components",
-        "Custom nav transitions & sheets",
-        "Forms with validation & errors",
+        "Consistent design language across all screens enforced by a custom theme provider",
+        "Highly reusable components (cards, lists, modals) reducing maintenance overhead",
+        "Robust form handling with real-time validation for user feedback and error prevention",
       ],
     },
     {
       id: "features",
       icon: <Bell className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Advanced Mobile Features",
-      summary: "Notifications, offline, and integrations",
+      title: "Robust Offline Capabilities",
+      summary: "Ensuring critical functionality persists without reliable internet connectivity",
       details: [
-        "Push notifications for live updates",
-        "Offline data caching",
-        "Google Sheets login integration (demo)",
+        "Local data caching strategies to store schedules and directories for offline access",
+        "Background sync mechanisms to update content silently when connectivity is restored",
+        "Graceful degradation of features to maintain usability in low-bandwidth trade show environments",
       ],
     },
     {
       id: "persistence",
       icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Local Persistence",
-      summary: "AsyncStorage for session & preferences",
+      title: "Secure Local Persistence",
+      summary: "Reliable client-side storage for managing user sessions and preferences",
       details: [
-        "Persisted auth state & preferences",
-        "Pluggable data layer to swap APIs",
-        "Predictable storage utilities",
+        "Encrypted storage of user authentication tokens and sensitive profile data",
+        "Persisted application state ensuring users return to their last-viewed screen",
+        "Flexible data layer abstraction allowing seamless switching between local and remote sources",
       ],
     },
   ];
@@ -223,9 +223,9 @@ const ABPharmacyExpoPage = ({
                 AB Pharmacy Expo
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A production-ready React Native Expo app for pharmacy trade shows: live schedules, exhibitor
-                directory, product catalogs, and instant search, built with modular components and offline-first
-                UX.
+                A production-ready cross-platform mobile application engineered with React Native and Expo to serve as a comprehensive digital companion for pharmacy trade shows. 
+                Featuring real-time event scheduling, an interactive exhibitor directory, detailed product catalogs, and offline-first functionalities, 
+                this app delivers a seamless native experience on both iOS and Android devices.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
@@ -379,27 +379,27 @@ const ABPharmacyExpoPage = ({
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Native:</b> Native iOS/Android with one codebase.</span>
+                  <span className="text-sm sm:text-base"><b>React Native:</b> Framework for building native applications using React and the platform's native capabilities.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiExpo className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Expo:</b> Build, test, deploy & access device APIs.</span>
+                  <span className="text-sm sm:text-base"><b>Expo Framework:</b> Toolchain for rapid development, testing on physical devices, and simplified builds using EAS.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>JavaScript (ES6+):</b> Async flows, state & API logic.</span>
+                  <span className="text-sm sm:text-base"><b>JavaScript (ES6+):</b> Modern JS features handling complex asynchronous data flows, state management, and business logic.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>React Navigation:</b> Native navigation patterns.</span>
+                  <span className="text-sm sm:text-base"><b>React Navigation:</b> Robust library managing stack, tab, and drawer navigation with native look-and-feel transitions.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <GrStorage className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>AsyncStorage:</b> Offline cache & preferences.</span>
+                  <span className="text-sm sm:text-base"><b>AsyncStorage:</b> Key-value storage system for persisting user data, preferences, and session state locally on the device.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Lightweight demo auth/data integration.</span>
+                  <span className="text-sm sm:text-base"><b>Google Sheets API:</b> Flexible backend solution allowing non-technical staff to manage app content dynamically.</span>
                 </li>
               </ul>
             </section>
@@ -411,10 +411,10 @@ const ABPharmacyExpoPage = ({
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Pharmacy & medical expos (attendee companion app)</li>
-                <li>Trade shows needing schedules, exhibitors & catalogs</li>
-                <li>Client demos for native app capability & UX</li>
-                <li>Starter kit for event-industry mobile products</li>
+                <li>Essential companion app for attendees at pharmacy & medical trade shows</li>
+                <li>Digital information hub for managing large-scale events with hundreds of exhibitors</li>
+                <li>Showcase of native mobile app capabilities for client demonstrations and prototyping</li>
+                <li>White-label starter template for event industry mobile products</li>
               </ul>
             </section>
 

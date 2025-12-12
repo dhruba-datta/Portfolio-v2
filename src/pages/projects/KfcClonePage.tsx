@@ -61,48 +61,74 @@ const KfcClonePage = ({
     {
       id: "modern-ui",
       icon: <BadgeCheck className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Modern UI/UX",
-      summary: "Minimal layout with bold type & soft depth",
+      title: "Modern UI/UX Design",
+      summary: "Aesthetically pleasing minimal layout featuring bold typography and subtle depth effects",
       details: [
-        "Elegant spacing and readable line lengths",
-        "Subtle mesh/dots background for depth",
-        "Consistent pills and glass cards",
+        "Elegant whitespace management and consistent component spacing for maximum readability",
+        "Sophisticated visual depth using mesh gradients, dot patterns, and glassmorphism cards",
+        "Consistent design language with pill-shaped buttons and interactive hover states",
+        "Intuitive navigation patterns ensuring a seamless user journey from discovery to checkout",
       ],
     },
     {
       id: "multilingual",
       icon: <Languages className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Multilingual Support",
-      summary: "Real-time language switch (EN/BN/HI)",
-      details: ["Vue I18n integration", "Preference persistence", "Instant updates"],
+      title: "Advanced Multilingual Support",
+      summary: "Seamless real-time language switching capabilities (English, Bengali, Hindi)",
+      details: [
+        "Integrated Vue I18n plugin for instant, page-reload-free content translation",
+        "Automatic persistence of user language preferences using browser local storage",
+        "Comprehensive localization covering menus, UI labels, and system notifications",
+        "Scalable translation architecture allowing easy addition of future languages",
+      ],
     },
     {
       id: "workflow",
       icon: <ShoppingCart className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Ordering Workflow",
-      summary: "Search → Add to cart → Checkout",
-      details: ["Cards & modal details", "Live cart totals", "Mock auth + order history"],
+      title: "Full-Cycle Ordering Workflow",
+      summary: "End-to-end simulation of the e-commerce flow: Discovery -> Cart -> Checkout",
+      details: [
+        "Interactive product cards with detailed modals for customization and add-ons",
+        "Real-time cart state management with instant price updates and total calculations",
+        "Simulated checkout process with mock authentication and order history tracking",
+        "Smart cart validation and user feedback mechanisms for a smooth experience",
+      ],
     },
     {
       id: "responsive",
       icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Responsive by default",
-      summary: "Mobile-first, touch-friendly UI",
-      details: ["Adaptive layout", "Tap targets & keyboard access"],
+      title: "Mobile-First Responsiveness",
+      summary: "Adaptive interface designed primarily for touch interaction on mobile devices",
+      details: [
+        "Fluid grid layouts that gracefully adapt to smartphones, tablets, and desktops",
+        " Optimized touch targets and gesture-friendly interactions for mobile users",
+        "Keyboard accessible navigation ensuring usability for all input methods",
+        "Consistent visual fidelity and functional parity across all screen sizes",
+      ],
     },
     {
       id: "performance",
       icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Performance minded",
-      summary: "Small deps, lazy images, SPA SEO basics",
-      details: ["Vue Router", "Minimal deps", "Lazy image loading"],
+      title: "Performance Optimization",
+      summary: "Engineered for speed with modern build tools and best practices",
+      details: [
+        "Powered by Vite for blazing-fast development server and optimized production builds",
+        "Minimal bundle size through tree-shaking and efficient dependency management",
+        "Implementation of lazy loading for images and components to improve Core Web Vitals",
+        "SPA architecture ensures instant page transitions without full reloads",
+      ],
     },
     {
       id: "persistence",
       icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Data persistence",
-      summary: "API-ready cart & session storage",
-      details: ["Cart/session in localStorage", "Easy swap to real APIs"],
+      title: "Robust Data Persistence",
+      summary: "Reliable state retention across sessions using browser storage APIs",
+      details: [
+        "Secure storage of cart contents and user sessions in localStorage",
+        "Persisted delivery location preferences using Cookies and convenient retrieval",
+        "Integrated map interface (Leaflet.js) for precise delivery address selection",
+        "designed with API-ready architectural patterns for easy backend integration",
+      ],
     },
   ];
   const [expanded, setExpanded] = useState<string | null>("modern-ui");
@@ -182,8 +208,10 @@ const KfcClonePage = ({
                 KFC Clone
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A sleek, single-page food ordering app inspired by KFC Bangladesh. Built with Vue 3 and Tailwind, focused on
-                performance, multilingual UX, and a clean component architecture.
+                A high-fidelity, single-page food ordering application designed to replicate the premium digital experience of KFC. 
+                Built with the modern Vue 3 ecosystem and utility-first Tailwind CSS, this project delivers a lightning-fast, 
+                interactive, and responsive user interface. It features advanced capabilities such as real-time multilingual support, 
+                dynamic cart management, and location-based services powered by Leaflet.js, all optimized for performance and scalability.
               </p>
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {chips.map((c) => (
@@ -336,27 +364,27 @@ const KfcClonePage = ({
               <ul className="space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FaVuejs className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Vue 3:</b> Components, routing & SPA.</span>
+                  <span className="text-sm sm:text-base"><b>Vue 3:</b> Progressive JavaScript framework leveraging the Composition API for building reactive, scalable, and modular user interfaces.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <RiTailwindCssFill className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first styling.</span>
+                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first CSS framework enabling rapid UI development with a customizable and consistent design system.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoTypescript className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>TypeScript/ES6+:</b> Safer, scalable code.</span>
+                  <span className="text-sm sm:text-base"><b>TypeScript/ES6+:</b> Strongly typed superset of JavaScript ensuring type safety, better developer tooling, and maintainable codebase.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Languages className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Vue I18n:</b> Multilingual UI & persistence.</span>
+                  <span className="text-sm sm:text-base"><b>Vue I18n:</b> Powerful internationalization plugin handling seamless content translation and language persistence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <GrStorage className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>localStorage:</b> Cart/session persistence.</span>
+                  <span className="text-sm sm:text-base"><b>localStorage:</b> Browser-based storage API for maintaining cart state and user session data across page reloads.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoNetlify className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Netlify:</b> Deploy & host.</span>
+                  <span className="text-sm sm:text-base"><b>Netlify:</b> Modern hosting platform providing continuous deployment, Global CDN distribution, and serverless functions.</span>
                 </li>
               </ul>
             </section>
@@ -368,10 +396,11 @@ const KfcClonePage = ({
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
-                <li className="text-sm sm:text-base">Food ordering prototypes & demos</li>
-                <li className="text-sm sm:text-base">Real projects with quick API hookup</li>
-                <li className="text-sm sm:text-base">Portfolios showcasing SPA/i18n/UX</li>
-                <li className="text-sm sm:text-base">Training projects for Vue 3</li>
+                <li className="text-sm sm:text-base">Rapid prototyping of food delivery or e-commerce startups</li>
+                <li className="text-sm sm:text-base">Demonstration of advanced Frontend capabilities with Vue 3 and modern CSS</li>
+                <li className="text-sm sm:text-base">Educational resource for implementing internationalization (i18n) in web apps</li>
+                <li className="text-sm sm:text-base">Template for businesses needing a location-aware ordering system</li>
+                <li className="text-sm sm:text-base">Showcase of performant Single Page Application (SPA) architecture</li>
               </ul>
             </section>
 
