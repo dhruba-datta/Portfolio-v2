@@ -1,68 +1,67 @@
 // scripts/generate-sitemap.js
-// Automated sitemap generator for Vite + React projects
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { SitemapStream, streamToPromise } from "sitemap";
 
-// Get __dirname equivalent for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const BASE_URL = "https://dhruba-datta.netlify.app";
-const pagesDir = path.join(__dirname, "../src/pages");
+const projectsDataPath = path.join(__dirname, "../src/data/projects.ts");
 
-// Helper to convert PascalCase or camelCase to kebab-case
-function toKebabCase(str) {
-  return str
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
-    .toLowerCase();
+// Extract IDs from projects.ts using regex
+function getProjectIds() {
+  try {
+    const tsContent = fs.readFileSync(projectsDataPath, "utf-8");
+    // Regex to match: id: 'some-id' or id: "some-id"
+    const idRegex = /id:\s*['"]([\w-]+)['"]/g;
+    const ids = [];
+    let match;
+    while ((match = idRegex.exec(tsContent)) !== null) {
+      ids.push(match[1]);
+    }
+    return ids;
+  } catch (err) {
+    console.error("Error reading projects.ts:", err);
+    return [];
+  }
 }
 
 function getRoutes() {
-  const routes = [];
-  // Top-level pages
-  const pageFiles = fs.readdirSync(pagesDir);
-  for (const file of pageFiles) {
-    const fullPath = path.join(pagesDir, file);
-    const stat = fs.statSync(fullPath);
-    if (stat.isDirectory() && file === "projects") {
-      // Handle project subpages
-      const projectFiles = fs.readdirSync(fullPath);
-      for (const projFile of projectFiles) {
-        if (projFile.endsWith(".tsx")) {
-          const name = projFile.replace(/Page\.tsx$/, "").replace(/\.tsx$/, "");
-          routes.push(`/projects/${toKebabCase(name)}`);
-        }
-      }
-    } else if (stat.isFile() && file.endsWith(".tsx")) {
-      if (file === "HomePage.tsx") {
-        routes.push("/");
-      } else if (file === "AboutPage.tsx") {
-        routes.push("/about");
-      } else if (file === "ContactPage.tsx") {
-        routes.push("/contact");
-      } else if (file === "ProjectsPage.tsx") {
-        routes.push("/projects");
-      } // Exclude NotFoundPage.tsx
-    }
-  }
+  // Static routes
+  const routes = ["/", "/about", "/contact", "/projects"];
+
+  // Dynamic project routes
+  const projectIds = getProjectIds();
+  projectIds.forEach((id) => {
+    routes.push(`/projects/${id}`);
+  });
+
   return routes;
 }
 
-// Run the script
 (async () => {
-  const routes = getRoutes();
-  const sitemap = new SitemapStream({ hostname: BASE_URL });
-  routes.forEach((route) => {
-    sitemap.write({ url: route, changefreq: "weekly", priority: 0.7 });
-  });
-  sitemap.end();
-  const data = await streamToPromise(sitemap);
-  fs.writeFileSync(
-    path.join(__dirname, "../public/sitemap.xml"),
-    data.toString()
-  );
-  console.log("sitemap.xml generated!");
+  try {
+    const routes = getRoutes();
+    const sitemap = new SitemapStream({ hostname: BASE_URL });
+
+    routes.forEach((route) => {
+      sitemap.write({ url: route, changefreq: "weekly", priority: 0.7 });
+    });
+
+    sitemap.end();
+    const data = await streamToPromise(sitemap);
+    
+    fs.writeFileSync(
+      path.join(__dirname, "../public/sitemap.xml"),
+      data.toString()
+    );
+    
+    console.log("✅ sitemap.xml generated successfully with correct project IDs!");
+    console.log(`Generated ${routes.length} routes.`);
+  } catch (error) {
+    console.error("Failed to generate sitemap:", error);
+    process.exit(1);
+  }
 })();
