@@ -10,23 +10,20 @@ interface ProjectsProps {
 
 const Projects = ({ initialCategory }: ProjectsProps) => {
   const [activeCategory, setActiveCategory] = useState<'all' | string>(initialCategory && ['all','development','app','automation'].includes(initialCategory) ? initialCategory : 'all');
-  const [mounted, setMounted] = useState(false); // prevent first-time thumb animation
-  const [visibleCount, setVisibleCount] = useState(6); // load-more
-  const [projectsLoaded, setProjectsLoaded] = useState(false); // track if all projects loaded
+  const [mounted, setMounted] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [projectsLoaded, setProjectsLoaded] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    // Enable animations after first paint to avoid the initial "All" slide-in
     const id = requestAnimationFrame(() => setMounted(true));
-    // Check sessionStorage for loaded flag
     if (sessionStorage.getItem('projectsLoaded') === 'true') {
       setProjectsLoaded(true);
-      setVisibleCount(projects.length); // show all
+      setVisibleCount(projects.length);
     }
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Reset visible items when category changes
   useEffect(() => {
     if (!projectsLoaded) {
       setVisibleCount(6);
@@ -42,84 +39,16 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
 
-  // Decorative dots for the minimal background (stable across renders)
-  const bgDots = useMemo(
-    () =>
-      Array.from({ length: 10 }).map((_, i) => ({
-        left: `${6 + i * 9}%`,
-        top: `${18 + i * 7}%`,
-        size: 10 + (i % 3) * 2,
-        opacity: 0.05 + (i % 4) * 0.02,
-        duration: 7 + i,
-        delay: i * 0.6,
-      })),
-    []
-  );
-
   return (
-    <section id="projects" className="relative py-10 sm:py-12 lg:py-12 overflow-hidden">
-      {/* Minimal, blue-leaning background */}
+    <section id="projects" className="relative py-10 sm:py-12 lg:py-12 overflow-hidden bg-white dark:bg-gray-900">
+      {/* Simplified background - no grid pattern */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Soft mesh glows */}
-        <motion.div
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.0 }}
-          style={{
-            background:
-              'radial-gradient(900px 520px at 70% -5%, rgba(59,130,246,0.12), transparent 70%), radial-gradient(800px 520px at 10% 105%, rgba(99,102,241,0.10), transparent 72%)',
-          }}
-        />
-        {/* Blue orbs */}
-        <motion.div
-          className="absolute -top-24 left-1/4 w-[26rem] h-[26rem] rounded-full blur-3xl bg-gradient-to-tr from-blue-500/18 via-indigo-500/14 to-cyan-500/16"
-          animate={
-            prefersReducedMotion ? {} : { y: [0, 18, 0], x: [0, 24, 0], scale: [1, 1.04, 1] }
-          }
-          transition={prefersReducedMotion ? {} : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute -bottom-20 right-1/5 w-[22rem] h-[22rem] rounded-full blur-3xl bg-gradient-to-tl from-sky-400/16 via-blue-500/14 to-indigo-600/14"
-          animate={
-            prefersReducedMotion ? {} : { y: [0, -16, 0], x: [0, -18, 0], scale: [1, 1.05, 1] }
-          }
-          transition={prefersReducedMotion ? {} : { duration: 11, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        {/* Subtle masked grid */}
-        <div className="absolute inset-0 opacity-10 [mask-image:radial-gradient(ellipse_60%_45%_at_50%_8%,#000_70%,transparent_120%)]
-                        bg-[linear-gradient(to_right,#64748b33_1px,transparent_1px),linear-gradient(to_bottom,#64748b33_1px,transparent_1px)]
-                        dark:bg-[linear-gradient(to_right,#93c5fd33_1px,transparent_1px),linear-gradient(to_bottom,#93c5fd33_1px,transparent_1px)]
-                        bg-[size:18px_26px]" />
-        {/* Floating micro-dots */}
-        {bgDots.map((d, i) => (
-          <motion.span
-            key={i}
-            className="absolute rounded-full bg-blue-400/50 dark:bg-sky-300/50"
-            style={{
-              left: d.left,
-              top: d.top,
-              width: d.size,
-              height: d.size,
-              filter: 'blur(1px)',
-              opacity: d.opacity,
-            }}
-            initial={{ y: 0 }}
-            animate={prefersReducedMotion ? {} : { y: [0, -14, 0] }}
-            transition={
-              prefersReducedMotion ? {} : { duration: d.duration, delay: d.delay, repeat: Infinity, ease: 'easeInOut' }
-            }
-          />
-        ))}
-        {/* Very gentle rotating sheen */}
-        <motion.div
+        {/* Soft gradient background */}
+        <div 
           className="absolute inset-0"
           style={{
-            background:
-              'conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,0.05), transparent 30%, rgba(255,255,255,0.05) 60%, transparent 80%, rgba(255,255,255,0.05))',
+            background: 'radial-gradient(circle at 30% 20%, rgba(59,130,246,0.08), transparent 50%), radial-gradient(circle at 70% 80%, rgba(99,102,241,0.06), transparent 50%)',
           }}
-          animate={prefersReducedMotion ? {} : { rotate: 360 }}
-          transition={prefersReducedMotion ? {} : { duration: 80, repeat: Infinity, ease: 'linear' }}
         />
       </div>
 
@@ -132,10 +61,9 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
           <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white text-center">
             Featured Work
           </h2>
-          
         </div>
 
-        {/* Filters: Modern segmented control with no initial slide-in */}
+        {/* Filters */}
         <div className="flex justify-center mb-6 sm:mb-7 lg:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -156,7 +84,6 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                   className={`relative z-10 px-3 sm:px-3.5 py-1.5 sm:py-1.5 rounded-full text-sm sm:text-sm font-medium inline-flex items-center gap-1.5 sm:gap-1.5 transition-all focus-override
                     ${isActive ? 'text-white' : 'text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300'}`}
                 >
-                  {/* Active background: static on first paint, animated thereafter */}
                   {isActive ? (
                     mounted ? (
                       <>
@@ -165,8 +92,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                           className="absolute inset-0 -z-10 rounded-full ring-1 ring-inset ring-blue-300/40 dark:ring-sky-400/25"
                           transition={{ type: 'spring', stiffness: 500, damping: 36 }}
                           style={{
-                            background:
-                              'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
+                            background: 'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
                           }}
                         />
                         <motion.span
@@ -174,8 +100,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                           className="absolute -inset-[2px] -z-20 rounded-full blur-md"
                           transition={{ type: 'spring', stiffness: 500, damping: 36 }}
                           style={{
-                            background:
-                              'radial-gradient(70% 120% at 50% 50%, rgba(59,130,246,0.35), rgba(99,102,241,0.22) 60%, transparent 80%)',
+                            background: 'radial-gradient(70% 120% at 50% 50%, rgba(59,130,246,0.35), rgba(99,102,241,0.22) 60%, transparent 80%)',
                           }}
                         />
                       </>
@@ -184,15 +109,13 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                         <span
                           className="absolute inset-0 -z-10 rounded-full ring-1 ring-inset ring-blue-300/40 dark:ring-sky-400/25"
                           style={{
-                            background:
-                              'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
+                            background: 'linear-gradient(90deg, rgba(37,99,235,0.95) 0%, rgba(79,70,229,0.95) 100%)',
                           }}
                         />
                         <span
                           className="absolute -inset-[2px] -z-20 rounded-full blur-md"
                           style={{
-                            background:
-                              'radial-gradient(70% 120% at 50% 50%, rgba(59,130,246,0.35), rgba(99,102,241,0.22) 60%, transparent 80%)',
+                            background: 'radial-gradient(70% 120% at 50% 50%, rgba(59,130,246,0.35), rgba(99,102,241,0.22) 60%, transparent 80%)',
                           }}
                         />
                       </>
@@ -214,7 +137,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
           </motion.div>
         </div>
 
-        {/* Grid (shows first 6, then expands) */}
+        {/* Grid */}
         <div className="grid gap-4 sm:gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {visibleProjects.map((project, index) => {
             const truncateDescription = (text: string, maxLength: number = 110) => {
@@ -231,8 +154,8 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: index * 0.08, duration: 0.6, ease: 'easeOut' }}
+                viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
+                transition={{ delay: index * 0.05, duration: 0.5, ease: 'easeOut' }}
                 className="group"
               >
                 <Link
@@ -241,12 +164,13 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                              hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1 focus-override"
                 >
                   {/* Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden min-h-[200px] bg-slate-100 dark:bg-slate-800">
                     <img
                       src={project.image}
                       alt={project.title}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     {/* Modern gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -291,8 +215,6 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                         </span>
                       )}
                     </div>
-
-                    {/* Actions removed as requested */}
                   </div>
                 </Link>
               </motion.div>

@@ -146,8 +146,9 @@ const Hero = () => {
                   {/* Mobile main image */}
                   <motion.img
                     src="/images/Headshot.png"
-                    alt="Profile"
+                    alt="Dhruba Datta"
                     className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-2xl transition-all duration-300"
+                    decoding="async"
                     animate={{
                       boxShadow: [
                         "0 20px 40px -12px rgba(0, 0, 0, 0.25)",
@@ -383,8 +384,9 @@ const Hero = () => {
                   {/* Main image */}
                   <motion.img
                     src="/images/Headshot.png"
-                    alt="Profile"
+                    alt="Dhruba Datta"
                     className="relative z-10 w-40 h-40 rounded-full object-cover shadow-2xl transition-all duration-300"
+                    decoding="async"
                     animate={{
                       boxShadow: [
                         "0 25px 50px -12px rgba(0, 0, 0, 0.25)",

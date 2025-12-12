@@ -75,6 +75,8 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                   src="/images/logo.svg"
                   alt="Logo"
                   className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-lg"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </Link>
