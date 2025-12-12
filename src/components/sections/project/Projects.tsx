@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useMemo, useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Layers, Code2 } from 'lucide-react';
 import { projects, categories, categoryMeta } from '../../../data/projects';
 
@@ -13,7 +13,6 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
   const [mounted, setMounted] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
   const [projectsLoaded, setProjectsLoaded] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
