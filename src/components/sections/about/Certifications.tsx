@@ -285,6 +285,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
                   border
                   ${isDark ? 'border-gray-700/50 bg-gray-800/80' : 'bg-white border-gray-200/60'}
                   ${level !== 0 && "hover:ring-2 ring-blue-400 cursor-pointer"}
+                  focus-override
                 `}
                 title={level === 0 ? "Click to view credential" : `Go to: ${cert.title}`}
               >
