@@ -153,14 +153,15 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
                 transition={{ delay: index * 0.05, duration: 0.5, ease: 'easeOut' }}
                 className="group"
               >
                 <Link
                   to={`/projects/${project.id}`}
-                  className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500
-                             hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1 focus-override"
+                  className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500
+                             hover:border-blue-300/50 dark:hover:border-sky-400/20 focus-override"
                 >
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden min-h-[200px] bg-slate-100 dark:bg-slate-800">

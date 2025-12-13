@@ -112,13 +112,14 @@ const ProjectPreview = () => {
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
                 className="group"
               >
                 <Link
                   to={`/projects/${project.id}`}
-                  className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1 min-h-[44px] focus-override"
+                  className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 min-h-[44px] focus-override"
                 >
                   {/* Flex column for both mobile and desktop */}
                   <div className="relative flex flex-col h-full">
@@ -183,12 +184,13 @@ const ProjectPreview = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
           >
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 hover:-translate-y-1 group min-h-[48px] sm:min-h-[56px] focus-override"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[48px] sm:min-h-[56px] focus-override"
             >
               <span>View All Projects</span>
               <motion.div

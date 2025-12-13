@@ -37,7 +37,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label={link.name}
               className={
-                `p-2.5 md:p-3 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 min-h-[40px] min-w-[40px] md:min-h-[48px] md:min-w-[48px] flex items-center justify-center focus-override ` +
+                `p-2.5 md:p-3 rounded-lg transition duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 min-h-[40px] min-w-[40px] md:min-h-[48px] md:min-w-[48px] flex items-center justify-center focus-override ` +
                 (link.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white ' : '') +
                 (link.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400 ' : '') +
                 (link.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400 ' : '') +
