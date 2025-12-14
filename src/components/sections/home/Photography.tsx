@@ -123,9 +123,9 @@ const Photography = () => {
 
                   {/* Permanent Location indicator */}
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 transition-opacity duration-300">
-                    <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full">
-                      <MapPin className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-slate-700 dark:text-slate-300" />
-                      <span className="text-[9px] sm:text-xs font-medium text-slate-700 dark:text-slate-300">
+                    <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-slate-900/90 backdrop-blur-sm rounded-full">
+                      <MapPin className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-slate-300" />
+                      <span className="text-[9px] sm:text-xs font-medium text-slate-300">
                         {photo.location}
                       </span>
                     </div>
@@ -133,7 +133,7 @@ const Photography = () => {
 
                   {/* Instagram button on hover */}
                   <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 bg-white/80 dark:bg-transparent rounded-full backdrop-blur-sm">
+                    <div className="flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 bg-black/20 rounded-full backdrop-blur-md">
                       <FaInstagram className="w-4 sm:w-6 h-4 sm:h-6 text-pink-500" />
                     </div>
                   </div>

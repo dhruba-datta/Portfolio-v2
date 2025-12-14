@@ -328,7 +328,7 @@ const Hero = () => {
                 to="/about"
                 className="inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                           shadow-lg transition-all focus-override"
+                           shadow-lg hover:shadow-xl hover:shadow-blue-600/30 transition-all focus-override"
                 aria-label="About"
               >
                 <BsBookmarkHeartFill className="w-3 sm:w-4 h-3 sm:h-4" />
