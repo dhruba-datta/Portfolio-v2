@@ -49,7 +49,12 @@ const socialLinks = [
 ];
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const INITIAL_FORM: FormType = { name: "", email: "", subject: "", message: "" };
+const INITIAL_FORM: FormType = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
 
 const Contact: React.FC = () => {
   const [form, setForm] = useState<FormType>(INITIAL_FORM);
@@ -121,12 +126,22 @@ const Contact: React.FC = () => {
             {/* Orbs scaled for responsiveness */}
             <motion.div
               className="absolute -top-24 left-1/4 w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full blur-3xl bg-gradient-to-tr from-blue-500/30 via-indigo-500/25 to-fuchsia-500/25"
-              animate={{ y: [0, 24, 0], x: [0, 32, 0], scale: [1, 1.06, 1], opacity: [0.8, 1, 0.8] }}
+              animate={{
+                y: [0, 24, 0],
+                x: [0, 32, 0],
+                scale: [1, 1.06, 1],
+                opacity: [0.8, 1, 0.8],
+              }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
               className="absolute -bottom-28 right-1/5 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[24rem] lg:h-[24rem] rounded-full blur-3xl bg-gradient-to-tl from-fuchsia-400/25 via-purple-500/20 to-blue-500/25"
-              animate={{ y: [0, -26, 0], x: [0, -28, 0], scale: [1, 1.05, 1], opacity: [0.7, 0.95, 0.7] }}
+              animate={{
+                y: [0, -26, 0],
+                x: [0, -28, 0],
+                scale: [1, 1.05, 1],
+                opacity: [0.7, 0.95, 0.7],
+              }}
               transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
             />
           </>
@@ -146,10 +161,25 @@ const Contact: React.FC = () => {
             <motion.div
               key={i}
               className="absolute rounded-full bg-blue-400 dark:bg-indigo-300"
-              style={{ left: r.left, top: r.top, width: r.size, height: r.size, opacity: r.opacity, filter: "blur(1px)" }}
+              style={{
+                left: r.left,
+                top: r.top,
+                width: r.size,
+                height: r.size,
+                opacity: r.opacity,
+                filter: "blur(1px)",
+              }}
               initial={{ y: 0 }}
-              animate={{ y: [0, -18, 0], opacity: [r.opacity, r.opacity * 1.4, r.opacity] }}
-              transition={{ duration: r.duration, repeat: Infinity, delay: r.delay, ease: "easeInOut" }}
+              animate={{
+                y: [0, -18, 0],
+                opacity: [r.opacity, r.opacity * 1.4, r.opacity],
+              }}
+              transition={{
+                duration: r.duration,
+                repeat: Infinity,
+                delay: r.delay,
+                ease: "easeInOut",
+              }}
             />
           ))}
 
@@ -182,13 +212,20 @@ const Contact: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="relative mb-4"
             animate={!prefersReducedMotion ? { y: [0, -6, 0] } : undefined}
-            transition={!prefersReducedMotion ? { y: { duration: 4, repeat: Infinity, ease: "easeInOut" } } : undefined}
+            transition={
+              !prefersReducedMotion
+                ? { y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }
+                : undefined
+            }
           >
             {!prefersReducedMotion && (
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-30 blur-2xl"
                 animate={{ rotate: 360, scale: [1, 1.08, 1] }}
-                transition={{ rotate: { duration: 7, repeat: Infinity, ease: "linear" }, scale: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+                transition={{
+                  rotate: { duration: 7, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                }}
                 style={{ transform: "scale(1.08)" }}
               />
             )}
@@ -199,14 +236,40 @@ const Contact: React.FC = () => {
                 <motion.div
                   className="absolute -top-6 lg:-top-8 right-1 lg:right-2 w-4 lg:w-6 h-4 lg:h-6 border-2 border-purple-400 opacity-60"
                   style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
-                  animate={{ rotate: [0, 360], y: [0, -8, 0], opacity: [0.6, 1, 0.6] }}
-                  transition={{ rotate: { duration: 6, repeat: Infinity, ease: "linear" }, y: { duration: 3, repeat: Infinity, ease: "easeInOut" }, opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+                  animate={{
+                    rotate: [0, 360],
+                    y: [0, -8, 0],
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{
+                    rotate: { duration: 6, repeat: Infinity, ease: "linear" },
+                    y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                    opacity: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  }}
                 />
                 <motion.div
                   className="absolute -left-6 lg:-left-8 bottom-6 lg:bottom-8 w-3 lg:w-4 h-3 lg:h-4 bg-gradient-to-r from-blue-400 to-purple-400 opacity-70"
-                  style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
-                  animate={{ rotate: [0, -360], x: [0, 6, 0], scale: [1, 1.15, 1] }}
-                  transition={{ rotate: { duration: 8, repeat: Infinity, ease: "linear" }, x: { duration: 4, repeat: Infinity, ease: "easeInOut" }, scale: { duration: 2.5, repeat: Infinity, ease: "easeInOut" } }}
+                  style={{
+                    clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
+                  }}
+                  animate={{
+                    rotate: [0, -360],
+                    x: [0, 6, 0],
+                    scale: [1, 1.15, 1],
+                  }}
+                  transition={{
+                    rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                    x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    scale: {
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  }}
                 />
                 {/* Floating sparkles */}
                 <motion.div
@@ -263,7 +326,11 @@ const Contact: React.FC = () => {
                     "0 0 0 0 rgba(34, 197, 94, 0)",
                   ],
                 }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
             )}
             <motion.div
@@ -284,7 +351,8 @@ const Contact: React.FC = () => {
 
           {/* ---- ELEMENTS UNDER THE IMAGE ---- */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100">
-            Dhruba <span className="text-blue-600 dark:text-blue-400">Datta</span>
+            Dhruba{" "}
+            <span className="text-blue-600 dark:text-blue-400">Datta</span>
           </h1>
 
           <div className="flex items-center gap-1.5 lg:gap-2 bg-green-100/80 dark:bg-green-900/40 rounded-full px-3 lg:px-4 py-1 w-fit mt-1">
@@ -301,7 +369,8 @@ const Contact: React.FC = () => {
           <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-3 text-sm sm:text-base lg:text-lg leading-relaxed mt-2">
             Got an idea, a question, or just want to chat?
             <br />
-            Connect on social media for updates, or use the form for detailed inquiries.
+            Connect on social media for updates, or use the form for detailed
+            inquiries.
           </p>
 
           <div className="flex gap-3 lg:gap-4 mb-2 justify-center lg:justify-start">
@@ -313,17 +382,35 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label={social.name}
                 className={`
-                  rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400
-                  ${social.name === "LinkedIn" ? "hover:text-blue-600 dark:hover:text-blue-400 pl-0 pr-1.5 lg:pr-2 py-1.5 lg:py-2" : "p-1.5 lg:p-2"}
-                  ${social.name === "Facebook" ? "hover:text-[#1877F2] dark:hover:text-[#1877F2]" : ""}
-                  ${social.name === "Instagram" ? "hover:text-pink-500 dark:hover:text-pink-400" : ""}
-                  ${social.name === "Telegram" ? "hover:text-[#0088cc] dark:hover:text-[#0088cc]" : ""}
-                  ${social.name === "YouTube" ? "hover:text-[#FF0000] dark:hover:text-[#FF0000]" : ""}
+                  rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 !outline-none focus:!outline-none focus:ring-0 focus:border-none focus-override
+                  ${
+                    social.name === "LinkedIn"
+                      ? "hover:text-blue-600 dark:hover:text-blue-400 pl-0 pr-1.5 lg:pr-2 py-1.5 lg:py-2"
+                      : "p-1.5 lg:p-2"
+                  }
+                  ${
+                    social.name === "Facebook"
+                      ? "hover:text-[#1877F2] dark:hover:text-[#1877F2]"
+                      : ""
+                  }
+                  ${
+                    social.name === "Instagram"
+                      ? "hover:text-pink-500 dark:hover:text-pink-400"
+                      : ""
+                  }
+                  ${
+                    social.name === "Telegram"
+                      ? "hover:text-[#0088cc] dark:hover:text-[#0088cc]"
+                      : ""
+                  }
+                  ${
+                    social.name === "YouTube"
+                      ? "hover:text-[#FF0000] dark:hover:text-[#FF0000]"
+                      : ""
+                  }
                 `.trim()}
               >
-                <div className="w-4 lg:w-5 h-4 lg:h-5">
-                  {social.icon}
-                </div>
+                <div className="w-4 lg:w-5 h-4 lg:h-5">{social.icon}</div>
               </a>
             ))}
           </div>
@@ -333,16 +420,26 @@ const Contact: React.FC = () => {
             type="button"
             tabIndex={-1}
             disabled
-            style={{ pointerEvents: 'none', opacity: 1 }}
+            style={{ pointerEvents: "none", opacity: 1 }}
             className="lg:hidden absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-default"
             aria-label="Scroll to contact form"
           >
-            <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">scroll</span>
+            <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">
+              scroll
+            </span>
             <span className="h-10 w-7 rounded-full border border-gray-400 dark:border-gray-600/70 bg-gray-200 dark:bg-gray-900/50 backdrop-blur-sm shadow flex items-start justify-center">
               <motion.span
                 className="h-1.5 w-1.5 rounded-full bg-gray-600 dark:bg-gray-200"
-                animate={!prefersReducedMotion ? { y: [6, 18, 6], opacity: [1, 0.35, 1] } : undefined}
-                transition={!prefersReducedMotion ? { duration: 1.6, repeat: Infinity, ease: "easeInOut" } : undefined}
+                animate={
+                  !prefersReducedMotion
+                    ? { y: [6, 18, 6], opacity: [1, 0.35, 1] }
+                    : undefined
+                }
+                transition={
+                  !prefersReducedMotion
+                    ? { duration: 1.6, repeat: Infinity, ease: "easeInOut" }
+                    : undefined
+                }
               />
             </span>
           </button>
@@ -362,7 +459,10 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
+              <label
+                htmlFor="name"
+                className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1"
+              >
                 Name <span className="text-red-400">*</span>
               </label>
               <input
@@ -371,7 +471,9 @@ const Contact: React.FC = () => {
                 type="text"
                 autoComplete="name"
                 className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
-                  errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-700"
+                  errors.name
+                    ? "border-red-500"
+                    : "border-gray-300 dark:border-gray-700"
                 } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 text-sm lg:text-base`}
                 value={form.name}
                 onChange={(e) => {
@@ -391,7 +493,10 @@ const Contact: React.FC = () => {
             </div>
             {/* Email */}
             <div>
-              <label htmlFor="email" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
+              <label
+                htmlFor="email"
+                className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1"
+              >
                 Email <span className="text-red-400">*</span>
               </label>
               <input
@@ -400,7 +505,9 @@ const Contact: React.FC = () => {
                 type="email"
                 autoComplete="email"
                 className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
-                  errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-700"
+                  errors.email
+                    ? "border-red-500"
+                    : "border-gray-300 dark:border-gray-700"
                 } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 text-sm lg:text-base`}
                 value={form.email}
                 onChange={(e) => {
@@ -422,7 +529,10 @@ const Contact: React.FC = () => {
 
           {/* Subject */}
           <div>
-            <label htmlFor="subject" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
+            <label
+              htmlFor="subject"
+              className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1"
+            >
               Subject <span className="text-red-400">*</span>
             </label>
             <input
@@ -430,7 +540,9 @@ const Contact: React.FC = () => {
               name="subject"
               type="text"
               className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
-                errors.subject ? "border-red-500" : "border-gray-300 dark:border-gray-700"
+                errors.subject
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-700"
               } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 text-sm lg:text-base`}
               value={form.subject}
               onChange={(e) => {
@@ -451,7 +563,10 @@ const Contact: React.FC = () => {
 
           {/* Message */}
           <div className="relative">
-            <label htmlFor="message" className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1">
+            <label
+              htmlFor="message"
+              className="text-xs sm:text-sm lg:text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1 flex items-center gap-1"
+            >
               Message <span className="text-red-400">*</span>
             </label>
             <textarea
@@ -460,7 +575,9 @@ const Contact: React.FC = () => {
               rows={4}
               maxLength={500}
               className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-gray-100 dark:bg-gray-800 border ${
-                errors.message ? "border-red-500" : "border-gray-300 dark:border-gray-700"
+                errors.message
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-700"
               } rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 resize-none text-sm lg:text-base`}
               value={form.message}
               onChange={(e) => {
@@ -502,28 +619,71 @@ const Contact: React.FC = () => {
             {loading ? (
               <>
                 <span>Sending...</span>
-                <svg className="animate-spin w-4 lg:w-5 h-4 lg:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25" />
-                  <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75" />
+                <svg
+                  className="animate-spin w-4 lg:w-5 h-4 lg:h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    className="opacity-25"
+                  />
+                  <path
+                    d="M4 12a8 8 0 018-8"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    className="opacity-75"
+                  />
                 </svg>
               </>
             ) : status === "success" ? (
               <>
                 <span>Message Sent</span>
-                <FaCheck className="w-4 lg:w-5 h-4 lg:h-5 ml-1 text-white/90" aria-hidden="true" />
+                <FaCheck
+                  className="w-4 lg:w-5 h-4 lg:h-5 ml-1 text-white/90"
+                  aria-hidden="true"
+                />
               </>
             ) : status === "error" ? (
               <>
                 <span>Failed. Try again.</span>
-                <svg className="w-4 lg:w-5 h-4 lg:h-5 ml-2 text-red-200" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#ef4444" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l6 6M15 9l-6 6" stroke="#fff" strokeWidth="2" />
+                <svg
+                  className="w-4 lg:w-5 h-4 lg:h-5 ml-2 text-red-200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="#ef4444"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 9l6 6M15 9l-6 6"
+                    stroke="#fff"
+                    strokeWidth="2"
+                  />
                 </svg>
               </>
             ) : (
               <>
                 <span>Send Message</span>
-                <IoIosSend className="w-4 lg:w-5 h-4 lg:h-5 ml-0.5" aria-hidden="true" />
+                <IoIosSend
+                  className="w-4 lg:w-5 h-4 lg:h-5 ml-0.5"
+                  aria-hidden="true"
+                />
               </>
             )}
           </motion.button>
