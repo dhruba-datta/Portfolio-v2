@@ -81,28 +81,31 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
 }
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  // Check for saved theme preference or default to dark mode
+  // If theme is 'light', use light mode. Otherwise (null or 'dark'), use dark mode.
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      return savedTheme !== 'light';
+    }
+    return true; // Default to dark for SSR/initial load
+  });
 
   useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDark(true);
+    // Sync the class with the state
+    if (isDark) {
       document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const newIsDark = !prev;
+      localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
+      return newIsDark;
+    });
   };
 
   return (
