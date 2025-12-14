@@ -500,10 +500,9 @@ const KingsleyGroupPage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Want a results-driven redesign?"
-          description="From information architecture to SEO and performance, I build WordPress sites that look great and rank well. Let’s talk about your goals."
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

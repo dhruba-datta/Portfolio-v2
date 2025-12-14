@@ -493,10 +493,10 @@ const DiceJobSearchPage = ({
 
         {/* Contact CTA Section */}
         <ContactCTA
-          title="Want Dice jobs on autopilot?"
-          description="I build production-ready n8n workflows—job search, filters, storage, and alerts for Dice and other tech boards."
+          title="Need custom n8n automations?"
+          description="I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline."
           primaryButtonText="Get In Touch"
-          secondaryButtonText="See More Work"
+          secondaryButtonText="Explore More Work"
         />
       </main>
 

@@ -498,12 +498,11 @@ const PortfolioV2Page = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Need a modern portfolio like this?"
-          description="I build professional, responsive portfolios with React, TypeScript, and modern animations. Let's create yours."
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
           primaryButtonText="Get In Touch"
-          secondaryButtonText="View More Projects"
+          secondaryButtonText="Explore More Work"
         />
       </main>
 

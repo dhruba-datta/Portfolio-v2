@@ -505,10 +505,9 @@ const CryptoVersePage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Like this fintech build?"
-          description="I craft data-heavy dashboards with crisp UX and real-time performance. Let’s talk about yours."
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

@@ -508,10 +508,9 @@ const ABPharmacyExpoPage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Like what you see?"
-          description="I build performant, scalable native apps with a clean UX. Let’s discuss your event or product."
+          title="Need a custom application?"
+          description="I engineer robust, cross-platform solutions focused on performance and user experience. Let's bring your app idea to life."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

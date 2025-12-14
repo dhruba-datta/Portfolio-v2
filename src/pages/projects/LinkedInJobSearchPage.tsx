@@ -493,10 +493,9 @@ const N8nLinkedinJobSearchPage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Want to automate your job search?"
-          description="I build production-ready n8n workflows—discovery, filtering, storage, and alerts tailored to your stack."
+          title="Need custom n8n automations?"
+          description="I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

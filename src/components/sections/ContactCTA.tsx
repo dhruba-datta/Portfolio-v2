@@ -47,7 +47,7 @@ const ContactCTA = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 dark:text-gray-100 leading-tight px-1 sm:px-2"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 dark:text-gray-100 leading-tight px-1 sm:px-2"
           >
             {title}
           </motion.h2>

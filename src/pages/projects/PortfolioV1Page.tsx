@@ -440,10 +440,9 @@ const PortfolioV1Page = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Want a portfolio like this?"
-          description="I build clean, SEO-friendly personal sites that convert. Let’s craft yours."
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

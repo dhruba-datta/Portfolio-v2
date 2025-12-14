@@ -446,12 +446,11 @@ const EasyCookingPage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Interested in working together?"
-          description="I create clean, efficient web solutions that focus on performance and user experience. Let's discuss your next project."
-          primaryButtonText="Let's Connect"
-          secondaryButtonText="View More Projects"
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
+          primaryButtonText="Get In Touch"
+          secondaryButtonText="Explore More Work"
         />
       </main>
 

@@ -463,7 +463,7 @@ const BrevoEmailMarketingPage = ({
         {/* Contact CTA Section */}
         <ContactCTA
           title="Need custom n8n automations?"
-          description="I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let’s build your pipeline."
+          description="I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

@@ -504,12 +504,11 @@ const FoodOrderingSystemPage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Interested in working together?"
-          description="I have experience in multiple programming languages including C++, JavaScript, and Python. Let's discuss how I can contribute to your development team."
-          primaryButtonText="Let's Talk"
-          secondaryButtonText="See More Projects"
+          title="Need a custom application?"
+          description="I engineer robust, cross-platform solutions focused on performance and user experience. Let's bring your app idea to life."
+          primaryButtonText="Get In Touch"
+          secondaryButtonText="Explore More Work"
         />
       </main>
 

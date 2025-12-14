@@ -503,10 +503,9 @@ const KfcClonePage = ({
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
         <ContactCTA
-          title="Impressed by this project?"
-          description="I specialize in creating modern, scalable web applications. Let's discuss how we can work together on your next project."
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />

@@ -505,8 +505,8 @@ const PhotoBoothPage = ({
 
         {/* Contact CTA Section */}
         <ContactCTA
-          title="Impressed by this project?"
-          description="I design and ship modern, scalable web apps. Let’s talk about your next build."
+          title="Need a high-performance web solution?"
+          description="I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality."
           primaryButtonText="Get In Touch"
           secondaryButtonText="Explore More Work"
         />
