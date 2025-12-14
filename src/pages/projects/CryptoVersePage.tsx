@@ -264,9 +264,13 @@ const CryptoVersePage = ({
                 whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
                            border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
-                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium"
+                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group"
               >
-                Check it out <ExternalLink className="w-3.5 h-3.5" />
+                Check it out
+                <div className="relative w-3.5 h-3.5 overflow-hidden">
+                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:-translate-y-full" />
+                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 translate-y-full group-hover:translate-y-0" />
+                </div>
               </motion.a>
             </div>
 
@@ -289,9 +293,13 @@ const CryptoVersePage = ({
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
-                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override"
+                           text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override group"
               >
-                Check it out <ExternalLink className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
+                Check it out
+                <div className="relative w-3.5 h-3.5 lg:w-4 lg:h-4 overflow-hidden">
+                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:-translate-y-full" />
+                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 translate-y-full group-hover:translate-y-0" />
+                </div>
               </motion.a>
             </div>
           </div>
