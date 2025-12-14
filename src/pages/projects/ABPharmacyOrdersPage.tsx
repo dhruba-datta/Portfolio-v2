@@ -132,13 +132,13 @@ const ABPharmacyOrdersPage = ({
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 bg-white text-gray-900${
+      className={`min-h-screen flex flex-col transition-colors duration-300 bg-white text-gray-900${
         effectiveIsDark ? " dark" : ""
       } dark:bg-gray-900 dark:text-white`}
     >
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
-      <main>
+      <main className="flex-grow">
         <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 -z-10">
           <div
             className="absolute inset-0 bg-center bg-cover"
