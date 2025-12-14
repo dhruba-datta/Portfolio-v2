@@ -119,11 +119,11 @@ const ProjectPreview = () => {
                   <div className="relative flex flex-col group overflow-hidden h-full bg-white dark:bg-slate-950">
                     
                     {/* Project Image Area */}
-                    <div className="relative w-full aspect-[2/1] sm:aspect-[16/10] z-0 overflow-hidden isolate transform-gpu">
+                    <div className="relative w-full aspect-[2/1] sm:aspect-[1.82/1] z-0 overflow-hidden isolate transform-gpu">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110 will-change-transform transform-gpu"
+                        className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 group-hover:scale-110 will-change-transform transform-gpu"
                         style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                         loading="lazy"
                       />

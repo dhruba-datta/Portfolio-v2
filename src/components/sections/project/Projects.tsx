@@ -157,14 +157,14 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                              hover:border-blue-300/50 dark:hover:border-sky-400/20 focus-override"
                 >
                   {/* Image Area */}
-                  <div 
-                    className="relative w-full aspect-[2/1] sm:aspect-[16/10] overflow-hidden isolate transform-gpu"
+                    <div 
+                    className="relative w-full aspect-[2/1] sm:aspect-[1.82/1] overflow-hidden isolate transform-gpu"
                     style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
                   >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110 will-change-transform transform-gpu"
+                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 group-hover:scale-110 will-change-transform transform-gpu"
                       style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                       loading="lazy"
                       decoding="async"
