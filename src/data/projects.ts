@@ -20,6 +20,7 @@ import {
   ShoppingCart,
   FileText,
   BookOpen,
+  ListTodo,
 } from 'lucide-react';
 import { 
   SiN8N, 
@@ -92,26 +93,27 @@ export const projects: Project[] = [
     category: 'automation',
   },
   {
-  id: 'linkedin-job-search-n8n',
-    title: 'LinkedIn Job Search (n8n)',
+    id: 'intelligent-product-order-n8n',
+    title: 'Intelligent Product Order (n8n)',
     description:
-      'A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. This system autonomously monitors LinkedIn for varied tech roles, applying complex filtering logic to curate high-quality opportunities. It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening.',
+      'Streamline your order management with this n8n workflow. It syncs product catalogs, intelligently extracts order details from emails using AI, and automatically creates tasks in Monday.com for fulfillment.',
     longDescription:
-      'Automated job scraping workflow using n8n to fetch, filter, and alert on new LinkedIn job listings via Telegram/Email.',
-    image: '/images/projects/LinkedIn Job Search (n8n).svg',
+      'Automated order processing workflow using n8n to sync catalogs, parse emails with OpenAI, and create tasks in Monday.com.',
+    image: '/images/projects/Intelligent Product Order (n8n).svg',
     tags: [
       { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
-      { name: "LinkedIn", icon: React.createElement(SiLinkedin, { className: "w-3.5 h-3.5" }) },
-      { name: "Web Scraping", icon: React.createElement(Search, { className: "w-3.5 h-3.5" }) },
+      { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
       { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Monday.com", icon: React.createElement(ListTodo, { className: "w-3.5 h-3.5" }) },
       { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
-      { name: "Data Extraction", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Workflow JSON", icon: React.createElement(FileJson, { className: "w-3.5 h-3.5" }) },
     ],
-    link: '',
-    github: 'https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search',
+    link: '/projects/intelligent-product-order-n8n',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order',
     featured: true,
     category: 'automation',
   },
+
   {
   id: 'photobooth',
     title: 'PhotoBooth',
@@ -283,6 +285,27 @@ export const projects: Project[] = [
     github: '',
     featured: true,
     category: 'development',
+  },
+  {
+  id: 'linkedin-job-search-n8n',
+    title: 'LinkedIn Job Search (n8n)',
+    description:
+      'A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. This system autonomously monitors LinkedIn for varied tech roles, applying complex filtering logic to curate high-quality opportunities. It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening.',
+    longDescription:
+      'Automated job scraping workflow using n8n to fetch, filter, and alert on new LinkedIn job listings via Telegram/Email.',
+    image: '/images/projects/LinkedIn Job Search (n8n).svg',
+    tags: [
+      { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
+      { name: "LinkedIn", icon: React.createElement(SiLinkedin, { className: "w-3.5 h-3.5" }) },
+      { name: "Web Scraping", icon: React.createElement(Search, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
+      { name: "Data Extraction", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search',
+    featured: true,
+    category: 'automation',
   },
   {
   id: 'kfc-clone',
