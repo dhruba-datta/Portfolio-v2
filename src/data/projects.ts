@@ -96,7 +96,7 @@ export const projects: Project[] = [
     id: 'intelligent-product-order-n8n',
     title: 'Intelligent Product Order (n8n)',
     description:
-      'Streamline your order management with this n8n workflow. It syncs product catalogs, intelligently extracts order details from emails using AI, and automatically creates tasks in Monday.com for fulfillment.',
+      'A comprehensive order fulfillment automation system engineered with n8n to bridge the gap between unstructured communication and structured data. By intelligently parsing incoming emails using OpenAI\'s GPT models, this workflow extracts critical order details, verifies product availability against a synchronized Google Sheets catalog, and autonomously orchestrates task creation in Monday.com. It transforms a chaotic inbox into a streamlined, error-free fulfillment pipeline, reducing manual data entry by over 90%.',
     longDescription:
       'Automated order processing workflow using n8n to sync catalogs, parse emails with OpenAI, and create tasks in Monday.com.',
     image: '/images/projects/Intelligent Product Order (n8n).svg',
