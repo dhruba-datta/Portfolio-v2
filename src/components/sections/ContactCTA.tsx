@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageSquare } from 'lucide-react';
+import { ArrowRight, MessageSquare, Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface ContactCTAProps {
@@ -79,7 +79,7 @@ const ContactCTA = ({
               className="group inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-medium sm:font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/25 focus-override w-full sm:w-auto min-h-[44px] sm:min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm sm:text-base"
             >
               {primaryButtonText}
-              <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:translate-x-1 transition-transform" />
+              <Send className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.button>
 
             {/* Secondary Button */}
@@ -90,6 +90,7 @@ const ContactCTA = ({
               className="group inline-flex items-center justify-center gap-2 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-medium sm:font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 focus-override w-full sm:w-auto min-h-[44px] sm:min-h-[48px] md:min-h-[52px] lg:min-h-[56px] text-sm sm:text-base"
             >
               {secondaryButtonText}
+              <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
 
