@@ -68,8 +68,8 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-105 focus-override">
               <div
-                className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shadow-xl overflow-hidden border border-white/30 dark:border-0 bg-white dark:bg-[#0a2240] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center overflow-hidden border border-white/40 dark:border-white/10 bg-white dark:bg-[#0a2240] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                style={{ boxShadow: '0 4px 24px -1px rgba(31, 38, 135, 0.12)' }}
               >
                 <img
                   src="/images/logo.svg"

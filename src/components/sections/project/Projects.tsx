@@ -41,7 +41,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
   return (
     <section id="projects" className="relative pt-10 pb-6 sm:pt-12 sm:pb-8 lg:pt-12 lg:pb-8 overflow-hidden bg-white dark:bg-gray-900">
       {/* Simplified background - no grid pattern */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      <div className="absolute inset-0 -z-10 pointer-events-none dark:block hidden">
         {/* Soft gradient background */}
         <div 
           className="absolute inset-0"

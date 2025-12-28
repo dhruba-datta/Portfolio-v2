@@ -18,7 +18,7 @@ const ProjectsPage = ({ isDark, toggleTheme }: ProjectsPageProps) => {
   return (
     <div className={
       `min-h-screen flex flex-col transition-colors duration-300 ` +
-      (isDark ? 'bg-gray-900' : 'bg-gray-50')
+      (isDark ? 'bg-gray-900' : 'bg-white')
     }>
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
       {/* Background pattern to match hero, only in dark mode */}
