@@ -1,9 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { execSync } from "child_process";
+
+const commitYear = execSync("git log -1 --format=%cd --date=format:%Y")
+  .toString()
+  .trim();
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __LAST_UPDATE_YEAR__: JSON.stringify(commitYear),
+  },
   plugins: [
     react(),
     ViteImageOptimizer({
@@ -20,7 +28,7 @@ export default defineConfig({
         multipass: true,
         plugins: [
           {
-            name: 'preset-default',
+            name: "preset-default",
             params: {
               overrides: {
                 cleanupNumericValues: false,
@@ -28,15 +36,15 @@ export default defineConfig({
               },
             },
           },
-          'sortAttrs',
+          "sortAttrs",
           {
-            name: 'addAttributesToSVGElement',
+            name: "addAttributesToSVGElement",
             params: {
-              attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
+              attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
             },
           },
         ],
       },
     }),
   ],
-})
+});

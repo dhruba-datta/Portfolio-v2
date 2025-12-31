@@ -24,7 +24,7 @@ const Footer = () => {
         {/* Left: Copyright */}
         <div className="flex flex-col items-center md:items-start gap-1.5 md:gap-2">
           <span className="text-sm md:text-base font-semibold text-gray-900 dark:text-white">Dhruba Datta</span>
-          <p className="text-[11px] md:text-xs text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} | All rights reserved</p>
+          <p className="text-[11px] md:text-xs text-gray-500 dark:text-gray-400">&copy; {__LAST_UPDATE_YEAR__} | All rights reserved</p>
         </div>
 
         {/* Right: Social Icons */}
