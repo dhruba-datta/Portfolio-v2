@@ -30,7 +30,12 @@ const publications: Publication[] = [
     id: 1,
     title: "Skin Cancer Detection with Edge Devices Using YOLOv7 Deep CNN",
     authors: ["Dhruba Datta", "Harsh Prakash", "Priya Singh"],
-    conference: <>4<sup>th</sup> International Conference on Data Analytics & Management, 2023</>,
+    conference: (
+      <>
+        4<sup>th</sup> International Conference on Data Analytics & Management,
+        2023
+      </>
+    ),
     date: "November 2023",
     location: "London Metropolitan University, London, UK",
     doi: "10.1007/978-981-99-6550-2_5",
@@ -232,32 +237,69 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                       </a>
                     </h4>
                     <div className="flex flex-col gap-1.5 text-xs sm:text-xs lg:text-sm mb-3">
-                      <div className={`flex items-start gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
-                          <LuUsers className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-0.5 flex-shrink-0" />
+                      <div
+                        className={`flex items-start gap-2 ${
+                          isDark ? "text-gray-200" : "text-gray-700"
+                        }`}
+                      >
+                        <LuUsers className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-px sm:mt-0.5 flex-shrink-0" />
                         <div>
-                          <span className="font-medium mr-1.5">Authors:</span>{pub.authors.map((author, i) => (
-                            <span key={i} className={author === "Dhruba Datta" ? "font-bold" : ""}>{author}{i < pub.authors.length - 1 ? ', ' : ''}</span>
+                          <span className="font-medium mr-1.5">Authors:</span>
+                          {pub.authors.map((author, i) => (
+                            <span
+                              key={i}
+                              className={
+                                author === "Dhruba Datta" ? "font-bold" : ""
+                              }
+                            >
+                              {author}
+                              {i < pub.authors.length - 1 ? ", " : ""}
+                            </span>
                           ))}
                         </div>
                       </div>
-                      <div className={`flex items-start gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
-                          <LuBookOpen className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-0.5 flex-shrink-0" />
+                      <div
+                        className={`flex items-start gap-2 ${
+                          isDark ? "text-gray-200" : "text-gray-700"
+                        }`}
+                      >
+                        <LuBookOpen className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-px sm:mt-0.5 flex-shrink-0" />
                         <div>
-                          <span className="font-medium mr-1.5">Conference:</span>
+                          <span className="font-medium mr-1.5">
+                            Conference:
+                          </span>
                           <span>{pub.conference}</span>
                         </div>
                       </div>
-                      <div className={`flex items-start gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
-                          <LuMapPin className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-0.5 flex-shrink-0" />
+                      <div
+                        className={`flex items-start gap-2 ${
+                          isDark ? "text-gray-200" : "text-gray-700"
+                        }`}
+                      >
+                        <LuMapPin className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-px sm:mt-0.5 flex-shrink-0" />
                         <div>
-                          <span className="font-medium mr-1.5">Location:</span> <span>{pub.location}</span>
+                          <span className="font-medium mr-1.5">Location:</span>{" "}
+                          <span>{pub.location}</span>
                         </div>
                       </div>
-                      <div className={`flex items-start gap-2 ${isDark ? 'text-gray-200' : 'text-gray-700'}`}> 
-                          <LuExternalLink className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <div
+                        className={`flex items-start gap-2 ${
+                          isDark ? "text-gray-200" : "text-gray-700"
+                        }`}
+                      >
+                        <LuExternalLink className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-blue-400 mt-px sm:mt-0.5 flex-shrink-0" />
                         <div>
-                          <span className="font-medium text-blue-600 dark:text-blue-400 mr-1.5">DOI:</span>
-                          <a href={`https://link.springer.com/chapter/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`font-mono hover:underline transition-colors duration-200 focus-override ${isDark ? 'text-blue-300' : 'text-blue-800'}`}> 
+                          <span className="font-medium text-blue-600 dark:text-blue-400 mr-1.5">
+                            DOI:
+                          </span>
+                          <a
+                            href={`https://link.springer.com/chapter/${pub.doi}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`font-mono hover:underline transition-colors duration-200 focus-override ${
+                              isDark ? "text-blue-300" : "text-blue-800"
+                            }`}
+                          >
                             {pub.doi}
                           </a>
                         </div>
