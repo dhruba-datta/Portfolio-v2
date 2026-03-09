@@ -105,139 +105,40 @@ const Hero = () => {
                 className="lg:hidden flex justify-center mb-4 sm:mb-6"
               >
                 <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { duration: 0.4, ease: "easeOut" },
-                  }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  animate={{
-                    y: [0, -8, 0],
-                  }}
-                  transition={{
-                    y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                  }}
                   className="relative group focus-override"
                 >
-                  {/* Mobile outer glow ring */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500"
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                      scale: {
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                    style={{ transform: "scale(1.2)" }}
-                  />
-
-                  {/* Mobile inner glow */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30 blur-lg transition-all duration-500"
-                    animate={{
-                      scale: [1, 1.03, 1],
-                    }}
-                    transition={{
-                      scale: {
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                  />
+                  {/* Static Outer glow ring for mobile to save CPU */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-xl scale-110" />
 
                   {/* Mobile main image */}
-                  <motion.img
+                  <img
                     src="/images/Headshot.webp"
                     alt="Dhruba Datta"
-                    className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-2xl transition-all duration-300"
+                    className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-xl border-2 border-white/10"
                     decoding="async"
                     loading="eager"
                     fetchPriority="high"
-                    animate={{
-                      boxShadow: [
-                        "0 20px 40px -12px rgba(0, 0, 0, 0.25)",
-                        "0 20px 40px -12px rgba(59, 130, 246, 0.3)",
-                        "0 20px 40px -12px rgba(0, 0, 0, 0.25)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
                   />
 
-                  {/* Mobile status indicator */}
-                  <motion.div
-                    className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      boxShadow: [
-                        "0 0 0 0 rgba(34, 197, 94, 0.4)",
-                        "0 0 0 6px rgba(34, 197, 94, 0)",
-                        "0 0 0 0 rgba(34, 197, 94, 0)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-
-                  {/* Mobile floating sparkles */}
-                  <motion.div
-                    className="absolute -top-3 -left-3 w-2 h-2 bg-yellow-400 rounded-full shadow-lg"
-                    animate={{
-                      scale: [0, 1, 0],
-                      rotate: [0, 180, 360],
-                      opacity: [0, 1, 0],
-                      x: [0, 3, 0],
-                      y: [0, -3, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: 1,
-                      ease: "easeInOut",
-                    }}
-                  />
-                  <motion.div
-                    className="absolute -bottom-2 -right-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-lg"
-                    animate={{
-                      scale: [0, 1.2, 0],
-                      opacity: [0, 1, 0],
-                      x: [0, -2, 0],
-                      y: [0, 2, 0],
-                    }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      delay: 0.5,
-                      ease: "easeInOut",
-                    }}
-                  />
+                  {/* Static Mobile status indicator */}
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg" />
                 </motion.div>
               </motion.div>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0 }}
                 className="text-sm sm:text-base lg:text-lg text-blue-600 dark:text-blue-400 font-medium mb-1"
               >
                 Hello! I'm
               </motion.p>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.1 }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
               >
                 Dhruba{" "}
@@ -246,7 +147,7 @@ const Hero = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.1 }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
                 Researcher & Software Engineer
@@ -254,7 +155,7 @@ const Hero = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.1 }}
                 className="text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-lg"
               >
                 Tackling complex challenges with innovative tech and a passion

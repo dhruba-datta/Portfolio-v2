@@ -92,7 +92,7 @@ const Photography = () => {
         </div>
 
         {/* Photo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-8 sm:mb-10 lg:mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 lg:gap-6 mb-8 sm:mb-10 lg:mb-12 px-2 sm:px-0">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
@@ -106,12 +106,12 @@ const Photography = () => {
                 href={photo.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
-                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer min-h-[180px] focus-override"
+                className="block rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
+                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer min-h-[140px] sm:min-h-[180px] focus-override"
                 aria-label={`View ${photo.location} photography on Instagram`}
               >
                 {/* Image */}
-                <div className="relative aspect-[5/6] overflow-hidden min-h-[180px] isolate transform-gpu">
+                <div className="relative aspect-[4/5] sm:aspect-[5/6] overflow-hidden min-h-[140px] sm:min-h-[180px] isolate transform-gpu">
                   <img
                     src={photo.image}
                     alt={photo.alt}
@@ -125,10 +125,10 @@ const Photography = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Permanent Location indicator */}
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 transition-opacity duration-300">
-                    <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-slate-900/90 backdrop-blur-sm rounded-full">
-                      <MapPin className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-slate-300" />
-                      <span className="text-[9px] sm:text-xs font-medium text-slate-300">
+                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 transition-opacity duration-300 max-w-[calc(100%-1rem)]">
+                    <div className="flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-1 sm:py-1.5 bg-slate-900/90 backdrop-blur-sm rounded-full overflow-hidden">
+                      <MapPin className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-slate-300 flex-shrink-0" />
+                      <span className="text-[8px] sm:text-xs font-medium text-slate-300 truncate">
                         {photo.location}
                       </span>
                     </div>
@@ -141,7 +141,7 @@ const Photography = () => {
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.08] dark:ring-white/[0.08] rounded-3xl" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.08] dark:ring-white/[0.08] rounded-2xl sm:rounded-3xl" />
                 </div>
               </a>
             </motion.div>
