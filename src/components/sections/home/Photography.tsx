@@ -114,6 +114,8 @@ const Photography = () => {
                 <div className="relative aspect-[4/5] sm:aspect-[5/6] overflow-hidden min-h-[140px] sm:min-h-[180px] isolate transform-gpu">
                   <img
                     src={photo.image}
+                    srcSet={`${photo.image.replace('.webp', '-mobile.webp')} 400w, ${photo.image} 800w`}
+                    sizes="(max-width: 640px) 400px, 800px"
                     alt={photo.alt}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
                     loading="lazy"

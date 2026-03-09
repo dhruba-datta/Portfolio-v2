@@ -136,26 +136,26 @@ const Hero = () => {
                 Hello! I'm
               </motion.p>
               <motion.h1
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0 }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
               >
                 Dhruba{" "}
                 <span className="text-blue-600 dark:text-blue-400">Datta</span>
               </motion.h1>
               <motion.p
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0 }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
                 Researcher & Software Engineer
               </motion.p>
               <motion.p
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0 }}
                 className="text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-lg"
               >
                 Tackling complex challenges with innovative tech and a passion
