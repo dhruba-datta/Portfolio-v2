@@ -1,24 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { LuMessageSquareShare } from "react-icons/lu";
 import { ArrowRight } from 'lucide-react';
 
-interface AboutProps {
-  isDark?: boolean;
-}
-
 type Slide = { src: string; caption: string; alt: string };
 
-const About = ({ }: AboutProps) => {
+const About = () => {
   const prefersReducedMotion = useReducedMotion();
 
   // --- Slides ---
   const slides: Slide[] = useMemo(
     () => [
-      { src: '/images/me1.jpg', caption: 'I Code', alt: 'Building things' },
-      { src: '/images/me2.jpg', caption: 'I Explore', alt: 'Creative work' },
-      { src: '/images/me.jpg',  caption: 'I Learn', alt: 'Learning & tinkering' },
+      { src: '/images/me1.webp', caption: 'I Code', alt: 'Building things' },
+      { src: '/images/me2.webp', caption: 'I Explore', alt: 'Creative work' },
+      { src: '/images/me.webp',  caption: 'I Learn', alt: 'Learning & tinkering' },
     ],
     []
   );
@@ -216,30 +213,33 @@ const About = ({ }: AboutProps) => {
                 {slides.map((s, i) => {
                   const p = posOf(i); // -1 (left), 0 (center), 1 (right), 2 (hidden)
                   const isCenter = p === 0;
+                  const isHidden = p === 2;
 
                   const map = {
-                    x: p === -1 ? -200 : p === 1 ? 200 : 0,
+                    x: p === -1 ? '-48%' : p === 1 ? '48%' : '0%',
                     y: p === 0 ? 0 : 8,
                     z: p === 0 ? 0 : -140,
-                    rotY: p === -1 ? -26 : p === 1 ? 26 : 0,
-                    scale: p === 0 ? 1 : 0.9,
-                    opacity: p === 2 ? 0 : p === 0 ? 1 : 0.78,
-                    filter: p === 0 ? 'none' : 'grayscale(1) brightness(0.6) saturate(0.5) blur(1.5px)',
+                    rotY: p === -1 ? -32 : p === 1 ? 32 : 0,
+                    scale: p === 0 ? 1 : 0.8,
+                    opacity: isHidden ? 0 : p === 0 ? 1 : 0.7,
+                    filter: p === 0 ? 'none' : 'grayscale(1) brightness(0.6) saturate(0.5)',
                     overlay: p === 0 ? 'bg-black/0' : 'bg-black/60',
                     zIndex: p === 0 ? 50 : p === -1 ? 40 : 30,
                   } as const;
 
-                  if (p === 2) return null;
-
                   return (
                     <motion.figure
                       key={i}
-                      className="absolute w-[72%] sm:w-[68%] md:w-[64%] lg:w-[70%] max-w-md rounded-[20px] overflow-hidden"
+                      className={`absolute w-[85%] sm:w-[70%] md:w-[65%] lg:w-[70%] max-w-md rounded-[24px] overflow-hidden shadow-2xl ${
+                        isHidden ? 'pointer-events-none' : ''
+                      } bg-gray-50 dark:bg-gray-900`}
                       style={{
                         zIndex: map.zIndex,
                         filter: map.filter as any,
                         WebkitFilter: map.filter as any,
                         transformStyle: 'preserve-3d',
+                        backfaceVisibility: 'hidden',
+                        willChange: 'transform, opacity',
                       }}
                       initial={false}
                       animate={{
@@ -250,7 +250,12 @@ const About = ({ }: AboutProps) => {
                         opacity: map.opacity,
                         z: map.z as any,
                       }}
-                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                      transition={{ 
+                        type: 'spring', 
+                        stiffness: 260, 
+                        damping: 26,
+                        mass: 1 
+                      }}
                       aria-hidden={!isCenter}
                     >
                       {/* Image skeleton */}
@@ -263,7 +268,9 @@ const About = ({ }: AboutProps) => {
                         alt={s.alt}
                         className="h-[300px] sm:h-[350px] md:h-[360px] lg:h-[410px] w-full object-cover object-center select-none"
                         draggable={false}
-                        loading="lazy"
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
                         onLoad={() =>
                           setLoaded((arr) => {
                             const next = [...arr];

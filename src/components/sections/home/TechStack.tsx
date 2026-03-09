@@ -3,7 +3,42 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MdOutlineWork } from "react-icons/md";
 import { VscVscode } from "react-icons/vsc";
-import { SiAdobephotoshop, SiAdobeillustrator, SiAdobelightroom, SiCanva } from "react-icons/si";
+import {
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiAdobelightroom,
+  SiCanva,
+  SiOpenai,
+  SiGooglegemini,
+  SiPerplexity,
+  SiXcode,
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiBootstrap,
+  SiWordpress,
+  SiVite,
+  SiFramer,
+  SiFigma,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiPython,
+  SiCplusplus,
+  SiGit,
+  SiGithub,
+  SiBitbucket,
+  SiDocker,
+  SiNetlify,
+  SiN8N,
+  SiNotion,
+  SiJira,
+  SiTrello,
+  SiOverleaf,
+  SiConfluence
+} from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { FcLinux } from "react-icons/fc";
 import { projects } from '../../../data/projects';
@@ -18,18 +53,19 @@ const TechScroll = ({
   direction = 'left',
   isDark
 }: { technologies: TechItem[]; direction?: 'left' | 'right'; isDark?: boolean }) => {
-  const dup = useMemo(() => [...technologies, ...technologies], [technologies]);
+  const triplicated = useMemo(() => [...technologies, ...technologies, ...technologies], [technologies]);
   return (
     <div className="flex overflow-hidden">
       <motion.div
-        className="flex gap-2 sm:gap-3 items-center"
-        animate={{ x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        className="flex items-center will-change-transform"
+        animate={{ x: direction === 'left' ? ['0%', '-33.333%'] : ['-33.333%', '0%'] }}
+        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+        style={{ transform: 'translateZ(0)' }}
       >
-        {dup.map((t, i) => (
+        {triplicated.map((t, i) => (
           <motion.div
             key={`${t.name}-${i}`}
-            className={`flex items-center gap-1.5 sm:gap-2 ${isDark ? 'bg-gray-800/30 border-gray-700/30' : 'bg-white border-gray-200'} backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 border flex-shrink-0`}
+            className={`flex items-center gap-1.5 sm:gap-2 ${isDark ? 'bg-gray-800/60 border-gray-700/50' : 'bg-white/90 border-gray-200'} rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 border flex-shrink-0 shadow-sm mx-1.5 sm:mx-2`}
             whileHover={{ scale: 1.05 }}
           >
             {typeof t.icon === 'string' ? (
@@ -56,49 +92,84 @@ const BriefcaseIcon = () => (
   <MdOutlineWork className="w-5 h-5" />
 );
 
+// Accurate AI Platform Icons
+const AntigravityIcon = () => (
+  <svg className="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 32C12 32 16 8 20 8C24 8 28 32 32 32" stroke="url(#antigravity_grad)" strokeWidth="6" strokeLinecap="round"/>
+    <defs>
+      <linearGradient id="antigravity_grad" x1="20" y1="32" x2="20" y2="8" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#3B82F6" />
+        <stop offset="0.5" stopColor="#10B981" />
+        <stop offset="1" stopColor="#F59E0B" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const AIStudioIcon = () => (
+  <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="currentColor" fillRule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.921 4.196H6.328A2.705 2.705 0 003.623 6.9v11.362a2.705 2.705 0 002.705 2.705h11.363a2.705 2.705 0 002.705-2.705v-4.756l1.623-1.113v5.87a4.329 4.329 0 01-4.328 4.328H6.328A4.329 4.329 0 012 18.263V6.901a4.328 4.328 0 014.328-4.329h4.545l-.952 1.624z"></path>
+    <path d="M17.82 0c.145 0 .268.104.299.246a7 7 0 001.9 3.484 7 7 0 003.485 1.901c.142.031.246.154.246.3a.308.308 0 01-.246.298A7 7 0 0020.02 8.13a7 7 0 00-1.912 3.535.297.297 0 01-.288.238.297.297 0 01-.288-.238A7 7 0 0015.62 8.13a7 7 0 00-3.535-1.912.297.297 0 01-.238-.288c0-.14.1-.26.238-.288A7 7 0 0015.62 3.73 7.001 7.001 0 0017.521.246.308.308 0 0117.82 0z"></path>
+  </svg>
+);
+
+const NotebookLMIcon = ({ isDark }: { isDark: boolean }) => (
+  <svg className="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="256" cy="256" r="256" fill={isDark ? "white" : "#1F1F1F"} />
+    <path d="M256 112c-88.373 0-160 71.04-160 158.693v75.973h29.493v-7.572c0-35.547 29.04-64.374 64.88-64.374s64.88 28.827 64.88 64.374v7.572h29.494v-7.572c0-51.707-42.267-93.6-94.374-93.6-20.293 0-39.093 6.346-54.48 17.173 16.107-31.76 49.28-53.547 87.574-53.547 54.106 0 97.973 43.52 97.973 97.173v40.373h29.494v-40.373c0-69.813-57.067-126.426-127.467-126.426-31.654 0-60.614 11.44-82.907 30.4 21.893-41.04 65.36-69.014 115.44-69.014 72.08 0 130.506 57.947 130.506 129.44v75.973H416v-75.973C416 183.04 344.374 112 256 112z" fill={isDark ? "#1F1F1F" : "#fff"} />
+  </svg>
+);
+
 
 const TechStack = ({ isDark }: TechStackProps) => {
   // Memoize data to ensure referential stability
   const frontendTech: TechItem[] = useMemo(() => [
-    { name: 'React', icon: 'https://cdn.simpleicons.org/react' },
-    { name: 'TypeScript', icon: 'https://cdn.simpleicons.org/typescript' },
-    { name: 'Next.js', icon: isDark ? 'https://cdn.simpleicons.org/nextdotjs/ffffff' : 'https://cdn.simpleicons.org/nextdotjs' },
-    { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss' },
-    { name: 'Bootstrap', icon: 'https://cdn.simpleicons.org/bootstrap' },
-    { name: 'WordPress', icon: 'https://cdn.simpleicons.org/wordpress' },
-    { name: 'Vite', icon: 'https://cdn.simpleicons.org/vite' },
-    { name: 'Framer Motion', icon: 'https://cdn.simpleicons.org/framer' },
-  ], [isDark]);
-
-  const backendTech: TechItem[] = useMemo(() => [
-    { name: 'Node.js', icon: 'https://cdn.simpleicons.org/nodedotjs' },
-    { name: 'Express.js', icon: isDark ? 'https://cdn.simpleicons.org/express/ffffff' : 'https://cdn.simpleicons.org/express' },
-    { name: 'MongoDB', icon: 'https://cdn.simpleicons.org/mongodb' },
-    { name: 'PostgreSQL', icon: 'https://cdn.simpleicons.org/postgresql' },
-    { name: 'Python', icon: 'https://cdn.simpleicons.org/python' },
-    { name: 'Java', icon: <FaJava className="w-4 sm:w-5 h-4 sm:h-5" /> },
-    { name: 'C++', icon: 'https://cdn.simpleicons.org/cplusplus' },
-    { name: 'Linux', icon: <FcLinux className="w-4 sm:w-5 h-4 sm:h-5" /> },
-    { name: 'Git', icon: 'https://cdn.simpleicons.org/git' },
-    { name: 'GitHub', icon: isDark ? 'https://cdn.simpleicons.org/github/ffffff' : 'https://cdn.simpleicons.org/github' },
-    { name: 'Bitbucket', icon: 'https://cdn.simpleicons.org/bitbucket' },
-  ], [isDark]);
-
-  const toolsTech: TechItem[] = useMemo(() => [
-    { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' },
-    { name: 'Netlify', icon: 'https://cdn.simpleicons.org/netlify' },
-    { name: 'n8n', icon: 'https://cdn.simpleicons.org/n8n' },
-    { name: 'VS Code', icon: <VscVscode className="w-4 sm:w-5 h-4 sm:h-5 text-[#007ACC]" /> },
-    { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma' },
+    { name: 'React', icon: <SiReact className="w-4 sm:w-5 h-4 sm:h-5 text-[#61DAFB]" /> },
+    { name: 'TypeScript', icon: <SiTypescript className="w-4 sm:w-5 h-4 sm:h-5 text-[#3178C6]" /> },
+    { name: 'Next.js', icon: <SiNextdotjs className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-black'}`} /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-4 sm:w-5 h-4 sm:h-5 text-[#06B6D4]" /> },
+    { name: 'Bootstrap', icon: <SiBootstrap className="w-4 sm:w-5 h-4 sm:h-5 text-[#7952B3]" /> },
+    { name: 'WordPress', icon: <SiWordpress className="w-4 sm:w-5 h-4 sm:h-5 text-[#21759B]" /> },
+    { name: 'Vite', icon: <SiVite className="w-4 sm:w-5 h-4 sm:h-5 text-[#646CFF]" /> },
+    { name: 'Framer', icon: <SiFramer className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-black'}`} /> },
+    { name: 'Figma', icon: <SiFigma className="w-4 sm:w-5 h-4 sm:h-5 text-[#F24E1E]" /> },
     { name: 'Photoshop', icon: <SiAdobephotoshop className="w-4 sm:w-5 h-4 sm:h-5 text-[#31A8FF]" /> },
     { name: 'Lightroom', icon: <SiAdobelightroom className="w-4 sm:w-5 h-4 sm:h-5 text-[#31A8FF]" /> },
     { name: 'Illustrator', icon: <SiAdobeillustrator className="w-4 sm:w-5 h-4 sm:h-5 text-[#FF9A00]" /> },
     { name: 'Canva', icon: <SiCanva className="w-4 sm:w-5 h-4 sm:h-5 text-[#00C4CC]" /> },
-    { name: 'Notion', icon: isDark ? 'https://cdn.simpleicons.org/notion/ffffff' : 'https://cdn.simpleicons.org/notion' },
-    { name: 'Jira', icon: 'https://cdn.simpleicons.org/jira' },
-    { name: 'Confluence', icon: <img src="https://cdn.simpleicons.org/confluence" alt="Confluence" style={{ filter: 'brightness(0) saturate(100%) invert(24%) sepia(99%) saturate(747%) hue-rotate(191deg) brightness(97%) contrast(101%)' }} className="w-4 sm:w-5 h-4 sm:h-5" /> },
-    { name: 'Trello', icon: 'https://cdn.simpleicons.org/trello' },
-    { name: 'Overleaf', icon: 'https://cdn.simpleicons.org/overleaf' },
+  ], [isDark]);
+
+  const backendTech: TechItem[] = useMemo(() => [
+    { name: 'Node.js', icon: <SiNodedotjs className="w-4 sm:w-5 h-4 sm:h-5 text-[#339933]" /> },
+    { name: 'Express.js', icon: <SiExpress className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-black'}`} /> },
+    { name: 'MongoDB', icon: <SiMongodb className="w-4 sm:w-5 h-4 sm:h-5 text-[#47A248]" /> },
+    { name: 'PostgreSQL', icon: <SiPostgresql className="w-4 sm:w-5 h-4 sm:h-5 text-[#4169E1]" /> },
+    { name: 'Python', icon: <SiPython className="w-4 sm:w-5 h-4 sm:h-5 text-[#3776AB]" /> },
+    { name: 'Java', icon: <FaJava className="w-4 sm:w-5 h-4 sm:h-5 text-[#007396]" /> },
+    { name: 'C++', icon: <SiCplusplus className="w-4 sm:w-5 h-4 sm:h-5 text-[#00599C]" /> },
+    { name: 'Linux', icon: <FcLinux className="w-4 sm:w-5 h-4 sm:h-5" /> },
+    { name: 'Git', icon: <SiGit className="w-4 sm:w-5 h-4 sm:h-5 text-[#F05032]" /> },
+    { name: 'GitHub', icon: <SiGithub className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-black'}`} /> },
+    { name: 'Bitbucket', icon: <SiBitbucket className="w-4 sm:w-5 h-4 sm:h-5 text-[#0052CC]" /> },
+    { name: 'Docker', icon: <SiDocker className="w-4 sm:w-5 h-4 sm:h-5 text-[#2496ED]" /> },
+    { name: 'Netlify', icon: <SiNetlify className="w-4 sm:w-5 h-4 sm:h-5 text-[#00C8C8]" /> },
+    { name: 'n8n', icon: <SiN8N className="w-4 sm:w-5 h-4 sm:h-5 text-[#FF6C37]" /> },
+  ], [isDark]);
+
+  const toolsTech: TechItem[] = useMemo(() => [
+    { name: 'Gemini', icon: <SiGooglegemini className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-[#8E75B2]'}`} /> },
+    { name: 'ChatGPT', icon: <SiOpenai className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-[#74aa9c]'}`} /> },
+    { name: 'Perplexity', icon: <SiPerplexity className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-[#22B1BF]'}`} /> },
+    { name: 'Antigravity', icon: <AntigravityIcon /> },
+    { name: 'AI Studio', icon: <AIStudioIcon /> },
+    { name: 'NotebookLM', icon: <NotebookLMIcon isDark={!!isDark} /> },
+    { name: 'Xcode', icon: <SiXcode className="w-4 sm:w-5 h-4 sm:h-5 text-[#147EFB]" /> },
+    { name: 'VS Code', icon: <VscVscode className="w-4 sm:w-5 h-4 sm:h-5 text-[#007ACC]" /> },
+    { name: 'Notion', icon: <SiNotion className={`w-4 sm:w-5 h-4 sm:h-5 ${isDark ? 'text-white' : 'text-black'}`} /> },
+    { name: 'Jira', icon: <SiJira className="w-4 sm:w-5 h-4 sm:h-5 text-[#0052CC]" /> },
+    { name: 'Confluence', icon: <SiConfluence className="w-4 sm:w-5 h-4 sm:h-5 text-[#172B4D]" /> },
+    { name: 'Trello', icon: <SiTrello className="w-4 sm:w-5 h-4 sm:h-5 text-[#0079BF]" /> },
+    { name: 'Overleaf', icon: <SiOverleaf className="w-4 sm:w-5 h-4 sm:h-5 text-[#47A141]" /> },
   ], [isDark]);
 
 
@@ -124,7 +195,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
     icon: React.ReactNode;
     cta?: string;
   }) => (
-    <Link to={to} className="block group focus-override">
+    <Link to={to} className="block group focus-override" aria-label={`View ${title}`}>
       <div className={`${cardBase} p-4 sm:p-5 lg:p-8 h-full flex flex-col justify-center relative min-h-[180px] sm:min-h-[200px]`}>
         <div className="flex-1 flex flex-col justify-center">
           <div className="flex items-start gap-3 sm:gap-4">
@@ -239,7 +310,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 </div>
               </Link>
               {/* LeetCode */}
-              <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group focus-override">
+              <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group focus-override" aria-label="View my LeetCode profile">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
@@ -250,7 +321,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                 </div>
               </a>
               {/* Countries */}
-              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group focus-override">
+              <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group focus-override" aria-label="View my travel stories on Instagram">
                 <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">

@@ -124,6 +124,7 @@ const ABPharmacyOrdersPage = ({
       if (el) io.observe(el);
     });
     return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const scrollTo = (id: string) => {

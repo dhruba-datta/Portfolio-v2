@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { GrContact } from 'react-icons/gr';
 import { RiHome4Line, RiContactsLine } from 'react-icons/ri';
+import { preloadAbout, preloadProjects } from '../../utils/routePreloads';
 
 interface NavigationProps {
   isDark: boolean;
@@ -89,6 +90,10 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                 <Link
                   key={item.label}
                   to={item.href}
+                  onMouseEnter={() => {
+                    if (item.href === '/about') preloadAbout();
+                    if (item.href === '/projects') preloadProjects();
+                  }}
                   className={`flex items-center space-x-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] focus-override ${location.pathname === item.href
                       ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg scale-105'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/60 hover:shadow-md hover:scale-105'
@@ -106,6 +111,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
             <button
               onClick={toggleTheme}
               className="p-2.5 md:p-2 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
+              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
             >
               {isDark ? (
                 <svg className="w-4 h-4 md:w-5 md:h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -122,6 +128,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
             <button
               className="md:hidden p-2.5 rounded-lg bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm focus-override"
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               <div className="w-5 h-5 flex flex-col justify-center items-center relative">
                 <span

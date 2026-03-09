@@ -287,6 +287,8 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
                   ${level !== 0 && "hover:ring-2 ring-blue-400 cursor-pointer"}
                   focus-override
                 `}
+                role="button"
+                aria-label={level === 0 ? `View ${cert.title} credential` : `Go to ${cert.title} certification`}
                 title={level === 0 ? "Click to view credential" : `Go to: ${cert.title}`}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl"></div>

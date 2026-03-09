@@ -1,14 +1,31 @@
+import { Suspense, lazy } from 'react';
 import Navigation from '../components/ui/Navigation';
 import Hero from '../components/sections/home/Hero';
-import TechStack from '../components/sections/home/TechStack';
-import ProjectPreview from '../components/sections/home/ProjectPreview';
-import Photography from '../components/sections/home/Photography';
-import Footer from '../components/ui/Footer';
+import { motion } from 'framer-motion';
+
+// Lazy load heavy sections
+const TechStack = lazy(() => import('../components/sections/home/TechStack'));
+const ProjectPreview = lazy(() => import('../components/sections/home/ProjectPreview'));
+const Photography = lazy(() => import('../components/sections/home/Photography'));
+const Footer = lazy(() => import('../components/ui/Footer'));
 
 interface HomePageProps {
   isDark: boolean;
   toggleTheme: () => void;
 }
+
+const LazySection = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.1 }}
+    transition={{ duration: 0.6 }}
+  >
+    <Suspense fallback={<div className="h-[400px] flex items-center justify-center animate-pulse bg-gray-50 dark:bg-gray-900/50 rounded-3xl m-4" />}>
+      {children}
+    </Suspense>
+  </motion.div>
+);
 
 const HomePage = ({ isDark, toggleTheme }: HomePageProps) => {
   return (
@@ -17,12 +34,20 @@ const HomePage = ({ isDark, toggleTheme }: HomePageProps) => {
       
       <main>
         <Hero />
-        <TechStack isDark={isDark} />
-        <ProjectPreview />
-        <Photography />
+        <LazySection>
+          <TechStack isDark={isDark} />
+        </LazySection>
+        <LazySection>
+          <ProjectPreview />
+        </LazySection>
+        <LazySection>
+          <Photography />
+        </LazySection>
       </main>
       
-      <Footer />
+      <LazySection>
+        <Footer />
+      </LazySection>
     </div>
   );
 };

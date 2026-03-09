@@ -92,7 +92,7 @@ const Photography = () => {
         </div>
 
         {/* Photo Grid */}
-  <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-8 sm:mb-10 lg:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-8 sm:mb-10 lg:mb-12">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
@@ -111,12 +111,15 @@ const Photography = () => {
                 aria-label={`View ${photo.location} photography on Instagram`}
               >
                 {/* Image */}
-                <div className="relative aspect-[5/6] overflow-hidden min-h-[180px]">
+                <div className="relative aspect-[5/6] overflow-hidden min-h-[180px] isolate transform-gpu">
                   <img
                     src={photo.image}
                     alt={photo.alt}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
                     loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={480}
                   />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

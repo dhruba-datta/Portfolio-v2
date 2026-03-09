@@ -24,6 +24,8 @@ const DiceJobSearchPage = lazy(() => import('./pages/projects/DiceJobSearchPage'
 const BrevoEmailMarketingPage = lazy(() => import('./pages/projects/BrevoEmailMarketingPage'));
 const IntelligentProductOrderPage = lazy(() => import('./pages/projects/IntelligentProductOrder'));
 
+// Preload critical routes have been moved to src/utils/routePreloads.ts
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 

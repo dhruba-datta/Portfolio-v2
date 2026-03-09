@@ -114,6 +114,7 @@ const ProjectPreview = () => {
                 <Link
                   to={`/projects/${project.id}`}
                   className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 min-h-[44px] focus-override"
+                  aria-label={`View details for ${project.title}`}
                 >
                   {/* Unified Blended Stack Style */}
                   <div className="relative flex flex-col group overflow-hidden h-full bg-white dark:bg-slate-950">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   FaGithub,
@@ -10,16 +10,8 @@ import {
 import { FaGoogleScholar } from "react-icons/fa6";
 import { BsBookmarkHeartFill } from "react-icons/bs";
 
-interface MousePosition {
-  x: number;
-  y: number;
-}
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  });
   const prefersReducedMotion = useReducedMotion();
 
   const codeLines = [
@@ -35,10 +27,8 @@ const Hero = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -84,7 +74,7 @@ const Hero = () => {
         <div
           className="absolute inset-0 opacity-30 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.05) 50%, transparent 70%)`,
+            background: `radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.05) 50%, transparent 70%)`,
           }}
         />
       </div>
@@ -126,7 +116,7 @@ const Hero = () => {
                   transition={{
                     y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                   }}
-                  className="relative group cursor-pointer focus-override"
+                  className="relative group focus-override"
                 >
                   {/* Mobile outer glow ring */}
                   <motion.div
@@ -163,10 +153,12 @@ const Hero = () => {
 
                   {/* Mobile main image */}
                   <motion.img
-                    src="/images/Headshot.png"
+                    src="/images/Headshot.webp"
                     alt="Dhruba Datta"
                     className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-2xl transition-all duration-300"
                     decoding="async"
+                    loading="eager"
+                    fetchPriority="high"
                     animate={{
                       boxShadow: [
                         "0 20px 40px -12px rgba(0, 0, 0, 0.25)",
@@ -237,7 +229,7 @@ const Hero = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.1 }}
                 className="text-sm sm:text-base lg:text-lg text-blue-600 dark:text-blue-400 font-medium mb-1"
               >
                 Hello! I'm
@@ -245,7 +237,7 @@ const Hero = () => {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.2 }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
               >
                 Dhruba{" "}
@@ -254,7 +246,7 @@ const Hero = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.3 }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
                 Researcher & Software Engineer
@@ -262,7 +254,7 @@ const Hero = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.4 }}
                 className="text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-lg"
               >
                 Tackling complex challenges with innovative tech and a passion
@@ -310,7 +302,7 @@ const Hero = () => {
                       ? "hover:text-gray-900 dark:hover:text-white"
                       : "")
                   }
-                  aria-label={social.name}
+                  aria-label={`Visit my ${social.name}`}
                 >
                   {social.icon}
                 </motion.a>
@@ -441,10 +433,12 @@ const Hero = () => {
 
                   {/* Main image */}
                   <motion.img
-                    src="/images/Headshot.png"
-                    alt="Dhruba Datta"
+                    src="/images/Headshot.webp"
+                    alt="Dhruba Datta Headshot"
                     className="relative z-10 w-40 h-40 rounded-full object-cover shadow-2xl transition-all duration-300"
                     decoding="async"
+                    loading="eager"
+                    fetchPriority="high"
                     animate={{
                       boxShadow: [
                         "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
