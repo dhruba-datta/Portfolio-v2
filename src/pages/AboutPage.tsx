@@ -29,7 +29,7 @@ const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
       <main className="pt-20 pb-0">
         {/* About Sections */}
         <section>
-          <About isDark={isDark} />
+          <About />
         </section>
         <section>
           <Academic isDark={isDark} />
