@@ -10,7 +10,6 @@ import {
 import { FaGoogleScholar } from "react-icons/fa6";
 import { BsBookmarkHeartFill } from "react-icons/bs";
 
-
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
 
@@ -107,23 +106,151 @@ const Hero = () => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  }}
                   className="relative group focus-override"
                 >
-                  {/* Static Outer glow ring for mobile to save CPU */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-xl scale-110" />
+                  {/* Outer glow ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-xl transition-all duration-500"
+                    animate={{
+                      rotate: 360,
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                      scale: {
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
+                    style={{ transform: "scale(1.2)" }}
+                  />
 
                   {/* Mobile main image */}
-                  <img
+                  <motion.img
                     src="/images/Headshot.webp"
                     alt="Dhruba Datta"
                     className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-xl border-2 border-white/10"
                     decoding="async"
                     loading="eager"
                     fetchPriority="high"
+                    animate={{
+                      boxShadow: [
+                        "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                        "0 10px 25px -5px rgba(59, 130, 246, 0.2)",
+                        "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                   />
 
-                  {/* Static Mobile status indicator */}
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg" />
+                  {/* Rotating border ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full opacity-40 transition-opacity duration-300"
+                    animate={{
+                      rotate: 360,
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{
+                      background:
+                        "conic-gradient(from 0deg, transparent, #60a5fa, transparent, #a855f7, transparent)",
+                      mask: "radial-gradient(circle, transparent 50px, black 52px, black 54px, transparent 56px)",
+                      WebkitMask:
+                        "radial-gradient(circle, transparent 50px, black 52px, black 54px, transparent 56px)",
+                    }}
+                  />
+
+                  {/* Status indicator with pulse */}
+                  <motion.div
+                    className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg z-20"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      boxShadow: [
+                        "0 0 0 0 rgba(34, 197, 94, 0.4)",
+                        "0 0 0 6px rgba(34, 197, 94, 0)",
+                        "0 0 0 0 rgba(34, 197, 94, 0)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+
+                  {/* Floating sparkles */}
+                  <motion.div
+                    className="absolute -top-2 -left-2 w-2 h-2 bg-yellow-400 rounded-full shadow-lg z-20"
+                    animate={{
+                      scale: [0, 1, 0],
+                      opacity: [0, 1, 0],
+                      x: [0, 4, 0],
+                      y: [0, -4, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: 1,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute -bottom-2 -right-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-lg z-20"
+                    animate={{
+                      scale: [0, 1.2, 0],
+                      opacity: [0, 1, 0],
+                      x: [0, -2, 0],
+                      y: [0, 2, 0],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: 0.5,
+                      ease: "easeInOut",
+                    }}
+                  />
+
+                  {/* Floating geometric shapes */}
+                  <motion.div
+                    className="absolute -top-6 right-0 w-3 h-3 border border-purple-400 opacity-60 z-20"
+                    style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+                    animate={{
+                      rotate: [0, 360],
+                      y: [0, -6, 0],
+                    }}
+                    transition={{
+                      rotate: { duration: 6, repeat: Infinity, ease: "linear" },
+                      y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                    }}
+                  />
+                  <motion.div
+                    className="absolute -left-4 bottom-4 w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-purple-400 opacity-70 z-20"
+                    style={{
+                      clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
+                    }}
+                    animate={{
+                      rotate: [0, -360],
+                      x: [0, 6, 0],
+                    }}
+                    transition={{
+                      rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                      x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    }}
+                  />
                 </motion.div>
               </motion.div>
 
@@ -234,7 +361,7 @@ const Hero = () => {
               type="button"
               onClick={() => {
                 const nextSection = document.querySelector(
-                  "#about, .next-section, main > section:nth-child(2)"
+                  "#about, .next-section, main > section:nth-child(2)",
                 );
                 if (nextSection) {
                   nextSection.scrollIntoView({
