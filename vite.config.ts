@@ -61,12 +61,4 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 600,
   },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:9999',
-        changeOrigin: true,
-      }
-    }
-  }
 });

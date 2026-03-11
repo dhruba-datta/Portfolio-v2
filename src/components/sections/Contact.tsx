@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import emailjs from "emailjs-com";
 import {
   FaFacebookF,
   FaInstagram,
@@ -76,14 +77,12 @@ const Contact: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to send email");
-      }
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        { name: form.name, email: form.email, subject: form.subject, message: form.message },
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
       setStatus("success");
       setForm(INITIAL_FORM);
     } catch {
