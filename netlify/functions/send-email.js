@@ -46,35 +46,10 @@ export default async (req, context) => {
 
   try {
     const data = await req.json();
-    const { name, email, subject, message, recaptchaToken } = data;
+    const { name, email, subject, message } = data;
 
     if (!name || !email || !subject || !message) {
       return new Response("Missing required fields", { status: 400 });
-    }
-
-    if (!recaptchaToken) {
-      return new Response("Missing reCAPTCHA token", { status: 400 });
-    }
-
-    // Verify reCAPTCHA token
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
-    if (recaptchaSecret) {
-      const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${recaptchaSecret}&response=${recaptchaToken}`
-      });
-      const verifyData = await verifyRes.json();
-      
-      if (!verifyData.success || verifyData.score < 0.5) {
-        console.error("reCAPTCHA failed:", verifyData);
-        return new Response(JSON.stringify({ error: "Suspicious activity detected" }), { 
-          status: 403,
-          headers: { "Content-Type": "application/json" }
-        });
-      }
-    } else {
-      console.warn("RECAPTCHA_SECRET_KEY is not set in environment variables. Skipping verification.");
     }
 
     const payload = {
