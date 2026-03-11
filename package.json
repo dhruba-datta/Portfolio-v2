@@ -9,6 +9,8 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:functions": "node scripts/functions-dev.js",
+    "dev:full": "npm run dev:functions & npm run dev",
     "build": "tsc -b && vite build && node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview"

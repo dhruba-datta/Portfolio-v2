@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import emailjs from "emailjs-com";
 import {
   FaFacebookF,
   FaInstagram,
@@ -18,6 +17,12 @@ type FormType = {
   message: string;
 };
 type ErrorType = Partial<FormType>;
+
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 // Social links
 const socialLinks = [
@@ -63,11 +68,29 @@ const Contact: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const prefersReducedMotion = useReducedMotion();
 
-  async function sendEmail(params: FormType) {
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const userId = import.meta.env.VITE_EMAILJS_USER_ID;
-    return emailjs.send(serviceId, templateId, params, userId);
+  // Dynamically load reCAPTCHA v3 script once
+  useEffect(() => {
+    const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+    if (!siteKey || document.querySelector(`script[src*="recaptcha/api.js"]`)) return;
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+    script.async = true;
+    document.head.appendChild(script);
+  }, []);
+
+  async function getRecaptchaToken(): Promise<string> {
+    const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+    if (!siteKey || !window.grecaptcha) return "";
+    return new Promise((resolve) => {
+      window.grecaptcha.ready(async () => {
+        try {
+          const token = await window.grecaptcha.execute(siteKey, { action: "submit_contact" });
+          resolve(token);
+        } catch {
+          resolve("");
+        }
+      });
+    });
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -84,7 +107,15 @@ const Contact: React.FC = () => {
 
     setLoading(true);
     try {
-      await sendEmail(form);
+      const recaptchaToken = await getRecaptchaToken();
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, recaptchaToken: recaptchaToken || "no-token" }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
       setStatus("success");
       setForm(INITIAL_FORM);
     } catch {
@@ -94,14 +125,14 @@ const Contact: React.FC = () => {
   }
 
   // Subtle animated bg dots
-  const bgDots = Array.from({ length: 9 }).map((_, i) => ({
+  const bgDots = useMemo(() => Array.from({ length: 9 }).map((_, i) => ({
     left: `${8 + i * 10}%`,
     top: `${20 + i * 8}%`,
     size: 14 + Math.random() * 12,
     opacity: 0.08 + Math.random() * 0.09,
     duration: 6 + i,
     delay: i * 0.8,
-  }));
+  })), []);
 
   return (
     <section

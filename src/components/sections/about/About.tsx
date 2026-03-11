@@ -268,8 +268,8 @@ const About = () => {
                         alt={s.alt}
                         className="h-[300px] sm:h-[350px] md:h-[360px] lg:h-[410px] w-full object-cover object-center select-none"
                         draggable={false}
-                        loading="eager"
-                        fetchPriority="high"
+                        loading={isCenter ? "eager" : "lazy"}
+                        fetchPriority={isCenter ? "high" : "auto"}
                         decoding="async"
                         onLoad={() =>
                           setLoaded((arr) => {

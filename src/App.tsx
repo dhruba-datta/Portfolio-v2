@@ -30,18 +30,10 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Add a small delay to ensure the page has rendered
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
-    };
-
-    // Use requestAnimationFrame for better performance
-    requestAnimationFrame(() => {
-      setTimeout(scrollToTop, 100);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
     });
   }, [pathname]);
 

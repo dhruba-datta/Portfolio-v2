@@ -24,6 +24,9 @@ export default defineConfig({
       jpg: {
         quality: 80,
       },
+      webp: {
+        quality: 80,
+      },
       svg: {
         multipass: true,
         plugins: [
@@ -32,7 +35,6 @@ export default defineConfig({
             params: {
               overrides: {
                 cleanupNumericValues: false,
-                removeViewBox: false,
               },
             },
           },
@@ -59,4 +61,12 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 600,
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:9999',
+        changeOrigin: true,
+      }
+    }
+  }
 });
