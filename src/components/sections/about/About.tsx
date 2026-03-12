@@ -190,7 +190,7 @@ const About = () => {
           {/* Changed from hidden md:block to block */}
           <div className="block md:col-span-5 w-full">
             <div
-              className="relative h-[400px] sm:h-[480px] lg:h-[530px] flex flex-col items-center justify-center select-none"
+              className="relative h-[530px] flex flex-col items-center justify-center select-none"
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
               onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
@@ -207,7 +207,7 @@ const About = () => {
               style={{ perspective: 1600 }}
             >
               <div
-                className="relative mt-2 h-[300px] sm:h-[350px] md:h-[360px] lg:h-[410px] w-full flex items-center justify-center"
+                className="relative mt-2 h-[410px] w-full flex items-center justify-center"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {slides.map((s, i) => {
@@ -266,7 +266,7 @@ const About = () => {
                       <img
                         src={s.src}
                         alt={s.alt}
-                        className="h-[300px] sm:h-[350px] md:h-[360px] lg:h-[410px] w-full object-cover object-center select-none"
+                        className="h-[410px] w-full object-cover object-center select-none"
                         draggable={false}
                         loading={isCenter ? "eager" : "lazy"}
                         fetchPriority={isCenter ? "high" : "auto"}
