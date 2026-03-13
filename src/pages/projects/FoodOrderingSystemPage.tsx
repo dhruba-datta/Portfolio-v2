@@ -30,7 +30,7 @@ interface FoodOrderingSystemPageProps {
 const FoodOrderingSystemPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/placeholder-project.svg",
+  coverSrc = "/images/projects/Food Ordering System.webp",
 }: FoodOrderingSystemPageProps) => {
   const navigate = useNavigate();
 

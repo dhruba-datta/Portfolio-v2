@@ -21,7 +21,7 @@ interface ABPharmacyOrdersPageProps {
 const ABPharmacyOrdersPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/AB Pharmacy Orders.svg",
+  coverSrc = "/images/AB Pharmacy Orders.webp",
 }: ABPharmacyOrdersPageProps) => {
   const navigate = useNavigate();
 

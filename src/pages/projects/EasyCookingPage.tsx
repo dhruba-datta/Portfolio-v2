@@ -29,7 +29,7 @@ interface EasyCookingPageProps {
 const EasyCookingPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/placeholder-project.svg",
+  coverSrc = "/images/projects/EasyCooking.webp",
 }: EasyCookingPageProps) => {
   const navigate = useNavigate();
 

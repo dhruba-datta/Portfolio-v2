@@ -2,16 +2,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
-  FileJson,
   Activity,
   ChevronDown,
   ArrowLeft,
-  Brain,
-  Database,
-  ListTodo,
   Zap,
+  Layout,
+  MousePointer2,
+  Search,
+  Bot,
+  FileJson,
 } from "lucide-react";
-import { SiN8N, SiOpenai, SiGooglesheets, SiGmail } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTailwindcss, SiFramer } from "react-icons/si";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineAlignLeft } from "react-icons/ai";
@@ -22,89 +23,113 @@ import Navigation from "../../components/ui/Navigation";
 import Footer from "../../components/ui/Footer";
 import ContactCTA from "../../components/sections/ContactCTA";
 
-interface IntelligentProductOrderPageProps {
+interface SocialEngagementGroupPageProps {
   isDark?: boolean;
   toggleTheme?: () => void;
   coverSrc?: string;
 }
 
-const IntelligentProductOrderPage = ({
+const SocialEngagementGroupPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/projects/Intelligent Product Order (n8n).webp",
-}: IntelligentProductOrderPageProps) => {
+  coverSrc = "/images/projects/Social Engagement Group.webp",
+}: SocialEngagementGroupPageProps) => {
   const navigate = useNavigate();
 
-  // local theme fallback
   const [localDark, setLocalDark] = useState(false);
   const effectiveIsDark = typeof isDark === "boolean" ? isDark : localDark;
   const effectiveToggleTheme =
     typeof toggleTheme === "function" ? toggleTheme : () => setLocalDark((d) => !d);
 
-  // chips under title
   const chips = [
-    { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "OpenAI", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Gmail", icon: <SiGmail className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "Monday.com", icon: <ListTodo className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-    { name: "JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Next.js 15", icon: <SiNextdotjs className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "React 19", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Tailwind 4", icon: <SiTailwindcss className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Framer 12", icon: <SiFramer className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "SEO", icon: <Search className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+    { name: "Lenis", icon: <MousePointer2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
   ];
 
-  // features (accordion)
   const features = [
     {
-      id: "product-sync",
-      icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Product Data Sync",
-      summary: "Automated catalog synchronization from distributed external sources",
-      details: [
-        "Aggregates product metadata from disparate JSON endpoints (e.g., GitHub Gists) into a unified schema",
-        "Performs intelligent upserts into Google Sheets, ensuring pricing and inventory data is always current",
-        "Establishes a single source of truth for downstream validation logic",
-      ],
-    },
-    {
-      id: "smart-processing",
-      icon: <Brain className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Smart Order Processing",
-      summary: "AI-powered parsing of unstructured natural language orders",
-      details: [
-        "Leverages OpenAI (GPT-3.5) to interpret free-form email bodies, extracting intent, product IDs, and quantities",
-        "Implements fuzzy matching logic to correlate customer requests with exact SKU codes",
-        "Automatically filters out non-transactional inquiries to focus solely on actionable revenue opportunities",
-      ],
-    },
-    {
-      id: "task-automation",
-      icon: <ListTodo className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Task Automation",
-      summary: "Seamless orchestration of cross-platform fulfillment workflows",
-      details: [
-        "Instantly generates detailed Monday.com items for verified orders, complete with customer context",
-        "Maps extracted data fields to specific board columns for immediate team visibility",
-        "Appends formatted update logs to each item, preserving the original communication trail for auditability",
-      ],
-    },
-    {
-      id: "integration-logic",
+      id: "performance",
       icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
-      title: "Integration Logic",
-      summary: "Robust data validation and error-resilient architecture",
+      title: "High-Performance Architecture",
+      summary: "Next.js 15 App Router with Turbopack for lightning-fast loads",
       details: [
-        "Bi-directional verification ensuring only orders for valid, in-stock products are processed",
-        "Granular error routing to flag ambiguous or incomplete orders for manual review",
-        "Idempotent design principles to prevent duplicate tasks from generated from the same email thread",
+        "Utilizes the latest Next.js 15 App Router architecture for optimized server-side rendering and static generation",
+        "Turbopack-enabled development environment ensuring near-instantaneous hot module replacement",
+        "Strict WebP and WebM asset compression protocols keeping media payloads under 800KB",
+        "Optimized hydration cycles to ensure zero flickering during complex page transitions",
+      ],
+    },
+    {
+      id: "motion",
+      icon: <MousePointer2 className="w-4 sm:w-5 h-4 sm:h-5" />,
+      title: "Immersive Motion Design",
+      summary: "Cinematic scroll orchestrations powered by Lenis and Framer Motion 12",
+      details: [
+        "Integrated Lenis smooth scrolling for a premium, cinematic browsing experience",
+        "Complex scroll-linked animations and entrance effects powered by Framer Motion 12",
+        "Custom SVG-based liquid transitions and micro-interactions enhancing user engagement",
+        "Orchestrated stagger effects for gallery and service grids for a polished feel",
+      ],
+    },
+    {
+      id: "ai-ready",
+      icon: <Bot className="w-4 sm:w-5 h-4 sm:h-5" />,
+      title: "AI-Ready Infrastructure",
+      summary: "Specialized llms.txt and AI-bot friendly crawler permissions",
+      details: [
+        "Published a standalone llms.txt site index to assist AI models in understanding core business offerings",
+        "Advanced robots.txt configuration explicitly authorizing and guiding major AI crawlers (GPTBot, Claude-Web)",
+        "Semantic HTML structure and JSON-LD structured data for rich search engine and AI agent interpretation",
+        "AI-optimized meta-tagging for contextual relevance in automated summaries",
+      ],
+    },
+    {
+      id: "design-system",
+      icon: <Layout className="w-4 sm:w-5 h-4 sm:h-5" />,
+      title: "Enterprise Design System",
+      summary: "Unified branding with Outfit and Playfair Display typography",
+      details: [
+        "Unified typography using Outfit for modern body text and Playfair Display for premium headings",
+        "Dynamic branding logic automatically suffixing page titles for maximum brand recall",
+        "Modular component library ensuring 100% visual consistency across 24+ service categories",
+        "Precision-crafted HSL color palette tailored for both light and dark mode excellence",
+      ],
+    },
+    {
+      id: "seo-reach",
+      icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />,
+      title: "Advanced SEO & Reach",
+      summary: "JSON-LD schema and metadata overhaul for 24+ global routes",
+      details: [
+        "Implementation of multi-layered JSON-LD schema including Organization, WebSite, and ProfessionalService",
+        "Standardized metadata orchestration for all static and dynamic routes ensuring consistent search appearance",
+        "Automated sitemap generation with next-sitemap for high-accuracy crawler indexing",
+        "Optimized OpenGraph and Twitter card configurations for high-impact social sharing",
+      ],
+    },
+    {
+      id: "asset-optimization",
+      icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
+      title: "Optimized Asset Delivery",
+      summary: "High-performance WebM (VP9) and WebP media compression",
+      details: [
+        "Full migration from legacy PNG/JPG formats to optimized WebP, reducing payload by up to 80%",
+        "High-performance background video encoding using VP9 codec strictly under 800KB for instant play",
+        "Lazy-loading strategies for non-critical images to prioritize Largest Contentful Paint (LCP)",
+        "CSS-based mesh gradients and patterns to reduce reliance on large background images",
       ],
     },
   ];
 
-  const [expanded, setExpanded] = useState<string | null>("product-sync");
+  const [expanded, setExpanded] = useState<string | null>("performance");
 
-  // Right TOC
   const toc = [
     { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "tech", label: "Nodes & Tech Used", icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
+    { id: "tech", label: "Technologies Used", icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
     { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
     { id: "how-to", label: "How to Use", icon: <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
   ] as const;
@@ -128,7 +153,6 @@ const IntelligentProductOrderPage = ({
       if (el) io.observe(el);
     });
     return () => io.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const scrollTo = (id: string) => {
@@ -136,25 +160,15 @@ const IntelligentProductOrderPage = ({
   };
 
   return (
-    <div
-      className={`min-h-screen flex flex-col transition-colors duration-300 bg-white text-gray-900${
-        effectiveIsDark ? " dark" : ""
-      } dark:bg-gray-900 dark:text-white`}
-    >
+    <div className={`min-h-screen flex flex-col transition-colors duration-300 bg-white text-gray-900${effectiveIsDark ? " dark" : ""} dark:bg-gray-900 dark:text-white`}>
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
-
       <main className="flex-grow">
-        {/* Full-width cover under navbar */}
         <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 -z-10">
-          <div
-            className="absolute inset-0 bg-center bg-cover"
-            style={{ backgroundImage: `url('${coverSrc}')` }}
-          />
+          <div className="absolute inset-0 bg-center bg-cover" style={{ backgroundImage: `url('${coverSrc}')` }} />
           <div className="absolute inset-0 backdrop-blur-[6px] opacity-80" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/5 dark:from-black/30 dark:via-transparent dark:to-black/20" />
         </div>
 
-        {/* Back Button */}
         <div className="container mx-auto px-4 sm:px-5 pt-2 sm:pt-3 pb-3 sm:pb-4 max-w-6xl">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
@@ -168,27 +182,21 @@ const IntelligentProductOrderPage = ({
           </motion.button>
         </div>
 
-        {/* Header */}
         <header className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2">
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
-                Intelligent Product Order (n8n)
+                Social Engagement Group
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
-                A comprehensive order fulfillment automation system engineered with n8n to bridge the gap between unstructured communication and structured data. 
-                By intelligently parsing incoming emails using OpenAI's GPT models, this workflow extracts critical order details, verifies product availability against a synchronized Google Sheets catalog, and autonomously orchestrates task creation in Monday.com. 
-                It transforms a chaotic inbox into a streamlined, error-free fulfillment pipeline, reducing manual data entry by over 90%.
+                The official Social Engagement Group (SEG) website is a state-of-the-art agency platform. 
+                Engineered for maximum speed and SEO, it utilizes Next.js 15's App Router, Framer Motion 12 for complex animations, and Lenis for cinematic smooth scrolling. 
+                The site is optimized for AI agents with specialized indexing and features a comprehensive design system for brand consistency across 24+ routes.
               </p>
 
               <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {chips.map((c) => (
-                  <span
-                    key={c.name}
-                    className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium border
-                               border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
-                               text-gray-700 dark:text-gray-300"
-                  >
+                  <span key={c.name} className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300">
                     <span className="text-gray-500 dark:text-gray-400">{c.icon}</span>
                     {c.name}
                   </span>
@@ -199,7 +207,7 @@ const IntelligentProductOrderPage = ({
             {/* Mobile buttons */}
             <div className="flex lg:hidden items-center gap-2 mt-4">
               <a
-                href="https://github.com/dhruba-datta/n8n"
+                href="https://github.com/SocialEngagementGroup/website"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium"
@@ -209,7 +217,7 @@ const IntelligentProductOrderPage = ({
                 GitHub
               </a>
               <motion.a
-                href="https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order"
+                href="https://www.socialengagementgroup.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
@@ -218,7 +226,7 @@ const IntelligentProductOrderPage = ({
                            border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
                            text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group"
               >
-                Open Folder
+                Check it out
                 <div className="relative w-3.5 h-3.5 overflow-hidden">
                   <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:-translate-y-full" />
                   <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 translate-y-full group-hover:translate-y-0" />
@@ -228,7 +236,7 @@ const IntelligentProductOrderPage = ({
             {/* Desktop buttons */}
             <div className="hidden lg:flex items-center gap-2 md:gap-3">
               <a
-                href="https://github.com/dhruba-datta/n8n"
+                href="https://github.com/SocialEngagementGroup/website"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 lg:h-11 w-10 lg:w-11 items-center justify-center rounded-full border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override"
@@ -237,7 +245,7 @@ const IntelligentProductOrderPage = ({
                 <Github className="w-4 h-4 lg:w-5 lg:h-5" />
               </a>
               <motion.a
-                href="https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order"
+                href="https://www.socialengagementgroup.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
@@ -246,7 +254,7 @@ const IntelligentProductOrderPage = ({
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override group"
               >
-                Open Folder
+                Check it out
                 <div className="relative w-3.5 h-3.5 lg:w-4 lg:h-4 overflow-hidden">
                   <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:-translate-y-full" />
                   <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 translate-y-full group-hover:translate-y-0" />
@@ -256,67 +264,39 @@ const IntelligentProductOrderPage = ({
           </div>
         </header>
 
-        {/* Layout: main + right toc */}
         <div className="max-w-6xl mx-auto px-4 md:px-6 mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
-          {/* MAIN */}
           <article className="space-y-12 sm:space-y-16 md:space-y-20">
-            {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
               </div>
-
               <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
                   const open = expanded === f.id;
                   return (
-                    <div
-                      key={f.id}
-                      className="border-b last:border-none border-blue-200 dark:border-gray-700 bg-blue-50/30 dark:bg-gray-800"
-                    >
-                      <motion.button
-                        whileTap={{ scale: 0.995 }}
-                        onClick={() => setExpanded(open ? null : f.id)}
-                        className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
-                      >
+                    <div key={f.id} className="border-b last:border-none border-blue-200 dark:border-gray-700 bg-blue-50/30 dark:bg-gray-800">
+                      <motion.button onClick={() => setExpanded(open ? null : f.id)} className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition">
                         <div className="flex items-start gap-2 sm:gap-3">
                           <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
                           <div className="min-w-0 flex-1">
                             <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
-                            {!open && (
-                              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>
-                            )}
+                            {!open && <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>}
                           </div>
                         </div>
-                        <ChevronDown
-                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${open ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`} />
                       </motion.button>
-
                       <AnimatePresence>
                         {open && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2, ease: "easeInOut" }}
-                            className="overflow-hidden"
-                          >
+                          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                             <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-0">
                               <p className="mb-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{f.summary}</p>
                               <ul className="space-y-2">
                                 {f.details.map((d, i) => (
-                                  <motion.li
-                                    key={i}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.15, delay: i * 0.05 }}
-                                    className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700 dark:text-gray-300"
-                                  >
+                                  <li key={i} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
                                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 sm:mt-2 shrink-0" />
                                     <span className="leading-relaxed">{d}</span>
-                                  </motion.li>
+                                  </li>
                                 ))}
                               </ul>
                             </div>
@@ -329,52 +309,44 @@ const IntelligentProductOrderPage = ({
               </div>
             </section>
 
-            {/* Nodes & Tech Used */}
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
               </div>
-
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Workflow orchestration engine managing complex data transformations and API choreography.</span>
+                  <SiNextdotjs className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Next.js 15:</b> Powering the platform with App Router, Turbopack, and high-performance server-side rendering.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>OpenAI (GPT-3.5):</b> Natural Language Processing engine capable of extracting structured JSON from free-text emails.</span>
+                  <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>React 19:</b> Utilizing the latest React features for efficient state management and concurrent rendering.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Gmail:</b> Event-driven trigger source monitoring specific inboxes for new customer correspondence.</span>
+                  <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Tailwind CSS 4:</b> Delivering a refined design system with a utility-first approach and lightning-fast compilation.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Relational database layer acting as the master product catalog and order validator.</span>
-                </li>
-                <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
-                  <ListTodo className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Monday.com:</b> Collaborative work OS where raw orders are converted into trackable fulfillment tasks.</span>
+                  <SiFramer className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 shrink-0" />
+                  <span className="text-sm sm:text-base"><b>Framer Motion 12:</b> Orchestrating enterprise-grade animations and interactive transitions throughout the UX.</span>
                 </li>
               </ul>
             </section>
 
-            {/* Use Cases */}
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
               </div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-                <li>Automating e-commerce order entry from legacy email-based ordering systems</li>
-                <li>Synchronizing distributed inventory data from multiple suppliers into a central dashboard</li>
-                <li>Reducing customer service response times by instantly routing valid orders to warehouse teams</li>
-                <li>Scaling fulfillment operations without increasing administrative headcount</li>
+                <li>Establishing a premium digital presence for fast-growing agencies</li>
+                <li>Achieving high performance scores through aggressive asset optimization</li>
+                <li>Increasing mobile conversion rates through cinematic smooth-scrolling UX</li>
+                <li>Reducing administrative burden by automating LLM-friendly content indexing</li>
               </ul>
             </section>
 
-            {/* How to Use */}
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
@@ -384,43 +356,38 @@ const IntelligentProductOrderPage = ({
               <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                   <li className="leading-relaxed">
-                    Open folder:&nbsp;
-                    <a
-                      className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600 break-words hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                      href="https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ outline: "none", boxShadow: "none" }}
-                    >
-                      GitHub - Intelligent Product Order
-                    </a>
+                    Clone repository:&nbsp;
+                    <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">
+                      git clone https://github.com/SocialEngagementGroup/website
+                    </code>
                   </li>
                   <li className="leading-relaxed">
-                    Import workflow:&nbsp;
-                    In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.
+                    Install dependencies:&nbsp;
+                    <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">
+                      npm install
+                    </code>
                   </li>
                   <li className="leading-relaxed">
-                    Configure Credentials:&nbsp;
-                    Set up OAuth2 for Google Sheets, Gmail, and Monday.com, and add your OpenAI API key.
+                    Start development server:&nbsp;
+                    <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">
+                      npm run dev
+                    </code>
                   </li>
                   <li className="leading-relaxed">
-                    Customize Google Sheets:&nbsp;
-                    Ensure your sheet has columns for `ID`, `Name`, `Price`, and `Category` and update the Sheet ID in the nodes.
+                    Production build:&nbsp;
+                    <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">
+                      npm run build
+                    </code>
                   </li>
                   <li className="leading-relaxed">
-                    Configure Monday.com:&nbsp;
-                    Update the Board ID and Group ID in the Monday.com nodes to match your workflow.
-                  </li>
-                  <li className="leading-relaxed">
-                    Run:&nbsp;
-                    Manually sync the product catalog, then activate the workflow to start monitoring for email orders.
+                    Deploy:&nbsp;
+                    Connect your repository to <b>Vercel</b> or <b>Netlify</b> for automated high-performance deployment.
                   </li>
                 </ol>
               </div>
             </section>
           </article>
 
-          {/* RIGHT TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
@@ -430,45 +397,24 @@ const IntelligentProductOrderPage = ({
               <div className="relative pl-3">
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600" />
                 <nav className="space-y-1">
-                  {toc.map((t) => {
-                    const isActive = active === t.id;
-                    return (
-                      <button
-                        key={t.id}
-                        onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${
-                          isActive
-                            ? "font-semibold text-gray-900 dark:text-gray-100"
-                            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
-                        }`}
-                        aria-current={isActive ? "page" : undefined}
-                      >
-                        {isActive && (
-                          <span className="absolute -left-[3px] top-1.5 h-4 w-[2px] rounded bg-gray-900 dark:bg-gray-100" />
-                        )}
-                        <span className="text-gray-400">{t.icon}</span>
-                        {t.label}
-                      </button>
-                    );
-                  })}
+                  {toc.map((t) => (
+                    <button key={t.id} onClick={() => scrollTo(t.id)} className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${active === t.id ? "font-semibold text-gray-900 dark:text-gray-100" : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"}`}>
+                      {active === t.id && <span className="absolute -left-[3px] top-1.5 h-4 w-[2px] rounded bg-gray-900 dark:bg-gray-100" />}
+                      <span className="text-gray-400">{t.icon}</span>
+                      {t.label}
+                    </button>
+                  ))}
                 </nav>
               </div>
             </div>
           </aside>
         </div>
 
-        {/* Contact CTA Section */}
-        <ContactCTA
-          title="Need custom n8n automations?"
-          description="I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline."
-          primaryButtonText="Get In Touch"
-          secondaryButtonText="Explore More Work"
-        />
+        <ContactCTA title="Ready to scale your digital presence?" description="I design and build high-performance, AI-ready platforms for modern agencies. Let's elevate your brand together." primaryButtonText="Get In Touch" secondaryButtonText="Explore More Work" />
       </main>
-
       <Footer />
     </div>
   );
 };
 
-export default IntelligentProductOrderPage;
+export default SocialEngagementGroupPage;

@@ -31,7 +31,7 @@ interface BrevoEmailMarketingPageProps {
 const BrevoEmailMarketingPage = ({
   isDark,
   toggleTheme,
-  coverSrc = "/images/projects/Brevo Email Marketing (n8n).svg",
+  coverSrc = "/images/projects/Brevo Email Marketing (n8n).webp",
 }: BrevoEmailMarketingPageProps) => {
   const navigate = useNavigate();
 

@@ -113,6 +113,46 @@ export const projects: Project[] = [
     featured: true,
     category: 'automation',
   },
+  {
+    id: 'social-engagement-group',
+    title: 'Social Engagement Group',
+    description:
+      'A premium, high-performance marketing agency platform built with Next.js 15, React 19, and Tailwind CSS 4. It features immersive animations, smooth scrolling, and an AI-ready infrastructure.',
+    longDescription:
+      'The official Social Engagement Group (SEG) website is a state-of-the-art agency platform. Engineered for maximum speed and SEO, it utilizes Next.js 15\'s App Router, Framer Motion 12 for complex animations, and Lenis for cinematic smooth scrolling. The site is optimized for AI agents with specialized indexing and features a comprehensive design system for brand consistency across 24+ routes.',
+    image: '/images/projects/Social Engagement Group.webp',
+    tags: [
+      { name: "Next.js 15", icon: React.createElement(SiVite, { className: "w-3.5 h-3.5" }) },
+      { name: "React 19", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
+      { name: "Tailwind CSS 4", icon: React.createElement(SiTailwindcss, { className: "w-3.5 h-3.5" }) },
+      { name: "Framer Motion", icon: React.createElement(SiFramer, { className: "w-3.5 h-3.5" }) },
+      { name: "SEO Optimization", icon: React.createElement(Search, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/social-engagement-group',
+    github: 'https://github.com/SocialEngagementGroup/website',
+    featured: true,
+    category: 'development',
+  },
+  {
+    id: 'seg-marketing',
+    title: 'SEG Marketing',
+    description:
+      'A high-conversion marketing platform featuring specialized landing pages for legal, healthcare, and restaurant industries, integrated with n8n for automated lead management.',
+    longDescription:
+      'SEG Marketing is a performance-driven multipage application built with React 19 and Vite. It serves as a specialized lead generation engine, featuring industry-specific landing pages (Legal, Healthcare, Restaurants) with unique UX patterns. The platform is deeply integrated with n8n automation workflows to bridge unstructured form data directly into CRM systems, ensuring 99.9% lead capture reliability.',
+    image: '/images/projects/SEG Marketing.webp',
+    tags: [
+      { name: "React 19", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
+      { name: "Vite", icon: React.createElement(SiVite, { className: "w-3.5 h-3.5" }) },
+      { name: "Tailwind CSS", icon: React.createElement(SiTailwindcss, { className: "w-3.5 h-3.5" }) },
+      { name: "n8n Automation", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
+      { name: "Lead Generation", icon: React.createElement(LineChart, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/seg-marketing',
+    github: 'https://github.com/SocialEngagementGroup/marketing',
+    featured: true,
+    category: 'development',
+  },
 
   {
   id: 'photobooth',
