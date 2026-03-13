@@ -25,6 +25,8 @@ const BrevoEmailMarketingPage = lazy(() => import('./pages/projects/BrevoEmailMa
 const IntelligentProductOrderPage = lazy(() => import('./pages/projects/IntelligentProductOrder'));
 const SocialEngagementGroupPage = lazy(() => import('./pages/projects/SocialEngagementGroupPage'));
 const SEGMarketingPage = lazy(() => import('./pages/projects/SEGMarketingPage'));
+const SEOAuditPage = lazy(() => import('./pages/projects/SEOAuditPage'));
+const FormVerificationPage = lazy(() => import('./pages/projects/FormVerificationPage'));
 
 // Preload critical routes have been moved to src/utils/routePreloads.ts
 
@@ -71,6 +73,8 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
   <Route path="/projects/easycooking" element={<EasyCookingPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/food-ordering-system" element={<FoodOrderingSystemPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/brevo-email-marketing-n8n" element={<BrevoEmailMarketingPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/seo-audit-n8n" element={<SEOAuditPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/form-verification-n8n" element={<FormVerificationPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/intelligent-product-order-n8n" element={<IntelligentProductOrderPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/social-engagement-group" element={<SocialEngagementGroupPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/seg-marketing" element={<SEGMarketingPage isDark={isDark} toggleTheme={toggleTheme} />} />

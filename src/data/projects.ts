@@ -42,7 +42,9 @@ import {
   SiPhp,
   SiMysql,
   SiBrevo,
-  SiWebflow
+  SiWebflow,
+  SiGmail,
+  SiGooglechat
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
@@ -72,7 +74,28 @@ export const projects: Project[] = [
     category: 'automation',
   },
   {
-  id: 'content-idea-generator-n8n',
+    id: 'seo-audit-n8n',
+    title: 'SEO Audit (n8n)',
+    description:
+      'A sophisticated n8n workflow engineered to revolutionize website optimization. By orchestrating data flow between Google PageSpeed Insights and OpenAI\'s GPT-4, this system autonomously analyzes performance metrics and generates professional SEO audit reports. It seamlessly delivers these insights via Gmail, transforming raw technical data into actionable business intelligence for clients.',
+    longDescription:
+      'Automated SEO analysis workflow with Google PageSpeed Insights integration, AI-powered audit generation (GPT-4), and automated Gmail reporting.',
+    image: '/images/projects/SEO Audit (n8n).webp',
+    tags: [
+      { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
+      { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
+      { name: "PageSpeed", icon: React.createElement(Search, { className: "w-3.5 h-3.5" }) },
+      { name: "Gmail", icon: React.createElement(SiGmail, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/seo-audit-n8n',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/SEO%20Audit',
+    featured: true,
+    category: 'automation',
+  },
+  {
+    id: 'content-idea-generator-n8n',
     title: 'Content Idea Generator (n8n)',
     description:
       'A powerful AI-driven content orchestration engine built on n8n. This workflow seamlessly bridges Google Sheets and Trello, using OpenAI\'s generative capabilities to transform raw topics into fully fleshed-out content plans. By automating the ideation, drafting, and organization phases, it eliminates hours of manual administrative work, enabling creators and teams to scale their output exponentially.',
@@ -89,27 +112,6 @@ export const projects: Project[] = [
     ],
     link: '',
     github: 'https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation',
-    featured: true,
-    category: 'automation',
-  },
-  {
-    id: 'intelligent-product-order-n8n',
-    title: 'Intelligent Product Order (n8n)',
-    description:
-      'A comprehensive order fulfillment automation system engineered with n8n to bridge the gap between unstructured communication and structured data. By intelligently parsing incoming emails using OpenAI\'s GPT models, this workflow extracts critical order details, verifies product availability against a synchronized Google Sheets catalog, and autonomously orchestrates task creation in Monday.com. It transforms a chaotic inbox into a streamlined, error-free fulfillment pipeline, reducing manual data entry by over 90%.',
-    longDescription:
-      'Automated order processing workflow using n8n to sync catalogs, parse emails with OpenAI, and create tasks in Monday.com.',
-    image: '/images/projects/Intelligent Product Order (n8n).webp',
-    tags: [
-      { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
-      { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
-      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
-      { name: "Monday.com", icon: React.createElement(ListTodo, { className: "w-3.5 h-3.5" }) },
-      { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
-      { name: "Workflow JSON", icon: React.createElement(FileJson, { className: "w-3.5 h-3.5" }) },
-    ],
-    link: '/projects/intelligent-product-order-n8n',
-    github: 'https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order',
     featured: true,
     category: 'automation',
   },
@@ -176,7 +178,7 @@ export const projects: Project[] = [
     category: 'development',
   },
   {
-  id: 'ab-pharmacy-expo',
+    id: 'ab-pharmacy-expo',
     title: 'AB Pharmacy Expo',
     description:
       'A production-ready cross-platform mobile application engineered with React Native and Expo to serve as a comprehensive digital companion for pharmacy trade shows. Featuring real-time event scheduling, an interactive exhibitor directory, detailed product catalogs, and offline-first functionalities, this app delivers a seamless native experience on both iOS and Android devices.',
@@ -195,6 +197,48 @@ export const projects: Project[] = [
     github: 'https://github.com/dhruba-datta/AB-Pharmacy-Expo',
     featured: true,
     category: 'app',
+  },
+  {
+    id: 'form-verification-n8n',
+    title: 'Form Verification (n8n)',
+    description:
+      'An advanced AI-powered lead triage system built on n8n. This workflow intelligently classifies incoming form submissions using deep analysis from GPT-Pro, verifies email authenticity via NeverBounce, and orchestrates real-time notifications across Google Chat and Gmail. It ensures 100% lead capture reliability while eliminating manual sorting tasks for legal and sales teams.',
+    longDescription:
+      'High-performance lead triage automation with AI classification (GPT-Pro), NeverBounce email verification, and multi-channel team notifications.',
+    image: '/images/projects/Form Verification (n8n).webp',
+    tags: [
+      { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
+      { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
+      { name: "NeverBounce", icon: React.createElement(FileJson, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Chat", icon: React.createElement(SiGooglechat, { className: "w-3.5 h-3.5" }) },
+      { name: "Gmail", icon: React.createElement(SiGmail, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/form-verification-n8n',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Form%20Verification',
+    featured: true,
+    category: 'automation',
+  },
+  {
+    id: 'intelligent-product-order-n8n',
+    title: 'Intelligent Product Order (n8n)',
+    description:
+      'A comprehensive order fulfillment automation system engineered with n8n to bridge the gap between unstructured communication and structured data. By intelligently parsing incoming emails using OpenAI\'s GPT models, this workflow extracts critical order details, verifies product availability against a synchronized Google Sheets catalog, and autonomously orchestrates task creation in Monday.com. It transforms a chaotic inbox into a streamlined, error-free fulfillment pipeline, reducing manual data entry by over 90%.',
+    longDescription:
+      'Automated order processing workflow using n8n to sync catalogs, parse emails with OpenAI, and create tasks in Monday.com.',
+    image: '/images/projects/Intelligent Product Order (n8n).webp',
+    tags: [
+      { name: "n8n", icon: React.createElement(SiN8N, { className: "w-3.5 h-3.5" }) },
+      { name: "OpenAI", icon: React.createElement(SiOpenai, { className: "w-3.5 h-3.5" }) },
+      { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Monday.com", icon: React.createElement(ListTodo, { className: "w-3.5 h-3.5" }) },
+      { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
+      { name: "Workflow JSON", icon: React.createElement(FileJson, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/intelligent-product-order-n8n',
+    github: 'https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order',
+    featured: true,
+    category: 'automation',
   },
   {
   id: 'cryptoverse',
