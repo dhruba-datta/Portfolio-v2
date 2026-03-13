@@ -131,7 +131,7 @@ const ProjectPreview = () => {
                       
                       {/* Global Blend Gradient: Fades from transparent down to card background color */}
                       <div 
-                        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/50 to-transparent dark:from-slate-950 dark:via-slate-950/50 dark:to-transparent z-10 pointer-events-none" 
+                        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 via-black/10 to-transparent dark:from-slate-950 dark:via-slate-950/50 dark:to-transparent z-10 pointer-events-none" 
                       />
                       
                       {/* Category Badge */}

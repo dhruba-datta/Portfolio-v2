@@ -76,6 +76,12 @@
 }
 
 @layer utilities {
+  /* Promote fixed headers to GPU layer for smooth scroll */
+  header[class*="fixed"] {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
   .line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;

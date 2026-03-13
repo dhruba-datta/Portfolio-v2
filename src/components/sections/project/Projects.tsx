@@ -148,8 +148,8 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -4 }}
                 viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
-                transition={{ delay: index * 0.05, duration: 0.5, ease: 'easeOut' }}
-                className="group"
+                transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.5, ease: 'easeOut' }}
+                className="group transform-gpu"
               >
                 <Link
                   to={`/projects/${project.id}`}
@@ -172,7 +172,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                     
                     {/* Global Blend Gradient */}
                     <div 
-                      className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/50 to-transparent dark:from-slate-950 dark:via-slate-950/50 dark:to-transparent z-10 pointer-events-none" 
+                      className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 via-black/10 to-transparent dark:from-slate-950 dark:via-slate-950/50 dark:to-transparent z-10 pointer-events-none" 
                     />
                     
                     {/* Category badge */}
