@@ -95,7 +95,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                     if (item.href === '/projects') preloadProjects();
                   }}
                   className={`flex items-center space-x-2 px-4 py-2.5 rounded-full text-base font-outfit font-medium transition-all duration-300 min-h-[44px] focus-override ${location.pathname === item.href
-                      ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-lg'
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/60 hover:shadow-md'
                     }`}
                 >
@@ -158,7 +158,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
                   to={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center space-x-3 w-full px-4 py-3 text-left rounded-xl text-lg font-outfit font-medium transition-all duration-300 min-h-[48px] focus-override ${location.pathname === item.href
-                      ? 'bg-gray-100/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg'
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50/60 dark:hover:bg-gray-800/60 hover:text-gray-900 dark:hover:text-white hover:shadow-md'
                     }`}
                 >
