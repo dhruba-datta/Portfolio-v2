@@ -346,7 +346,7 @@ const Hero = () => {
             >
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-base font-outfit font-medium text-white
+                className="inline-flex items-center gap-2 rounded-xl px-3 sm:px-5 py-2 sm:py-3 text-sm sm:text-base font-outfit font-medium text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
                            shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all focus-override"
                 aria-label="About"
@@ -373,7 +373,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="lg:hidden absolute bottom-0 sm:bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+              className="lg:hidden absolute -bottom-12 sm:-bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
               aria-label="Explore more"
             >
               <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">
