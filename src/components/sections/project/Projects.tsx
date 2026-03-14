@@ -153,8 +153,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
               >
                 <Link
                   to={`/projects/${project.id}`}
-                  className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white dark:bg-slate-950 shadow-sm sm:hover:shadow-xl sm:hover:shadow-blue-500/[0.08] dark:sm:hover:shadow-sky-500/[0.05] transition-colors duration-500
-                             sm:hover:border-blue-300/50 dark:sm:hover:border-sky-400/20 focus-override"
+                  className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg sm:hover:shadow-xl sm:hover:shadow-blue-500/[0.08] dark:sm:hover:shadow-sky-500/[0.05] transition-colors duration-500 sm:hover:border-blue-300/50 dark:sm:hover:border-sky-400/20 min-h-[44px] focus-override"
                 >
                   {/* Image Area */}
                     <div 
@@ -164,7 +163,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 sm:group-hover:opacity-90 will-change-transform transform-gpu"
+                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 sm:group-hover:scale-110 will-change-transform transform-gpu"
                       style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                       loading="lazy"
                       decoding="async"
