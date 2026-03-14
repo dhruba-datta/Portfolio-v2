@@ -159,7 +159,7 @@ const PortfolioV1Page = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => navigate("/projects")}
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override font-outfit"
           >
             <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
@@ -167,13 +167,19 @@ const PortfolioV1Page = ({
         </div>
 
         {/* Header */}
-        <header className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2">
+        <motion.header
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2"
+        >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 Portfolio v1
               </h1>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
+              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
                 The inaugural version of my personal digital portfolio, designed to be a lightweight, high-performance showcase of technical skills and professional achievements.
                 Engineered with semantic HTML5, modern CSS3, and the Bootstrap framework, this project prioritizes essential web vitals—speed, accessibility, and 
                 SEO-friendliness—providing a solid foundation for personal branding on the open web.
@@ -200,7 +206,7 @@ const PortfolioV1Page = ({
                 href="https://github.com/dhruba-datta/Portfolio-v1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium"
+                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium font-outfit"
                 aria-label="Source code on GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -214,7 +220,7 @@ const PortfolioV1Page = ({
                 whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
                            border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
-                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group"
+                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group font-outfit"
               >
                 Check it out
                 <div className="relative w-3.5 h-3.5 overflow-hidden">
@@ -241,7 +247,7 @@ const PortfolioV1Page = ({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base
+                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base font-outfit
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override group"
               >
@@ -253,7 +259,7 @@ const PortfolioV1Page = ({
               </motion.a>
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Layout: main + right toc */}
         <div className="max-w-6xl mx-auto px-4 md:px-6 mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
@@ -261,10 +267,16 @@ const PortfolioV1Page = ({
           <article className="space-y-12 sm:space-y-16 md:space-y-20">
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Feature Highlights</h2>
+              </motion.div>
 
               <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
@@ -282,7 +294,7 @@ const PortfolioV1Page = ({
                         <div className="flex items-start gap-2 sm:gap-3">
                           <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
                           <div className="min-w-0 flex-1">
-                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
+                            <p className="font-bold text-gray-900 dark:text-gray-100">{f.title}</p>
                             {!open && (
                               <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>
                             )}
@@ -330,41 +342,53 @@ const PortfolioV1Page = ({
 
             {/* Technologies Used */}
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Technologies Used</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Technologies Used</h2>
+              </motion.div>
 
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiHtml5 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTML5:</b> Semantic, accessible markup structure ensuring broad compatibility and SEO efficiency.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">HTML5:</strong> Semantic, accessible markup structure ensuring broad compatibility and SEO efficiency.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiCss3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>CSS3:</b> Modern styling capabilities used for layout precision, typography, and visual responsiveness.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">CSS3:</strong> Modern styling capabilities used for layout precision, typography, and visual responsiveness.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiJavascript className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>JavaScript (ES6):</b> Lightweight scripting for interactive UI components, smooth scrolling, and dynamic interactions.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">JavaScript (ES6):</strong> Lightweight scripting for interactive UI components, smooth scrolling, and dynamic interactions.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiBootstrap className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Bootstrap Framework:</b> Rapid development toolkit providing a robust responsive grid system and pre-built components.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Bootstrap Framework:</strong> Rapid development toolkit providing a robust responsive grid system and pre-built components.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Netlify:</b> Modern hosting platform offering continuous deployment (CD) and global edge network delivery.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Netlify:</strong> Modern hosting platform offering continuous deployment (CD) and global edge network delivery.</span>
                 </li>
               </ul>
             </section>
 
             {/* Use Cases */}
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Use Cases</h2>
+              </motion.div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                 <li>Professional personal portfolio and interactive digital resume for career advancement</li>
                 <li>Conversion-optimized landing page for freelancers showcasing case studies and services</li>
@@ -375,10 +399,16 @@ const PortfolioV1Page = ({
 
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">How to Use</h2>
+              </motion.div>
 
               <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
@@ -408,7 +438,7 @@ const PortfolioV1Page = ({
           {/* RIGHT TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 font-outfit">
                 <AiOutlineAlignLeft className="w-3 h-3" />
                 On this page
               </div>
@@ -421,7 +451,7 @@ const PortfolioV1Page = ({
                       <button
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${isActive
+                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition font-outfit ${isActive
                           ? "font-semibold text-gray-900 dark:text-gray-100"
                           : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                           }`}

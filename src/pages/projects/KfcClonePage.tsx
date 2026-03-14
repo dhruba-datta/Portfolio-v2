@@ -193,7 +193,7 @@ const KfcClonePage = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => navigate('/projects')}
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override font-outfit"
           >
             <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
@@ -201,14 +201,19 @@ const KfcClonePage = ({
         </div>
 
         {/* Header */}
-        <header className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2">
-
+        <motion.header
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2"
+        >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 KFC Clone
               </h1>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
+              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
                 A high-fidelity, single-page food ordering application designed to replicate the premium digital experience of KFC. 
                 Built with the modern Vue 3 ecosystem and utility-first Tailwind CSS, this project delivers a lightning-fast, 
                 interactive, and responsive user interface. It features advanced capabilities such as real-time multilingual support, 
@@ -235,7 +240,7 @@ const KfcClonePage = ({
                 href="https://github.com/dhruba-datta/kfc-clone"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium"
+                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium font-outfit"
                 aria-label="Source code on GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -249,7 +254,7 @@ const KfcClonePage = ({
                 whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
                            border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
-                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group"
+                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group font-outfit"
               >
                 Check it out
                 <div className="relative w-3.5 h-3.5 overflow-hidden">
@@ -276,7 +281,7 @@ const KfcClonePage = ({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-full
+                className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-full font-outfit
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override group"
               >
@@ -288,7 +293,7 @@ const KfcClonePage = ({
               </motion.a>
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Layout: main + right toc */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-8 sm:mt-10 lg:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 lg:gap-14">
@@ -296,10 +301,16 @@ const KfcClonePage = ({
           <article className="space-y-12 sm:space-y-16 lg:space-y-20">
             {/* Feature Highlights — chevron on right + click/tap animation */}
             <section id="highlights" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <Activity className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">Feature Highlights</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Feature Highlights</h2>
+              </motion.div>
 
               <div className="rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
@@ -317,7 +328,7 @@ const KfcClonePage = ({
                         <div className="flex items-start gap-2 sm:gap-3">
                           <div className="mt-0.5 text-blue-500">{f.icon}</div>
                           <div>
-                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
+                            <p className="font-bold text-gray-900 dark:text-gray-100">{f.title}</p>
                             {!open && (
                               <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{f.summary}</div>
                             )}
@@ -365,45 +376,57 @@ const KfcClonePage = ({
 
             {/* Technologies Used */}
             <section id="tech" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <BsAppIndicator className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">Technologies Used</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Technologies Used</h2>
+              </motion.div>
 
               <ul className="space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <FaVuejs className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Vue 3:</b> Progressive JavaScript framework leveraging the Composition API for building reactive, scalable, and modular user interfaces.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Vue 3:</strong> Progressive JavaScript framework leveraging the Composition API for building reactive, scalable, and modular user interfaces.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <RiTailwindCssFill className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Tailwind CSS:</b> Utility-first CSS framework enabling rapid UI development with a customizable and consistent design system.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Tailwind CSS:</strong> Utility-first CSS framework enabling rapid UI development with a customizable and consistent design system.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoTypescript className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>TypeScript/ES6+:</b> Strongly typed superset of JavaScript ensuring type safety, better developer tooling, and maintainable codebase.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">TypeScript/ES6+:</strong> Strongly typed superset of JavaScript ensuring type safety, better developer tooling, and maintainable codebase.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Languages className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Vue I18n:</b> Powerful internationalization plugin handling seamless content translation and language persistence.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Vue I18n:</strong> Powerful internationalization plugin handling seamless content translation and language persistence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <GrStorage className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>localStorage:</b> Browser-based storage API for maintaining cart state and user session data across page reloads.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">localStorage:</strong> Browser-based storage API for maintaining cart state and user session data across page reloads.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <BiLogoNetlify className="w-3.5 sm:w-4 h-3.5 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm sm:text-base"><b>Netlify:</b> Modern hosting platform providing continuous deployment, Global CDN distribution, and serverless functions.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Netlify:</strong> Modern hosting platform providing continuous deployment, Global CDN distribution, and serverless functions.</span>
                 </li>
               </ul>
             </section>
 
             {/* Use Cases */}
             <section id="use-cases" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <LuSettings2 className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">Use Cases</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Use Cases</h2>
+              </motion.div>
               <ul className="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="text-sm sm:text-base">Rapid prototyping of food delivery or e-commerce startups</li>
                 <li className="text-sm sm:text-base">Demonstration of advanced Frontend capabilities with Vue 3 and modern CSS</li>
@@ -415,10 +438,16 @@ const KfcClonePage = ({
 
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <FileJson className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-none">How to Use</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">How to Use</h2>
+              </motion.div>
 
               <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200 text-sm sm:text-base">
@@ -471,7 +500,7 @@ const KfcClonePage = ({
           {/* RIGHT TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 font-outfit">
                 <AiOutlineAlignLeft className="w-3 h-3" />
                 On this page
               </div>
@@ -484,7 +513,7 @@ const KfcClonePage = ({
                       <button
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-1.5 sm:gap-2 w-full text-left px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm transition ${isActive
+                        className={`relative flex items-center gap-1.5 sm:gap-2 w-full text-left px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm transition font-outfit ${isActive
                             ? "font-semibold text-gray-900 dark:text-gray-100"
                             : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                           }`}

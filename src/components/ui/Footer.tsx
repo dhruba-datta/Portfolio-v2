@@ -22,7 +22,7 @@ const Footer = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-10">
         {/* Left: Copyright */}
-        <div className="flex flex-col items-center md:items-start gap-1.5 md:gap-2">
+        <div className="flex flex-col items-center md:items-start gap-1.5 md:gap-2 font-outfit">
           <span className="text-sm md:text-base font-semibold text-gray-900 dark:text-white">Dhruba Datta</span>
           <p className="text-[11px] md:text-xs text-gray-500 dark:text-gray-400">&copy; {__LAST_UPDATE_YEAR__} | All rights reserved</p>
         </div>
@@ -37,7 +37,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label={link.name}
               className={
-                `p-2.5 md:p-3 rounded-lg transition duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 min-h-[40px] min-w-[40px] md:min-h-[48px] md:min-w-[48px] flex items-center justify-center focus-override ` +
+                `p-2.5 md:p-3 rounded-lg transition duration-300 text-gray-500 dark:text-gray-400 min-h-[40px] min-w-[40px] md:min-h-[48px] md:min-w-[48px] flex items-center justify-center focus-override ` +
                 (link.name === 'GitHub' ? 'hover:text-gray-900 dark:hover:text-white ' : '') +
                 (link.name === 'LinkedIn' ? 'hover:text-blue-600 dark:hover:text-blue-400 ' : '') +
                 (link.name === 'Instagram' ? 'hover:text-pink-500 dark:hover:text-pink-400 ' : '') +

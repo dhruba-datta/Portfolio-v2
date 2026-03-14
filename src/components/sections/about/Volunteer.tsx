@@ -1,4 +1,5 @@
 import { TbLocationFilled } from "react-icons/tb";
+import { HiUserGroup, HiAcademicCap, HiHeart } from "react-icons/hi2";
 import { motion } from 'framer-motion';
 
 interface VolunteerProps {
@@ -60,52 +61,36 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
   };
 
   const getTypeIcon = (type: string) => {
-    const iconClass = "w-5 h-5";
+    const iconClass = "w-5 h-5 text-white";
     switch (type) {
       case 'Leadership':
-        return (
-          <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
-            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h2v4h2v2H2v-2h2zm4.5-3c1.38 0 2.5-1.12 2.5-2.5S9.88 10 8.5 10 6 11.12 6 12.5 7.12 15 8.5 15zm-1-1.5c0-.28.22-.5.5-.5s.5.22.5.5-.22.5-.5.5-.5-.22-.5-.5zm10.5 0c0-.28.22-.5.5-.5s.5.22.5.5-.22.5-.5.5-.5-.22-.5-.5zm-2-7c-1.38 0-2.5 1.12-2.5 2.5S15.12 10 16.5 10 19 8.88 19 7.5 17.88 6 16.5 6z"/>
-          </svg>
-        );
+        return <HiUserGroup className={iconClass} />;
       case 'Education':
-        return (
-          <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-          </svg>
-        );
+        return <HiAcademicCap className={iconClass} />;
       case 'Social Impact':
-        return (
-          <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-          </svg>
-        );
+        return <HiHeart className={iconClass} />;
       default:
-        return (
-          <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-          </svg>
-        );
+        return <HiHeart className={iconClass} />;
     }
   };
 
   return (
     <section 
       id="volunteer" 
-          className="py-10 sm:py-12 lg:py-20 transition-colors duration-300"
+          className="py-10 sm:py-12 lg:py-20 transition-colors duration-300 bg-white dark:bg-gray-900"
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
@@ -136,8 +121,8 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="relative"
@@ -163,11 +148,9 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     </div>
                     
                     {/* Organization Name */}
-                    <h3 className={`text-base sm:text-lg font-bold ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
+                    <h4 className="font-semibold !text-orange-500">
                       {exp.organization}
-                    </h3>
+                    </h4>
                     
                     {/* Location */}
                     <div className={`flex items-center gap-2 text-sm ${
@@ -178,11 +161,9 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     </div>
                     
                     {/* Position */}
-                    <h4 className={`text-base sm:text-lg font-semibold ${
-                      isDark ? 'text-orange-400' : 'text-orange-600'
-                    }`}>
+                    <p className="font-bold !text-white">
                       {exp.position}
-                    </h4>
+                    </p>
                     
                     {/* Description */}
                     <p className={`text-sm leading-relaxed mt-3 ${
@@ -202,16 +183,12 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     }`}>
                       {exp.duration}
                     </div>
-                    <h4 className={`text-lg lg:text-xl font-bold mb-3 ${
-                        isDark ? 'text-orange-400' : 'text-orange-600'
-                    }`}>
+                    <p className="font-bold mb-3 !text-white">
                       {exp.position}
-                    </h4>
-                    <h3 className={`text-lg lg:text-xl font-semibold mb-1 ${
-                      isDark ? 'text-gray-200' : 'text-gray-700'
-                    }`}>
+                    </p>
+                    <h4 className="font-semibold mb-1 !text-orange-500">
                       {exp.organization}
-                    </h3>
+                    </h4>
                     <div className={`flex items-center gap-2 mb-4 text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
                     } ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>

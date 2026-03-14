@@ -25,7 +25,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
       duration: "AUG 2019 - JUL 2023",
       location: "New Delhi, India",
       grade: "CGPA: 8.22/10.00",
-      field: "Department of Software Engineering"
+      field: "Software Engineering"
     },
     {
       id: 2,
@@ -50,28 +50,28 @@ const Academic = ({ isDark = false }: AcademicProps) => {
   return (
     <section
       id="academic"
-      className="pt-8 pb-2 sm:py-12 lg:py-20 transition-colors duration-300"
+      className="pt-8 pb-2 sm:py-12 lg:py-20 transition-colors duration-300 bg-white dark:bg-gray-900"
       style={{ marginTop: '0.1rem' }}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <span className="uppercase tracking-[0.2em] text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400">
+            <h3 className="text-slate-500 dark:text-slate-400">
               Education
-            </span>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
+            </h3>
+            <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Academic Background
             </h2>
             
@@ -95,8 +95,8 @@ const Academic = ({ isDark = false }: AcademicProps) => {
             {education.map((edu, index) => (
               <motion.div
                 key={edu.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="relative"
@@ -123,29 +123,16 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     </div>
                     
                     {/* Degree */}
-                    <h4 className={`text-base sm:text-lg font-bold ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
+                    <p className="font-bold !text-white">
                       {edu.degree}
-                    </h4>
+                    </p>
                     
-                    {/* Field Badge */}
-                    {edu.field && (
-                      <div className={`inline-block px-3 py-1 text-xs font-medium rounded-full mb-1 ${
-                        isDark 
-                          ? 'bg-gray-700 text-gray-200' 
-                          : 'bg-gray-100 text-gray-700'
-                      }`}>
-                        {edu.field}
-                      </div>
-                    )}
+
                     
                     {/* Institution */}
-                    <h3 className={`text-base sm:text-lg font-semibold ${
-                      isDark ? 'text-green-400' : 'text-green-600'
-                    }`}>
+                    <h4 className="font-semibold !text-green-500">
                       {edu.institution}
-                    </h3>
+                    </h4>
                     
                     {/* Location */}
                     <div className={`flex items-center gap-2 text-sm ${
@@ -155,19 +142,33 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                       <span>{edu.location}</span>
                     </div>
                     
-                    {/* Grade with Cap Icon */}
-                    <div className={`flex items-center gap-2 text-sm ${
-                      isDark ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
-                      <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-                      </svg>
-                      <span className="font-medium">{edu.grade.includes('CGPA') ? 'CGPA' : 'GPA'}:</span>
-                      <span className={`font-bold ${
-                        isDark ? 'text-green-400' : 'text-green-600'
+                    {/* Grade and Field Layout */}
+                    <div className="flex flex-col gap-1">
+                      {/* Icon and Grade Row */}
+                      <div className={`flex items-center gap-2 text-sm ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
                       }`}>
-                        {edu.grade.replace('CGPA: ', '').replace('GPA: ', '')}
-                      </span>
+                        <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium">{edu.grade.includes('CGPA') ? 'CGPA' : 'GPA'}:</span>
+                          <span className={`font-bold ${
+                            isDark ? 'text-green-400' : 'text-green-600'
+                          }`}>
+                            {edu.grade.replace('CGPA: ', '').replace('GPA: ', '')}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Field of Study on New Line */}
+                      {edu.field && (
+                        <div className={`text-sm font-medium pl-1 ${
+                          isDark ? 'text-gray-500' : 'text-gray-500'
+                        }`}>
+                          {edu.field}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -181,25 +182,13 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     }`}>
                       {edu.duration}
                     </div>
-                    <h4 className={`text-lg lg:text-xl font-bold mb-3 ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
+                    <p className="font-bold mb-3 !text-white">
                       {edu.degree}
-                    </h4>
-                    {edu.field && (
-                      <div className={`inline-block px-3 py-1 text-sm font-medium rounded-full mb-4 ${
-                        isDark 
-                          ? 'bg-gray-700 text-gray-200' 
-                          : 'bg-gray-100 text-gray-700'
-                      }`}>
-                        {edu.field}
-                      </div>
-                    )}
-                    <h3 className={`text-lg lg:text-xl font-semibold mb-1 ${
-                      isDark ? 'text-green-400' : 'text-green-600'
-                    }`}>
+                    </p>
+
+                    <h4 className="font-semibold mb-1 !text-green-500">
                       {edu.institution}
-                    </h3>
+                    </h4>
                     <div className={`flex items-center gap-2 mb-4 text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
                     } ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>
@@ -251,6 +240,14 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                           }`}>
                             {edu.grade.replace('CGPA: ', '').replace('GPA: ', '')}
                           </div>
+                          {/* Row 3 - Field */}
+                          {edu.field && (
+                            <div className={`text-sm font-medium leading-tight mt-0.5 ${
+                              isDark ? 'text-gray-400' : 'text-gray-500'
+                            }`}>
+                              {edu.field}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>

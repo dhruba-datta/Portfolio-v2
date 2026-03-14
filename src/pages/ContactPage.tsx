@@ -9,7 +9,7 @@ interface ContactPageProps {
 
 const ContactPage = ({ isDark, toggleTheme }: ContactPageProps) => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
       <Contact />
       <Footer />

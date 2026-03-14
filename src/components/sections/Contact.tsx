@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-row lg:items-center lg:justify-center lg:py-0"
+      className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-row lg:items-center lg:justify-center lg:py-0 bg-white dark:bg-gray-900"
     >
       {/* --- Dynamic Background --- */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
       <div className="w-full max-w-5xl mx-auto px-4 md:px-6 lg:px-2 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
         {/* --- LEFT: Intro (mobile centered, desktop left aligned) --- */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -206,25 +206,16 @@ const Contact: React.FC = () => {
           style={{ minHeight: "100svh" }}
         >
           {/* Avatar block */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
+          <div
             className="relative mb-4"
-            animate={!prefersReducedMotion ? { y: [0, -6, 0] } : undefined}
-            transition={
-              !prefersReducedMotion
-                ? { y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }
-                : undefined
-            }
           >
             {!prefersReducedMotion && (
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-30 blur-2xl"
-                animate={{ rotate: 360, scale: [1, 1.08, 1] }}
+                animate={{ rotate: 360 }}
                 transition={{
                   rotate: { duration: 7, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                 }}
-                style={{ transform: "scale(1.08)" }}
               />
             )}
 
@@ -331,21 +322,8 @@ const Contact: React.FC = () => {
                 }}
               />
             )}
-            <motion.div
-              className="absolute -top-1 lg:-top-2 left-1 lg:left-2 w-1.5 lg:w-2 h-1.5 lg:h-2 bg-yellow-300 rounded-full shadow"
-              animate={{
-                scale: [0, 1.05, 0],
-                opacity: [0, 1, 0],
-                y: [0, -2, 0],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                delay: 1,
-                ease: "easeInOut",
-              }}
-            />
-          </motion.div>
+
+          </div>
 
           {/* ---- ELEMENTS UNDER THE IMAGE ---- */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100">
@@ -360,15 +338,16 @@ const Contact: React.FC = () => {
             </span>
           </div>
 
-          <div className="text-blue-600 dark:text-blue-400 font-medium text-base sm:text-lg lg:text-xl mt-2">
+          <h4 className="text-blue-600 dark:text-blue-400 text-sm sm:text-base md:text-lg lg:text-xl mt-2 font-medium">
             Bringing Ideas to Life - Let&apos;s build together
-          </div>
+          </h4>
 
-          <p className="text-gray-600 dark:text-gray-300 max-w-lg mb-3 text-sm sm:text-base lg:text-lg leading-relaxed mt-2">
+          <p className="text-gray-500 dark:text-gray-400 max-w-lg mb-3 text-sm sm:text-base lg:text-lg leading-relaxed mt-2">
             Got an idea, a question, or just want to chat?
             <br />
-            Connect on social media for updates, or use the form for detailed
-            inquiries.
+            Connect on social media for updates, or
+            <br />
+            use the form for detailed inquiries.
           </p>
 
           <div className="flex gap-3 lg:gap-4 mb-2 justify-center lg:justify-start">
@@ -380,7 +359,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label={social.name}
                 className={`
-                  rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 !outline-none focus:!outline-none focus:ring-0 focus:border-none focus-override
+                  rounded-lg transition-all duration-300 text-gray-500 dark:text-gray-400 !outline-none focus:!outline-none focus:ring-0 focus:border-none focus-override
                   ${
                     social.name === "LinkedIn"
                       ? "hover:text-blue-600 dark:hover:text-blue-400 pl-0 pr-1.5 lg:pr-2 py-1.5 lg:py-2"
@@ -447,7 +426,7 @@ const Contact: React.FC = () => {
         <motion.form
           id="contact-form"
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -599,8 +578,6 @@ const Contact: React.FC = () => {
           {/* Button */}
           <motion.button
             type={status === "success" ? "button" : "submit"}
-            whileHover={{ scale: status === "idle" ? 1.03 : 1 }}
-            whileTap={{ scale: status === "idle" ? 0.98 : 1 }}
             className={
               "w-full font-semibold py-3 lg:py-3.5 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm lg:text-base " +
               (loading

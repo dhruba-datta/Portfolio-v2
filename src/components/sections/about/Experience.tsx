@@ -92,26 +92,26 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
   ];;
 
   return (
-    <section id="experience" className="py-10 sm:py-12 lg:py-20 transition-colors duration-300">
+    <section id="experience" className="py-10 sm:py-12 lg:py-20 transition-colors duration-300 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <span className="uppercase tracking-[0.2em] text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400">
+            <h3 className="text-slate-500 dark:text-slate-400">
               Professional Journey
-            </span>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
+            </h3>
+            <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Work Experience
             </h2>
           </motion.div>
@@ -136,8 +136,8 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="relative"
@@ -163,8 +163,8 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     </div>
                     
                     {/* Company Name */}
-                    <h3 className={`text-base sm:text-lg font-bold ${
-                      isDark ? 'text-white' : 'text-gray-900'
+                    <h4 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-bold ${
+                      isDark ? 'dark:!text-white' : 'text-gray-900'
                     }`}>
                       {exp.companyUrl ? (
                         <a 
@@ -178,7 +178,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                       ) : (
                         exp.company
                       )}
-                    </h3>
+                    </h4>
                     
                     {/* Location and Type */}
                     <div className="flex flex-col gap-1">
@@ -198,7 +198,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     
                     {/* Position */}
                     <h4 className={`text-base sm:text-lg font-semibold ${
-                      isDark ? 'text-blue-400' : 'text-blue-600'
+                      isDark ? 'dark:!text-blue-400' : 'text-blue-600'
                     }`}>
                       {exp.position}
                     </h4>
@@ -230,9 +230,9 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     >
                       {exp.duration}
                     </div>
-                                        <h3
-                      className={`text-xl font-bold mb-2 ${
-                        isDark ? 'text-white' : 'text-gray-900'
+                                        <h4
+                      className={`text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 ${
+                        isDark ? 'dark:!text-white' : 'text-gray-900'
                       }`}
                     >
                       {exp.companyUrl ? (
@@ -247,7 +247,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                       ) : (
                         exp.company
                       )}
-                    </h3>
+                    </h4>
                     <div
                       className={`flex flex-col lg:items-end gap-1 text-sm ${
                         isDark ? 'text-gray-400' : 'text-gray-600'
@@ -278,8 +278,8 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     <div className="mb-6">
                       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-3 mb-2">
                         <h4
-                            className={`text-xl font-bold ${
-                              isDark ? 'text-blue-400' : 'text-blue-600'
+                            className={`text-xl sm:text-2xl font-bold ${
+                              isDark ? 'dark:!text-blue-400' : 'text-blue-600'
                             }`}
                         >
                           {exp.position}

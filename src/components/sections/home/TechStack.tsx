@@ -174,7 +174,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
 
 
   // helper colors
-  const cardBase = 'rounded-3xl overflow-hidden border border-blue-200/60 dark:border-white/[0.08] bg-blue-50/30 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:-translate-y-1';
+  const cardBase = 'rounded-3xl overflow-hidden border border-blue-200/60 dark:border-white/[0.08] bg-blue-50/30 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20';
   const textMuted = isDark ? 'text-gray-400' : 'text-gray-600';
   const borderSoft = isDark ? 'border-white/10' : 'border-blue-200/50';
   const statBg = isDark ? 'bg-white/[0.03]' : 'bg-blue-50/40';
@@ -205,16 +205,16 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-blue-500">{icon}</span>
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold">{title}</h3>
+                <h5 className="font-semibold">{title}</h5>
               </div>
-              <p className={`text-xs sm:text-sm mt-2 ${textMuted}`}>{description}</p>
+              <p className="mt-2">{description}</p>
             </div>
           </div>
         </div>
 
         <div className="mt-4 sm:mt-5 lg:mt-6 flex items-center justify-between min-h-[40px] sm:min-h-[44px]">
           <div className="flex items-center gap-2">
-            <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-base font-outfit font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               {cta}
             </span>
           </div>
@@ -232,10 +232,10 @@ const TechStack = ({ isDark }: TechStackProps) => {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <div>
-            <span className={`uppercase tracking-[0.2em] text-[10px] sm:text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+            <h3 className={isDark ? 'text-slate-400' : 'text-slate-500'}>
               Tech Stack & Status
-            </span>
-            <h2 className={`mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            </h3>
+            <h2 className={`mt-2 sm:mt-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
               Profile Overview
             </h2>
           </div>
@@ -255,9 +255,9 @@ const TechStack = ({ isDark }: TechStackProps) => {
           {/* Card 2 (Tech Stack) */}
           <div className={`lg:col-span-2 ${cardBase} p-4 sm:p-5 lg:p-8`}>
             <div className="mb-4 sm:mb-5 lg:mb-8">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
+              <h5 className="mb-1">
                 My <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Toolbox</span>
-              </h3>
+              </h5>
             </div>
             <div className="space-y-2 sm:space-y-3 lg:space-y-4">
               <TechScroll technologies={frontendTech} direction="right" isDark={isDark} />
@@ -269,16 +269,16 @@ const TechStack = ({ isDark }: TechStackProps) => {
           {/* Card 3: Key Highlights — unchanged */}
           <div className={`lg:col-span-2 ${cardBase} p-4 sm:p-5 lg:p-8`}>
             <div className="mb-4 sm:mb-5 lg:mb-8">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
+              <h5 className="mb-1">
                 Key <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">Highlights</span>
-              </h3>
+              </h5>
             </div>
 
             {/* Mobile: 3 in first row, 2 in second row. Desktop: original grid. */}
             <div className="hidden sm:grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
               {/* Publications */}
               <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group focus-override">
-                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
+                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
                       <CountUp from={0} to={1} duration={1.5} delay={0.2} />
@@ -289,7 +289,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </a>
               {/* Total Automation */}
               <Link to="/projects?tab=automation" className="block group focus-override">
-                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
+                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
                       <CountUp from={0} to={projects.filter(p => p.category === 'automation').length} duration={1.5} delay={0.2} />+
@@ -300,7 +300,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </Link>
               {/* Projects */}
               <Link to="/projects" className="block group focus-override">
-                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
+                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
                       <CountUp from={0} to={projects.length} duration={1.5} delay={0.2} />+
@@ -311,7 +311,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </Link>
               {/* LeetCode */}
               <a href="https://leetcode.com/u/dhruba-datta/" target="_blank" rel="noopener noreferrer" className="block group focus-override" aria-label="View my LeetCode profile">
-                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
+                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
                       <CountUp from={0} to={500} duration={0.5} delay={0.2} separator="," />+
@@ -322,7 +322,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               </a>
               {/* Countries */}
               <a href="https://www.instagram.com/dhrubz_/" target="_blank" rel="noopener noreferrer" className="hidden sm:block group focus-override" aria-label="View my travel stories on Instagram">
-                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
+                <div className={`p-3 sm:p-4 lg:p-5 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 sm:h-28 lg:h-32 min-h-[96px] sm:min-h-[112px]`}>
                   <div className="flex-1">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-none">
                       <CountUp from={0} to={2} duration={1.2} delay={1} />
@@ -337,7 +337,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
               <div className="grid grid-cols-3 gap-3">
                 {/* First row: 3 items */}
                 <a href="https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH" target="_blank" rel="noopener noreferrer" className="block group focus-override">
-                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
+                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 min-h-[96px]`}>
                     <div className="flex-1">
                       <div className="text-xl font-extrabold leading-none">
                         <CountUp from={0} to={1} duration={1.5} delay={0.2} />
@@ -347,7 +347,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   </div>
                 </a>
                 <Link to="/projects?tab=automation" className="block group focus-override">
-                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
+                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 min-h-[96px]`}>
                     <div className="flex-1">
                       <div className="text-xl font-extrabold leading-none">
                         <CountUp from={0} to={projects.filter(p => p.category === 'automation').length} duration={1.5} delay={0.2} />+
@@ -357,7 +357,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
                   </div>
                 </Link>
                 <Link to="/projects" className="block group focus-override">
-                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col cursor-pointer h-24 min-h-[96px]`}>
+                  <div className={`p-3 rounded-xl border ${borderSoft} ${statBg} transition-all duration-300 hover:border-blue-300/50 dark:hover:border-sky-400/20 hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] flex flex-col cursor-pointer h-24 min-h-[96px]`}>
                     <div className="flex-1">
                       <div className="text-xl font-extrabold leading-none">
                         <CountUp from={0} to={projects.length} duration={1.5} delay={0.2} />+
@@ -377,7 +377,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
             title=" Project Showcase"
             description="Explore shipped work, case studies, and live demos tailored for hiring."
             icon={<BriefcaseIcon />}
-            cta="View Recent Work"
+            cta="View Recent Works"
           />
         </div>
       </div>

@@ -67,7 +67,7 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="min-h-[100vh] md:min-h-[90vh] flex flex-col items-center relative overflow-hidden"
+      className="min-h-[100vh] md:min-h-[90vh] flex flex-col items-center relative overflow-hidden bg-white dark:bg-gray-900"
       style={{ margin: 0, padding: 0 }}
     >
       {/* Decorative background (grid overlay removed to prevent vertical line over photo) */}
@@ -103,37 +103,42 @@ const About = () => {
 
       <motion.div
         className="relative z-10 container-max-width section-padding w-full max-w-6xl mx-auto px-7 sm:px-6 md:px-6 flex-1 flex items-center justify-center"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {/* Changed from grid md:grid-cols-12 to flex flex-col on mobile, and grid on md+ */}
         <div className="flex flex-col md:grid md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center w-full">
           {/* Left: copy */}
-          <div className="md:col-span-7 space-y-4 sm:space-y-5 md:space-y-6">
-            <motion.p
-              initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-              className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-gray-500 dark:text-gray-400"
-            >
-              More about me
-            </motion.p>
-
-            <motion.h2
-              initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              I’m <span className="text-blue-600 dark:text-blue-400">Dhruba</span>
-            </motion.h2>
+          <div className="md:col-span-7">
+            {/* Heading Group */}
+            <div>
+              <motion.p
+                initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5 }}
+                className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-gray-500 dark:text-gray-400"
+              >
+                More about me
+              </motion.p>
+              <motion.h2
+                initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white mt-2 sm:mt-3"
+              >
+                I’m <span className="text-blue-600 dark:text-blue-400">Dhruba</span>
+              </motion.h2>
+            </div>
 
             <motion.div
-              initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.05 }}
-              className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
+              initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mt-6"
             >
               <p>
                 Proactive Software Engineer passionate about advancing AI through innovative solutions. Serving as R&D Lead at SEG, specializing in n8n automations to simplify workflows. Skilled in solving complex problems with clean, efficient code, with expertise in AI Automation and Full-Stack Development.
@@ -144,43 +149,30 @@ const About = () => {
               <p>Eager to innovate, inspire & make a meaningful impact everyday.</p>
             </motion.div>
 
-            {/* CTAs */}
             <motion.div
-              initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.08 }}
-              className="flex flex-col sm:flex-row gap-3 pt-1"
-              style={{ marginBottom: '0.1rem' }}
+              initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10"
             >
               <Link
                 to="/projects"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-white
+                className="group inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-white font-outfit
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                           shadow-lg hover:shadow-xl hover:shadow-blue-600/30 transition-all focus-override"
+                           shadow-lg hover:shadow-xl hover:shadow-blue-600/30 transition-all focus-override min-h-[44px] sm:min-h-[48px]"
               >
                 <span>View Projects</span>
-                <span>
-                  <motion.div
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ 
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="group-hover:translate-x-2"
-                  >
-                    <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300" />
-                  </motion.div>
-                </span>
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium
-                           border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5
-                           text-slate-800 dark:text-gray-200 transition-all focus-override
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold font-outfit
+                           border-2 border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5
+                           text-slate-800 dark:text-gray-200 transition-all focus-override min-h-[44px] sm:min-h-[48px]
                            hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/10"
               >
-                <LuMessageSquareShare className="w-4 h-4" />
+                <LuMessageSquareShare className="w-4 sm:w-5 h-4 sm:h-5" />
                 Contact Me
               </Link>
             </motion.div>

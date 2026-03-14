@@ -161,7 +161,7 @@ const IntelligentProductOrderPage = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => navigate("/projects")}
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override font-outfit"
           >
             <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
@@ -169,13 +169,19 @@ const IntelligentProductOrderPage = ({
         </div>
 
         {/* Header */}
-        <header className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2">
+        <motion.header
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2"
+        >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 Intelligent Product Order (n8n)
               </h1>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
+              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
                 A comprehensive order fulfillment automation system engineered with n8n to bridge the gap between unstructured communication and structured data. 
                 By intelligently parsing incoming emails using OpenAI's GPT models, this workflow extracts critical order details, verifies product availability against a synchronized Google Sheets catalog, and autonomously orchestrates task creation in Monday.com. 
                 It transforms a chaotic inbox into a streamlined, error-free fulfillment pipeline, reducing manual data entry by over 90%.
@@ -202,7 +208,7 @@ const IntelligentProductOrderPage = ({
                 href="https://github.com/dhruba-datta/n8n"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium"
+                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium font-outfit"
                 aria-label="Repository on GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -216,7 +222,7 @@ const IntelligentProductOrderPage = ({
                 whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
                            border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
-                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group"
+                           text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group font-outfit"
               >
                 Open Folder
                 <div className="relative w-3.5 h-3.5 overflow-hidden">
@@ -242,7 +248,7 @@ const IntelligentProductOrderPage = ({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base
+                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base font-outfit
                            border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                            text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override group"
               >
@@ -254,7 +260,7 @@ const IntelligentProductOrderPage = ({
               </motion.a>
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Layout: main + right toc */}
         <div className="max-w-6xl mx-auto px-4 md:px-6 mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
@@ -262,10 +268,16 @@ const IntelligentProductOrderPage = ({
           <article className="space-y-12 sm:space-y-16 md:space-y-20">
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Feature Highlights</h2>
+              </motion.div>
 
               <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
@@ -283,7 +295,7 @@ const IntelligentProductOrderPage = ({
                         <div className="flex items-start gap-2 sm:gap-3">
                           <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
                           <div className="min-w-0 flex-1">
-                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
+                            <p className="font-bold text-gray-900 dark:text-gray-100">{f.title}</p>
                             {!open && (
                               <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>
                             )}
@@ -331,41 +343,53 @@ const IntelligentProductOrderPage = ({
 
             {/* Nodes & Tech Used */}
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Nodes & Tech Used</h2>
+              </motion.div>
 
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Core:</b> Workflow orchestration engine managing complex data transformations and API choreography.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">n8n Core:</strong> Workflow orchestration engine managing complex data transformations and API choreography.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>OpenAI (GPT-3.5):</b> Natural Language Processing engine capable of extracting structured JSON from free-text emails.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">OpenAI (GPT-3.5):</strong> Natural Language Processing engine capable of extracting structured JSON from free-text emails.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Gmail:</b> Event-driven trigger source monitoring specific inboxes for new customer correspondence.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Gmail:</strong> Event-driven trigger source monitoring specific inboxes for new customer correspondence.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Relational database layer acting as the master product catalog and order validator.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Google Sheets:</strong> Relational database layer acting as the master product catalog and order validator.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <ListTodo className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Monday.com:</b> Collaborative work OS where raw orders are converted into trackable fulfillment tasks.</span>
+                  <span className="text-sm sm:text-base"><strong className="font-bold">Monday.com:</strong> Collaborative work OS where raw orders are converted into trackable fulfillment tasks.</span>
                 </li>
               </ul>
             </section>
 
             {/* Use Cases */}
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Use Cases</h2>
+              </motion.div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                 <li>Automating e-commerce order entry from legacy email-based ordering systems</li>
                 <li>Synchronizing distributed inventory data from multiple suppliers into a central dashboard</li>
@@ -376,10 +400,16 @@ const IntelligentProductOrderPage = ({
 
             {/* How to Use */}
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">How to Use</h2>
+              </motion.div>
 
               <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
@@ -423,7 +453,7 @@ const IntelligentProductOrderPage = ({
           {/* RIGHT TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 font-outfit">
                 <AiOutlineAlignLeft className="w-3 h-3" />
                 On this page
               </div>
@@ -436,7 +466,7 @@ const IntelligentProductOrderPage = ({
                       <button
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${
+                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition font-outfit ${
                           isActive
                             ? "font-semibold text-gray-900 dark:text-gray-100"
                             : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"

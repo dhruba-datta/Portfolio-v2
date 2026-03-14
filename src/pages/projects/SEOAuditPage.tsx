@@ -152,26 +152,35 @@ const SEOAuditPage = ({
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/5 dark:from-black/30 dark:via-transparent dark:to-black/20" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-5 pt-2 sm:pt-3 pb-3 sm:pb-4 max-w-6xl">
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container mx-auto px-4 sm:px-5 pt-2 sm:pt-3 pb-3 sm:pb-4 max-w-6xl"
+        >
+          <button
             onClick={() => navigate("/projects")}
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-base font-outfit text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override"
           >
-            <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
             Back to Projects
-          </motion.button>
-        </div>
+          </button>
+        </motion.div>
 
-        <header className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2">
+        <motion.header 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 -mt-1 md:-mt-2"
+        >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 SEO Audit (n8n)
               </h1>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
+              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
                 Optimize your website's search engine visibility and loading speed with this n8n workflow. It automates website performance analysis using Google PageSpeed Insights, generates a professional audit report using GPT-4, and sends it directly to your clients via Gmail.
               </p>
 
@@ -195,27 +204,24 @@ const SEOAuditPage = ({
                 href="https://github.com/dhruba-datta/n8n"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-sm font-medium"
+                className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-override text-base font-outfit font-medium"
               >
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
-              <motion.a
+              <a
                 href="https://github.com/dhruba-datta/n8n/tree/main/SEO%20Audit"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl
                   border border-blue-200 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20
-                  text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-sm font-medium group"
+                  text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition focus-override text-base font-outfit font-medium group"
               >
                 Open Folder
                 <div className="relative w-3.5 h-3.5 overflow-hidden">
-                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:-translate-y-full" />
-                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 translate-y-full group-hover:translate-y-0" />
+                  <ExternalLink className="w-full h-full" />
                 </div>
-              </motion.a>
+              </a>
             </div>
 
             <div className="hidden lg:flex items-center gap-2 md:gap-3">
@@ -227,33 +233,36 @@ const SEOAuditPage = ({
               >
                 <Github className="w-4 h-4 lg:w-5 lg:h-5" />
               </a>
-              <motion.a
+              <a
                 href="https://github.com/dhruba-datta/n8n/tree/main/SEO%20Audit"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-sm lg:text-base
+                className="inline-flex items-center gap-1.5 lg:gap-2 whitespace-nowrap px-3 lg:px-4 py-2 lg:py-2.5 rounded-full text-base font-outfit
                   border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                   text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition focus-override group"
               >
                 Open Folder
                 <div className="relative w-3.5 h-3.5 lg:w-4 lg:h-4 overflow-hidden">
-                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:-translate-y-full" />
-                  <ExternalLink className="absolute inset-0 w-full h-full transition-all duration-300 translate-y-full group-hover:translate-y-0" />
+                  <ExternalLink className="w-full h-full" />
                 </div>
-              </motion.a>
+              </a>
             </div>
           </div>
-        </header>
+        </motion.header>
 
         <div className="max-w-6xl mx-auto px-4 md:px-6 mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
           <article className="space-y-12 sm:space-y-16 md:space-y-20">
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Feature Highlights</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Feature Highlights</h2>
+              </motion.div>
 
               <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
                 {features.map((f) => {
@@ -263,15 +272,14 @@ const SEOAuditPage = ({
                       key={f.id}
                       className="border-b last:border-none border-blue-200 dark:border-gray-700 bg-blue-50/30 dark:bg-gray-800"
                     >
-                      <motion.button
-                        whileTap={{ scale: 0.995 }}
+                       <button
                         onClick={() => setExpanded(open ? null : f.id)}
                         className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 text-left hover:bg-blue-100/50 dark:hover:bg-gray-700 transition"
                       >
                         <div className="flex items-start gap-2 sm:gap-3">
                           <div className="mt-0.5 text-blue-500 text-sm sm:text-base">{f.icon}</div>
                           <div className="min-w-0 flex-1">
-                            <div className="font-semibold text-sm sm:text-base text-gray-900 dark:text-gray-100">{f.title}</div>
+                            <p className="font-bold text-gray-900 dark:text-gray-100">{f.title}</p>
                             {!open && (
                               <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{f.summary}</div>
                             )}
@@ -280,7 +288,7 @@ const SEOAuditPage = ({
                         <ChevronDown
                           className={`w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${open ? "rotate-180" : ""}`}
                         />
-                      </motion.button>
+                      </button>
 
                       <AnimatePresence>
                         {open && (
@@ -318,43 +326,55 @@ const SEOAuditPage = ({
             </section>
 
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Nodes & Tech Used</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Nodes & Tech Used</h2>
+              </motion.div>
               <ul className="space-y-3 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>n8n Orchestration:</b> Core engine managing the end-to-end automation from webhook trigger to final reporting.</span>
+                   <span className="text-sm sm:text-base"><strong className="font-bold">n8n Orchestration:</strong> Core engine managing the end-to-end automation from webhook trigger to final reporting.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>HTTP Request Node:</b> Executes high-performance calls to the Google PageSpeed Insights API for real-time metrics.</span>
+                   <span className="text-sm sm:text-base"><strong className="font-bold">HTTP Request Node:</strong> Executes high-performance calls to the Google PageSpeed Insights API for real-time metrics.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>GPT-4 Model:</b> Advanced AI model used for interpreting technical Lighthouse data into human-readable business audits.</span>
+                   <span className="text-sm sm:text-base"><strong className="font-bold">GPT-4 Model:</strong> Advanced AI model used for interpreting technical Lighthouse data into human-readable business audits.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Gmail Integration:</b> Transactional email system for delivering personalized SEO reports directly to client inboxes.</span>
+                   <span className="text-sm sm:text-base"><strong className="font-bold">Gmail Integration:</strong> Transactional email system for delivering personalized SEO reports directly to client inboxes.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Google Sheets:</b> Serves as a lightweight CRM and request log for long-term client tracking and pipeline monitoring.</span>
+                   <span className="text-sm sm:text-base"><strong className="font-bold">Google Sheets:</strong> Serves as a lightweight CRM and request log for long-term client tracking and pipeline monitoring.</span>
                 </li>
                 <li className="grid grid-cols-[20px_1fr] sm:grid-cols-[24px_1fr] items-start gap-2 sm:gap-3">
                   <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400 shrink-0" />
-                  <span className="text-sm sm:text-base"><b>Webhook Node:</b> Universal entry point allowing external contact forms or apps to trigger audits instantaneously.</span>
+                   <span className="text-sm sm:text-base"><strong className="font-bold">Webhook Node:</strong> Universal entry point allowing external contact forms or apps to trigger audits instantaneously.</span>
                 </li>
               </ul>
             </section>
 
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">Use Cases</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Use Cases</h2>
+              </motion.div>
               <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                 <li>Automated lead generation engine delivering immediate value to prospective clients via SEO audits</li>
                 <li>Scalable performance monitoring for agency clients with weekly or monthly automated reporting</li>
@@ -364,10 +384,16 @@ const SEOAuditPage = ({
             </section>
 
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-3 sm:mb-4"
+              >
                 <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">How to Use</h2>
-              </div>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">How to Use</h2>
+              </motion.div>
               <div className="rounded-lg sm:rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <ol className="list-decimal list-inside space-y-3 sm:space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
                   <li className="leading-relaxed">
@@ -404,7 +430,7 @@ const SEOAuditPage = ({
 
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 font-outfit">
                 <AiOutlineAlignLeft className="w-3 h-3" />
                 On this page
               </div>
@@ -417,7 +443,7 @@ const SEOAuditPage = ({
                       <button
                         key={t.id}
                         onClick={() => scrollTo(t.id)}
-                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition ${isActive
+                        className={`relative flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-sm transition font-outfit ${isActive
                             ? "font-semibold text-gray-900 dark:text-gray-100"
                             : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                           }`}

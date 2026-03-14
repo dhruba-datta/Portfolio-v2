@@ -103,16 +103,16 @@ function getResponsiveValues(width: number) {
 }
 
 const logoBox = (logo: string) => {
-  const logoClass = "w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg font-bold";
+  const logoClass = "w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl font-bold shadow-sm border border-white/10";
   switch (logo) {
-    case "ibm": return <div className={`${logoClass} bg-blue-600 text-white text-sm`}>IBM</div>;
-    case "deeplearning": return <div className={`${logoClass} bg-gradient-to-br from-orange-500 to-red-500 text-white text-xs`}>DL.AI</div>;
-    case "google": return <div className={`${logoClass} bg-gradient-to-br from-blue-500 via-green-500 to-yellow-500 text-white text-sm`}>G</div>;
-    case "michigan": return <div className={`${logoClass} bg-blue-800 text-white text-xs`}>UM</div>;
-    case "stanford": return <div className={`${logoClass} bg-red-700 text-white text-xs`}>SU</div>;
-    case "kennesaw": return <div className={`${logoClass} bg-yellow-700 text-white text-xs`}>KSU</div>;
-    case "udemy": return <div className={`${logoClass} bg-purple-600 text-white text-sm`}>U</div>;
-    default: return <div className={`${logoClass} bg-gray-500 text-white text-sm`}>?</div>
+    case "ibm": return <div className={`${logoClass} bg-blue-600 text-white text-sm md:text-base`}>IBM</div>;
+    case "deeplearning": return <div className={`${logoClass} bg-gradient-to-br from-orange-500 to-red-500 text-white text-xs md:text-sm`}>DL.AI</div>;
+    case "google": return <div className={`${logoClass} bg-gradient-to-br from-blue-500 via-green-500 to-yellow-500 text-white text-sm md:text-base`}>G</div>;
+    case "michigan": return <div className={`${logoClass} bg-blue-800 text-white text-xs md:text-sm`}>UM</div>;
+    case "stanford": return <div className={`${logoClass} bg-red-700 text-white text-xs md:text-sm`}>SU</div>;
+    case "kennesaw": return <div className={`${logoClass} bg-yellow-700 text-white text-xs md:text-sm`}>KSU</div>;
+    case "udemy": return <div className={`${logoClass} bg-purple-600 text-white text-sm md:text-base`}>U</div>;
+    default: return <div className={`${logoClass} bg-gray-500 text-white text-sm md:text-base`}>?</div>
   }
 };
 
@@ -123,9 +123,36 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   );
 
   const rotationRef = useRef<Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
-  // Stabilized animation curve and more “springy” smoothness for all moves
-  const spring = 'all 0.8s cubic-bezier(.25,.8,.25,1)';
+  // Minimum distance (in pixels) to be considered a swipe
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
+  // Snappier, more premium easing curve for the 3D coverflow effect
+  const spring = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
 
   const startAutoRotate = () => {
     if (rotationRef.current) clearInterval(rotationRef.current);
@@ -158,46 +185,55 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   // Improved smoothness for last two cards: extra scale/opacity/spacing refinement
   const getCardStyle = (level: number): React.CSSProperties => {
     const levelStr = String(level);
-    // More dramatic scale-out/fade-out for outermost cards (for less “abrupt” jump)
+
+    // Smooth scale, opacity, rotation, and distance
     const scaleArr: Record<string, number> = {
-      '0': 1,      '1': 0.86,  '-1': 0.86,
-      '2': 0.74,   '-2': 0.74
+      '0': 1,      '1': 0.85,  '-1': 0.85,
+      '2': 0.72,   '-2': 0.72
     };
     const opacityArr: Record<string, number> = {
-      '0': 1,      '1': 0.88,  '-1': 0.88,
-      '2': 0.66,   '-2': 0.66
+      '0': 1,      '1': 0.85,  '-1': 0.85,
+      '2': 0.55,   '-2': 0.55
     };
-    const zArr: Record<string, number> = { '0': 20, '1': 13, '2': 5, '-1': 13, '-2': 5 };
+    const rotateArr: Record<string, number> = {
+      '0': 0,      '1': -25,   '-1': 25,
+      '2': -35,    '-2': 35
+    };
+    const zArr: Record<string, number> = { '0': 20, '1': 15, '-1': 15, '2': 5, '-2': 5 };
+
     const scale = scaleArr[levelStr] ?? 0.7;
     const opacity = opacityArr[levelStr] ?? 0.7;
+    const rotateY = rotateArr[levelStr] ?? 40;
     const zIndex = zArr[levelStr] ?? 3;
 
+    // Pull angled cards slightly closer for a tighter 3D spread
     let translate = level * spacing;
-    if (level === -2 || level === 2) translate = level * spacing * 0.93; // smoother, closer
+    if (Math.abs(level) === 1) translate = level * spacing * 0.95;
+    if (Math.abs(level) === 2) translate = level * spacing * 0.88;
 
-    // Slight y-offset for side cards for perspective
+    // Slight y-offset for side cards for perspective (folding effect)
     let top = "0px";
-    if (Math.abs(level) === 1) top = "18px";
-    if (Math.abs(level) === 2) top = "36px";
+    if (Math.abs(level) === 1) top = "12px";
+    if (Math.abs(level) === 2) top = "24px";
 
     return {
       left: `calc(50% + ${translate}px - ${cardWidth / 2}px)`,
       top,
-      transform: `scale(${scale})`,
+      transform: `perspective(1200px) scale(${scale}) rotateY(${rotateY}deg)`,
       opacity,
       zIndex,
       position: "absolute",
       width: cardWidth,
       height: cardHeight,
       padding: '24px',
+      transformStyle: 'preserve-3d',
       transition: spring,
       boxShadow:
         level === 0
-          ? "0 20px 40px rgba(0,0,0,0.12)"
-          : "0 8px 16px rgba(0,0,0,0.08)",
+          ? "0 25px 50px -12px rgba(0,0,0,0.5)"
+          : "0 10px 15px -3px rgba(0,0,0,0.3)",
       cursor: level === 0 ? "pointer" : "grab",
-      pointerEvents: (level < -2 || level > 2) ? "none" : "auto",
-      background: "inherit"
+      pointerEvents: (level < -2 || level > 2) ? "none" : "auto"
     };
   };
 
@@ -210,15 +246,15 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   return (
     <section
       id="certifications"
-      className="py-20 relative transition-colors duration-300 hidden md:block"
+      className="py-12 pb-24 md:py-20 relative transition-colors duration-300 bg-white dark:bg-gray-900 overflow-hidden"
       style={{ minHeight: cardHeight + 120 }}
     >
       <div className="container mx-auto px-6 max-w-full">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
@@ -232,37 +268,34 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
           </motion.div>
         </div>
         {/* Carousel */}
-        <div className="relative mx-auto"
-          style={{height: cardHeight + 60, minHeight: cardHeight + 60, width: "100%"}}>
+        <div 
+          className="relative mx-auto"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          style={{height: cardHeight + 60, minHeight: cardHeight + 60, width: "100%"}}
+        >
           {/* Navigation Buttons */}
           <button
-            className={`absolute left-2 md:left-8 top-1/2 transform -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full
-              ${isDark ?
-                "bg-gray-800/90 hover:bg-gray-700/90 text-white border-gray-600"
-                :
-                "bg-white/95 hover:bg-white text-gray-900 shadow-lg border-gray-200"
-              } border flex items-center justify-center transition-all duration-300 hover:scale-110 z-30`}
+            className={`hidden md:flex absolute bottom-[-60px] md:bottom-auto md:top-1/2 left-[20%] md:left-24 lg:left-32 md:transform md:-translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-30 group
+              ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
             onClick={prevSlide}
             aria-label="Previous"
             style={{zIndex:40}}
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg className="w-10 h-10 md:w-12 md:h-12 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
-            className={`absolute right-2 md:right-8 top-1/2 transform -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full
-              ${isDark ?
-                "bg-gray-800/90 hover:bg-gray-700/90 text-white border-gray-600"
-                :
-                "bg-white/95 hover:bg-white text-gray-900 shadow-lg border-gray-200"
-              } border flex items-center justify-center transition-all duration-300 hover:scale-110 z-30`}
+            className={`hidden md:flex absolute bottom-[-60px] md:bottom-auto md:top-1/2 right-[20%] md:right-24 lg:right-32 md:transform md:-translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-30 group
+              ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
             onClick={nextSlide}
             aria-label="Next"
             style={{zIndex:40}}
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-10 h-10 md:w-12 md:h-12 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
@@ -281,49 +314,50 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
                   }
                 }}
                 className={`
-                  group transition-all duration-700 ease-out select-none rounded-2xl overflow-hidden
-                  border
-                  ${isDark ? 'border-gray-700/50 bg-gray-800/80' : 'bg-white border-gray-200/60'}
-                  ${level !== 0 && "hover:ring-2 ring-blue-400 cursor-pointer"}
+                  group transition-all duration-700 ease-out select-none rounded-[2rem] overflow-hidden
+                  border backdrop-blur-xl shadow-2xl
+                  ${isDark ? 'border-white/20 bg-gradient-to-br from-slate-800/90 via-slate-900/95 to-black/95' : 'bg-gradient-to-br from-white/95 to-slate-50/95 border-gray-200/80'}
+                  ${level !== 0 && "hover:border-blue-500/50 cursor-pointer hover:shadow-[0_8px_30px_rgba(59,130,246,0.3)]"}
                   focus-override
                 `}
                 role="button"
                 aria-label={level === 0 ? `View ${cert.title} credential` : `Go to ${cert.title} certification`}
                 title={level === 0 ? "Click to view credential" : `Go to: ${cert.title}`}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl"></div>
-                <div className="relative z-10 h-full flex flex-col">
-                  <div className="flex justify-center mb-2">
-                    <div className="group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
+                <div className="relative z-10 h-full flex flex-col p-2">
+                  <div className="flex justify-center mb-2 -mt-4">
+                    <div className="transition-transform duration-500 transform group-hover:-translate-y-1 group-hover:scale-105 shadow-md rounded-2xl">
                       {logoBox(cert.logo)}
                     </div>
                   </div>
-                  <div className="text-center mb-2">
-                    <p className={`text-base md:text-lg font-bold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                  <div className="text-center mb-1 px-2">
+                    <h3 className={`text-sm md:text-base font-bold tracking-wide uppercase ${isDark ? "text-blue-400" : "text-blue-600"}`}>
                       {cert.issuer}
-                    </p>
+                    </h3>
                   </div>
-                  <div className="flex-1 flex items-center justify-center px-2">
-                    <h4 className={`text-sm md:text-base lg:text-lg font-semibold leading-tight text-center
-                      ${isDark ? "text-white" : "text-gray-900"}`}>
+                  <div className="flex-1 flex items-center justify-center px-4 md:px-6">
+                    <h4 className={`text-base md:text-lg lg:text-xl font-black leading-snug tracking-tight text-center ${isDark ? "text-white" : "text-gray-900"}`}>
                       {cert.title}
                     </h4>
                   </div>
-                  <div className="space-y-2">
-                    <div className="text-center">
-                      <p className={`text-xs md:text-sm
-                        ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                        Issued: {cert.issueDate}
+                  <div className="space-y-3 mt-4 mb-2">
+                    <div className="flex items-center justify-center space-x-1">
+                      <span className={`text-[11px] md:text-xs font-semibold tracking-wide uppercase
+                        ${isDark ? "text-gray-500" : "text-gray-400"}`}>Issued:</span>
+                      <p className={`text-[11px] md:text-xs font-medium tracking-wide uppercase
+                        ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                        {cert.issueDate}
                       </p>
                     </div>
                     <div className={`
-                      w-full py-1.5 px-3 rounded-lg text-center
+                      w-full py-1.5 px-3 rounded-xl text-center backdrop-blur-sm transition-colors duration-300
                       ${isDark ?
-                        "bg-gray-700/60 text-gray-300" :
-                        "bg-gray-100 text-gray-700"}
+                        "bg-white/5 text-gray-300 border border-white/10 group-hover:bg-white/10" :
+                        "bg-gray-100 text-gray-700 border border-gray-200 group-hover:bg-gray-200"}
                       `}>
-                      <p className="text-xs md:text-sm font-medium truncate">
-                        ID: {cert.credentialId.slice(0, 12)}...
+                      <p className="text-[11px] md:text-xs font-mono tracking-wider truncate opacity-80">
+                        ID: {cert.credentialId.slice(0, 10)}...
                       </p>
                     </div>
                   </div>

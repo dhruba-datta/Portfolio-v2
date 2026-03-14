@@ -104,7 +104,6 @@ const Hero = () => {
                 className="lg:hidden flex justify-center mb-4 sm:mb-6"
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
                     y: [0, -8, 0],
@@ -254,31 +253,33 @@ const Hero = () => {
                 </motion.div>
               </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0 }}
-                className="text-sm sm:text-base lg:text-lg text-blue-600 dark:text-blue-400 font-medium mb-1"
-              >
-                Hello! I'm
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight m-0 p-0 -ml-1"
-              >
-                Dhruba{" "}
-                <span className="text-blue-600 dark:text-blue-400">Datta</span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0 }}
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
-              >
-                Researcher & Software Engineer
-              </motion.p>
+              <div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0 }}
+                  className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-slate-500 dark:text-slate-400 font-outfit block"
+                >
+                  Hello! I'm
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0 }}
+                  className="text-gray-900 dark:text-white leading-[1.1] -ml-1 mt-2 sm:mt-3"
+                >
+                  Dhruba{" "}
+                  <span className="text-blue-600 dark:text-blue-400">Datta</span>
+                </motion.h1>
+                <motion.h4
+                  initial={{ opacity: 1 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0 }}
+                  className="text-slate-800 dark:text-slate-300 mt-2 sm:mt-3"
+                >
+                  Researcher & Software Engineer
+                </motion.h4>
+              </div>
               <motion.p
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
@@ -304,10 +305,9 @@ const Hero = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.98 }}
                   className={
-                    `p-1.5 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 focus-override ` +
+                    `p-1.5 sm:p-2 rounded-lg transition-all duration-300 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 focus-override ` +
                     (social.name === "LinkedIn"
                       ? "hover:text-blue-600 dark:hover:text-blue-400"
                       : "") +
@@ -339,16 +339,16 @@ const Hero = () => {
 
             {/* Contact Button */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
               className="flex justify-center lg:justify-start mb-16 sm:mb-20 lg:mb-0"
             >
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white
+                className="inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-base font-outfit font-medium text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                           shadow-lg hover:shadow-xl hover:shadow-blue-600/30 transition-all focus-override"
+                           shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all focus-override"
                 aria-label="About"
               >
                 <BsBookmarkHeartFill className="w-3 sm:w-4 h-3 sm:h-4" />
@@ -413,10 +413,6 @@ const Hero = () => {
                 className="absolute -top-20 -right-12 z-20"
               >
                 <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { duration: 0.4, ease: "easeOut" },
-                  }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
                     y: [0, -10, 0],

@@ -40,14 +40,14 @@ const Photography = () => {
         <motion.div
           className="absolute -top-24 right-1/4 w-[22rem] h-[22rem] rounded-full blur-3xl bg-gradient-to-tr from-purple-500/6 via-violet-500/4 to-pink-500/4 dark:from-purple-500/10 dark:via-violet-500/8 dark:to-pink-500/8"
           animate={
-            prefersReducedMotion ? {} : { y: [0, 18, 0], x: [0, -22, 0], scale: [1, 1.05, 1] }
+            prefersReducedMotion ? {} : { y: [0, 18, 0], x: [0, -22, 0] }
           }
           transition={prefersReducedMotion ? {} : { duration: 11, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute -bottom-20 left-1/5 w-[20rem] h-[20rem] rounded-full blur-3xl bg-gradient-to-tl from-indigo-400/4 via-purple-500/3 to-violet-600/3 dark:from-indigo-400/8 dark:via-purple-500/6 dark:to-violet-600/6"
           animate={
-            prefersReducedMotion ? {} : { y: [0, -15, 0], x: [0, 18, 0], scale: [1, 1.04, 1] }
+            prefersReducedMotion ? {} : { y: [0, -15, 0], x: [0, 18, 0] }
           }
           transition={prefersReducedMotion ? {} : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -77,15 +77,15 @@ const Photography = () => {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="uppercase tracking-[0.2em] text-[9px] sm:text-[11px] text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
+            <h3 className="text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
               Photography
-            </span>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
+            </h3>
+            <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Travel Stories
             </h2>
           </motion.div>
@@ -96,8 +96,8 @@ const Photography = () => {
           {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
               className="group"
@@ -107,7 +107,7 @@ const Photography = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md hover:shadow-xl hover:shadow-purple-500/[0.08] dark:hover:shadow-violet-500/[0.05] transition-all duration-500
-                           hover:border-purple-300/50 dark:hover:border-violet-400/20 hover:-translate-y-1 cursor-pointer min-h-[140px] sm:min-h-[180px] focus-override"
+                           hover:border-purple-300/50 dark:hover:border-violet-400/20 cursor-pointer min-h-[140px] sm:min-h-[180px] focus-override"
                 aria-label={`View ${photo.location} photography on Instagram`}
               >
                 {/* Image */}
@@ -117,7 +117,7 @@ const Photography = () => {
                     srcSet={`${photo.image.replace('.webp', '-mobile.webp')} 400w, ${photo.image} 800w`}
                     sizes="(max-width: 640px) 400px, 800px"
                     alt={photo.alt}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:opacity-90 will-change-transform"
                     loading="lazy"
                     decoding="async"
                     width={400}
@@ -153,8 +153,8 @@ const Photography = () => {
         {/* View More Button */}
         <div className="text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
           >
@@ -162,7 +162,7 @@ const Photography = () => {
               href="https://www.instagram.com/dhrubz_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-base font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 hover:-translate-y-1 group min-h-[48px] sm:min-h-[56px] focus-override"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base font-outfit font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[48px] sm:min-h-[56px] focus-override"
               aria-label="Follow on Instagram for more photography"
             >
               <div className="flex items-center justify-center w-5 sm:w-6 h-5 sm:h-6">

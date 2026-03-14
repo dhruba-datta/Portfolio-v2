@@ -26,7 +26,7 @@ const ProjectPreview = () => {
   );
 
   return (
-    <section id="projects-preview" className="relative py-12 sm:py-14 lg:py-16 overflow-hidden">
+    <section id="projects-preview" className="relative py-12 sm:py-14 lg:py-16 overflow-hidden bg-white dark:bg-gray-900">
       {/* Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {/* Soft mesh glows */}
@@ -81,15 +81,15 @@ const ProjectPreview = () => {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="uppercase tracking-[0.2em] text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400">
+            <h3 className="text-slate-500 dark:text-slate-400">
               Featured Work
-            </span>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
+            </h3>
+            <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Latest Projects
             </h2>
             
@@ -104,9 +104,9 @@ const ProjectPreview = () => {
             return (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -4 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
                 className="group"
@@ -153,13 +153,13 @@ const ProjectPreview = () => {
                       <div>
                         {/* Title */}
                         <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                          <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+                          <h6 className="text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
                             {project.title}
-                          </h3>
+                          </h6>
                         </div>
                         
                         {/* Description */}
-                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 line-clamp-2 min-h-[32px] sm:min-h-[40px]">
+                        <p className="mb-3 sm:mb-4 line-clamp-2 min-h-[32px] sm:min-h-[40px]">
                           {project.description}
                         </p>
                       </div>
@@ -199,15 +199,15 @@ const ProjectPreview = () => {
         {/* View All Projects Button */}
         <div className="text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -4 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
           >
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[48px] sm:min-h-[56px] focus-override"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base font-outfit font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[48px] sm:min-h-[56px] focus-override"
             >
               <span>View All Projects</span>
               <motion.div

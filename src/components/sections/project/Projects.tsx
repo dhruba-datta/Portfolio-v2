@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Code2 } from 'lucide-react';
+import { Layers, Code2, ChevronDown } from 'lucide-react';
 import { projects, categories, categoryMeta } from '../../../data/projects';
 
 interface ProjectsProps {
@@ -54,10 +54,10 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="flex flex-col items-center mb-6 sm:mb-8 lg:mb-10">
-          <span className="uppercase tracking-[0.2em] text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400">
+          <h3 className="text-slate-500 dark:text-slate-400">
             Projects
-          </span>
-          <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white text-center">
+          </h3>
+          <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white text-center">
             Featured Work
           </h2>
         </div>
@@ -65,8 +65,8 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
         {/* Filters */}
         <div className="flex justify-center mb-6 sm:mb-7 lg:mb-8">
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="relative inline-flex items-center gap-0.5 sm:gap-1 rounded-full p-0.5 sm:p-1 border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md"
@@ -80,7 +80,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                 <button
                   key={key}
                   onClick={() => setActiveCategory(key)}
-                  className={`relative z-10 px-3 sm:px-3.5 py-1.5 sm:py-1.5 rounded-full text-sm sm:text-sm font-medium inline-flex items-center gap-1.5 sm:gap-1.5 transition-all focus-override
+                  className={`relative z-10 px-3 sm:px-3.5 py-1.5 sm:py-1.5 rounded-full text-sm sm:text-sm font-outfit font-medium inline-flex items-center gap-1.5 sm:gap-1.5 transition-all focus-override
                     ${isActive ? 'text-white' : 'text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300'}`}
                 >
                   {isActive ? (
@@ -144,9 +144,9 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
             return (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -4 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+
                 viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
                 transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.5, ease: 'easeOut' }}
                 className="group transform-gpu"
@@ -164,7 +164,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 group-hover:scale-110 will-change-transform transform-gpu"
+                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 group-hover:opacity-90 will-change-transform transform-gpu"
                       style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                       loading="lazy"
                       decoding="async"
@@ -188,9 +188,9 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                   <div className="relative z-20 flex-1 bg-white dark:bg-slate-950 p-4 sm:p-5 lg:p-6 flex flex-col justify-between -mt-[1px]">
                     <div>
                       <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+                        <h6 className="text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
                           {project.title}
-                        </h3>
+                        </h6>
                       </div>
                       
                       <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 min-h-[32px] sm:min-h-[40px] line-clamp-2">
@@ -230,9 +230,20 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                 setProjectsLoaded(true);
                 sessionStorage.setItem('projectsLoaded', 'true');
               }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 dark:from-sky-500 dark:to-sky-600 text-white hover:from-blue-600 hover:to-blue-700 dark:hover:from-sky-600 dark:hover:to-sky-700 shadow-lg shadow-blue-500/25 dark:shadow-sky-500/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] focus-override"
+              className="inline-flex items-center gap-1 px-6 sm:px-8 py-3 sm:py-4 text-base font-outfit font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[48px] sm:min-h-[56px] focus-override"
             >
-              Load more
+              <span>Load More</span>
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative top-[-2px] group-hover:translate-y-1 transition-transform duration-300"
+              >
+                <ChevronDown className="w-4 sm:w-5 h-4 sm:h-5" />
+              </motion.div>
             </button>
           </div>
         )}

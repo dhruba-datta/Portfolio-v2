@@ -91,30 +91,11 @@ const timelineVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
 };
 
-const getCategoryColor = (category: string, isDark: boolean) => {
-  switch (category) {
-    case "scholarship":
-      return isDark
-        ? "from-yellow-400 to-amber-500"
-        : "from-yellow-500 to-amber-600";
-    case "technical":
-      return isDark ? "from-blue-400 to-cyan-500" : "from-blue-500 to-cyan-600";
-    case "competition":
-      return isDark
-        ? "from-purple-400 to-pink-500"
-        : "from-purple-500 to-pink-600";
-    case "research":
-      return isDark
-        ? "from-green-400 to-teal-500"
-        : "from-green-500 to-teal-600";
-    default:
-      return isDark ? "from-gray-400 to-gray-500" : "from-gray-500 to-gray-600";
-  }
-};
+
 
 const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
   // Animation only on first visit
@@ -135,20 +116,20 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
   return (
     <section
       className={`py-10 sm:py-12 lg:py-20 transition-colors duration-300 min-h-screen ${
-        isDark ? "bg-gray-900" : "bg-gray-50"
+        isDark ? "bg-gray-900" : "bg-white"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-10 lg:mb-14"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
           >
@@ -164,9 +145,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
           {/* Publications Timeline */}
           <motion.div
             ref={timelineRef}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0 }}
             animate={
-              timelineAnimated ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
+              timelineAnimated ? { opacity: 1 } : { opacity: 1 }
             }
             transition={
               timelineAnimated
@@ -175,18 +156,16 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             }
             className={`relative pb-4`}
           >
-            <h3
-              className={`text-lg sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${
-                isDark ? "text-white" : "text-gray-900"
-              }`}
+            <h4
+              className={`font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 !text-white`}
             >
               Publications
-            </h3>
+            </h4>
 
             {/* Mobile Timeline Line for Publications - Visible only on mobile */}
             <div
               className={`absolute left-2 top-9 bottom-4 w-1 sm:hidden ${
-                isDark ? "bg-blue-500/30" : "bg-blue-500/20"
+                isDark ? "bg-gray-700" : "bg-gray-200"
               }`}
             ></div>
 
@@ -194,7 +173,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
               initial="hidden"
               animate={timelineAnimated ? "visible" : "visible"}
               variants={timelineAnimated ? timelineVariants : {}}
-              className="relative border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-6 sm:space-y-8 lg:space-y-10"
+              className="relative border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-4 sm:space-y-5 lg:space-y-6"
             >
               {publications.map((pub, index) => (
                 <motion.li
@@ -208,7 +187,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                 >
                   {/* Timeline Dot: styled and animated like achievement section */}
                   <motion.span
-                    className="absolute left-[0.375rem] sm:left-[-8.5px] top-2 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-gradient-to-br from-blue-500 to-cyan-500"
+                    className="absolute left-[0.375rem] sm:left-[-8px] top-2 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-gradient-to-br from-blue-500 to-cyan-500"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{
@@ -220,8 +199,8 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                   />
                   {/* Timeline Content ... */}
                   <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="relative"
@@ -344,34 +323,36 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
               </p>
             </div>
             <div className="mt-6 sm:mt-8 lg:mt-12 hidden sm:block">
-              <h3
-                className={`text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
+              <h4
+                className={`font-bold mb-2 sm:mb-3 !text-white`}
               >
                 Research Interests
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 sm:gap-x-4 lg:gap-x-6 gap-y-1.5 sm:gap-y-2 lg:gap-y-3">
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-4 lg:gap-x-4 gap-y-1.5 sm:gap-y-2 lg:gap-y-3">
                 {[
                   {
                     id: 1,
                     area: "Artificial Intelligence",
-                    color: "from-purple-500 to-pink-500",
                   },
                   {
                     id: 2,
                     area: "Machine Learning",
-                    color: "from-green-500 to-teal-500",
+                  },
+                  {
+                    id: 5,
+                    area: "Generative AI",
                   },
                   {
                     id: 3,
                     area: "Computer Vision",
-                    color: "from-blue-500 to-cyan-500",
                   },
                   {
                     id: 4,
+                    area: "Large Language Models",
+                  },
+                  {
+                    id: 6,
                     area: "Natural Language Processing",
-                    color: "from-orange-500 to-red-500",
                   },
                 ].map((interest) => (
                   <div
@@ -379,15 +360,15 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     className="flex items-center gap-2 sm:gap-3"
                   >
                     <div
-                      className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${interest.color} flex-shrink-0`}
+                      className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#6367FF] flex-shrink-0`}
                     />
-                    <span
-                      className={`font-medium text-xs sm:text-sm ${
-                        isDark ? "text-gray-200" : "text-gray-700"
+                    <p
+                      className={`whitespace-nowrap text-sm sm:text-base ${
+                        isDark ? "text-white" : "text-slate-600"
                       }`}
                     >
                       {interest.area}
-                    </span>
+                    </p>
                   </div>
                 ))}
               </div>
@@ -396,18 +377,16 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
 
           {/* Achievements Timeline */}
           <div className="relative pb-4">
-            <h3
-              className={`text-lg sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${
-                isDark ? "text-white" : "text-gray-900"
-              }`}
+            <h4
+              className={`font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 !text-white`}
             >
               Achievements
-            </h3>
+            </h4>
 
             {/* Mobile Timeline Line for Achievements - Visible only on mobile */}
             <div
               className={`absolute left-2 top-8 bottom-2 w-1 sm:hidden ${
-                isDark ? "bg-purple-500/30" : "bg-purple-500/20"
+                isDark ? "bg-gray-700" : "bg-gray-200"
               }`}
             ></div>
 
@@ -425,22 +404,19 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                   },
                 },
               }}
-              className="relative border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-6 sm:space-y-8 lg:space-y-10"
+              className="relative border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-4 sm:space-y-5 lg:space-y-6"
             >
               {achievements.map((a, index) => (
                 <motion.li
                   key={a.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="relative pl-8 sm:pl-7 flex flex-col gap-1"
                 >
                   <motion.span
-                    className={`absolute left-[0.375rem] sm:left-[-8.5px] top-1 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-gradient-to-br ${getCategoryColor(
-                      a.category,
-                      isDark
-                    )}`}
+                    className={`absolute left-[0.375rem] sm:left-[-8px] top-1 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-gradient-to-br from-yellow-400 to-yellow-500`}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{
@@ -453,11 +429,11 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                   <span className="font-semibold text-sm sm:text-sm lg:text-base text-gray-800 dark:text-white">
                     {a.title}
                   </span>
-                  <span
-                    className={`text-sm sm:text-xs mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400`}
+                  <p
+                    className={`text-xs sm:text-sm mt-0.5 sm:mt-1 text-gray-500 dark:text-gray-400`}
                   >
                     {a.description}
-                  </span>
+                  </p>
                 </motion.li>
               ))}
             </motion.ol>

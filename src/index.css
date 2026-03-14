@@ -14,6 +14,41 @@
     background-color: #ffffff;
   }
 
+  h1 {
+    @apply font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+
+  h3 {
+    @apply font-outfit text-[10px] sm:text-[11px] tracking-[0.2em] font-semibold uppercase;
+  }
+
+  h4 {
+    @apply font-outfit text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-slate-600 dark:text-gray-400;
+  }
+
+  p {
+    @apply text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed;
+  }
+
+  h5 {
+    @apply font-outfit text-xl sm:text-2xl font-bold;
+  }
+
+  h6 {
+    @apply font-outfit text-lg sm:text-xl font-bold;
+  }
+
+  /* Subheadlines and wide-tracked labels */
+  [class*="tracking-[0.2em]"],
+  [class*="tracking-[0.22em]"],
+  [class*="tracking-widest"] {
+    @apply font-outfit;
+  }
+
   /* Ensure better dark mode colors */
   .dark body {
     color: #e5e7eb;
@@ -55,11 +90,11 @@
   }
 
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200;
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-outfit text-base font-medium py-3 px-6 rounded-lg transition-colors duration-200;
   }
 
   .btn-secondary {
-    @apply border border-gray-300 hover:border-gray-400 text-gray-700 font-medium py-3 px-6 rounded-lg transition-colors duration-200;
+    @apply border border-gray-300 hover:border-gray-400 text-gray-700 font-outfit text-base font-medium py-3 px-6 rounded-lg transition-colors duration-200;
   }
 
   .text-gradient {
