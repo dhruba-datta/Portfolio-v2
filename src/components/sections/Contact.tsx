@@ -338,7 +338,7 @@ const Contact: React.FC = () => {
             </span>
           </div>
 
-          <h4 className="text-blue-600 dark:text-blue-400 text-sm sm:text-base md:text-lg lg:text-xl mt-2 font-medium">
+          <h4 className="text-blue-600 dark:text-blue-400 text-base sm:text-lg lg:text-xl mt-2 font-medium">
             Bringing Ideas to Life - Let&apos;s build together
           </h4>
 
