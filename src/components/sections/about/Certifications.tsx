@@ -258,10 +258,10 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <span className="uppercase tracking-[0.2em] text-[11px] text-slate-500 dark:text-slate-400">
+            <h3 className="text-slate-500 dark:text-slate-400">
               Professional Development
-            </span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+            </h3>
+            <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Licenses & Certifications
             </h2>
             
@@ -275,7 +275,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
           onTouchEnd={onTouchEnd}
           style={{height: cardHeight + 60, minHeight: cardHeight + 60, width: "100%"}}
         >
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons (Desktop) */}
           <button
             className={`hidden md:flex absolute bottom-[-60px] md:bottom-auto md:top-1/2 left-[20%] md:left-24 lg:left-32 md:transform md:-translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-30 group
               ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
@@ -298,6 +298,52 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
+
+          {/* Navigation Controls (Mobile Arrows + Dots) */}
+          <div className="absolute bottom-0 left-0 right-0 flex md:hidden items-center justify-center gap-8 z-40">
+            <button
+              type="button"
+              onClick={prevSlide}
+              className={`p-1.5 rounded-full outline-none ring-0 focus:outline-none focus-visible:outline-none hover:scale-110 transition-transform ${
+                isDark ? "text-slate-100" : "text-slate-900"
+              }`}
+              aria-label="Previous"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <div className="flex gap-2">
+              {certifications.map((_, i) => (
+                <button
+                  type="button"
+                  key={i}
+                  onClick={() => goToIdx(i)}
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    i === currentIdx
+                      ? 'bg-blue-600 w-6'
+                      : 'bg-slate-400 hover:bg-slate-500 dark:bg-slate-600 dark:hover:bg-slate-500 w-2'
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                  aria-current={i === currentIdx}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              className={`p-1.5 rounded-full outline-none ring-0 focus:outline-none focus-visible:outline-none hover:scale-110 transition-transform ${
+                isDark ? "text-slate-100" : "text-slate-900"
+              }`}
+              aria-label="Next"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
 
           {/* Carousel cards */}
           <div className="relative h-full w-full mx-auto" style={{ minHeight: cardHeight + 10 }}>
