@@ -161,7 +161,7 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     </div>
                     
                     {/* Position */}
-                    <p className="font-bold !text-white">
+                    <p className={`font-bold ${isDark ? '!text-white' : 'text-slate-900'}`}>
                       {exp.position}
                     </p>
                     
@@ -183,7 +183,7 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
                     }`}>
                       {exp.duration}
                     </div>
-                    <p className="font-bold mb-3 !text-white">
+                    <p className={`font-bold mb-3 ${isDark ? '!text-white' : 'text-slate-900'}`}>
                       {exp.position}
                     </p>
                     <h4 className="font-semibold mb-1 !text-orange-500">

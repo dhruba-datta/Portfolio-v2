@@ -157,7 +157,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             className={`relative pb-4`}
           >
             <h4
-              className={`font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 !text-white`}
+              className={`font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${
+                isDark ? "!text-white" : "text-slate-900"
+              }`}
             >
               Publications
             </h4>
@@ -324,7 +326,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             </div>
             <div className="mt-6 sm:mt-8 lg:mt-12 hidden sm:block">
               <h4
-                className={`font-bold mb-2 sm:mb-3 !text-white`}
+                className={`font-bold mb-2 sm:mb-3 ${
+                  isDark ? "!text-white" : "text-slate-900"
+                }`}
               >
                 Research Interests
               </h4>
@@ -378,7 +382,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
           {/* Achievements Timeline */}
           <div className="relative pb-4">
             <h4
-              className={`font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 !text-white`}
+              className={`font-bold mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${
+                isDark ? "!text-white" : "text-slate-900"
+              }`}
             >
               Achievements
             </h4>

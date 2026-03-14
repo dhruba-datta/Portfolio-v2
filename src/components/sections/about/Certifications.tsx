@@ -383,7 +383,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
                     </h3>
                   </div>
                   <div className="flex-1 flex items-center justify-center px-4 md:px-6">
-                    <h4 className={`text-base md:text-lg lg:text-xl font-black leading-snug tracking-tight text-center ${isDark ? "text-white" : "text-gray-900"}`}>
+                    <h4 className={`text-base md:text-lg lg:text-xl font-black leading-snug tracking-tight text-center ${isDark ? "!text-white" : "text-slate-900"}`}>
                       {cert.title}
                     </h4>
                   </div>

@@ -123,7 +123,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     </div>
                     
                     {/* Degree */}
-                    <p className="font-bold !text-white">
+                    <p className={`font-bold ${isDark ? '!text-white' : 'text-slate-900'}`}>
                       {edu.degree}
                     </p>
                     
@@ -182,7 +182,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                     }`}>
                       {edu.duration}
                     </div>
-                    <p className="font-bold mb-3 !text-white">
+                    <p className={`font-bold mb-3 ${isDark ? '!text-white' : 'text-slate-900'}`}>
                       {edu.degree}
                     </p>
 
