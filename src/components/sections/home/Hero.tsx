@@ -65,7 +65,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-12 lg:pt-0"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-16 sm:pt-12 lg:pt-0"
     >
       {/* Subtle background effects - keeping it minimal like other sections */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -85,7 +85,7 @@ const Hero = () => {
       ></div>
 
       {/* Main content */}
-      <div className="relative z-10 container-max-width section-padding -mt-16 sm:-mt-20 lg:mt-0">
+      <div className="relative z-10 container-max-width section-padding -mt-24 sm:-mt-20 lg:mt-0">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left side - Profile and Info */}
           <motion.div
@@ -101,7 +101,7 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                className="lg:hidden flex justify-center mb-4 sm:mb-6"
+                className="lg:hidden flex justify-center mb-2 sm:mb-6"
               >
                 <motion.div
                   whileTap={{ scale: 0.95 }}
