@@ -109,11 +109,11 @@ const ProjectPreview = () => {
 
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
-                className="group"
+                className="group max-w-[94%] mx-auto sm:max-w-none"
               >
                 <Link
                   to={`/projects/${project.id}`}
-                  className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/50 dark:hover:border-sky-400/20 min-h-[44px] focus-override"
+                  className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg sm:hover:shadow-xl sm:hover:shadow-blue-500/[0.08] dark:sm:hover:shadow-sky-500/[0.05] transition-colors duration-500 sm:hover:border-blue-300/50 dark:sm:hover:border-sky-400/20 min-h-[44px] focus-override"
                   aria-label={`View details for ${project.title}`}
                 >
                   {/* Unified Blended Stack Style */}
@@ -124,7 +124,7 @@ const ProjectPreview = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 group-hover:scale-110 will-change-transform transform-gpu"
+                        className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 sm:group-hover:scale-110 will-change-transform transform-gpu"
                         style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                         loading="lazy"
                       />
@@ -153,7 +153,7 @@ const ProjectPreview = () => {
                       <div>
                         {/* Title */}
                         <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                          <h6 className="text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+                          <h6 className="text-slate-900 dark:text-white sm:group-hover:text-blue-600 dark:sm:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
                             {project.title}
                           </h6>
                         </div>

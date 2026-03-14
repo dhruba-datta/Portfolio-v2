@@ -149,12 +149,12 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
 
                 viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
                 transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.5, ease: 'easeOut' }}
-                className="group transform-gpu"
+                className="group transform-gpu max-w-[94%] mx-auto sm:max-w-none"
               >
                 <Link
                   to={`/projects/${project.id}`}
-                  className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white dark:bg-slate-950 shadow-sm hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500
-                             hover:border-blue-300/50 dark:hover:border-sky-400/20 focus-override"
+                  className="block rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/[0.08] bg-white dark:bg-slate-950 shadow-sm sm:hover:shadow-xl sm:hover:shadow-blue-500/[0.08] dark:sm:hover:shadow-sky-500/[0.05] transition-colors duration-500
+                             sm:hover:border-blue-300/50 dark:sm:hover:border-sky-400/20 focus-override"
                 >
                   {/* Image Area */}
                     <div 
@@ -164,7 +164,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 group-hover:opacity-90 will-change-transform transform-gpu"
+                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 sm:group-hover:opacity-90 will-change-transform transform-gpu"
                       style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                       loading="lazy"
                       decoding="async"
@@ -188,7 +188,7 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
                   <div className="relative z-20 flex-1 bg-white dark:bg-slate-950 p-4 sm:p-5 lg:p-6 flex flex-col justify-between -mt-[1px]">
                     <div>
                       <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                        <h6 className="text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+                        <h6 className="text-slate-900 dark:text-white sm:group-hover:text-blue-600 dark:sm:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
                           {project.title}
                         </h6>
                       </div>
