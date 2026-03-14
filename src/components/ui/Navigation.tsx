@@ -151,13 +151,13 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-white/95 dark:bg-gray-900/95 rounded-2xl shadow-2xl backdrop-blur-lg overflow-hidden">
-            <div className="p-4 space-y-2">
+            <div className="p-3 space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-3 w-full px-4 py-4 text-left rounded-xl text-lg font-medium transition-all duration-300 min-h-[56px] focus-override ${location.pathname === item.href
+                  className={`flex items-center space-x-3 w-full px-4 py-3 text-left rounded-xl text-lg font-outfit font-medium transition-all duration-300 min-h-[48px] focus-override ${location.pathname === item.href
                       ? 'bg-gray-100/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg'
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50/60 dark:hover:bg-gray-800/60 hover:text-gray-900 dark:hover:text-white hover:shadow-md'
                     }`}
