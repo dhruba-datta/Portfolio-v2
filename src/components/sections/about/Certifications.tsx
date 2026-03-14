@@ -99,7 +99,7 @@ function getResponsiveValues(width: number) {
   if (width >= 1280) return { cardWidth: 260, cardHeight: 400, spacing: 270 };
   if (width >= 1024) return { cardWidth: 240, cardHeight: 380, spacing: 230 };
   if (width >= 768)  return { cardWidth: 220, cardHeight: 360, spacing: 180 };
-  return { cardWidth: 200, cardHeight: 340, spacing: 137 };
+  return { cardWidth: 230, cardHeight: 350, spacing: 145 };
 }
 
 const logoBox = (logo: string) => {
