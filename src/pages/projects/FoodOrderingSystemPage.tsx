@@ -215,7 +215,7 @@ const FoodOrderingSystemPage = ({
         >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
+              <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 Food Ordering System
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
@@ -288,7 +288,7 @@ const FoodOrderingSystemPage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
                   Feature Highlights
                 </h2>
               </motion.div>
@@ -378,7 +378,7 @@ const FoodOrderingSystemPage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <BsAppIndicator className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
                   Technologies Used
                 </h2>
               </motion.div>
@@ -433,7 +433,7 @@ const FoodOrderingSystemPage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <LuSettings2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
                   Use Cases
                 </h2>
               </motion.div>
@@ -457,7 +457,7 @@ const FoodOrderingSystemPage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <FileJson className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
                   How to Use
                 </h2>
               </motion.div>

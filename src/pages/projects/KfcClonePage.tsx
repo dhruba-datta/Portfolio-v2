@@ -210,7 +210,7 @@ const KfcClonePage = ({
         >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
+              <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 KFC Clone
               </h1>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
@@ -309,7 +309,7 @@ const KfcClonePage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <Activity className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Feature Highlights</h2>
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">Feature Highlights</h2>
               </motion.div>
 
               <div className="rounded-2xl overflow-hidden border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800">
@@ -384,7 +384,7 @@ const KfcClonePage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <BsAppIndicator className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Technologies Used</h2>
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">Technologies Used</h2>
               </motion.div>
 
               <ul className="space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
@@ -425,7 +425,7 @@ const KfcClonePage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <LuSettings2 className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">Use Cases</h2>
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">Use Cases</h2>
               </motion.div>
               <ul className="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-800 dark:text-gray-200">
                 <li className="text-sm sm:text-base">Rapid prototyping of food delivery or e-commerce startups</li>
@@ -446,7 +446,7 @@ const KfcClonePage = ({
                 className="flex items-center gap-2 mb-3 sm:mb-4"
               >
                 <FileJson className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-blue-500" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 dark:text-gray-100">How to Use</h2>
+                <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">How to Use</h2>
               </motion.div>
 
               <div className="rounded-xl border border-blue-200 dark:border-gray-700 bg-blue-50/50 dark:bg-gray-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
