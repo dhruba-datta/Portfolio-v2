@@ -631,9 +631,9 @@ const Hero = () => {
                       </span>
                       <span className="text-gray-800 dark:text-gray-200 whitespace-pre">
                         {line.includes("//") ? (
-                          <span className="text-green-600 dark:text-green-400">
-                            {line}
-                          </span>
+                            <span className="text-teal-600 dark:text-teal-400">
+                              {line}
+                            </span>
                         ) : line.includes("const") || line.includes("=") ? (
                           <span>
                             <span className="text-purple-600 dark:text-purple-400">
@@ -656,7 +656,7 @@ const Hero = () => {
                             <span className="text-red-600 dark:text-red-400">
                               {line.split(":")[0]}:
                             </span>
-                            <span className="text-green-600 dark:text-green-400">
+                            <span className="text-teal-600 dark:text-teal-400">
                               {line.split(":")[1]}
                             </span>
                           </span>
