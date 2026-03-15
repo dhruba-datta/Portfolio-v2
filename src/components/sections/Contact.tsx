@@ -339,7 +339,7 @@ const Contact: React.FC = () => {
           </div>
 
           <h4 className="text-blue-600 dark:text-blue-400 text-base sm:text-lg lg:text-xl mt-2 font-medium">
-            Bringing Ideas to Life - Let&apos;s build together
+            Bringing ideas to life - Let&apos;s build together
           </h4>
 
           <p className="text-gray-500 dark:text-gray-400 max-w-lg mb-3 text-sm sm:text-base lg:text-lg leading-relaxed mt-2">
