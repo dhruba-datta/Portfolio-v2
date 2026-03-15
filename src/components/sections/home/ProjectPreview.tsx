@@ -87,7 +87,7 @@ const ProjectPreview = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <h3 className="text-slate-500 dark:text-slate-400">
-              Featured Work
+              Featured Works
             </h3>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Latest Projects
