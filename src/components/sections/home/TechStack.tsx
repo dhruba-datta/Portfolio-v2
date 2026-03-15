@@ -196,29 +196,28 @@ const TechStack = ({ isDark }: TechStackProps) => {
     cta?: string;
   }) => (
     <Link to={to} className="block group focus-override" aria-label={`View ${title}`}>
-      <div className={`${cardBase} p-4 sm:p-5 lg:p-8 h-full flex flex-col justify-center relative min-h-[180px] sm:min-h-[200px]`}>
-        <div className="flex-1 flex flex-col justify-center">
-          <div className="flex items-start gap-3 sm:gap-4">
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                <span className={`text-[10px] sm:text-[11px] uppercase tracking-[0.14em] ${textMuted}`}>{badge}</span>
-              </div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-blue-500">{icon}</span>
-                <h5 className="font-semibold">{title}</h5>
-              </div>
-              <p className="mt-2">{description}</p>
-            </div>
-          </div>
+      <div className={`${cardBase} p-6 sm:p-8 h-full flex flex-col relative min-h-[220px] sm:min-h-[240px]`}>
+        {/* Top Slot - Fixed Height */}
+        <div className="h-6 flex items-center gap-2">
+          <div className={`w-[2px] h-3 ${isDark ? 'bg-slate-500' : 'bg-blue-500'} flex-shrink-0`} aria-hidden="true" />
+          <span className={`text-[10px] sm:text-[11px] font-outfit uppercase tracking-[0.14em] ${textMuted}`}>{badge}</span>
         </div>
 
-        <div className="mt-4 sm:mt-5 lg:mt-6 flex items-center justify-between min-h-[40px] sm:min-h-[44px]">
-          <div className="flex items-center gap-2">
-            <span className="text-base font-outfit font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              {cta}
-            </span>
+        {/* Middle Slot - Perfectly Centered (shifted up slightly) */}
+        <div className="flex-1 flex flex-col justify-center py-4 -translate-y-2">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-blue-500">{icon}</span>
+            <h5 className="font-semibold">{title}</h5>
           </div>
-          <svg className="w-4 sm:w-5 h-4 sm:h-5 text-blue-400 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <p className="mt-2 text-sm sm:text-base leading-relaxed">{description}</p>
+        </div>
+
+        {/* Bottom Slot - Same Fixed Height as Top */}
+        <div className="h-6 flex items-center justify-between">
+          <span className="text-sm sm:text-base font-outfit font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            {cta}
+          </span>
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"></path>
           </svg>
         </div>
@@ -245,7 +244,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
           {/* Card 1 (Academic) — identical style */}
           <FeatureCard
             to="/about"
-            badge="For Academics"
+            badge="FOR ACADEMICS"
             title=" Academic Excellence"
             description="Scholarships, publications and research interests view my academic profile."
             icon={<AcademicIcon />}
@@ -253,16 +252,18 @@ const TechStack = ({ isDark }: TechStackProps) => {
           />
 
           {/* Card 2 (Tech Stack) */}
-          <div className={`lg:col-span-2 ${cardBase} p-4 sm:p-5 lg:p-8`}>
-            <div className="mb-4 sm:mb-5 lg:mb-8">
-              <h5 className="mb-1">
-                My <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Toolbox</span>
-              </h5>
-            </div>
-            <div className="space-y-2 sm:space-y-3 lg:space-y-4">
-              <TechScroll technologies={frontendTech} direction="right" isDark={isDark} />
-              <TechScroll technologies={backendTech} direction="left" isDark={isDark} />
-              <TechScroll technologies={toolsTech} direction="right" isDark={isDark} />
+          <div className={`lg:col-span-2 ${cardBase} p-6 sm:p-8 flex flex-col justify-center`}>
+            <div className="-translate-y-2">
+              <div className="mb-4 sm:mb-5 lg:mb-8">
+                <h5 className="mb-1">
+                  My <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Toolbox</span>
+                </h5>
+              </div>
+              <div className="space-y-2 sm:space-y-3 lg:space-y-4">
+                <TechScroll technologies={frontendTech} direction="right" isDark={isDark} />
+                <TechScroll technologies={backendTech} direction="left" isDark={isDark} />
+                <TechScroll technologies={toolsTech} direction="right" isDark={isDark} />
+              </div>
             </div>
           </div>
 
@@ -373,7 +374,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
           {/* Card 4 (Recruiter) — identical style */}
           <FeatureCard
             to="/projects"
-            badge="For Recruiters"
+            badge="FOR RECRUITERS"
             title=" Project Showcase"
             description="Explore shipped work, case studies, and live demos tailored for hiring."
             icon={<BriefcaseIcon />}
