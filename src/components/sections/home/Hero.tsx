@@ -101,7 +101,7 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                className="lg:hidden flex justify-center mb-2 sm:mb-6"
+                className="lg:hidden flex justify-center mb-2 sm:mb-6 relative -top-12"
               >
                 <motion.div
                   whileTap={{ scale: 0.95 }}
