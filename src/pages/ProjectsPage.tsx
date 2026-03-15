@@ -19,7 +19,7 @@ const ProjectsPage = ({ isDark, toggleTheme }: ProjectsPageProps) => {
     <div className={`min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300`}>
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
 
-      <main className="pt-20 flex-grow">
+      <main className="pt-14 sm:pt-20 flex-grow">
         <Projects initialCategory={tab} />
       </main>
       <Footer />
