@@ -136,7 +136,7 @@ const ProjectPreview = () => {
                       
                       {/* Category Badge */}
                       <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20">
-                        <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded-full 
+                        <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-outfit font-medium rounded-full 
                           bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm 
                           text-slate-700 dark:text-slate-300 
                           border border-white/20 dark:border-slate-700/50 
@@ -169,7 +169,7 @@ const ProjectPreview = () => {
                         {project.tags.slice(0, 2).map((tag) => (
                           <span
                             key={tag.name}
-                            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded-xl 
+                            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-outfit font-medium rounded-xl 
                               border border-slate-200/70 dark:border-white/[0.08] 
                               text-slate-700 dark:text-slate-200 
                               bg-slate-50/80 dark:bg-slate-800/50 backdrop-blur-sm 
@@ -180,7 +180,7 @@ const ProjectPreview = () => {
                           </span>
                         ))}
                         {project.tags.length > 2 && (
-                          <span className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded-xl 
+                          <span className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-outfit font-medium rounded-xl 
                             border border-blue-200/70 dark:border-sky-400/20 
                             text-blue-700 dark:text-sky-200 
                             bg-blue-50/80 dark:bg-sky-900/20 backdrop-blur-sm">

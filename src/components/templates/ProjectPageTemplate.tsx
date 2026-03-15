@@ -202,7 +202,7 @@ const ProjectPageTemplate = ({
                 {chips.map((c) => (
                   <span
                     key={c.name}
-                    className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium border
+                    className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-outfit font-medium border
                                border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800
                                text-gray-700 dark:text-gray-300"
                   >
