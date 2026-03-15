@@ -14,6 +14,7 @@ const socialLinks = [
 
 const Footer = () => {
   const [copied, setCopied] = useState(false);
+  const [hoveredName, setHoveredName] = useState<string | null>(null);
 
   const handleGmailClick = (e: React.MouseEvent) => {
     // Detect mobile/tablet users
@@ -45,7 +46,12 @@ const Footer = () => {
         {/* Right: Social Icons */}
         <div className="flex justify-center md:justify-end gap-4 md:gap-5 py-2 md:py-0 -mr-2.5 md:-mr-3">
           {socialLinks.map(link => (
-            <div key={link.name} className="relative">
+            <div 
+              key={link.name} 
+              className="relative"
+              onMouseEnter={() => setHoveredName(link.name)}
+              onMouseLeave={() => setHoveredName(null)}
+            >
               <a
                 href={link.href}
                 onClick={link.name === 'Gmail' ? handleGmailClick : undefined}
@@ -64,21 +70,19 @@ const Footer = () => {
                 {link.icon}
               </a>
 
-              {link.name === 'Gmail' && (
-                <AnimatePresence>
-                  {copied && (
-                    <motion.div
-                      initial={{ opacity: 0, x: '-50%', y: 10, scale: 0.8 }}
-                      animate={{ opacity: 1, x: '-50%', y: 0, scale: 1 }}
-                      exit={{ opacity: 0, x: '-50%', y: 10, scale: 0.8 }}
-                      className="absolute bottom-full left-1/2 mb-1.5 px-2.5 py-1 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-[10px] sm:text-xs font-bold rounded-md shadow-lg pointer-events-none whitespace-nowrap z-50 font-outfit"
-                    >
-                      Copied!
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900 dark:border-t-gray-100" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              )}
+              <AnimatePresence>
+                {( (link.name === 'Gmail' && copied) || (hoveredName === link.name) ) && (
+                  <motion.div
+                    initial={{ opacity: 0, x: '-50%', y: 10, scale: 0.8 }}
+                    animate={{ opacity: 1, x: '-50%', y: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: '-50%', y: 10, scale: 0.8 }}
+                    className="absolute bottom-full left-1/2 mb-1.5 px-2.5 py-1 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-[10px] sm:text-xs font-bold rounded-md shadow-lg pointer-events-none whitespace-nowrap z-50 font-outfit"
+                  >
+                    {link.name === 'Gmail' && copied ? 'Copied!' : link.name}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900 dark:border-t-gray-100" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
