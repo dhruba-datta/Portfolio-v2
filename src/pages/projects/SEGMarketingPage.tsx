@@ -1,5 +1,5 @@
 import { Webhook, Target, Users, BarChart3, Rocket, Activity } from "lucide-react";
-import { SiReact, SiVite, SiTailwindcss, SiN8N } from "react-icons/si";
+import { SiReact, SiVite, SiTailwindcss, SiN8N, SiFramer } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
 interface SEGMarketingPageProps {
@@ -35,15 +35,23 @@ const SEGMarketingPage = ({ isDark, toggleTheme }: SEGMarketingPageProps) => (
     ]}
     techSectionTitle="Technologies Used"
     techItems={[
-      { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 19", description: "Building a high-performance, interactive multi-page experience." },
-      { icon: <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vite 6", description: "Modern build pipeline for optimized production bundles and fast developer experience." },
-      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n Automation", description: "Backend choreography for complex lead capture workflows and CRM distribution." },
+      { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 19", description: "Building a high-performance, interactive multi-page experience with latest concurrent features." },
+      { icon: <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vite 6", description: "Modern build pipeline for optimized production bundles and lightning-fast developer experience." },
+      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n Automation", description: "Backend choreography for complex lead capture workflows and automated CRM distribution." },
+      { icon: <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Tailwind CSS", description: "Utility-first framework enabling rapid prototyping and consistent design system implementation." },
+      { icon: <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Webhooks", description: "Real-time data transmission ensuring instant lead notifications and CRM synchronization." },
+      { icon: <SiFramer className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Framer Motion", description: "Production-grade animation library powering elastic transitions and parallax effects." },
+      { icon: <Rocket className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React Router 7", description: "Advanced client-side routing enabling seamless navigation across industry-specific pages." },
+      { icon: <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Calendly API", description: "Embedded scheduling integration converting prospects into booked discovery calls instantly." },
     ]}
     useCases={[
-      "Legal: Specialized high-conversion funnels for law practices and attorneys",
-      "Healthcare: HIPAA-ready patient inquiry management for medical clinics",
-      "Restaurants: Modern digital marketing layouts for dining and hospitality",
-      "General: Scalable automation-driven platform for multi-industry lead generation",
+      "Legal: Specialized high-conversion funnels for law practices and attorney lead generation",
+      "Healthcare: HIPAA-compliant patient inquiry management for medical clinics and private practices",
+      "Restaurants: Modern digital marketing layouts optimized for dining and hospitality businesses",
+      "Multi-Industry: Scalable automation-driven platform for diverse industry verticals and niches",
+      "Agency Partnerships: White-label solution for marketing agencies managing multiple client campaigns",
+      "Lead Qualification: Automated prospect filtering reducing sales team time spent on unqualified leads",
+      "CRM Integration: Seamless data flow into HubSpot, Salesforce, or custom internal systems",
     ]}
     howToSteps={[
       <>Clone repository:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/SocialEngagementGroup/marketing</code></>,

@@ -39,12 +39,18 @@ const SocialEngagementGroupPage = ({ isDark, toggleTheme }: SocialEngagementGrou
       { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 19", description: "Utilizing the latest React features for efficient state management and concurrent rendering." },
       { icon: <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Tailwind CSS 4", description: "Delivering a refined design system with a utility-first approach and lightning-fast compilation." },
       { icon: <SiFramer className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Framer Motion 12", description: "Orchestrating enterprise-grade animations and interactive transitions throughout the UX." },
+      { icon: <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Lenis Smooth Scroll", description: "Premium cinematic scrolling library creating a fluid, physics-based browsing experience." },
+      { icon: <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "JSON-LD Schema", description: "Structured data markup ensuring rich search results and optimal AI agent interpretation." },
+      { icon: <Bot className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "llms.txt", description: "AI-native site indexing file helping language models understand and navigate site content." },
+      { icon: <Layout className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "TypeScript", description: "Strict type safety ensuring code quality and maintainability across all components." },
     ]}
     useCases={[
-      "Establishing a premium digital presence for fast-growing agencies",
-      "Achieving high performance scores through aggressive asset optimization",
-      "Increasing mobile conversion rates through cinematic smooth-scrolling UX",
-      "Reducing administrative burden by automating LLM-friendly content indexing",
+      "Establishing a premium digital presence for fast-growing agencies seeking competitive edge",
+      "Achieving top-tier Lighthouse scores and Core Web Vitals through aggressive asset optimization",
+      "Increasing mobile conversion rates through cinematic smooth-scrolling UX and immersive animations",
+      "Reducing administrative burden by automating LLM-friendly content indexing for AI discovery",
+      "Building AI-ready infrastructure that ranks well in ChatGPT, Claude, and Perplexity searches",
+      "Creating scalable multi-service platforms supporting 24+ regional and category pages",
     ]}
     howToSteps={[
       <>Clone repository:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/SocialEngagementGroup/website</code></>,
