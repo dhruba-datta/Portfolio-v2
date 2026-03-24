@@ -12,7 +12,7 @@ const DiceJobSearchPage = ({ isDark, toggleTheme }: DiceJobSearchPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Dice Job Search (n8n)"
-    description="A sophisticated low-code automation workflow engineered with n8n to revolutionize the job search process. This system autonomously monitors Dice.com for varied tech roles, applying complex filtering logic to curate high-quality opportunities. It seamlessly integrates with Google Sheets for application tracking and delivers instant multi-channel notifications, ensuring users never miss a critical opening."
+    description="Job seekers waste hours manually refreshing job boards, missing perfect opportunities that disappear within hours. This intelligent job monitoring system eliminates that stress by autonomously tracking Dice.com for relevant tech roles, filtering out noise, and instantly alerting you to high-quality matches - transforming the exhausting hunt into a streamlined pipeline where opportunities come to you, complete with organized tracking and zero missed openings."
     coverSrc="/images/dice-job-cover.jpg"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

@@ -12,7 +12,7 @@ const SEOAuditPage = ({ isDark, toggleTheme }: SEOAuditPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="SEO Audit (n8n)"
-    description="Optimize your website's search engine visibility and loading speed with this n8n workflow. It automates website performance analysis using Google PageSpeed Insights, generates a professional audit report using GPT-4, and sends it directly to your clients via Gmail."
+    description="Agencies struggle to demonstrate immediate value to prospective clients during initial outreach, often losing leads before the first meeting. This automated SEO audit engine solves that by instantly analyzing any website's performance, generating AI-powered professional reports, and delivering them directly to clients - transforming cold prospects into engaged leads through immediate, tangible value without any manual analysis work."
     coverSrc="/images/projects/SEO Audit (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

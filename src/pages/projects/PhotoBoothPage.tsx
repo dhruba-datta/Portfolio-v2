@@ -12,7 +12,7 @@ const PhotoBoothPage = ({ isDark, toggleTheme }: PhotoBoothPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="PhotoBooth"
-    description="A visually stunning, high-performance social photo-sharing platform engineered to deliver a premium user experience. Powered by Sanity.io's content lake and React's component ecosystem, this application features secure Google OAuth authentication, real-time social interactions, and a responsive masonry layout that adapts beautifully to any device."
+    description="Photographers and creatives struggle to showcase their work on platforms that compress images, lack proper organization, or force intrusive ads. This professional photo-sharing platform solves that by delivering Pinterest-quality masonry layouts with full-resolution uploads, social engagement features, and secure authentication - transforming scattered photo libraries into beautifully organized galleries that let the work shine without platform interference or quality loss."
     coverSrc="/images/photo-booth-cover.jpg"
     chips={[
       { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

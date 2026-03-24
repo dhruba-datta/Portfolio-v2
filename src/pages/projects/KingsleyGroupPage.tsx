@@ -14,7 +14,7 @@ const KingsleyGroupPage = ({ isDark, toggleTheme }: KingsleyGroupPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Kingsley Group"
-    description={<>A comprehensive corporate website redesign and development project for a leading environmental engineering firm. This platform features not just a visual overhaul but a robust, scalable digital infrastructure supporting an expanded content strategy with <b>Resources</b>, <b>Blog</b>, and <b>News</b> libraries. Implemented with end-to-end <b> SEO</b> best practices and performance optimization, it serves as a multi-regional digital headquarters for operations in Australia, Bangladesh, and China.</>}
+    description="Professional services firms lose credibility and organic traffic when their website feels outdated or loads slowly, directly impacting lead generation. This comprehensive corporate digital transformation solved that for an environmental engineering leader by delivering a modern, SEO-optimized platform with structured content libraries and sub-second load times - transforming their website from a digital liability into a revenue-generating asset that ranks for target keywords and converts visitors across three international markets."
     coverSrc="/images/kingsley-cover.jpg"
     chips={[
       { name: "WordPress", icon: <FaWordpress className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

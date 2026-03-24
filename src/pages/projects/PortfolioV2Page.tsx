@@ -12,7 +12,7 @@ const PortfolioV2Page = ({ isDark, toggleTheme }: PortfolioV2PageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Portfolio v2"
-    description="A state-of-the-art personal portfolio website designed to deliver an immersive and interactive user experience. Built with React 18, TypeScript, and Tailwind CSS, it features professional-grade animations powered by Framer Motion, full dark mode support, and a comprehensive showcase of multidisciplinary expertise."
+    description="Senior developers need portfolios that demonstrate not just technical skills but modern development expertise through the portfolio itself. This advanced interactive portfolio solves that by using React 18, TypeScript, and professional animations to create an immersive experience - transforming a static resume site into a living demonstration of modern frontend mastery that immediately communicates senior-level capabilities through both content and execution."
     coverSrc="/images/portfolio-v2-cover.jpg"
     chips={[
       { name: "React 18", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

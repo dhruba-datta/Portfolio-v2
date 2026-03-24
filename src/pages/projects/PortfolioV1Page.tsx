@@ -13,7 +13,7 @@ const PortfolioV1Page = ({ isDark, toggleTheme }: PortfolioV1PageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Portfolio v1"
-    description="The inaugural version of my personal digital portfolio, designed to be a lightweight, high-performance showcase of technical skills and professional achievements. Engineered with semantic HTML5, modern CSS3, and the Bootstrap framework, this project prioritizes essential web vitals—speed, accessibility, and SEO-friendliness—providing a solid foundation for personal branding on the open web."
+    description="Job seekers lose opportunities when their portfolio loads slowly or looks unprofessional, especially when recruiters spend less than 10 seconds on initial reviews. This lightweight professional portfolio eliminates that risk by delivering instant page loads, clean mobile-responsive design, and optimized SEO - transforming a basic resume into a compelling digital presence that captures attention immediately and ranks well in recruiter searches."
     coverSrc="/images/myportfolio-cover.jpg"
     chips={[
       { name: "HTML", icon: <SiHtml5 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

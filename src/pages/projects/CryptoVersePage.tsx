@@ -22,7 +22,7 @@ const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="CryptoVerse"
-    description="A comprehensive real-time cryptocurrency analysis dashboard engineered with the robust React ecosystem. Integrating Redux Toolkit Query for efficient data caching and Chart.js for data visualization, this application delivers instant global market metrics, detailed individual token analytics, and aggregated news feeds—all presented within a cohesive, professional interface designed with the Ant Design system."
+    description="Crypto investors struggle to track market movements across hundreds of coins while coordinating between multiple dashboards, news sites, and charting tools. This unified real-time crypto intelligence platform solves that by consolidating global market metrics, individual token analytics, and breaking news into a single responsive dashboard - transforming scattered market research into instant, data-driven investment decisions with zero context switching."
     coverSrc="/images/cryptoverse-cover.jpg"
     chips={[
       { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

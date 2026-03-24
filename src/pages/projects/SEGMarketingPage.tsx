@@ -12,7 +12,7 @@ const SEGMarketingPage = ({ isDark, toggleTheme }: SEGMarketingPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="SEG Marketing"
-    description="SEG Marketing is a performance-driven multipage application built with React 19 and Vite. It serves as a specialized lead generation engine, featuring industry-specific landing pages (Legal, Healthcare, Restaurants) with unique UX patterns. The platform is deeply integrated with n8n automation workflows to bridge unstructured form data directly into CRM systems, ensuring 99.9% lead capture reliability."
+    description="Marketing agencies lose qualified leads every day because generic landing pages fail to speak directly to each industry's unique pain points. This specialized lead generation platform solves that by delivering tailored conversion experiences for Legal, Healthcare, and Restaurant clients - each with strategic UX patterns and automated n8n workflows that ensure zero lead loss between form submission and CRM, transforming scattered prospects into organized pipeline opportunities."
     coverSrc="/images/projects/SEG Marketing.webp"
     chips={[
       { name: "React 19", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

@@ -15,7 +15,7 @@ const KfcClonePage = ({ isDark, toggleTheme }: KfcClonePageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="KFC Clone"
-    description="A high-fidelity, single-page food ordering application designed to replicate the premium digital experience of KFC. Built with the modern Vue 3 ecosystem and utility-first Tailwind CSS, this project delivers a lightning-fast, interactive, and responsive user interface. It features advanced capabilities such as real-time multilingual support, dynamic cart management, and location-based services powered by Leaflet.js, all optimized for performance and scalability."
+    description="Food delivery startups struggle to build professional ordering experiences that work seamlessly across languages and devices without massive development costs. This production-ready food ordering platform solves that by delivering KFC-grade UX with multilingual support, dynamic cart management, and location services - transforming weeks of complex development into a ready-to-deploy foundation that handles the entire ordering flow from discovery to checkout across English, Bengali, and Hindi markets."
     coverSrc="/images/kfc-cover.jpg"
     chips={[
       { name: "Vue 3", icon: <FaVuejs className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

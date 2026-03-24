@@ -12,7 +12,7 @@ const EasyCookingPage = ({ isDark, toggleTheme }: EasyCookingPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="EasyCooking"
-    description="A comprehensive and immersive cooking tutorial platform dedicated to exploring culinary traditions from around the globe. Featuring a curated collection of authentic recipes from Bengali, Chinese, and Indian cuisines, the platform provides detailed, step-by-step guidance for home cooks. Built entirely with semantic HTML5 and modern CSS3, it offers lightning-fast performance, zero-dependency loading, and a seamless cross-platform experience optimized for both desktop and mobile viewing."
+    description="Home cooks struggle to find authentic recipes from diverse cuisines while juggling messy recipe sites loaded with ads and slow load times. This streamlined cooking platform solves that by delivering curated Bengali, Chinese, and Indian recipes with distraction-free instructions that load instantly on any device - transforming kitchen chaos into confident cooking with zero distractions and recipes that are actually usable while your hands are covered in flour."
     coverSrc="/images/projects/EasyCooking.webp"
     chips={[
       { name: "HTML5", icon: <SiHtml5 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

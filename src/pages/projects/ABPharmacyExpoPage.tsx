@@ -22,7 +22,7 @@ const ABPharmacyExpoPage = ({ isDark, toggleTheme }: ABPharmacyExpoPageProps) =>
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="AB Pharmacy Expo"
-    description="A production-ready cross-platform mobile application engineered with React Native and Expo to serve as a comprehensive digital companion for pharmacy trade shows. Featuring real-time event scheduling, an interactive exhibitor directory, detailed product catalogs, and offline-first functionalities, this app delivers a seamless native experience on both iOS and Android devices."
+    description="Trade show attendees waste hours navigating crowded halls with paper maps, missing sessions, and losing track of exhibitors they wanted to visit. This comprehensive digital trade show companion eliminates that chaos by delivering real-time schedules, interactive exhibitor directories, and product catalogs directly to attendees' phones - transforming overwhelming event logistics into seamless, personalized experiences that work even offline in crowded convention centers."
     coverSrc="/images/ab-pharmacy-cover.jpg"
     chips={[
       { name: "React Native", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
