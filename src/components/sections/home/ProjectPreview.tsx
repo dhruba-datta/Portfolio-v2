@@ -99,9 +99,10 @@ const ProjectPreview = () => {
             </h2>
 
           </div>
+          {/* Desktop View More Button */}
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 self-center sm:self-end px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold rounded-xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group focus-override whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-2 self-end px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold rounded-xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group focus-override whitespace-nowrap"
           >
             <span>Browse all projects</span>
             <motion.span
@@ -120,6 +121,29 @@ const ProjectPreview = () => {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
+        {/* Mobile View More Button */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.5 }}
+          className="mt-8 flex justify-center sm:hidden"
+        >
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-outfit font-semibold rounded-xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group focus-override whitespace-nowrap"
+          >
+            <span>Browse all projects</span>
+            <motion.span
+              animate={prefersReducedMotion ? {} : { x: [0, 4, 0] }}
+              transition={prefersReducedMotion ? {} : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="inline-flex"
+            >
+              <ArrowRight className="w-4 h-4" />
+            </motion.span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
