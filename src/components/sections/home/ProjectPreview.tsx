@@ -97,6 +97,7 @@ const ProjectPreview = () => {
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Latest Projects
             </h2>
+
           </div>
           <Link
             to="/projects"

@@ -115,9 +115,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
 
   return (
     <section
-      className="py-10 sm:py-12 lg:py-20 transition-colors duration-300 min-h-screen"
+      className="py-12 sm:py-14 lg:py-16 transition-colors duration-300"
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -162,18 +162,14 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
               Publications
             </h4>
 
-            {/* Mobile Timeline Line for Publications - Visible only on mobile */}
-            <div
-              className={`absolute left-2 top-9 bottom-4 w-1 sm:hidden ${
-                isDark ? "bg-gray-700" : "bg-gray-200"
-              }`}
-            ></div>
+            {/* Mobile Timeline Line for Publications */}
+            <div className="absolute left-2 top-9 bottom-4 w-1 sm:hidden bg-blue-500/20 dark:bg-blue-500/20"></div>
 
             <motion.ol
               initial="hidden"
               animate={timelineAnimated ? "visible" : "visible"}
               variants={timelineAnimated ? timelineVariants : {}}
-              className="relative border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-4 sm:space-y-5 lg:space-y-6"
+              className="relative border-l-0 sm:border-l-4 border-blue-500/20 dark:border-blue-500/20 mt-2 space-y-4 sm:space-y-5 lg:space-y-6"
             >
               {publications.map((pub, index) => (
                 <motion.li
@@ -187,7 +183,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                 >
                   {/* Timeline Dot: styled and animated like achievement section */}
                   <motion.span
-                    className="absolute left-[0.375rem] sm:left-[-8px] top-2 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-gradient-to-br from-blue-500 to-cyan-500"
+                    className="absolute left-[0.375rem] sm:left-[-8px] top-2 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-blue-500 dark:bg-blue-400"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{
@@ -285,20 +281,10 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                       </div>
                     </div>
                     <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2">
-                      <span
-                        className={`px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-xs font-semibold rounded-full ${
-                          isDark
-                            ? "bg-green-500/15 text-green-400 border border-green-500/30"
-                            : "bg-green-50 text-green-700 border border-green-200"
-                        }`}
-                      >
+                      <span className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-xs font-semibold rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-200/70 dark:border-emerald-400/30">
                         {pub.status}
                       </span>
-                      <span
-                        className={`text-xs sm:text-xs ${
-                          isDark ? "text-gray-300" : "text-gray-400"
-                        }`}
-                      >
+                      <span className="text-xs sm:text-xs text-slate-500 dark:text-slate-400">
                         {pub.date}
                       </span>
                     </div>
@@ -306,22 +292,6 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                 </motion.li>
               ))}
             </motion.ol>
-            <div
-              className={`mt-4 sm:mt-6 lg:mt-8 p-2.5 sm:p-3 lg:p-4 rounded-xl hidden sm:block ${
-                isDark
-                  ? "bg-gradient-to-br from-gray-800/40 to-gray-700/40 border border-gray-700/50"
-                  : "bg-gradient-to-br from-gray-50/80 to-blue-50/50 border border-gray-200/60"
-              }`}
-            >
-              <p
-                className={`text-[11px] sm:text-xs lg:text-sm leading-relaxed italic text-center ${
-                  isDark ? "text-gray-300" : "text-gray-700"
-                }`}
-              >
-                "Bridging theoretical research with practical applications in
-                Artificial Intelligence"
-              </p>
-            </div>
             <div className="mt-6 sm:mt-8 lg:mt-12 hidden sm:block">
               <h4
                 className={`font-bold mb-2 sm:mb-3 ${
@@ -361,14 +331,8 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                     key={interest.id}
                     className="flex items-center gap-2 sm:gap-3"
                   >
-                    <div
-                      className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#6367FF] flex-shrink-0`}
-                    />
-                    <p
-                      className={`whitespace-nowrap text-sm sm:text-base ${
-                        isDark ? "text-white" : "text-slate-600"
-                      }`}
-                    >
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-500 dark:bg-blue-400 flex-shrink-0" />
+                    <p className="whitespace-nowrap text-sm sm:text-base text-slate-600 dark:text-slate-300">
                       {interest.area}
                     </p>
                   </div>
@@ -387,12 +351,8 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
               Achievements
             </h4>
 
-            {/* Mobile Timeline Line for Achievements - Visible only on mobile */}
-            <div
-              className={`absolute left-2 top-8 bottom-2 w-1 sm:hidden ${
-                isDark ? "bg-gray-700" : "bg-gray-200"
-              }`}
-            ></div>
+            {/* Mobile Timeline Line for Achievements */}
+            <div className="absolute left-2 top-8 bottom-2 w-1 sm:hidden bg-blue-500/20 dark:bg-blue-500/20"></div>
 
             <motion.ol
               initial="hidden"
@@ -408,7 +368,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                   },
                 },
               }}
-              className="relative border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 mt-2 space-y-4 sm:space-y-5 lg:space-y-6"
+              className="relative border-l-0 sm:border-l-4 border-blue-500/20 dark:border-blue-500/20 mt-2 space-y-4 sm:space-y-5 lg:space-y-6"
             >
               {achievements.map((a, index) => (
                 <motion.li
@@ -420,7 +380,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                   className="relative pl-8 sm:pl-7 flex flex-col gap-1"
                 >
                   <motion.span
-                    className={`absolute left-[0.375rem] sm:left-[-8px] top-1 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-gradient-to-br from-yellow-400 to-yellow-500`}
+                    className="absolute left-[0.375rem] sm:left-[-8px] top-1 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-blue-500 dark:bg-blue-400"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{

@@ -79,13 +79,13 @@ const About = () => {
           transition={{ duration: 0.9 }}
           style={{
             background:
-              'radial-gradient(1000px 520px at 60% 0%, rgba(99,102,241,0.16), transparent 70%), radial-gradient(900px 540px at 15% 100%, rgba(236,72,153,0.14), transparent 72%)',
+              'radial-gradient(800px 400px at 60% -5%, rgba(59,130,246,0.08), transparent 65%), radial-gradient(700px 400px at 20% 105%, rgba(99,102,241,0.06), transparent 70%)',
           }}
         />
         {dots.map((d, i) => (
           <motion.span
             key={i}
-            className="absolute rounded-full bg-blue-400/50 dark:bg-indigo-300/60"
+            className="absolute rounded-full bg-blue-400/40 dark:bg-sky-300/40"
             style={{
               left: d.left,
               top: d.top,
@@ -118,7 +118,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5 }}
-                className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-gray-500 dark:text-gray-400"
+                className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-slate-500 dark:text-slate-400"
               >
                 More about me
               </motion.p>
@@ -127,7 +127,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white mt-2 sm:mt-3"
+                className="text-slate-900 dark:text-white mt-2 sm:mt-3"
               >
                 I’m <span className="text-blue-600 dark:text-blue-400">Dhruba</span>
               </motion.h2>
@@ -138,7 +138,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mt-6"
+              className="space-y-4 sm:space-y-5 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mt-6"
             >
               <p>
                 I started out in full-stack web, picked up QA automation along the way, and these days most of my work is in AI. Right now I lead R&amp;D at Social Engagement Group, build voice AI at Operavo, and work on code bias research with a professor at University College Dublin.
@@ -161,22 +161,26 @@ const About = () => {
             >
               <Link
                 to="/projects"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-white font-outfit
+                className="group inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold text-white
                            bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                           shadow-lg hover:shadow-xl hover:shadow-blue-600/30 transition-all focus-override min-h-[44px] sm:min-h-[48px]"
+                           shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all focus-override"
               >
-                <span>View Projects</span>
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <span>View projects</span>
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold font-outfit
-                           border-2 border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5
-                           text-slate-800 dark:text-gray-200 transition-all focus-override min-h-[44px] sm:min-h-[48px]
-                           hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/10"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold
+                           text-slate-900 dark:text-white
+                           bg-blue-50/60 dark:bg-white/[0.04]
+                           ring-1 ring-blue-200/80 dark:ring-white/[0.08]
+                           backdrop-blur-md
+                           hover:ring-blue-300/80 dark:hover:ring-sky-400/20
+                           hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05]
+                           transition-all focus-override"
               >
-                <LuMessageSquareShare className="w-4 sm:w-5 h-4 sm:h-5" />
-                Contact Me
+                <LuMessageSquareShare className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600 dark:text-sky-400" />
+                Contact me
               </Link>
             </motion.div>
           </div>

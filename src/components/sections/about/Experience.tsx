@@ -92,7 +92,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
   ];;
 
   return (
-    <section id="experience" className="py-10 sm:py-12 lg:py-20 transition-colors duration-300">
+    <section id="experience" className="py-12 sm:py-14 lg:py-16 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <motion.div
@@ -100,7 +100,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -120,16 +120,10 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
         {/* Timeline Container */}
         <div className="relative">
           {/* Desktop Timeline Line - Hidden on mobile */}
-          <div
-            className={`absolute lg:left-[25.25rem] top-0 bottom-0 w-1 hidden lg:block ${
-              isDark ? 'bg-blue-500/30' : 'bg-blue-500/20'
-            }`}
-          />
+          <div className="absolute lg:left-[25.25rem] top-0 bottom-0 w-1 hidden lg:block bg-blue-500/20 dark:bg-sky-500/20" />
 
           {/* Mobile Timeline Line - Visible only on mobile */}
-          <div className={`absolute left-2 top-0 bottom-0 w-1 lg:hidden ${
-            isDark ? 'bg-blue-500/30' : 'bg-blue-500/20'
-          }`}></div>
+          <div className="absolute left-2 top-0 bottom-0 w-1 lg:hidden bg-blue-500/20 dark:bg-sky-500/20"></div>
 
           {/* Experience Items */}
           <div className="space-y-8 sm:space-y-12 lg:space-y-16">
@@ -146,7 +140,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                 <div className="lg:hidden relative pl-8">
                   {/* Mobile Timeline Dot */}
                     <motion.div
-                      className="absolute left-[0.375rem] top-9 w-2 h-2 bg-blue-500 rounded-full z-10 shadow-lg -translate-x-1/2"
+                      className="absolute left-[0.375rem] top-9 w-2 h-2 bg-blue-500 dark:bg-sky-400 rounded-full z-10 shadow-lg -translate-x-1/2"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
@@ -266,7 +260,7 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
 
                   {/* Desktop Timeline Dot */}
                   <motion.div
-                    className="absolute lg:left-[25rem] top-2.5 w-3 h-3 bg-blue-500 rounded-full z-10 shadow-lg hidden lg:block"
+                    className="absolute lg:left-[25rem] top-2.5 w-3 h-3 bg-blue-500 dark:bg-sky-400 rounded-full z-10 shadow-lg hidden lg:block"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}

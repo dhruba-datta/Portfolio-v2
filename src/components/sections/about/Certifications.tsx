@@ -246,12 +246,34 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   return (
     <section
       id="certifications"
-      className="py-12 pb-24 md:py-20 relative transition-colors duration-300 overflow-hidden"
+      className="py-12 pb-24 sm:py-14 lg:py-16 relative transition-colors duration-300 overflow-hidden"
       style={{ minHeight: cardHeight + 120 }}
     >
-      <div className="container mx-auto px-6 max-w-full">
+      {/* Desktop nav arrows — closer to the cards */}
+      <button
+        className={`hidden md:flex absolute top-1/2 left-12 lg:left-24 xl:left-40 -translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-40 group
+          ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
+        onClick={prevSlide}
+        aria-label="Previous"
+      >
+        <svg className="w-9 h-9 md:w-10 md:h-10 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        className={`hidden md:flex absolute top-1/2 right-12 lg:right-24 xl:right-40 -translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-40 group
+          ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
+        onClick={nextSlide}
+        aria-label="Next"
+      >
+        <svg className="w-9 h-9 md:w-10 md:h-10 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -275,30 +297,6 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
           onTouchEnd={onTouchEnd}
           style={{height: cardHeight + 60, minHeight: cardHeight + 60, width: "100%"}}
         >
-          {/* Navigation Buttons (Desktop) */}
-          <button
-            className={`hidden md:flex absolute bottom-[-60px] md:bottom-auto md:top-1/2 left-[20%] md:left-24 lg:left-32 md:transform md:-translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-30 group
-              ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
-            onClick={prevSlide}
-            aria-label="Previous"
-            style={{zIndex:40}}
-          >
-            <svg className="w-10 h-10 md:w-12 md:h-12 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            className={`hidden md:flex absolute bottom-[-60px] md:bottom-auto md:top-1/2 right-[20%] md:right-24 lg:right-32 md:transform md:-translate-y-1/2 w-12 h-12 items-center justify-center transition-all duration-300 z-30 group
-              ${isDark ? "text-gray-400 hover:text-white" : "text-gray-400 hover:text-gray-900"}`}
-            onClick={nextSlide}
-            aria-label="Next"
-            style={{zIndex:40}}
-          >
-            <svg className="w-10 h-10 md:w-12 md:h-12 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
           {/* Navigation Controls (Mobile Arrows + Dots) */}
           <div className="absolute bottom-0 left-0 right-0 flex md:hidden items-center justify-center gap-8 z-40">
             <button
@@ -362,15 +360,15 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
                 className={`
                   group transition-all duration-700 ease-out select-none rounded-[2rem] overflow-hidden
                   border backdrop-blur-xl shadow-2xl
-                  ${isDark ? 'border-white/20 bg-gradient-to-br from-slate-800/90 via-slate-900/95 to-black/95' : 'bg-gradient-to-br from-white/95 to-slate-50/95 border-gray-200/80'}
-                  ${level !== 0 && "hover:border-blue-500/50 cursor-pointer hover:shadow-[0_8px_30px_rgba(59,130,246,0.3)]"}
+                  ${isDark ? 'border-white/[0.08] bg-slate-950/90' : 'bg-white border-slate-200/70'}
+                  ${level !== 0 && "hover:border-blue-300/60 dark:hover:border-sky-400/25 cursor-pointer hover:shadow-blue-500/[0.10] dark:hover:shadow-sky-500/[0.08]"}
                   focus-override
                 `}
                 role="button"
                 aria-label={level === 0 ? `View ${cert.title} credential` : `Go to ${cert.title} certification`}
                 title={level === 0 ? "Click to view credential" : `Go to: ${cert.title}`}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
                 <div className="relative z-10 h-full flex flex-col p-2">
                   <div className="flex justify-center mb-2 -mt-4">
                     <div className="transition-transform duration-500 transform group-hover:-translate-y-1 group-hover:scale-105 shadow-md rounded-2xl">
@@ -378,12 +376,12 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
                     </div>
                   </div>
                   <div className="text-center mb-1 px-2">
-                    <h3 className={`text-sm md:text-base font-bold tracking-wide uppercase ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                    <h3 className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${isDark ? "text-blue-400" : "text-blue-600"}`}>
                       {cert.issuer}
                     </h3>
                   </div>
                   <div className="flex-1 flex items-center justify-center px-4 md:px-6">
-                    <h4 className={`text-base md:text-lg lg:text-xl font-black leading-snug tracking-tight text-center ${isDark ? "!text-white" : "text-slate-900"}`}>
+                    <h4 className={`text-sm md:text-base lg:text-lg font-semibold leading-snug tracking-tight text-center ${isDark ? "!text-white" : "text-slate-900"}`}>
                       {cert.title}
                     </h4>
                   </div>

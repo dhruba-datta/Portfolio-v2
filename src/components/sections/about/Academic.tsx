@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { TbLocationFilled } from "react-icons/tb";
+import { HiAcademicCap } from "react-icons/hi2";
 
 interface AcademicProps {
   isDark?: boolean;
@@ -16,7 +17,8 @@ interface Education {
   achievements?: string[];
 }
 
-const Academic = ({ isDark = false }: AcademicProps) => {
+const Academic = ({ isDark: _isDark = false }: AcademicProps) => {
+  void _isDark;
   const education: Education[] = [
     {
       id: 1,
@@ -50,8 +52,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
   return (
     <section
       id="academic"
-      className="pt-8 pb-2 sm:py-12 lg:py-20 transition-colors duration-300"
-      style={{ marginTop: '0.1rem' }}
+      className="py-12 sm:py-14 lg:py-16 transition-colors duration-300"
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
@@ -60,7 +61,7 @@ const Academic = ({ isDark = false }: AcademicProps) => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -74,21 +75,16 @@ const Academic = ({ isDark = false }: AcademicProps) => {
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Academic Background
             </h2>
-            
           </motion.div>
         </motion.div>
 
         {/* Timeline Container */}
         <div className="relative">
-          {/* Desktop Timeline Line - Hidden on mobile */}
-          <div className={`absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 hidden lg:block ${
-            isDark ? 'bg-green-500/30' : 'bg-green-500/20'
-          }`}></div>
+          {/* Desktop Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 hidden lg:block bg-blue-500/20 dark:bg-blue-500/20" />
 
-          {/* Mobile Timeline Line - Visible only on mobile */}
-          <div className={`absolute left-2 top-0 bottom-0 w-1 lg:hidden ${
-            isDark ? 'bg-green-500/30' : 'bg-green-500/20'
-          }`}></div>
+          {/* Mobile Timeline Line */}
+          <div className="absolute left-2 top-0 bottom-0 w-1 lg:hidden bg-blue-500/20 dark:bg-blue-500/20" />
 
           {/* Education Items */}
           <div className="space-y-8 sm:space-y-12 lg:space-y-16">
@@ -105,67 +101,45 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                 <div className="lg:hidden relative pl-8">
                   {/* Mobile Timeline Dot */}
                   <motion.div
-                    className="absolute left-[0.375rem] top-9 w-2 h-2 bg-green-500 rounded-full z-10 shadow-lg -translate-x-1/2"
+                    className="absolute left-[0.375rem] top-9 w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full z-10 shadow-lg -translate-x-1/2"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
                     viewport={{ once: true }}
                   />
-                  
-                  {/* Mobile Content - Simple Layout */}
+
+                  {/* Mobile Content */}
                   <div className="space-y-2">
-                    
-                    {/* Duration */}
-                    <div className={`text-sm font-medium ${
-                      isDark ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
+                    <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
                       {edu.duration}
                     </div>
-                    
-                    {/* Degree */}
-                    <p className={`font-bold ${isDark ? '!text-white' : 'text-slate-900'}`}>
+
+                    <p className="font-bold text-slate-900 dark:text-white">
                       {edu.degree}
                     </p>
-                    
 
-                    
-                    {/* Institution */}
-                    <h4 className="font-semibold !text-green-500">
+                    <h4 className="font-semibold !text-blue-600 dark:!text-blue-400">
                       {edu.institution}
                     </h4>
-                    
-                    {/* Location */}
-                    <div className={`flex items-center gap-2 text-sm ${
-                      isDark ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
+
+                    <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                       <TbLocationFilled className="w-4 h-4" />
                       <span>{edu.location}</span>
                     </div>
-                    
-                    {/* Grade and Field Layout */}
+
                     <div className="flex flex-col gap-1">
-                      {/* Icon and Grade Row */}
-                      <div className={`flex items-center gap-2 text-sm ${
-                        isDark ? 'text-gray-400' : 'text-gray-600'
-                      }`}>
-                        <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-                        </svg>
+                      <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                        <HiAcademicCap className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
                         <div className="flex items-center gap-2">
                           <span className="font-medium">{edu.grade.includes('CGPA') ? 'CGPA' : 'GPA'}:</span>
-                          <span className={`font-bold ${
-                            isDark ? 'text-green-400' : 'text-green-600'
-                          }`}>
+                          <span className="font-bold text-blue-600 dark:text-blue-400">
                             {edu.grade.replace('CGPA: ', '').replace('GPA: ', '')}
                           </span>
                         </div>
                       </div>
-                      
-                      {/* Field of Study on New Line */}
+
                       {edu.field && (
-                        <div className={`text-sm font-medium pl-1 ${
-                          isDark ? 'text-gray-500' : 'text-gray-500'
-                        }`}>
+                        <div className="text-sm font-medium pl-1 text-slate-500 dark:text-slate-500">
                           {edu.field}
                         </div>
                       )}
@@ -173,25 +147,20 @@ const Academic = ({ isDark = false }: AcademicProps) => {
                   </div>
                 </div>
 
-                {/* Desktop Layout - Keep existing desktop layout */}
+                {/* Desktop Layout */}
                 <div className="hidden lg:flex lg:flex-row lg:items-center gap-8">
-                  {/* Left Side Content */}
                   <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right lg:pr-12' : 'lg:order-2 lg:text-left lg:pl-12'}`}>
-                    <div className={`text-sm font-medium mb-2 ${
-                      isDark ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
+                    <div className="text-sm font-medium mb-2 text-slate-500 dark:text-slate-400">
                       {edu.duration}
                     </div>
-                    <p className={`font-bold mb-3 ${isDark ? '!text-white' : 'text-slate-900'}`}>
+                    <p className="font-bold mb-3 text-slate-900 dark:text-white">
                       {edu.degree}
                     </p>
 
-                    <h4 className="font-semibold mb-1 !text-green-500">
+                    <h4 className="font-semibold mb-1 !text-blue-600 dark:!text-blue-400">
                       {edu.institution}
                     </h4>
-                    <div className={`flex items-center gap-2 mb-4 text-sm ${
-                      isDark ? 'text-gray-400' : 'text-gray-600'
-                    } ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>
+                    <div className={`flex items-center gap-2 mb-4 text-sm text-slate-500 dark:text-slate-400 ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>
                       <TbLocationFilled className="w-4 h-4" />
                       <span>{edu.location}</span>
                     </div>
@@ -199,52 +168,32 @@ const Academic = ({ isDark = false }: AcademicProps) => {
 
                   {/* Desktop Timeline Dot */}
                   <motion.div
-                    className={`absolute left-[calc(50%-6px)] -translate-y-2 ${index === 0 ? 'top-20' : 'top-16'} w-3 h-3 bg-green-500 rounded-full z-10 shadow-lg`}
+                    className={`absolute left-[calc(50%-6px)] -translate-y-2 ${index === 0 ? 'top-20' : 'top-16'} w-3 h-3 bg-blue-500 dark:bg-blue-400 rounded-full z-10 shadow-lg`}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
                     viewport={{ once: true }}
                   />
 
-                  {/* Right Side - CGPA Badge */}
+                  {/* Right Side - Grade Badge */}
                   <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:order-2 lg:pl-12' : 'lg:pr-12'} flex ${
                     index % 2 === 0 ? 'lg:justify-start' : 'lg:justify-end'
                   } items-center`}>
-                    <div className={`px-5 py-4 rounded-2xl ${
-                      isDark 
-                        ? 'bg-gray-800/50 border border-gray-700 text-gray-200' 
-                        : 'bg-white border border-gray-200 text-gray-700 shadow-lg'
-                    } hover:shadow-xl transition-all duration-300`}>
-                      {/* 2 Column Layout */}
+                    <div className="px-5 py-4 rounded-2xl bg-white dark:bg-slate-950/90 border border-slate-200/70 dark:border-white/[0.08] backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-blue-500/[0.05] hover:border-blue-300/60 dark:hover:border-blue-400/25 transition-all duration-500">
                       <div className="flex items-center gap-3">
-                        {/* First Column - Icon */}
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          isDark ? 'bg-green-500/20' : 'bg-green-50'
-                        }`}>
-                          <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-                          </svg>
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-blue-50 dark:bg-blue-500/10 ring-1 ring-blue-200/70 dark:ring-blue-400/20">
+                          <HiAcademicCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                         </div>
-                        
-                        {/* Second Column - 2 Rows of Text */}
+
                         <div className="flex-1">
-                          {/* Row 1 - Label */}
-                          <div className={`text-xs font-medium ${
-                            isDark ? 'text-gray-400' : 'text-gray-600'
-                          }`}>
+                          <div className="text-xs font-medium text-slate-500 dark:text-slate-400">
                             {edu.grade.includes('CGPA') ? 'CGPA' : 'GPA'}
                           </div>
-                          {/* Row 2 - Score */}
-                          <div className={`text-lg font-bold ${
-                            isDark ? 'text-green-500' : 'text-green-700'
-                          }`}>
+                          <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
                             {edu.grade.replace('CGPA: ', '').replace('GPA: ', '')}
                           </div>
-                          {/* Row 3 - Field */}
                           {edu.field && (
-                            <div className={`text-sm font-medium leading-tight mt-0.5 ${
-                              isDark ? 'text-gray-400' : 'text-gray-500'
-                            }`}>
+                            <div className="text-sm font-medium leading-tight mt-0.5 text-slate-500 dark:text-slate-400">
                               {edu.field}
                             </div>
                           )}
