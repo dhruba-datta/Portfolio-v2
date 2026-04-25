@@ -13,14 +13,14 @@ const LinkedInJobSearchPage = ({ isDark, toggleTheme }: LinkedInJobSearchPagePro
     toggleTheme={toggleTheme}
     title="LinkedIn Job Search (n8n)"
     description="Job seekers waste hours manually searching LinkedIn only to find irrelevant postings from recruiters or roles that disappear before they can apply. This intelligent LinkedIn monitoring system eliminates that frustration by automatically tracking relevant opportunities, filtering spam, and delivering instant alerts with organized tracking - transforming the exhausting manual search into a streamlined pipeline where qualified positions find you instead of the other way around."
-    coverSrc="/images/n8n-linkedin-cover.jpg"
+    coverSrc="/images/projects/LinkedIn Job Search (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "LinkedIn", icon: <SiLinkedin className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Web Scraping", icon: <Search className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Webhook", icon: <Webhook className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Data Extraction", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "Data Extraction", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
     githubUrl="https://github.com/dhruba-datta/n8n"
     secondaryUrl="https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search"

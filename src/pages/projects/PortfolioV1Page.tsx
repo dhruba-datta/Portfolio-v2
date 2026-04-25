@@ -14,7 +14,7 @@ const PortfolioV1Page = ({ isDark, toggleTheme }: PortfolioV1PageProps) => (
     toggleTheme={toggleTheme}
     title="Portfolio v1"
     description="Job seekers lose opportunities when their portfolio loads slowly or looks unprofessional, especially when recruiters spend less than 10 seconds on initial reviews. This lightweight professional portfolio eliminates that risk by delivering instant page loads, clean mobile-responsive design, and optimized SEO - transforming a basic resume into a compelling digital presence that captures attention immediately and ranks well in recruiter searches."
-    coverSrc="/images/myportfolio-cover.jpg"
+    coverSrc="/images/projects/Portfolio v1.webp"
     chips={[
       { name: "HTML", icon: <SiHtml5 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "CSS", icon: <SiCss3 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

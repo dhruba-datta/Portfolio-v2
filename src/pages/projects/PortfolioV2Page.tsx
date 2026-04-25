@@ -13,7 +13,7 @@ const PortfolioV2Page = ({ isDark, toggleTheme }: PortfolioV2PageProps) => (
     toggleTheme={toggleTheme}
     title="Portfolio v2"
     description="Senior developers need portfolios that demonstrate not just technical skills but modern development expertise through the portfolio itself. This advanced interactive portfolio solves that by using React 18, TypeScript, and professional animations to create an immersive experience - transforming a static resume site into a living demonstration of modern frontend mastery that immediately communicates senior-level capabilities through both content and execution."
-    coverSrc="/images/portfolio-v2-cover.jpg"
+    coverSrc="/images/projects/Portfolio v2.webp"
     chips={[
       { name: "React 18", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "TypeScript", icon: <SiTypescript className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

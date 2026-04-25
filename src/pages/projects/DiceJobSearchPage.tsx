@@ -13,14 +13,14 @@ const DiceJobSearchPage = ({ isDark, toggleTheme }: DiceJobSearchPageProps) => (
     toggleTheme={toggleTheme}
     title="Dice Job Search (n8n)"
     description="Job seekers waste hours manually refreshing job boards, missing perfect opportunities that disappear within hours. This intelligent job monitoring system eliminates that stress by autonomously tracking Dice.com for relevant tech roles, filtering out noise, and instantly alerting you to high-quality matches - transforming the exhausting hunt into a streamlined pipeline where opportunities come to you, complete with organized tracking and zero missed openings."
-    coverSrc="/images/dice-job-cover.jpg"
+    coverSrc="/images/projects/Dice Job Search (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Dice.com", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Web Scraping", icon: <Search className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Webhook", icon: <Webhook className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Data Extraction", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "Data Extraction", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
     githubUrl="https://github.com/dhruba-datta/n8n"
     secondaryUrl="https://github.com/dhruba-datta/n8n/tree/main/Dice%20Job%20Search"

@@ -23,7 +23,7 @@ const ABPharmacyExpoPage = ({ isDark, toggleTheme }: ABPharmacyExpoPageProps) =>
     toggleTheme={toggleTheme}
     title="AB Pharmacy Expo"
     description="Trade show attendees waste hours navigating crowded halls with paper maps, missing sessions, and losing track of exhibitors they wanted to visit. This comprehensive digital trade show companion eliminates that chaos by delivering real-time schedules, interactive exhibitor directories, and product catalogs directly to attendees' phones - transforming overwhelming event logistics into seamless, personalized experiences that work even offline in crowded convention centers."
-    coverSrc="/images/ab-pharmacy-cover.jpg"
+    coverSrc="/images/projects/AB Pharmacy Expo.webp"
     chips={[
       { name: "React Native", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Expo", icon: <SiExpo className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

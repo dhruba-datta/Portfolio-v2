@@ -15,7 +15,7 @@ const KingsleyGroupPage = ({ isDark, toggleTheme }: KingsleyGroupPageProps) => (
     toggleTheme={toggleTheme}
     title="Kingsley Group"
     description="Professional services firms lose credibility and organic traffic when their website feels outdated or loads slowly, directly impacting lead generation. This comprehensive corporate digital transformation solved that for an environmental engineering leader by delivering a modern, SEO-optimized platform with structured content libraries and sub-second load times - transforming their website from a digital liability into a revenue-generating asset that ranks for target keywords and converts visitors across three international markets."
-    coverSrc="/images/kingsley-cover.jpg"
+    coverSrc="/images/projects/Kingsley Group.webp"
     chips={[
       { name: "WordPress", icon: <FaWordpress className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "PHP 8", icon: <BiLogoPhp className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

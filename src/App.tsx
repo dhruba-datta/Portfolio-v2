@@ -27,6 +27,8 @@ const SocialEngagementGroupPage = lazy(() => import('./pages/projects/SocialEnga
 const SEGMarketingPage = lazy(() => import('./pages/projects/SEGMarketingPage'));
 const SEOAuditPage = lazy(() => import('./pages/projects/SEOAuditPage'));
 const FormVerificationPage = lazy(() => import('./pages/projects/FormVerificationPage'));
+const OperavoPage = lazy(() => import('./pages/projects/OperavoPage'));
+const AquaPage = lazy(() => import('./pages/projects/AquaPage'));
 
 // Preload critical routes have been moved to src/utils/routePreloads.ts
 
@@ -78,6 +80,8 @@ function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () =
   <Route path="/projects/intelligent-product-order-n8n" element={<IntelligentProductOrderPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/social-engagement-group" element={<SocialEngagementGroupPage isDark={isDark} toggleTheme={toggleTheme} />} />
   <Route path="/projects/seg-marketing" element={<SEGMarketingPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/operavo" element={<OperavoPage isDark={isDark} toggleTheme={toggleTheme} />} />
+  <Route path="/projects/aqua-innovations" element={<AquaPage isDark={isDark} toggleTheme={toggleTheme} />} />
         <Route path="*" element={<NotFoundPage isDark={isDark} toggleTheme={toggleTheme} />} />
       </Routes>
     </Suspense>

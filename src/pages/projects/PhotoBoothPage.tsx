@@ -13,7 +13,7 @@ const PhotoBoothPage = ({ isDark, toggleTheme }: PhotoBoothPageProps) => (
     toggleTheme={toggleTheme}
     title="PhotoBooth"
     description="Photographers and creatives struggle to showcase their work on platforms that compress images, lack proper organization, or force intrusive ads. This professional photo-sharing platform solves that by delivering Pinterest-quality masonry layouts with full-resolution uploads, social engagement features, and secure authentication - transforming scattered photo libraries into beautifully organized galleries that let the work shine without platform interference or quality loss."
-    coverSrc="/images/photo-booth-cover.jpg"
+    coverSrc="/images/projects/photobooth.webp"
     chips={[
       { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Sanity.io", icon: <SiSanity className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },

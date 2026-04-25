@@ -21,12 +21,14 @@ import {
   FileText,
   BookOpen,
   ListTodo,
+  PhoneCall,
+  Sparkles,
 } from 'lucide-react';
-import { 
-  SiN8N, 
-  SiReact, 
-  SiExpo, 
-  SiJavascript, 
+import {
+  SiN8N,
+  SiReact,
+  SiExpo,
+  SiJavascript,
   SiGooglesheets,
   SiOpenai,
   SiTrello,
@@ -44,7 +46,9 @@ import {
   SiBrevo,
   SiWebflow,
   SiGmail,
-  SiGooglechat
+  SiGooglechat,
+  SiNextdotjs,
+  SiSupabase,
 } from 'react-icons/si';
 import { FaVuejs } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
@@ -52,6 +56,48 @@ import { BiLogoNetlify, BiLogoTypescript } from 'react-icons/bi';
 import { GrStorage } from 'react-icons/gr';
 
 export const projects: Project[] = [
+  {
+    id: 'operavo',
+    title: 'Operavo',
+    description:
+      'Real estate teams lose qualified buyers every time a call goes to voicemail or sits in a callback queue overnight. This real-time voice AI platform eliminates that leakage entirely by answering every inbound call instantly, qualifying the buyer mid-conversation, and booking the showing on a live calendar before the caller hangs up - transforming the after-hours dead zone into a 24/7 booking engine that captures revenue while the office is closed.',
+    longDescription:
+      'A production-grade voice AI platform for real estate teams featuring a Next.js 16 marketing site and authenticated dashboard, Supabase-backed multi-tenant workspaces, live call logs, lead scoring, Google Calendar bookings, and SMS confirmations.',
+    image: '/images/projects/Operavo.webp',
+    tags: [
+      { name: "Next.js 16", icon: React.createElement(SiNextdotjs, { className: "w-3.5 h-3.5" }) },
+      { name: "React 19", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
+      { name: "TypeScript", icon: React.createElement(SiTypescript, { className: "w-3.5 h-3.5" }) },
+      { name: "Tailwind CSS 4", icon: React.createElement(SiTailwindcss, { className: "w-3.5 h-3.5" }) },
+      { name: "Supabase", icon: React.createElement(SiSupabase, { className: "w-3.5 h-3.5" }) },
+      { name: "Voice AI", icon: React.createElement(PhoneCall, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/operavo',
+    github: 'https://github.com/OptifyLLC/Operavo',
+    featured: true,
+    category: 'development',
+  },
+  {
+    id: 'aqua-innovations',
+    title: 'Aqua Innovations',
+    description:
+      'Modern agencies struggle to win premium clients when their own website looks like every other template-built portfolio. This high-end agency platform solves that by combining momentum-based smooth scrolling, GSAP-powered cinematic transitions, and a transformative slide-out navigation - turning the website itself into a portfolio piece that signals quality before a prospect ever reads a word of copy.',
+    longDescription:
+      'A premium digital agency website built with React 19 and Vite featuring deep GSAP integration, Lenis momentum scrolling, a transformative scaling-origin slide-out menu, and a rich suite of modular sections (Statement, Industries, Why Aqua, Portfolio, Testimonials, Team).',
+    image: '/images/projects/Aqua.webp',
+    tags: [
+      { name: "React 19", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
+      { name: "Vite 7", icon: React.createElement(SiVite, { className: "w-3.5 h-3.5" }) },
+      { name: "Tailwind CSS 4", icon: React.createElement(SiTailwindcss, { className: "w-3.5 h-3.5" }) },
+      { name: "GSAP", icon: React.createElement(Sparkles, { className: "w-3.5 h-3.5" }) },
+      { name: "Lenis", icon: React.createElement(SiFramer, { className: "w-3.5 h-3.5" }) },
+      { name: "Netlify", icon: React.createElement(BiLogoNetlify, { className: "w-3.5 h-3.5" }) },
+    ],
+    link: '/projects/aqua-innovations',
+    github: 'https://github.com/dhruba-datta/Aqua',
+    featured: true,
+    category: 'development',
+  },
   {
   id: 'brevo-email-marketing-n8n',
     title: 'Brevo Email Marketing (n8n)',
@@ -124,7 +170,7 @@ export const projects: Project[] = [
       'The official Social Engagement Group (SEG) website is a state-of-the-art agency platform. Engineered for maximum speed and SEO, it utilizes Next.js 15\'s App Router, Framer Motion 12 for complex animations, and Lenis for cinematic smooth scrolling. The site is optimized for AI agents with specialized indexing and features a comprehensive design system for brand consistency across 24+ routes.',
     image: '/images/projects/Social Engagement Group.webp',
     tags: [
-      { name: "Next.js 15", icon: React.createElement(SiVite, { className: "w-3.5 h-3.5" }) },
+      { name: "Next.js 15", icon: React.createElement(SiNextdotjs, { className: "w-3.5 h-3.5" }) },
       { name: "React 19", icon: React.createElement(SiReact, { className: "w-3.5 h-3.5" }) },
       { name: "Tailwind CSS 4", icon: React.createElement(SiTailwindcss, { className: "w-3.5 h-3.5" }) },
       { name: "Framer Motion", icon: React.createElement(SiFramer, { className: "w-3.5 h-3.5" }) },
@@ -318,7 +364,7 @@ export const projects: Project[] = [
       { name: "Responsive Design", icon: React.createElement(Smartphone, { className: "w-3.5 h-3.5" }) },
       { name: "Netlify", icon: React.createElement(BiLogoNetlify, { className: "w-3.5 h-3.5" }) },
     ],
-    link: 'https://dhruba-datta.netlify.app/',
+    link: 'https://dhruba-datta-v1.netlify.app/',
     github: 'https://github.com/dhruba-datta/Portfolio-v1',
     featured: true,
     category: 'development',
@@ -384,7 +430,7 @@ export const projects: Project[] = [
       { name: "Web Scraping", icon: React.createElement(Search, { className: "w-3.5 h-3.5" }) },
       { name: "Google Sheets", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
       { name: "Webhook", icon: React.createElement(Webhook, { className: "w-3.5 h-3.5" }) },
-      { name: "Data Extraction", icon: React.createElement(SiGooglesheets, { className: "w-3.5 h-3.5" }) },
+      { name: "Data Extraction", icon: React.createElement(FileJson, { className: "w-3.5 h-3.5" }) },
     ],
     link: '',
     github: 'https://github.com/dhruba-datta/n8n/tree/main/Linkedin%20Job%20Search',
@@ -405,8 +451,8 @@ export const projects: Project[] = [
       { name: "TypeScript/ES6+", icon: React.createElement(BiLogoTypescript, { className: "w-3.5 h-3.5" }) },
       { name: "Vue I18n", icon: React.createElement(Languages, { className: "w-3.5 h-3.5" }) },
       { name: "localStorage", icon: React.createElement(GrStorage, { className: "w-3.5 h-3.5" }) },
+      { name: "Vite", icon: React.createElement(SiVite, { className: "w-3.5 h-3.5" }) },
       { name: "Netlify", icon: React.createElement(BiLogoNetlify, { className: "w-3.5 h-3.5" }) },
-      { name: "GitHub", icon: React.createElement(Github, { className: "w-3.5 h-3.5" }) },
     ],
     link: 'https://kfc-bd.netlify.app/',
     github: 'https://github.com/dhruba-datta/kfc-clone',

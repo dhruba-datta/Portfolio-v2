@@ -23,7 +23,7 @@ const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => (
     toggleTheme={toggleTheme}
     title="CryptoVerse"
     description="Crypto investors struggle to track market movements across hundreds of coins while coordinating between multiple dashboards, news sites, and charting tools. This unified real-time crypto intelligence platform solves that by consolidating global market metrics, individual token analytics, and breaking news into a single responsive dashboard - transforming scattered market research into instant, data-driven investment decisions with zero context switching."
-    coverSrc="/images/cryptoverse-cover.jpg"
+    coverSrc="/images/projects/CryptoVerse.webp"
     chips={[
       { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Redux Toolkit", icon: <SiRedux className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
