@@ -141,12 +141,15 @@ const About = () => {
               className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mt-6"
             >
               <p>
-                Proactive Software Engineer passionate about advancing AI through innovative solutions. Serving as R&D Lead at SEG, specializing in n8n automations to simplify workflows. Skilled in solving complex problems with clean, efficient code, with expertise in AI Automation and Full-Stack Development.
+                I started out in full-stack web, picked up QA automation along the way, and these days most of my work is in AI. Right now I lead R&amp;D at Social Engagement Group, build voice AI at Operavo, and work on code bias research with a professor at University College Dublin.
               </p>
               <p>
-                My creativity finds an outlet in photography and travel. This blend of analytical and creative thinking fuels my interest in AI & ML research, driving me to contribute to innovative breakthroughs in these fields.
+                What I enjoy most is shipping things people actually use. Voice agents that pick up the phone, n8n workflows that handle the boring stuff, web apps that quietly do their job. Research keeps me curious; product work keeps me honest.
               </p>
-              <p>Eager to innovate, inspire & make a meaningful impact everyday.</p>
+              <p>
+                Off the keyboard, I&apos;m usually behind a camera or somewhere new. Photography and travel are how I reset.
+              </p>
+              <p>Eager to innovate, inspire &amp; make a meaningful impact everyday.</p>
             </motion.div>
 
             <motion.div

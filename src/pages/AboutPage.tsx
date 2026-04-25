@@ -18,7 +18,7 @@ const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
       <title>About | Dhruba Datta</title>
       <meta
         name="description"
-        content="About Dhruba Datta — software engineer specializing in modern web platforms, voice AI, and n8n automation."
+        content="About Dhruba Datta — R&D Lead, AI engineer, and researcher building voice AI, n8n automation, and modern web platforms. Active code-bias research with University College Dublin."
       />
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
 

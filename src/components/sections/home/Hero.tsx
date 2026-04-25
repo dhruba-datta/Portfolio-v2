@@ -15,10 +15,10 @@ const Hero = () => {
 
   const codeLines = [
     "// Software Engineer",
-    "const developer = {",
+    "const dhruba = {",
     "    name: 'Dhruba Datta',",
     "    skills: ['n8n', 'C++', 'React', 'Photography'],",
-    "    focuses: ['Machine Learning'],",
+    "    researching: ['Code Bias', 'Computer Vision'],",
     "    learning: 'Always',",
     "    available for coffee: true",
     "};",
@@ -277,7 +277,7 @@ const Hero = () => {
                   transition={{ delay: 0 }}
                   className="text-slate-800 dark:text-slate-300 mt-2 sm:mt-3"
                 >
-                  Researcher & Software Engineer
+                  R&D Lead · AI Engineer · Researcher
                 </motion.h4>
               </div>
               <motion.p
