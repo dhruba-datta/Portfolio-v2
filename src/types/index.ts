@@ -2,15 +2,28 @@
 export interface Project {
   id: string;
   title: string;
+  /** Short pitch (~80 chars, 1 sentence) shown on cards. */
+  tagline: string;
+  /** Full problem-solution-impact paragraph shown on detail pages. */
   description: string;
-  longDescription: string;
   image: string;
+  /** Year shipped (4-digit). Shown in detail-page quick-facts strip. */
+  year: string;
+  /** My role on the project (e.g. "Lead Engineer", "Solo Developer"). */
+  role: string;
+  /** Optional outcome / impact line — only fill when there's a real metric. */
+  outcome?: string;
   tags: Array<{
     name: string;
     icon: React.ReactNode;
   }>;
-  link?: string;
+  /** Optional override for which 2 tag names to show on cards. Falls back to first 2 tags. */
+  cardTags?: string[];
   github?: string;
+  /** Live demo URL (used by detail page secondary button). */
+  liveUrl?: string;
+  /** Optional manual curation for the related-projects strip. Falls back to same-category. */
+  relatedIds?: string[];
   featured: boolean;
   category: 'development' | 'research' | 'automation' | 'ai' | 'app';
 }

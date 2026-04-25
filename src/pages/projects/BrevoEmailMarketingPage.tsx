@@ -5,6 +5,8 @@ import {
   Send,
   AlertTriangle,
   Activity,
+  Filter,
+  LineChart,
 } from "lucide-react";
 import { SiN8N, SiBrevo, SiGooglesheets, SiWebflow } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
@@ -75,6 +77,28 @@ const BrevoEmailMarketingPage = ({ isDark, toggleTheme }: BrevoEmailMarketingPag
           "Automated error catching nodes that log failures to Slack/Telegram for immediate resolution",
           "Idempotent workflow design preventing duplicate sends during retries or network blips",
           "Comprehensive execution history for auditing compliance and debugging delivery issues",
+        ],
+      },
+      {
+        id: "segmentation",
+        icon: <Filter className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Behavioral Segmentation",
+        summary: "Dynamic audience splits based on engagement signals and CRM attributes",
+        details: [
+          "Real-time list segmentation driven by clicks, opens, and form-submission history",
+          "Lifecycle-stage routing (e.g. new vs. nurture vs. at-risk) that adapts the next send automatically",
+          "Reusable filter expressions pulled from a single Sheets source-of-truth so all workflows stay in sync",
+        ],
+      },
+      {
+        id: "analytics",
+        icon: <LineChart className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Engagement Feedback Loop",
+        summary: "Captures Brevo events and writes them back into the CRM source",
+        details: [
+          "Webhook listeners for Brevo's open / click / bounce / unsubscribe events",
+          "Engagement scores written back to Google Sheets so other workflows can act on the latest signals",
+          "Auto-suppression of hard-bounce addresses to protect sender reputation without manual cleanup",
         ],
       },
     ]}

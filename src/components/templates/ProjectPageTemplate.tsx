@@ -1,21 +1,25 @@
-import { type ReactNode, useState, useEffect, useRef } from "react";
+import { type ReactNode, useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Github,
   ChevronDown,
+  ChevronRight,
   ArrowLeft,
+  ArrowRight,
   Activity,
   FileJson,
 } from "lucide-react";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineAlignLeft } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Navigation from "../ui/Navigation";
 import Footer from "../ui/Footer";
+import ProjectCard from "../ui/ProjectCard";
 import ContactCTA from "../sections/ContactCTA";
+import { projects } from "../../data/projects";
 
 /* ─── Types ─── */
 
@@ -102,7 +106,37 @@ const ProjectPageTemplate = ({
   toc: tocOverride,
   contactCTA,
 }: ProjectPageTemplateProps) => {
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  /* Current project lookup (from URL) — gives access to data not passed as props */
+  const currentProject = useMemo(
+    () => projects.find((p) => `/projects/${p.id}` === location.pathname),
+    [location.pathname]
+  );
+
+  /* Prev / Next within same category */
+  const { prev, next } = useMemo(() => {
+    if (!currentProject) return { prev: null, next: null };
+    const sameCategory = projects.filter((p) => p.category === currentProject.category);
+    const idx = sameCategory.findIndex((p) => p.id === currentProject.id);
+    return {
+      prev: idx > 0 ? sameCategory[idx - 1] : null,
+      next: idx >= 0 && idx < sameCategory.length - 1 ? sameCategory[idx + 1] : null,
+    };
+  }, [currentProject]);
+
+  /* Related projects (manual override via relatedIds, else first 3 same-category siblings) */
+  const relatedProjects = useMemo(() => {
+    if (!currentProject) return [];
+    if (currentProject.relatedIds && currentProject.relatedIds.length > 0) {
+      return currentProject.relatedIds
+        .map((id) => projects.find((p) => p.id === id))
+        .filter((p): p is NonNullable<typeof p> => Boolean(p));
+    }
+    return projects
+      .filter((p) => p.category === currentProject.category && p.id !== currentProject.id)
+      .slice(0, 3);
+  }, [currentProject]);
 
   /* Theme fallback */
   const [localDark, setLocalDark] = useState(false);
@@ -148,12 +182,83 @@ const ProjectPageTemplate = ({
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  /* SEO metadata derived from props + project data */
+  const SITE_URL = "https://dhruba-datta.netlify.app";
+  const pageTitle = `${title} | Dhruba Datta`;
+  const metaDescription =
+    currentProject?.tagline ?? (typeof description === "string" ? description : title);
+  const absoluteImageUrl = coverSrc.startsWith("http") ? coverSrc : `${SITE_URL}${coverSrc}`;
+  const absolutePageUrl = `${SITE_URL}${location.pathname}`;
+  const keywords = chips.map((c) => c.name).join(", ");
+
+  const projectJsonLd = currentProject
+    ? {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: title,
+        description: metaDescription,
+        image: absoluteImageUrl,
+        url: absolutePageUrl,
+        datePublished: currentProject.year,
+        creator: {
+          "@type": "Person",
+          name: "Dhruba Datta",
+          url: SITE_URL,
+        },
+        keywords,
+        ...(currentProject.github ? { codeRepository: currentProject.github } : {}),
+        ...(currentProject.liveUrl ? { sameAs: [currentProject.liveUrl] } : {}),
+      }
+    : null;
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_URL}/projects` },
+      { "@type": "ListItem", position: 3, name: title, item: absolutePageUrl },
+    ],
+  };
+
   return (
     <div
       className={`min-h-screen flex flex-col transition-colors duration-300 bg-white text-gray-900${
         effectiveIsDark ? " dark" : ""
       } dark:bg-gray-900 dark:text-white`}
     >
+      {/* React 19 native metadata — hoisted into <head> */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={metaDescription} />
+      <meta name="keywords" content={keywords} />
+      <link rel="canonical" href={absolutePageUrl} />
+
+      {/* Open Graph */}
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={absolutePageUrl} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={absoluteImageUrl} />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={absolutePageUrl} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={absoluteImageUrl} />
+
+      {/* JSON-LD: project + breadcrumb */}
+      {projectJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
       <main className="flex-grow">
@@ -167,18 +272,36 @@ const ProjectPageTemplate = ({
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/5 dark:from-black/30 dark:via-transparent dark:to-black/20" />
         </div>
 
-        {/* Back Button */}
+        {/* Breadcrumbs */}
         <div className="container mx-auto px-4 sm:px-5 pt-2 sm:pt-3 pb-3 sm:pb-4 max-w-6xl">
-          <motion.button
+          <motion.nav
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            onClick={() => navigate("/projects")}
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors group focus-override font-outfit"
+            aria-label="Breadcrumb"
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-outfit text-gray-500 dark:text-gray-400"
           >
-            <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Projects
-          </motion.button>
+            <Link
+              to="/"
+              className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors focus-override"
+            >
+              Home
+            </Link>
+            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-60" aria-hidden />
+            <Link
+              to="/projects"
+              className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors focus-override"
+            >
+              Projects
+            </Link>
+            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-60" aria-hidden />
+            <span
+              className="text-gray-900 dark:text-gray-100 font-medium truncate"
+              aria-current="page"
+            >
+              {title}
+            </span>
+          </motion.nav>
         </div>
 
         {/* Header */}
@@ -194,7 +317,23 @@ const ProjectPageTemplate = ({
               <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
                 {title}
               </h1>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-4 sm:mb-6 lg:mb-8">
+
+              {/* Quick-facts strip — Year · Role · Outcome */}
+              {currentProject && (
+                <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-x-2.5 sm:gap-x-3 gap-y-1 text-xs sm:text-sm font-outfit text-gray-500 dark:text-gray-400">
+                  <span>{currentProject.year}</span>
+                  <span className="opacity-40" aria-hidden>·</span>
+                  <span>{currentProject.role}</span>
+                  {currentProject.outcome && (
+                    <>
+                      <span className="opacity-40" aria-hidden>·</span>
+                      <span>{currentProject.outcome}</span>
+                    </>
+                  )}
+                </div>
+              )}
+
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-3 sm:mb-4">
                 {description}
               </p>
 
@@ -294,9 +433,33 @@ const ProjectPageTemplate = ({
         </motion.header>
 
         {/* Layout: main + right toc */}
-        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
           {/* MAIN */}
-          <article className="space-y-12 sm:space-y-16 md:space-y-20">
+          <div className="min-w-0">
+            {/* Mobile TOC (collapsible) — outside <article> so its space-y rules don't push the first section down */}
+            <details className="lg:hidden mb-6 sm:mb-8 group rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800/40 open:bg-gray-50 dark:open:bg-gray-800/60 transition-colors">
+              <summary className="flex items-center justify-between gap-2 px-4 py-3 cursor-pointer list-none text-sm font-outfit font-medium text-gray-700 dark:text-gray-300">
+                <span className="inline-flex items-center gap-2">
+                  <AiOutlineAlignLeft className="w-3.5 h-3.5 text-gray-400" />
+                  On this page
+                </span>
+                <ChevronDown className="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180" />
+              </summary>
+              <nav className="px-2 pb-2">
+                {toc.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => scrollTo(t.id)}
+                    className="w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 transition-colors focus-override font-outfit"
+                  >
+                    <span className="text-gray-400">{t.icon}</span>
+                    {t.label}
+                  </button>
+                ))}
+              </nav>
+            </details>
+
+            <article className="space-y-12 sm:space-y-16 md:space-y-20">
             {/* Feature Highlights */}
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
               <motion.div
@@ -441,7 +604,9 @@ const ProjectPageTemplate = ({
                 </ol>
               </div>
             </section>
-          </article>
+
+            </article>
+          </div>
 
           {/* RIGHT TOC */}
           <aside className="hidden lg:block">
@@ -479,6 +644,78 @@ const ProjectPageTemplate = ({
             </div>
           </aside>
         </div>
+
+        {/* Related projects */}
+        {relatedProjects.length > 0 && (
+          <section
+            aria-label="Related projects"
+            className="max-w-6xl mx-auto px-4 md:px-6 mt-16 sm:mt-20 md:mt-24"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-2 mb-4 sm:mb-6"
+            >
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">
+                Related projects
+              </h2>
+            </motion.div>
+            <div className="grid gap-4 sm:gap-5 lg:gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {relatedProjects.map((p, i) => (
+                <ProjectCard key={p.id} project={p} index={i} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Prev / Next */}
+        {(prev || next) && (
+          <nav
+            aria-label="Project navigation"
+            className="max-w-6xl mx-auto px-4 md:px-6 mt-12 sm:mt-16"
+          >
+            <div className="flex items-center justify-between gap-4 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-700">
+              {prev ? (
+                <Link
+                  to={`/projects/${prev.id}`}
+                  className="group inline-flex items-center gap-2 sm:gap-3 text-left min-w-0 max-w-[48%] focus-override font-outfit"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-gray-400 group-hover:-translate-x-1 group-hover:text-blue-500 transition-all" />
+                  <span className="min-w-0">
+                    <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                      Previous
+                    </span>
+                    <span className="block text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
+                      {prev.title}
+                    </span>
+                  </span>
+                </Link>
+              ) : (
+                <span />
+              )}
+              {next ? (
+                <Link
+                  to={`/projects/${next.id}`}
+                  className="group inline-flex items-center gap-2 sm:gap-3 text-right min-w-0 max-w-[48%] ml-auto focus-override font-outfit"
+                >
+                  <span className="min-w-0">
+                    <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                      Next
+                    </span>
+                    <span className="block text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
+                      {next.title}
+                    </span>
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-gray-400 group-hover:translate-x-1 group-hover:text-blue-500 transition-all" />
+                </Link>
+              ) : (
+                <span />
+              )}
+            </div>
+          </nav>
+        )}
 
         {/* Contact CTA */}
         <ContactCTA

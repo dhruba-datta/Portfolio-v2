@@ -1,42 +1,41 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Layers, Code2, ChevronDown } from 'lucide-react';
-import { projects, categories, categoryMeta } from '../../../data/projects';
+import { Layers, Code2 } from 'lucide-react';
+import { projects, categories } from '../../../data/projects';
+import ProjectCard from '../../ui/ProjectCard';
 
-interface ProjectsProps {
-  initialCategory?: string | null;
-}
+const VALID_CATEGORIES = ['all', 'development', 'app', 'automation'] as const;
 
-const Projects = ({ initialCategory }: ProjectsProps) => {
-  const [activeCategory, setActiveCategory] = useState<'all' | string>(initialCategory && ['all','development','app','automation'].includes(initialCategory) ? initialCategory : 'all');
+const Projects = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [mounted, setMounted] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(6);
-  const [projectsLoaded, setProjectsLoaded] = useState(false);
+
+  // URL is the source of truth for the active category
+  const tabParam = searchParams.get('tab');
+  const activeCategory: 'all' | string = (
+    tabParam && (VALID_CATEGORIES as readonly string[]).includes(tabParam) ? tabParam : 'all'
+  );
+
+  const setActiveCategory = (key: string) => {
+    const next = new URLSearchParams(searchParams);
+    if (key === 'all') {
+      next.delete('tab');
+    } else {
+      next.set('tab', key);
+    }
+    setSearchParams(next, { replace: true });
+  };
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
-    if (sessionStorage.getItem('projectsLoaded') === 'true') {
-      setProjectsLoaded(true);
-      setVisibleCount(projects.length);
-    }
     return () => cancelAnimationFrame(id);
   }, []);
 
-  useEffect(() => {
-    if (!projectsLoaded) {
-      setVisibleCount(6);
-    } else {
-      setVisibleCount(projects.length);
-    }
-  }, [activeCategory, projectsLoaded]);
-
-  const filteredProjects =
+  const visibleProjects =
     activeCategory === 'all'
       ? projects
       : projects.filter((p) => p.category === activeCategory);
-
-  const visibleProjects = filteredProjects.slice(0, visibleCount);
 
   return (
     <section id="projects" className="relative pt-4 pb-6 sm:pt-12 sm:pb-8 lg:pt-12 lg:pb-8 overflow-hidden bg-white dark:bg-gray-900">
@@ -138,117 +137,12 @@ const Projects = ({ initialCategory }: ProjectsProps) => {
 
         {/* Grid */}
         <div className="grid gap-4 sm:gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {visibleProjects.map((project, index) => {
-            const meta = categoryMeta[project.category] || { label: project.category, Icon: Layers };
-
-            return (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-
-                viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
-                transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.5, ease: 'easeOut' }}
-                className="group transform-gpu max-w-[94%] mx-auto sm:max-w-none"
-              >
-                <Link
-                  to={`/projects/${project.id}`}
-                  className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg sm:hover:shadow-xl sm:hover:shadow-blue-500/[0.08] dark:sm:hover:shadow-sky-500/[0.05] transition-colors duration-500 sm:hover:border-blue-300/50 dark:sm:hover:border-sky-400/20 min-h-[44px] focus-override"
-                >
-                  {/* Image Area */}
-                    <div 
-                    className="relative w-full aspect-[2/1] sm:aspect-[1.82/1] overflow-hidden isolate transform-gpu"
-                    style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 sm:group-hover:scale-110 will-change-transform transform-gpu"
-                      style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    
-                    {/* Global Blend Gradient */}
-                    <div 
-                      className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 via-black/10 to-transparent dark:from-slate-950 dark:via-slate-950/50 dark:to-transparent z-10 pointer-events-none" 
-                    />
-                    
-                    {/* Category badge */}
-                    <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20">
-                      <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-outfit font-medium rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 inline-flex items-center gap-1.5 shadow-sm">
-                        <meta.Icon className="w-3.5 h-3.5 opacity-80" />
-                        {meta.label}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content - Solid Background with Overlap Fix */}
-                  <div className="relative z-20 flex-1 bg-white dark:bg-slate-950 p-4 sm:p-5 lg:p-6 flex flex-col justify-between -mt-[1px]">
-                    <div>
-                      <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                        <h6 className="text-slate-900 dark:text-white sm:group-hover:text-blue-600 dark:sm:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
-                          {project.title}
-                        </h6>
-                      </div>
-                      
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 min-h-[32px] sm:min-h-[40px] line-clamp-2">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
-                      {project.tags.slice(0, 2).map((tag) => (
-                        <span
-                          key={tag.name}
-                          className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-outfit font-medium rounded-xl border border-slate-200/70 dark:border-white/[0.08] text-slate-700 dark:text-slate-300 bg-slate-50/80 dark:bg-slate-800/50 backdrop-blur-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                        >
-                          <span className="text-slate-500 dark:text-slate-400">{tag.icon}</span>
-                          {tag.name}
-                        </span>
-                      ))}
-                      {project.tags.length > 2 && (
-                        <span className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-outfit font-medium rounded-xl border border-blue-200/70 dark:border-sky-400/20 text-blue-700 dark:text-sky-300 bg-blue-50/80 dark:bg-sky-900/20 backdrop-blur-sm">
-                          +{project.tags.length - 2}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+          {visibleProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
+          ))}
         </div>
-        {/* Load More */}
-        {filteredProjects.length > visibleCount && !projectsLoaded && (
-          <div className="flex justify-center mt-6 sm:mt-7 lg:mt-8">
-            <button
-              onClick={() => {
-                setVisibleCount(filteredProjects.length);
-                setProjectsLoaded(true);
-                sessionStorage.setItem('projectsLoaded', 'true');
-              }}
-              className="inline-flex items-center gap-1 px-5 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-base font-outfit font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[44px] sm:min-h-[56px] focus-override"
-            >
-              <span>Load More</span>
-              <motion.div
-                animate={{ y: [0, 4, 0] }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="relative top-[-2px] group-hover:translate-y-1 transition-transform duration-300"
-              >
-                <ChevronDown className="w-4 sm:w-5 h-4 sm:h-5" />
-              </motion.div>
-            </button>
-          </div>
-        )}
-
         {/* Empty state */}
-        {filteredProjects.length === 0 && (
+        {visibleProjects.length === 0 && (
           <div className="mt-8 sm:mt-9 lg:mt-10 text-center text-slate-600 dark:text-slate-400 text-sm">
             No projects in this category yet.
           </div>

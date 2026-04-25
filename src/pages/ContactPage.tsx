@@ -10,6 +10,11 @@ interface ContactPageProps {
 const ContactPage = ({ isDark, toggleTheme }: ContactPageProps) => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <title>Contact | Dhruba Datta</title>
+      <meta
+        name="description"
+        content="Get in touch with Dhruba Datta — let's talk about your web platform, automation pipeline, or voice AI project."
+      />
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
       <Contact />
       <Footer />
