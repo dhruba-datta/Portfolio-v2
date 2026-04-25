@@ -14,7 +14,7 @@ interface AboutPageProps {
 
 const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
   return (
-    <div className={`min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300`}>
+    <div className={`min-h-screen bg-white dark:bg-[#0a0f1c] transition-colors duration-300`}>
       <title>About | Dhruba Datta</title>
       <meta
         name="description"

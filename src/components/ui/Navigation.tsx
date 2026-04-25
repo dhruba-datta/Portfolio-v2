@@ -59,8 +59,8 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-2 md:pt-4 pb-2 md:pb-4 ${scrolled
-          ? 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm'
-          : 'bg-white/20 dark:bg-gray-900/20 backdrop-blur-none'
+          ? 'bg-white/60 dark:bg-[#0a0f1c]/60 backdrop-blur-sm'
+          : 'bg-white/20 dark:bg-[#0a0f1c]/20 backdrop-blur-none'
         }`}
     >
       <nav className="mx-auto max-w-7xl px-4 md:px-6">
@@ -150,7 +150,7 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-white/95 dark:bg-gray-900/95 rounded-2xl shadow-2xl backdrop-blur-lg overflow-hidden">
+          <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-white/95 dark:bg-[#0a0f1c]/95 rounded-2xl shadow-2xl backdrop-blur-lg overflow-hidden">
             <div className="p-3 space-y-1">
               {navItems.map((item) => (
                 <Link

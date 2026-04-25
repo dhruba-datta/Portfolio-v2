@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-row lg:items-center lg:justify-center lg:py-0 bg-white dark:bg-gray-900"
+      className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-row lg:items-center lg:justify-center lg:py-0"
     >
       {/* --- Dynamic Background --- */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -404,7 +404,7 @@ const Contact: React.FC = () => {
             <span className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-300/80">
               scroll
             </span>
-            <span className="h-10 w-7 rounded-full border border-gray-400 dark:border-gray-600/70 bg-gray-200 dark:bg-gray-900/50 backdrop-blur-sm shadow flex items-start justify-center">
+            <span className="h-10 w-7 rounded-full border border-gray-400 dark:border-gray-600/70 bg-gray-200 dark:bg-[#0a0f1c]/50 backdrop-blur-sm shadow flex items-start justify-center">
               <motion.span
                 className="h-1.5 w-1.5 rounded-full bg-gray-600 dark:bg-gray-200"
                 animate={

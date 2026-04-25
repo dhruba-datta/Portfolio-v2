@@ -246,7 +246,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
   return (
     <section
       id="certifications"
-      className="py-12 pb-24 md:py-20 relative transition-colors duration-300 bg-white dark:bg-gray-900 overflow-hidden"
+      className="py-12 pb-24 md:py-20 relative transition-colors duration-300 overflow-hidden"
       style={{ minHeight: cardHeight + 120 }}
     >
       <div className="container mx-auto px-6 max-w-full">

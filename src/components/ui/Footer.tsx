@@ -33,7 +33,7 @@ const Footer = () => {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800"
+      className="bg-slate-100 dark:bg-slate-950 border-t border-slate-200/70 dark:border-white/[0.06]"
       aria-label="Site Footer"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-10">

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Layers } from 'lucide-react';
+import { ArrowUpRight, Layers } from 'lucide-react';
 import type { Project } from '../../types';
 import { categoryMeta } from '../../data/projects';
 
@@ -32,7 +32,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <Link
         to={`/projects/${project.id}`}
         aria-label={`View details for ${project.title}`}
-        className="block rounded-3xl overflow-hidden border border-slate-300 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg sm:hover:shadow-xl sm:hover:shadow-blue-500/[0.08] dark:sm:hover:shadow-sky-500/[0.05] transition-colors duration-500 sm:hover:border-blue-300/50 dark:sm:hover:border-sky-400/20 min-h-[44px] focus-override"
+        className="block rounded-3xl overflow-hidden border border-slate-200/70 bg-white dark:border-white/[0.08] dark:bg-slate-950/90 shadow-lg sm:hover:shadow-2xl sm:hover:shadow-blue-500/[0.10] dark:sm:hover:shadow-sky-500/[0.08] transition-all duration-500 sm:hover:border-blue-300/60 dark:sm:hover:border-sky-400/25 sm:hover:-translate-y-1 min-h-[44px] focus-override"
       >
         {/* Image Area */}
         <div
@@ -62,12 +62,22 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
         {/* Content */}
         <div className="relative z-20 flex-1 bg-white dark:bg-slate-950 p-4 sm:p-5 lg:p-6 flex flex-col justify-between -mt-[1px]">
-          <div>
-            <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-              <h6 className="text-slate-900 dark:text-white sm:group-hover:text-blue-600 dark:sm:group-hover:text-sky-400 transition-colors duration-300 leading-tight">
+          <div className="min-w-0">
+            <div className="flex items-center justify-between gap-3 mb-1.5 sm:mb-2">
+              <h6 className="min-w-0 truncate text-slate-900 dark:text-white sm:group-hover:text-blue-600 dark:sm:group-hover:text-sky-400 transition-colors duration-300 leading-tight" title={project.title}>
                 {project.title}
               </h6>
+              <span
+                aria-hidden
+                className="shrink-0 inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full text-slate-400 dark:text-slate-500 sm:opacity-0 sm:-translate-x-1 sm:group-hover:opacity-100 sm:group-hover:translate-x-0 sm:group-hover:text-blue-600 dark:sm:group-hover:text-sky-400 transition-all duration-300"
+              >
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </span>
             </div>
+
+            <span className="text-[10px] sm:text-[11px] font-outfit font-medium tracking-wider uppercase text-slate-400 dark:text-slate-500 mb-2 sm:mb-2.5 inline-block">
+              {project.year} · {project.role}
+            </span>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 min-h-[32px] sm:min-h-[40px] line-clamp-2">
               {project.tagline}

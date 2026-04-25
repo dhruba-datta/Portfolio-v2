@@ -52,7 +52,7 @@
   /* Ensure better dark mode colors */
   .dark body {
     color: #e5e7eb;
-    background-color: #111827;
+    background-color: #0a0f1c;
   }
 
   /* Better focus states for accessibility - only for elements that need it */

@@ -77,7 +77,7 @@ const Volunteer = ({ isDark = false }: VolunteerProps) => {
   return (
     <section 
       id="volunteer" 
-          className="py-10 sm:py-12 lg:py-20 transition-colors duration-300 bg-white dark:bg-gray-900"
+          className="py-10 sm:py-12 lg:py-20 transition-colors duration-300"
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}

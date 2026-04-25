@@ -9,7 +9,7 @@ interface ProjectsPageProps {
 
 const ProjectsPage = ({ isDark, toggleTheme }: ProjectsPageProps) => {
   return (
-    <div className={`min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300`}>
+    <div className={`min-h-screen flex flex-col bg-white dark:bg-[#0a0f1c] transition-colors duration-300`}>
       <title>Projects | Dhruba Datta</title>
       <meta
         name="description"

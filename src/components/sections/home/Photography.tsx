@@ -22,7 +22,7 @@ const Photography = () => {
   );
 
   return (
-    <section id="photography" className="relative py-12 sm:py-14 lg:py-16 overflow-hidden bg-white dark:bg-gray-900">
+    <section id="photography" className="relative py-12 sm:py-14 lg:py-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {/* Soft mesh glows */}
@@ -73,7 +73,7 @@ const Photography = () => {
         ))}
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <motion.div
@@ -162,13 +162,11 @@ const Photography = () => {
               href="https://www.instagram.com/dhrubz_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-base font-outfit font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[44px] sm:min-h-[56px] focus-override"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold rounded-xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-all duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group focus-override"
               aria-label="Follow on Instagram for more photography"
             >
-              <div className="flex items-center justify-center w-5 sm:w-6 h-5 sm:h-6">
-                <FaInstagram className="w-4 sm:w-5 h-4 sm:h-5 text-pink-500" />
-              </div>
-              <span>Follow for More</span>
+              <FaInstagram className="w-4 sm:w-5 h-4 sm:h-5 text-pink-500" />
+              <span>Follow for more</span>
             </a>
           </motion.div>
         </div>

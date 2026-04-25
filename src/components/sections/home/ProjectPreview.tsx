@@ -30,7 +30,7 @@ const ProjectPreview = () => {
   );
 
   return (
-    <section id="projects-preview" className="relative py-12 sm:py-14 lg:py-16 overflow-hidden bg-white dark:bg-gray-900">
+    <section id="projects-preview" className="relative py-12 sm:py-14 lg:py-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {/* Soft mesh glows */}
@@ -81,59 +81,43 @@ const ProjectPreview = () => {
         ))}
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12 text-center sm:text-left"
+        >
+          <div>
             <h3 className="text-slate-500 dark:text-slate-400">
               Featured Works
             </h3>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Latest Projects
             </h2>
-            
-          </motion.div>
-        </div>
+          </div>
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 self-center sm:self-end px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold rounded-xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group focus-override whitespace-nowrap"
+          >
+            <span>Browse all projects</span>
+            <motion.span
+              animate={prefersReducedMotion ? {} : { x: [0, 4, 0] }}
+              transition={prefersReducedMotion ? {} : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="inline-flex"
+            >
+              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
+            </motion.span>
+          </Link>
+        </motion.div>
 
         {/* Project Grid */}
-        <div className="grid gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-8 sm:mb-10 lg:mb-12">
+        <div className="grid gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </div>
-
-        {/* View All Projects Button */}
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-          >
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-base font-outfit font-semibold rounded-2xl border border-blue-200/80 dark:border-white/[0.08] bg-blue-50/60 dark:bg-slate-950/90 backdrop-blur-md text-slate-900 dark:text-white hover:shadow-xl hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05] transition-colors duration-500 hover:border-blue-300/70 dark:hover:border-sky-400/20 group min-h-[44px] sm:min-h-[56px] focus-override"
-            >
-              <span>View All Projects</span>
-              <motion.div
-                animate={{ x: [0, 4, 0] }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="group-hover:translate-x-2"
-              >
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300" />
-              </motion.div>
-            </Link>
-          </motion.div>
         </div>
       </div>
     </section>

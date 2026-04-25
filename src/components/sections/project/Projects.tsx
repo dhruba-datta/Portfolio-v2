@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Layers, Code2 } from 'lucide-react';
 import { projects, categories } from '../../../data/projects';
 import ProjectCard from '../../ui/ProjectCard';
@@ -10,6 +10,7 @@ const VALID_CATEGORIES = ['all', 'development', 'app', 'automation'] as const;
 const Projects = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [mounted, setMounted] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   // URL is the source of truth for the active category
   const tabParam = searchParams.get('tab');
@@ -37,27 +38,83 @@ const Projects = () => {
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
+  // Decorative dots for the minimal background (stable across renders)
+  const bgDots = useMemo(
+    () =>
+      Array.from({ length: 8 }).map((_, i) => ({
+        left: `${8 + i * 11}%`,
+        top: `${20 + i * 8}%`,
+        size: 8 + (i % 3) * 2,
+        opacity: 0.04 + (i % 4) * 0.02,
+        duration: 6 + i,
+        delay: i * 0.5,
+      })),
+    []
+  );
+
   return (
-    <section id="projects" className="relative pt-4 pb-6 sm:pt-12 sm:pb-8 lg:pt-12 lg:pb-8 overflow-hidden bg-white dark:bg-gray-900">
-      {/* Simplified background - no grid pattern */}
-      <div className="absolute inset-0 -z-10 pointer-events-none dark:block hidden">
-        {/* Soft gradient background */}
-        <div 
+    <section
+      id="projects"
+      className="relative py-12 sm:py-14 lg:py-16 overflow-hidden"
+    >
+      {/* Background — matches home-page section style */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {/* Soft mesh glows */}
+        <motion.div
           className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.0 }}
           style={{
-            background: 'radial-gradient(circle at 30% 20%, rgba(59,130,246,0.08), transparent 50%), radial-gradient(circle at 70% 80%, rgba(99,102,241,0.06), transparent 50%)',
+            background:
+              'radial-gradient(800px 400px at 60% -5%, rgba(59,130,246,0.08), transparent 65%), radial-gradient(700px 400px at 20% 105%, rgba(99,102,241,0.06), transparent 70%)',
           }}
         />
+        {/* Blue orbs */}
+        <motion.div
+          className="absolute -top-20 left-1/3 w-[20rem] h-[20rem] rounded-full blur-3xl bg-gradient-to-tr from-blue-500/12 via-indigo-500/8 to-cyan-500/10"
+          animate={
+            prefersReducedMotion ? {} : { y: [0, 15, 0], x: [0, 20, 0], scale: [1, 1.03, 1] }
+          }
+          transition={prefersReducedMotion ? {} : { duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute -bottom-16 right-1/4 w-[18rem] h-[18rem] rounded-full blur-3xl bg-gradient-to-tl from-sky-400/10 via-blue-500/8 to-indigo-600/8"
+          animate={
+            prefersReducedMotion ? {} : { y: [0, -12, 0], x: [0, -15, 0], scale: [1, 1.04, 1] }
+          }
+          transition={prefersReducedMotion ? {} : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Floating micro-dots */}
+        {bgDots.map((d, i) => (
+          <motion.span
+            key={i}
+            className="absolute rounded-full bg-blue-400/40 dark:bg-sky-300/40"
+            style={{
+              left: d.left,
+              top: d.top,
+              width: d.size,
+              height: d.size,
+              filter: 'blur(1px)',
+              opacity: d.opacity,
+            }}
+            initial={{ y: 0 }}
+            animate={prefersReducedMotion ? {} : { y: [0, -12, 0] }}
+            transition={
+              prefersReducedMotion ? {} : { duration: d.duration, delay: d.delay, repeat: Infinity, ease: 'easeInOut' }
+            }
+          />
+        ))}
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="flex flex-col items-center mb-6 sm:mb-8 lg:mb-10">
+        <div className="flex flex-col items-center text-center mb-6 sm:mb-8 lg:mb-10">
           <h3 className="text-slate-500 dark:text-slate-400">
             Projects
           </h3>
-          <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white text-center">
-            Featured Works
+          <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
+            Featured works
           </h2>
         </div>
 
@@ -68,7 +125,7 @@ const Projects = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="relative inline-flex items-center gap-0.5 sm:gap-1 rounded-full p-0.5 sm:p-1 border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md"
+            className="relative inline-flex items-center gap-0.5 sm:gap-1 rounded-full p-0.5 sm:p-1 border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md shadow-sm"
           >
             {(['all', ...categories.map((c) => c.key)] as const).map((key) => {
               const isActive = activeCategory === key;
@@ -141,10 +198,19 @@ const Projects = () => {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
         {/* Empty state */}
         {visibleProjects.length === 0 && (
-          <div className="mt-8 sm:mt-9 lg:mt-10 text-center text-slate-600 dark:text-slate-400 text-sm">
-            No projects in this category yet.
+          <div className="mt-8 sm:mt-10 mx-auto max-w-md rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/70 dark:bg-slate-950/70 backdrop-blur-md p-8 text-center">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 dark:bg-sky-500/10 ring-1 ring-blue-200/70 dark:ring-sky-400/20">
+              <Layers className="h-5 w-5 text-blue-600 dark:text-sky-400" />
+            </div>
+            <h6 className="text-slate-900 dark:text-white">
+              No projects yet
+            </h6>
+            <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">
+              This category is empty. Try switching to another tab.
+            </p>
           </div>
         )}
       </div>

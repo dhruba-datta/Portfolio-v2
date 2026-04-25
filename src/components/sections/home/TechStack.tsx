@@ -226,7 +226,7 @@ const TechStack = ({ isDark }: TechStackProps) => {
   );
 
   return (
-    <section className={`py-12 sm:py-16 lg:py-20 ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} overflow-hidden`}>
+    <section className={`py-12 sm:py-14 lg:py-16 ${isDark ? 'text-white' : 'text-gray-900'} overflow-hidden`}>
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
@@ -245,10 +245,10 @@ const TechStack = ({ isDark }: TechStackProps) => {
           <FeatureCard
             to="/about"
             badge="FOR ACADEMICS"
-            title=" Academic Excellence"
+            title=" Academic excellence"
             description="Scholarships, publications and research interests view my academic profile."
             icon={<AcademicIcon />}
-            cta="View Profile"
+            cta="View profile"
           />
 
           {/* Card 2 (Tech Stack) */}
@@ -375,10 +375,10 @@ const TechStack = ({ isDark }: TechStackProps) => {
           <FeatureCard
             to="/projects"
             badge="FOR RECRUITERS"
-            title=" Project Showcase"
+            title=" Project showcase"
             description="Explore shipped work, case studies, and live demos tailored for hiring."
             icon={<BriefcaseIcon />}
-            cta="View Recent Works"
+            cta="View recent works"
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   FaGithub,
@@ -15,14 +15,97 @@ const Hero = () => {
 
   const codeLines = [
     "// Software Engineer",
-    "const dhruba = {",
-    "    name: 'Dhruba Datta',",
-    "    skills: ['n8n', 'C++', 'React', 'Photography'],",
-    "    researching: ['Code Bias', 'Computer Vision'],",
-    "    learning: 'Always',",
-    "    available for coffee: true",
+    "const developer = {",
+    "  name: 'Dhruba Datta',",
+    "  skills: ['n8n', 'C++', 'React', 'Photography'],",
+    "  researching: ['Code Bias', 'Computer Vision'],",
+    "  learning: 'Always',",
+    "  availableForCoffee: true",
     "};",
   ];
+
+  const tk = {
+    comment: "text-slate-400 dark:text-[#7c8095] italic",
+    keyword: "text-fuchsia-600 dark:text-[#c792ea]",
+    variable: "text-sky-600 dark:text-[#82aaff]",
+    property: "text-cyan-600 dark:text-[#5eead4]",
+    string: "text-emerald-600 dark:text-[#c3e88d]",
+    punct: "text-slate-400 dark:text-[#a9b1d6]",
+    bracket: "text-amber-500 dark:text-[#ffcb6b]",
+    bool: "text-orange-500 dark:text-[#f78c6c]",
+  } as const;
+
+  const stringList = (items: string[]) => (
+    <>
+      <span className={tk.bracket}>[</span>
+      {items.map((s, i) => (
+        <span key={s}>
+          <span className={tk.string}>'{s}'</span>
+          {i < items.length - 1 && <span className={tk.punct}>, </span>}
+        </span>
+      ))}
+      <span className={tk.bracket}>]</span>
+    </>
+  );
+
+  const property = (
+    name: string,
+    value: ReactNode,
+    { trailingComma = true }: { trailingComma?: boolean } = {}
+  ) => (
+    <>
+      {"  "}
+      <span className={tk.property}>{name}</span>
+      <span className={tk.punct}>:</span> {value}
+      {trailingComma && <span className={tk.punct}>,</span>}
+    </>
+  );
+
+  const renderCodeLine = (index: number): ReactNode => {
+    switch (index) {
+      case 0:
+        return <span className={tk.comment}>// Software Engineer</span>;
+      case 1:
+        return (
+          <>
+            <span className={tk.keyword}>const</span>{" "}
+            <span className={tk.variable}>developer</span>{" "}
+            <span className={tk.punct}>=</span>{" "}
+            <span className={tk.bracket}>{"{"}</span>
+          </>
+        );
+      case 2:
+        return property("name", <span className={tk.string}>'Dhruba Datta'</span>);
+      case 3:
+        return property(
+          "skills",
+          stringList(["n8n", "C++", "React", "Photography"])
+        );
+      case 4:
+        return property(
+          "researching",
+          stringList(["Code Bias", "Computer Vision"])
+        );
+      case 5:
+        return property("learning", <span className={tk.string}>'Always'</span>);
+      case 6:
+        return property(
+          "availableForCoffee",
+          <span className={tk.bool}>true</span>,
+          { trailingComma: false }
+        );
+      case 7:
+        return (
+          <>
+            <span className={tk.bracket}>{"}"}</span>
+            <span className={tk.punct}>;</span>
+            <span className="ml-1 inline-block w-[7px] h-[14px] bg-blue-500 dark:bg-[#7aa2f7] align-middle animate-pulse" />
+          </>
+        );
+      default:
+        return null;
+    }
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -266,7 +349,7 @@ const Hero = () => {
                   initial={{ opacity: 1, y: 0 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0 }}
-                  className="text-gray-900 dark:text-white leading-[1.1] -ml-1 mt-2 sm:mt-3"
+                  className="text-slate-900 dark:text-white leading-[1.1] -ml-1 mt-2 sm:mt-3"
                 >
                   Dhruba{" "}
                   <span className="text-blue-600 dark:text-blue-400">Datta</span>
@@ -346,13 +429,30 @@ const Hero = () => {
             >
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 rounded-xl px-3 sm:px-5 py-2 sm:py-3 text-sm sm:text-base font-outfit font-medium text-white
-                           bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                           shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all focus-override"
+                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm sm:text-base font-outfit font-semibold
+                           text-slate-900 dark:text-white
+                           bg-blue-50/60 dark:bg-white/[0.04]
+                           ring-1 ring-blue-200/80 dark:ring-white/[0.08]
+                           backdrop-blur-md
+                           hover:ring-blue-300/80 dark:hover:ring-sky-400/20
+                           hover:shadow-lg hover:shadow-blue-500/[0.08] dark:hover:shadow-sky-500/[0.05]
+                           transition-all focus-override"
                 aria-label="About"
               >
-                <BsBookmarkHeartFill className="w-3 sm:w-4 h-3 sm:h-4" />
-                About Me
+                <BsBookmarkHeartFill className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-sky-400" />
+                <span>About me</span>
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
               </Link>
             </motion.div>
 
@@ -605,69 +705,52 @@ const Hero = () => {
               </motion.div>
 
               {/* Code block container */}
-              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-                {/* Window controls */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span className="ml-4 text-sm text-gray-600 dark:text-gray-300 font-medium">
-                    developer.js
-                  </span>
-                </div>
+              <div className="relative">
+                {/* Ambient glow */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-pink-500/30 opacity-50 blur-lg dark:opacity-60"
+                />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#0e1525] backdrop-blur-xl">
+                  {/* Title bar */}
+                  <div className="relative flex items-center px-3.5 py-2.5 bg-gray-50 dark:bg-[#0a1020] border-b border-gray-200 dark:border-white/[0.06]">
+                    <div className="flex gap-1.5">
+                      <span className="w-3 h-3 rounded-full bg-[#ff5f57] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,0.15)]" />
+                      <span className="w-3 h-3 rounded-full bg-[#febc2e] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,0.15)]" />
+                      <span className="w-3 h-3 rounded-full bg-[#28c840] shadow-[inset_0_0_0_0.5px_rgba(0,0,0,0.15)]" />
+                    </div>
+                    <span className="absolute left-1/2 -translate-x-1/2 text-[11px] font-mono tracking-wide text-gray-500 dark:text-gray-400">
+                      ~/portfolio/developer.js
+                    </span>
+                  </div>
 
-                {/* Code content */}
-                <div className="p-6 font-mono text-sm">
-                  {codeLines.map((line, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
-                      className="mb-2 flex items-center"
-                    >
-                      <span className="text-gray-400 dark:text-gray-500 w-6 text-right mr-4 select-none">
-                        {index + 1}
-                      </span>
-                      <span className="text-gray-800 dark:text-gray-200 whitespace-pre">
-                        {line.includes("//") ? (
-                            <span className="text-teal-600 dark:text-teal-400">
-                              {line}
-                            </span>
-                        ) : line.includes("const") || line.includes("=") ? (
-                          <span>
-                            <span className="text-purple-600 dark:text-purple-400">
-                              const
-                            </span>
-                            <span className="text-blue-600 dark:text-blue-400">
-                              {" "}
-                              developer
-                            </span>
-                            <span className="text-gray-800 dark:text-white">
-                              {" "}
-                              ={" "}
-                            </span>
-                            <span className="text-yellow-600 dark:text-yellow-400">
-                              {line.split("= ")[1]}
-                            </span>
-                          </span>
-                        ) : line.includes(":") ? (
-                          <span>
-                            <span className="text-red-600 dark:text-red-400">
-                              {line.split(":")[0]}:
-                            </span>
-                            <span className="text-teal-600 dark:text-teal-400">
-                              {line.split(":")[1]}
-                            </span>
-                          </span>
-                        ) : (
-                          <span className="text-yellow-600 dark:text-yellow-400">
-                            {line}
-                          </span>
-                        )}
-                      </span>
-                    </motion.div>
-                  ))}
+                  {/* Tab bar */}
+                  <div className="flex items-end bg-gray-100/70 dark:bg-[#0a101e] border-b border-gray-200 dark:border-white/[0.04]">
+                    <div className="flex items-center gap-2 px-3.5 py-2 text-[11px] font-medium bg-white dark:bg-[#0e1525] border-r border-gray-200 dark:border-white/[0.06] text-gray-700 dark:text-[#c0caf5] relative">
+                      <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500" />
+                      <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-[3px] bg-[#f7df1e] text-[8px] font-bold text-black">JS</span>
+                      developer.js
+                      <span className="text-blue-500 dark:text-[#7aa2f7] ml-0.5 text-base leading-none">●</span>
+                    </div>
+                  </div>
+
+                  {/* Code content */}
+                  <div className="font-mono text-[12.5px] leading-6 py-4 pr-4">
+                    {codeLines.map((_, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 + index * 0.1 }}
+                        className="flex items-center whitespace-pre"
+                      >
+                        <span className="w-10 pr-3 text-right text-gray-300 dark:text-[#3b4261] select-none">
+                          {index + 1}
+                        </span>
+                        <span className="flex-1">{renderCodeLine(index)}</span>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

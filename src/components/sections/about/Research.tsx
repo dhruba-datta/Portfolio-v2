@@ -115,9 +115,7 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
 
   return (
     <section
-      className={`py-10 sm:py-12 lg:py-20 transition-colors duration-300 min-h-screen ${
-        isDark ? "bg-gray-900" : "bg-white"
-      }`}
+      className="py-10 sm:py-12 lg:py-20 transition-colors duration-300 min-h-screen"
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         <motion.div

@@ -49,7 +49,7 @@ function ScrollToTop() {
 function AppRoutes({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () => void }) {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-[#0a0f1c] transition-colors duration-300 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400">Loading...</p>
@@ -120,7 +120,7 @@ function App() {
     <ErrorBoundary>
       <Router>
         <div className={isDark ? 'dark' : ''}>
-          <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+          <div className="min-h-screen bg-white dark:bg-[#0a0f1c] transition-colors duration-300">
             <ScrollToTop />
             <AppRoutes isDark={isDark} toggleTheme={toggleTheme} />
           </div>

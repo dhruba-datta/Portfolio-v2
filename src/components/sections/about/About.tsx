@@ -67,7 +67,7 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="min-h-[100vh] md:min-h-[90vh] flex flex-col items-center relative overflow-hidden bg-white dark:bg-gray-900"
+      className="min-h-[100vh] md:min-h-[90vh] flex flex-col items-center relative overflow-hidden"
       style={{ margin: 0, padding: 0 }}
     >
       {/* Decorative background (grid overlay removed to prevent vertical line over photo) */}
@@ -227,7 +227,7 @@ const About = () => {
                       key={i}
                       className={`absolute w-[85%] sm:w-[70%] md:w-[65%] lg:w-[70%] max-w-md rounded-[24px] overflow-hidden shadow-2xl ${
                         isHidden ? 'pointer-events-none' : ''
-                      } bg-gray-50 dark:bg-gray-900`}
+                      } bg-gray-50 dark:bg-[#0a0f1c]`}
                       style={{
                         zIndex: map.zIndex,
                         filter: map.filter as any,

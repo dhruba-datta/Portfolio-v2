@@ -11,7 +11,7 @@ interface NotFoundPageProps {
 
 const NotFoundPage = ({ isDark, toggleTheme }: NotFoundPageProps) => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0a0f1c] transition-colors duration-300">
       <title>404 — Page not found | Dhruba Datta</title>
       <meta name="robots" content="noindex" />
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />

@@ -225,7 +225,7 @@ const ProjectPageTemplate = ({
     <div
       className={`min-h-screen flex flex-col transition-colors duration-300 bg-white text-gray-900${
         effectiveIsDark ? " dark" : ""
-      } dark:bg-gray-900 dark:text-white`}
+      } dark:bg-[#0a0f1c] dark:text-white`}
     >
       {/* React 19 native metadata — hoisted into <head> */}
       <title>{pageTitle}</title>
@@ -314,7 +314,7 @@ const ProjectPageTemplate = ({
         >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-gray-100">
+              <h1 className="text-gray-900 dark:text-gray-100">
                 {title}
               </h1>
 
