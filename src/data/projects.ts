@@ -100,7 +100,7 @@ export const projects: Project[] = [
       { name: 'Netlify', icon: React.createElement(BiLogoNetlify, { className: 'w-3.5 h-3.5' }) },
     ],
     github: 'https://github.com/dhruba-datta/Aqua',
-    liveUrl: 'https://aqua-bd.netlify.app/',
+    liveUrl: 'https://www.aquabd.pro/',
     featured: true,
     category: 'development',
   },

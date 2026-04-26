@@ -37,7 +37,7 @@ const AquaPage = ({ isDark, toggleTheme }: AquaPageProps) => (
       { name: "Netlify", icon: <SiNetlify className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
     githubUrl="https://github.com/dhruba-datta/Aqua"
-    secondaryUrl="https://aqua-bd.netlify.app/"
+    secondaryUrl="https://www.aquabd.pro/"
     secondaryLabel="Check it out"
     features={[
       {
