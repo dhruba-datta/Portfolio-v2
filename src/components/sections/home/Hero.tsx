@@ -14,11 +14,11 @@ const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
 
   const codeLines = [
-    "// Software Engineer",
+    "// AI Engineer · R&D Lead",
     "const developer = {",
     "  name: 'Dhruba Datta',",
-    "  skills: ['n8n', 'C++', 'React', 'Photography'],",
-    "  researching: ['Code Bias', 'Computer Vision'],",
+    "  builds: ['AI agents', 'Web platforms'],",
+    "  stack: ['n8n', 'React', 'Python'],",
     "  learning: 'Always',",
     "  availableForCoffee: true",
     "};",
@@ -64,7 +64,7 @@ const Hero = () => {
   const renderCodeLine = (index: number): ReactNode => {
     switch (index) {
       case 0:
-        return <span className={tk.comment}>// Software Engineer</span>;
+        return <span className={tk.comment}>// AI Engineer · R&amp;D Lead</span>;
       case 1:
         return (
           <>
@@ -77,15 +77,9 @@ const Hero = () => {
       case 2:
         return property("name", <span className={tk.string}>'Dhruba Datta'</span>);
       case 3:
-        return property(
-          "skills",
-          stringList(["n8n", "C++", "React", "Photography"])
-        );
+        return property("builds", stringList(["AI agents", "Web platforms"]));
       case 4:
-        return property(
-          "researching",
-          stringList(["Code Bias", "Computer Vision"])
-        );
+        return property("stack", stringList(["n8n", "React", "Python"]));
       case 5:
         return property("learning", <span className={tk.string}>'Always'</span>);
       case 6:
@@ -135,7 +129,7 @@ const Hero = () => {
     },
     {
       name: "Google Scholar",
-      url: "https://scholar.google.co.uk/citations?hl=en&user=RGxdIVkAAAAJ&view_op=list_works&authuser=1&gmla=AH70aAURqNk3ktsHQOlfZFUuNTBsHi7ZPnDjzbSkBWhg2ulKof0-hdur7ndSkkQ72sJwZ2ImrmCa9MtZLRPfjYoH",
+      url: "https://scholar.google.co.uk/citations?user=RGxdIVkAAAAJ",
       icon: <FaGoogleScholar className="w-4 sm:w-5 h-4 sm:h-5" />,
     },
     {
@@ -172,7 +166,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left side - Profile and Info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left space-y-4 sm:space-y-6 lg:space-y-8 relative pb-24 sm:pb-28 lg:pb-0"
@@ -181,7 +175,7 @@ const Hero = () => {
             <div className="space-y-2 sm:space-y-3 lg:space-y-4">
               {/* Mobile Profile Image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
+                initial={{ scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
                 className="lg:hidden flex justify-center mb-2 sm:mb-6 relative -top-12"
@@ -338,7 +332,7 @@ const Hero = () => {
 
               <div>
                 <motion.p
-                  initial={{ opacity: 0 }}
+                  initial={false}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0 }}
                   className="text-[10px] sm:text-[11px] tracking-[0.22em] font-semibold uppercase text-slate-500 dark:text-slate-400 font-outfit block"
@@ -354,14 +348,14 @@ const Hero = () => {
                   Dhruba{" "}
                   <span className="text-blue-600 dark:text-blue-400">Datta</span>
                 </motion.h1>
-                <motion.h4
+                <motion.p
                   initial={{ opacity: 1 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0 }}
-                  className="text-slate-800 dark:text-slate-300 mt-2 sm:mt-3"
+                  className="font-outfit text-base sm:text-lg md:text-xl lg:text-2xl font-medium leading-normal text-slate-800 dark:text-slate-300 mt-2 sm:mt-3"
                 >
-                  R&D Lead · AI Engineer · Researcher
-                </motion.h4>
+                  R&D Lead · AI Engineer · Product Lead
+                </motion.p>
               </div>
               <motion.p
                 initial={{ opacity: 1 }}
@@ -369,15 +363,15 @@ const Hero = () => {
                 transition={{ delay: 0 }}
                 className="text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-lg"
               >
-                Tackling complex challenges with innovative tech and a passion
-                for automation. Beyond building solutions, love to explore the
-                world and capture memories.
+                I build production AI systems and full-stack platforms that
+                businesses run on. I lead R&amp;D at Social Engagement Group and
+                lead product and operations part-time at Optify.
               </motion.p>
             </div>
 
             {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
               className="flex gap-2 sm:gap-3 lg:gap-4 justify-center lg:justify-start py-2 sm:py-3 lg:py-0"
@@ -422,7 +416,7 @@ const Hero = () => {
 
             {/* Contact Button */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
               className="flex justify-center lg:justify-start mb-16 sm:mb-20 lg:mb-0"
@@ -499,7 +493,7 @@ const Hero = () => {
 
           {/* Right side - Code Block */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="hidden lg:block"
@@ -507,7 +501,7 @@ const Hero = () => {
             <div className="relative">
               {/* Profile Image - floating above IDE */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: -20 }}
+                initial={{ scale: 0.5, y: -20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
                 className="absolute -top-20 -right-12 z-20"
@@ -735,11 +729,11 @@ const Hero = () => {
                   </div>
 
                   {/* Code content */}
-                  <div className="font-mono text-[12.5px] leading-6 py-4 pr-4">
+                  <div className="font-mono text-[12px] xl:text-[12.5px] leading-6 py-4 pr-4">
                     {codeLines.map((_, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5 + index * 0.1 }}
                         className="flex items-center whitespace-pre"
@@ -823,8 +817,9 @@ const Hero = () => {
           key={i}
           className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            // Deterministic offsets so pre-rendered HTML matches the client
+            x: ((i * 97) % 300) - 150,
+            y: ((i * 61) % 300) - 150,
           }}
           animate={{
             y: [0, -30, 0],

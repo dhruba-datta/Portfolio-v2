@@ -95,8 +95,9 @@ const Contact: React.FC = () => {
   const bgDots = useMemo(() => Array.from({ length: 9 }).map((_, i) => ({
     left: `${8 + i * 10}%`,
     top: `${20 + i * 8}%`,
-    size: 14 + Math.random() * 12,
-    opacity: 0.08 + Math.random() * 0.09,
+    // Deterministic so pre-rendered HTML matches the client
+    size: 14 + ((i * 7) % 12),
+    opacity: 0.08 + ((i * 5) % 9) / 100,
     duration: 6 + i,
     delay: i * 0.8,
   })), []);
@@ -198,7 +199,7 @@ const Contact: React.FC = () => {
       <div className="w-full max-w-5xl mx-auto px-4 md:px-6 lg:px-2 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
         {/* --- LEFT: Intro (mobile centered, desktop left aligned) --- */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -426,7 +427,7 @@ const Contact: React.FC = () => {
         <motion.form
           id="contact-form"
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}

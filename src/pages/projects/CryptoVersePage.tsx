@@ -4,8 +4,6 @@ import {
   BarChart3,
   Newspaper,
   Smartphone,
-  Database,
-  Zap,
   Globe2,
   LineChart,
 } from "lucide-react";
@@ -22,7 +20,7 @@ const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="CryptoVerse"
-    description="Crypto investors struggle to track market movements across hundreds of coins while coordinating between multiple dashboards, news sites, and charting tools. This unified real-time crypto intelligence platform solves that by consolidating global market metrics, individual token analytics, and breaking news into a single responsive dashboard - transforming scattered market research into instant, data-driven investment decisions with zero context switching."
+    description="I built a cryptocurrency market dashboard in React that pulls market data from the Coinranking API and news from Bing News, both through RapidAPI. It shows global market statistics and the top 10 coins, lets users search the coin list, opens a detail page for each coin with a price chart over eight time periods, and lists the latest news by coin. Data fetching and caching use Redux Toolkit Query, and the UI uses Ant Design."
     coverSrc="/images/projects/CryptoVerse.webp"
     chips={[
       { name: "React", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
@@ -37,132 +35,107 @@ const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => (
     secondaryLabel="Check it out"
     features={[
       {
-        id: "dashboard",
+        id: "overview",
         icon: <TrendingUp className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Live Global Crypto Metrics",
-        summary: "Real-time aggregation of global market capitalization and trading activity",
+        title: "Global Market Overview",
+        summary: "See the state of the crypto market at a glance",
         details: [
-          "Instant tracking of global crypto market cap and 24-hour trading volumes",
-          "Live-updating ticker for total active cryptocurrencies and market pairs",
-          "Dynamic leaderboard showcasing top trending coins, gainers, and losers",
+          "Total market cap and 24-hour trading volume",
+          "Total cryptocurrencies, exchanges and markets",
+          "The top 10 coins and the latest news on the home page",
         ],
       },
       {
         id: "search",
         icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Advanced Asset Filtering",
-        summary: "High-performance search engine with multi-parameter sorting capabilities",
+        title: "Search & Filter Coins",
+        summary: "Find cryptocurrencies by name or symbol",
         details: [
-          "Fuzzy search implementation allowing users to find assets by name, symbol, or tags",
-          "Granular filtering options to sort results by market cap, price, or 24h performance",
-          "Integrated watchlist functionality enabling users to bookmark and track favorite tokens",
+          "Search the coin list by name as you type",
+          "Each coin shown as a card with price, market cap and daily change",
         ],
       },
       {
         id: "details",
         icon: <BarChart3 className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Deep-Dive Token Analytics",
-        summary: "Comprehensive individual asset pages with interactive data visualization",
+        title: "Coin Details & Charts",
+        summary: "View detailed information about any cryptocurrency",
         details: [
-          "Interactive Chart.js implementations offering multiple timeframe views (24h, 7d, 30d, 1y)",
-          "Detailed breakdown of supply metrics (circulating vs. total) and historical price performance",
-          "Rich statistical summaries including rank, trading volume, and all-time high/low data points",
+          "Price chart with Chart.js over eight time periods, from 3 hours to 5 years",
+          "Market rank, trading volume, and supply metrics",
+          "All-time high, number of markets and exchanges, and supply figures",
         ],
       },
       {
         id: "news",
         icon: <Newspaper className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Aggregated News Intelligence",
-        summary: "Curated real-time news feed drawn from reputable crypto media outlets",
+        title: "Crypto News Feed",
+        summary: "Read recent news and updates from the crypto industry",
         details: [
-          "Context-sensitive news aggregation related to specific tokens or general market trends",
-          "Categorized article feeds allowing users to filter news by topic (e.g., DeFi, Regulations)",
-          "Sentiment analysis indicators helping users gauge community reactions and market buzz",
+          "News from Bing News, filtered by the coin you pick",
+          "Each article links to the original source",
         ],
       },
       {
         id: "responsive",
         icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Adaptive Responsive Interface",
-        summary: "Professional Ant Design layout optimized for all device form factors",
+        title: "Responsive Layout",
+        summary: "Works on mobile, tablet, and desktop",
         details: [
-          "Mobile-first responsive grid ensuring usability on smartphones and tablets",
-          "Adaptive navigation sidebar that collapses into a drawer on smaller screens",
-          "Touch-optimized interactive elements ensuring a native app-like experience on mobile",
+          "Built with Ant Design for professional UI",
+          "Sidebar navigation that collapses on mobile",
+          "Touch-friendly on all devices",
         ],
       },
       {
         id: "navigation",
         icon: <Globe2 className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Seamless SPA Navigation",
-        summary: "Fluid client-side routing with deep-linking capabilities",
+        title: "Client-Side Navigation",
+        summary: "Fast page transitions with React Router",
         details: [
-          "Instant page transitions managed by React Router without browser reloads",
-          "Deep-linking support allowing users to share direct URLs to specific coin details or news",
-          "Breadcrumb navigation trails improving user orientation within the application hierarchy",
-        ],
-      },
-      {
-        id: "state",
-        icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Enterprise State Management",
-        summary: "Robust Redux Toolkit implementation for scalable data handling",
-        details: [
-          "Centralized store managing global application state, user preferences, and cached API data",
-          "Utilization of RTK Query for automated data fetching, caching, and cache invalidation",
-          "Optimistic UI updates providing immediate feedback before server confirmation",
-        ],
-      },
-      {
-        id: "performance",
-        icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Optimized Rendering Strategy",
-        summary: "Performance-tuned architecture ensuring consistent 60fps interactions",
-        details: [
-          "Memoization of expensive chart computations to prevent unnecessary re-renders",
-          "Lazy loading of heavy route components to minimize the initial JavaScript bundle size",
-          "Efficient API request batching and rate-limit handling to ensure stability under load",
+          "Single-page app with no full page reloads",
+          "Deep links so you can share coin details directly",
+          "Breadcrumb navigation for easy orientation",
         ],
       },
     ]}
-    techSectionTitle="Technologies Used"
+    techSectionTitle="Stack"
     techItems={[
       {
         icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "React",
-        description: "Component-based architecture driving the dynamic, single-page user interface.",
+        label: "React 18",
+        description: "Component framework for building the UI.",
       },
       {
         icon: <SiRedux className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "Redux Toolkit (RTK Query)",
-        description: "Advanced data fetching, caching, and state management logic.",
+        label: "Redux Toolkit",
+        description: "RTK Query for fetching and caching API data.",
       },
       {
         icon: <SiAntdesign className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
         label: "Ant Design",
-        description: "Professional-grade UI component library ensuring design consistency.",
+        description: "UI component library for professional styling.",
       },
       {
         icon: <LineChart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
         label: "Chart.js",
-        description: "Flexible canvas-based charting library for visualizing complex financial datasets.",
+        description: "Charting library for price history graphs.",
       },
       {
         icon: <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
         label: "RapidAPI",
-        description: "Gateway integration for accessing third-party crypto market and news APIs.",
+        description: "Coinranking for market data and Bing News for articles.",
       },
       {
         icon: <SiReactrouter className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "React Router",
-        description: "Handling dynamic client-side routing and URL parameter management.",
+        label: "React Router 6",
+        description: "Client-side routing for navigation between pages.",
       },
     ]}
     useCases={[
-      "Personalized investor dashboards for tracking portfolios across disparate exchanges",
-      "Prototype architecture for scalable FinTech applications utilizing real-time third-party data",
-      "Educational resource for developers mastering Redux Toolkit Query and complex state flows",
-      "Centralized information hub for crypto communities aggregating market data and relevant news",
+      "Learning how to build a dashboard that pulls data from external APIs",
+      "Understanding Redux Toolkit for managing complex app state",
+      "Reference for integrating Chart.js and Ant Design in a real project",
     ]}
     howToSteps={[
       <>
@@ -193,10 +166,10 @@ const CryptoVersePage = ({ isDark, toggleTheme }: CryptoVersePageProps) => (
       </>,
     ]}
     contactCTA={{
-      title: "Need a high-performance web solution?",
-      description: "I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Need a data dashboard or analytics app?",
+      description: "I build React dashboards with external APIs, Redux for state management, and Chart.js for visualizations.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "View All Projects",
     }}
   />
 );

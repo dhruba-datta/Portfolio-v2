@@ -11,10 +11,10 @@ interface Experience {
   company: string;
   position: string;
   duration: string;
-  location: string;
-  type: 'Remote' | 'On-site' | 'Hybrid';
+  location?: string;
+  /** Work mode, with employment type where relevant (e.g. "Remote · Part-time"). */
+  type: string;
   description: string[];
-  technologies: string[]; // kept in data shape, not rendered
   current: boolean;
   companyUrl?: string; // Make company URL optional
 }
@@ -27,36 +27,53 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       position: "Research & Development Lead",
       duration: "JUL 2025 - PRESENT",
       location: "Florida, United States",
-      type: "Remote",
+      type: "Remote · Full-time",
       current: true,
       companyUrl: "https://www.linkedin.com/company/social-engagement-group/",
       description: [
-        "Lead research on emerging tools, technologies, and best practices to optimize workflows and enhance client outcomes.",
-        "Design, develop, and deploy innovative automation solutions, including n8n workflows and AI-driven systems, to improve operational efficiency.",
-        "Create and maintain detailed technical documentation in Confluence, driving knowledge sharing and team effectiveness.",
-        "Collaborate seamlessly with cross-functional teams to streamline processes and contribute to marketing and content initiatives."
+        "Built an AI lead-qualification system that handles 100+ leads a week and cut response time from 24 hours to under 2 hours.",
+        "Designed and deployed n8n and LLM workflows for lead intake, content ideation, landing pages and email outreach, including a prospecting pipeline that researches, scores and verifies every lead before contact.",
+        "Architected and shipped lead-capture websites, including a multi-location build that generates 19 location pages from a single data model, and led domain migrations.",
+        "Own SEO and site performance for the agency's website, reaching 17.3K organic clicks from 309K impressions a quarter, and run weekly Search Console reporting.",
+        "Led the plan to move a client's online orders onto its own site through a delivery-platform integration, and produced pitch and marketing-plan decks.",
+        "Audited a CRM sales pipeline and scoped its due-diligence automation into a delivery-ready backlog.",
       ],
-      technologies: ["TypeScript","Next.js","Sanity CMS","Contentful CMS","Tailwind CSS","Figma","Turborepo","Vercel AI SDK","Agile","Teamwork","Research","Problem-solving"]
     },
     {
       id: 2,
+      company: "Optify Transformation Partners",
+      position: "Product & Operations Lead",
+      duration: "APR 2026 - PRESENT",
+      location: "New Jersey, United States",
+      type: "Remote · Part-time",
+      current: true,
+      companyUrl: "https://www.linkedin.com/company/optify-ll-bt/",
+      description: [
+        "Lead product and operations for a multi-tenant voice AI platform and an e-commerce brand, owning the roadmap and sprint planning.",
+        "Shaped the architecture across real-time voice agents, automation workflows, multi-tenant data with row-level security, subscription billing and guided client onboarding.",
+        "Drove security hardening, including row-level security, webhook signature verification and encrypted OAuth tokens, and diagnosed production incidents.",
+        "Run operations and growth for the online store: catalogue and checkout optimisation, SEO, email campaigns and short-form video.",
+        "Wrote proposals, contracts and pricing, hired and mentored a sales trainee, and built brand design systems and operating documentation.",
+      ],
+    },
+    {
+      id: 4,
       company: "AfterQuery Experts",
       position: "AI Model Trainer",
       duration: "APR 2025 - JUN 2025",
       location: "California, United States",
       type: "Remote",
-      current: true,
+      current: false,
       companyUrl: "https://www.linkedin.com/company/afterquery-experts/",
       description: [
-        "Develop and solve advanced competitive programming challenges to train and evaluate AI model coding capabilities.",
-        "Analyze AI model performance, providing actionable feedback to refine reasoning and problem-solving.",
-        "Implement optimized, efficient code solutions to benchmark and elevate AI model accuracy and efficiency.",
-        "Document problem solutions and evaluation insights comprehensively to support collaborative AI research and innovation."
+        "Wrote and solved advanced competitive-programming problems used to train and evaluate the coding ability of large language models.",
+        "Reviewed model solutions for correctness and reasoning, and gave feedback that sharpened how the models approach hard problems.",
+        "Wrote optimised reference solutions that set the bar for model accuracy and efficiency.",
+        "Documented solutions and evaluation findings for the research team.",
       ],
-      technologies: ["Python","Competitive Programming","Data Structures","Algorithms","AI Training","Machine Learning","Financial Analysis","Problem-solving"]
     },
     {
-      id: 3,
+      id: 5,
       company: "Kounsel",
       position: "SQA Engineer",
       duration: "JUN 2024 - MAR 2025",
@@ -65,15 +82,15 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       current: false,
       companyUrl: "https://www.linkedin.com/company/kounsel",
       description: [
-        "Owned QA processes and developed automation frameworks for both mobile and web platforms to ensure high reliability standards.",
-        "Created comprehensive test plans, wrote detailed test cases, and maintained technical documentation to support quality assurance efforts.",
-        "Managed database updates in MongoDB, handling new client information and approvals to streamline onboarding workflows.",
-        "Collaborated with cross-functional teams using Jira and Bitbucket to track bugs, maintain CI pipelines, and ensure rapid issue resolution and code quality control."
+        "Built automated test suites and regression pipelines for a telehealth platform across web and mobile.",
+        "Owned the QA process end to end and built the test automation frameworks for both the mobile and web apps.",
+        "Wrote the test plans, test cases and technical documentation that each release was checked against.",
+        "Managed client onboarding data in MongoDB, handling new client records and approvals.",
+        "Worked with engineering in Jira and Bitbucket to track defects, keep CI pipelines healthy and get fixes shipped quickly.",
       ],
-      technologies: ["Selenium","Jira","Bitbucket","Kotlin","MongoDB","Docker","Test Automation","Quality Assurance"]
     },
     {
-      id: 4,
+      id: 6,
       company: "Kingsley Engineering Service Co.",
       position: "Software Engineer",
       duration: "AUG 2023 - JUN 2024",
@@ -82,14 +99,13 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
       current: false,
       companyUrl: "https://www.linkedin.com/company/kingsley-engineering-service-company/",
       description: [
-        "Redesigned the corporate website to enhance user experience and SEO, resulting in approximately 45% increase in organic traffic.",
-        "Developed micro-sites, landing pages, and blogs to improve conversion rates and support marketing goals.",
-        "Created compelling social media posters and business profiles using Illustrator, Notebook, and other design tools to boost brand presence.",
-        "Delivered clean, modern UI with intuitive navigation, while executing SEO strategies to increase search visibility and drive demand generation."
+        "Redesigned the corporate website for a clearer experience and stronger SEO, growing organic traffic by about 45%.",
+        "Built micro-sites, landing pages and a blog to support marketing campaigns and lift conversions.",
+        "Led the SEO strategy that raised search visibility and drove inbound demand.",
+        "Designed social media campaigns and business profiles in Adobe Illustrator to strengthen the brand.",
       ],
-      technologies: ["Front-End Development","Web Design","WordPress","SEO","Digital Marketing","UI/UX Design"]
     }
-  ];;
+  ];
 
   return (
     <section id="experience" className="py-12 sm:py-14 lg:py-16 transition-colors duration-300">
@@ -108,9 +124,9 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <h3 className="text-slate-500 dark:text-slate-400">
+            <p className="eyebrow text-slate-500 dark:text-slate-400">
               Professional Journey
-            </h3>
+            </p>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Work Experience
             </h2>
@@ -176,12 +192,14 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                     
                     {/* Location and Type */}
                     <div className="flex flex-col gap-1">
+                      {exp.location && (
                       <div className={`flex items-center gap-2 text-sm ${
                         isDark ? 'text-gray-400' : 'text-gray-600'
                       }`}>
                         <TbLocationFilled className="w-4 h-4" />
                         <span>{exp.location}</span>
                       </div>
+                      )}
                       <div className={`flex items-center gap-2 text-sm ${
                         isDark ? 'text-gray-400' : 'text-gray-600'
                       }`}>
@@ -247,10 +265,12 @@ const Experience = ({ isDark = false }: ExperienceProps) => {
                         isDark ? 'text-gray-400' : 'text-gray-600'
                       }`}
                     >
+                      {exp.location && (
                       <div className="flex items-center gap-2 lg:justify-end">
                         <TbLocationFilled className="w-4 h-4" />
                         <span>{exp.location}</span>
                       </div>
+                      )}
                       <div className="flex items-center gap-2 lg:justify-end">
                         <MdOutlineWork className="w-4 h-4" />
                         <span>{exp.type}</span>

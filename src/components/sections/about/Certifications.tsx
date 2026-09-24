@@ -118,9 +118,9 @@ const logoBox = (logo: string) => {
 
 const Certifications = ({ isDark = false }: CertificationsProps) => {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [screenW, setScreenW] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
-  );
+  // Start from a fixed width so pre-rendered HTML matches the first client
+  // render; the real width is applied right after mount.
+  const [screenW, setScreenW] = useState(1024);
 
   const rotationRef = useRef<Timeout | null>(null);
   const touchStartX = useRef<number | null>(null);
@@ -168,6 +168,7 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
 
   useEffect(() => {
     const handler = () => setScreenW(window.innerWidth);
+    handler();
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
@@ -280,9 +281,9 @@ const Certifications = ({ isDark = false }: CertificationsProps) => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <h3 className="text-slate-500 dark:text-slate-400">
+            <p className="eyebrow text-slate-500 dark:text-slate-400">
               Professional Development
-            </h3>
+            </p>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Licenses & Certifications
             </h2>

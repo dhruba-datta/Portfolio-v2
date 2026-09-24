@@ -82,9 +82,9 @@ const Photography = () => {
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h3 className="text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
+            <p className="eyebrow text-slate-500 dark:text-slate-400 inline-flex items-center gap-2">
               Photography
-            </h3>
+            </p>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Travel Stories
             </h2>

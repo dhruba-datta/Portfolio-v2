@@ -1,14 +1,5 @@
-import {
-  Webhook,
-  FileJson,
-  Code2,
-  Send,
-  AlertTriangle,
-  Activity,
-  Filter,
-  LineChart,
-} from "lucide-react";
-import { SiN8N, SiBrevo, SiGooglesheets, SiWebflow } from "react-icons/si";
+import { Send, Activity, BellRing, Trash2, Clock, Table2 } from "lucide-react";
+import { SiN8N, SiBrevo, SiGooglesheets, SiGooglechat } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
 interface BrevoEmailMarketingPageProps {
@@ -21,153 +12,93 @@ const BrevoEmailMarketingPage = ({ isDark, toggleTheme }: BrevoEmailMarketingPag
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Brevo Email Marketing (n8n)"
-    description="Marketing teams waste hours manually managing email lists and coordinating campaigns across multiple platforms, leading to missed opportunities and inconsistent messaging. This automated email orchestration system eliminates that bottleneck entirely by intelligently syncing data between Google Sheets, Webflow CMS, and Brevo's API - transforming hours of manual list management into instant, event-driven communication that ensures every subscriber receives perfectly timed, personalized messages without any human intervention."
+    description="Outbound email only works if every contact gets the first email and the follow-ups on time, and someone keeps the list clean. This system runs that on autopilot from a Google Sheet. New contacts are added to Brevo and sent a first email, follow-ups go out on a schedule, opens and clicks are written back to the sheet, and old contacts are cleared out so the account stays within its plan. The team gets a Google Chat alert before the account runs out of sending credits."
     coverSrc="/images/projects/Brevo Email Marketing (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Brevo", icon: <SiBrevo className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Webflow", icon: <SiWebflow className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Webhook", icon: <Webhook className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Workflow JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "Google Chat", icon: <SiGooglechat className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
     ]}
-    githubUrl="https://github.com/dhruba-datta/n8n"
-    secondaryUrl="https://github.com/dhruba-datta/n8n/tree/main/Brevo%20Email%20Marketing"
-    secondaryLabel="Open Folder"
     features={[
       {
-        id: "pipeline",
-        icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "End-to-End Campaign Automation",
-        summary: "Full lifecycle management from subscriber ingestion to analytics tracking",
-        details: [
-          "Automated polling of multiple data sources (Sheets, Webflow) to detect new qualified leads",
-          "Dynamic enrichment of user profiles with behavioral tags and custom attribute mapping",
-          "Orchestrated dispatch of personalized HTML email templates via Brevo's SMTP relay",
-        ],
-      },
-      {
-        id: "integrations",
+        id: "first-email",
         icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Unified Data Ecosystem",
-        summary: "Seamless synchronization across CRM, CMS, and marketing platforms",
+        title: "First Email, Automatically",
+        summary: "Contacts added to the sheet are pushed to Brevo and emailed without anyone touching them",
         details: [
-          "Bi-directional sync with Google Sheets for real-time audience segmentation and status updates",
-          "Deep integration with Webflow CMS to pull dynamic content blocks for newsletters",
-          "Native Brevo API connectivity for high-deliverability sending and granular event tracking",
+          "New contacts are added or updated in Brevo with their name and job title",
+          "Each one gets the first email from a Brevo template",
+          "The sheet is marked as added, with the date the email was sent",
         ],
       },
       {
-        id: "blocks",
-        icon: <Code2 className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Advanced Segmentation & Logic",
-        summary: "Data-driven control flow for hyper-targeted messaging",
+        id: "follow-ups",
+        icon: <Clock className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Follow-Ups on Schedule",
+        summary: "Follow-up emails go out on weekdays to contacts who are due one",
         details: [
-          "Conditional routing logic to split audiences based on engagement scores or user attributes",
-          "Batch processing capabilities handling thousands of contacts efficiently without API timeouts",
-          "Regex-based data validation ensuring only clean, formatted email addresses enter the sending queue",
+          "Scheduled weekday runs pick up everyone due a follow-up",
+          "Sends in batches with pauses in between, to stay within Brevo's rate limits",
+          "In production, each audience segment has its own pipeline and contact list",
         ],
       },
       {
-        id: "observability",
-        icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Enterprise-Grade Reliability",
-        summary: "Production-ready error handling and execution monitoring",
+        id: "engagement",
+        icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Engagement Written Back",
+        summary: "Opens and clicks from Brevo update the sheet as they happen",
         details: [
-          "Automated error catching nodes that log failures to Slack/Telegram for immediate resolution",
-          "Idempotent workflow design preventing duplicate sends during retries or network blips",
-          "Comprehensive execution history for auditing compliance and debugging delivery issues",
+          "A Brevo webhook trigger reports engagement in real time",
+          "The contact's status in Google Sheets is updated (for example, to Clicked), so sales can see who is warm",
         ],
       },
       {
-        id: "segmentation",
-        icon: <Filter className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Behavioral Segmentation",
-        summary: "Dynamic audience splits based on engagement signals and CRM attributes",
+        id: "limits",
+        icon: <BellRing className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Credit and Limit Alerts",
+        summary: "Checks the Brevo account before sending and warns the team in Google Chat",
         details: [
-          "Real-time list segmentation driven by clicks, opens, and form-submission history",
-          "Lifecycle-stage routing (e.g. new vs. nurture vs. at-risk) that adapts the next send automatically",
-          "Reusable filter expressions pulled from a single Sheets source-of-truth so all workflows stay in sync",
+          "Warns when sending credits are nearly used up",
+          "Alerts when no more emails or contacts can be added, instead of failing silently",
         ],
       },
       {
-        id: "analytics",
-        icon: <LineChart className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Engagement Feedback Loop",
-        summary: "Captures Brevo events and writes them back into the CRM source",
+        id: "cleanup",
+        icon: <Trash2 className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "List Cleanup",
+        summary: "Scheduled jobs remove contacts who have finished the sequence",
         details: [
-          "Webhook listeners for Brevo's open / click / bounce / unsubscribe events",
-          "Engagement scores written back to Google Sheets so other workflows can act on the latest signals",
-          "Auto-suppression of hard-bounce addresses to protect sender reputation without manual cleanup",
+          "Removes finished contacts from Brevo so the account stays within its contact limit",
+          "Tidies the tracking sheet on the same schedule",
         ],
       },
     ]}
-    techSectionTitle="Nodes & Tech Used"
+    techSectionTitle="Stack"
     techItems={[
-      {
-        icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "n8n Core",
-        description: "Workflow orchestration engine managing complex data transformations and API choreography.",
-      },
-      {
-        icon: <SiBrevo className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "Brevo (Sendinblue)",
-        description: "Transactional email infrastructure providing high-deliverability SMTP services.",
-      },
-      {
-        icon: <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "Google Sheets",
-        description: "Flexible database for managing subscriber lists, campaign logs, and analytics.",
-      },
-      {
-        icon: <SiWebflow className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "Webflow CMS",
-        description: "Source of truth for dynamic content assets used in automated newsletters.",
-      },
-      {
-        icon: <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "Webhook Node",
-        description: "Real-time listener enabling instant triggers from signup forms or external apps.",
-      },
-      {
-        icon: <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
-        label: "Code Node (JS)",
-        description: "Custom Javascript logic for parsing JSON payloads and formatting HTML strings.",
-      },
+      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n", description: "Schedules, batching, waits and branching across the whole sequence." },
+      { icon: <SiBrevo className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Brevo", description: "Contacts, template emails, engagement webhooks and account limits via the API." },
+      { icon: <Table2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "The team's single view of contacts, status and send dates." },
+      { icon: <SiGooglechat className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Chat", description: "Alerts when the account is close to its sending or contact limits." },
     ]}
     useCases={[
-      "Automated weekly newsletters aggregating content from Webflow CMS and dispatching via Brevo",
-      "Intelligent lead nurturing sequences triggered by real-time updates in Google Sheets pipelines",
-      "Transactional system alerts ensuring critical notifications are delivered with high reliability",
-      "Scalable boilerplate for any email marketing workflow requiring advanced segmentation and personalization",
+      "Agencies running outreach to several industries at once",
+      "Small teams who manage leads in a spreadsheet and don't want a full CRM",
+      "Anyone on a Brevo plan with contact or sending limits to manage",
     ]}
+    howToSectionTitle="How It Works"
     howToSteps={[
-      <>
-        Open folder:&nbsp;
-        <a
-          className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600 break-words hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          href="https://github.com/dhruba-datta/n8n/tree/main/Brevo%20Email%20Marketing"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ outline: "none", boxShadow: "none" }}
-        >
-          GitHub - Brevo Email Marketing
-        </a>
-      </>,
-      <>
-        Import workflow:&nbsp;
-        In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.
-      </>,
-      <>Add credentials:&nbsp;Configure Brevo API key, Google Sheets, and Webflow API token.</>,
-      <>Set parameters:&nbsp;Define your sender identity, template IDs, and campaign tags.</>,
-      <>Enable:&nbsp;Activate the <b>Webhook</b> trigger or set up a polling schedule for new rows/items.</>,
-      <>Test:&nbsp;Trigger a manual run to send a test email to your own address and verify Brevo tracking.</>,
+      "The team adds contacts to a Google Sheet.",
+      "The workflow adds them to Brevo and sends the first email.",
+      "Follow-ups go out on weekdays in paced batches.",
+      "Opens and clicks are written back to the sheet as they happen.",
+      "Finished contacts are cleaned out, and the team is alerted before any limit is hit.",
     ]}
     contactCTA={{
-      title: "Need custom n8n automations?",
-      description: "I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Want outreach that runs itself?",
+      description: "I build email sequences on the tools you already pay for, with follow-ups, tracking and guardrails built in.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "Explore Workflows",
     }}
   />
 );

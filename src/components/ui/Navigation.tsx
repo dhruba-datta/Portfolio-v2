@@ -67,14 +67,14 @@ const Navigation = ({ isDark, toggleTheme }: NavigationProps) => {
         <div className="flex items-center justify-between h-12 md:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center focus-override">
+            <Link to="/" className="flex items-center focus-override" aria-label="Dhruba Datta — home">
               <div
                 className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center overflow-hidden border border-white/40 dark:border-white/10 bg-white dark:bg-[#0a2240] backdrop-blur-md transition-all duration-300 hover:shadow-lg"
                 style={{ boxShadow: '0 4px 24px -1px rgba(31, 38, 135, 0.12)' }}
               >
                 <img
                   src="/images/logo.svg"
-                  alt="Logo"
+                  alt=""
                   className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-lg"
                   loading="lazy"
                   decoding="async"

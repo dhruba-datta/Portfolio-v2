@@ -6,6 +6,7 @@ import Experience from '../components/sections/about/Experience';
 import Certifications from '../components/sections/about/Certifications';
 import Volunteer from '../components/sections/about/Volunteer';
 import Footer from '../components/ui/Footer';
+import Seo from '../components/ui/Seo';
 
 interface AboutPageProps {
   isDark: boolean;
@@ -15,10 +16,10 @@ interface AboutPageProps {
 const AboutPage = ({ isDark, toggleTheme }: AboutPageProps) => {
   return (
     <div className={`min-h-screen bg-white dark:bg-[#0a0f1c] transition-colors duration-300`}>
-      <title>About | Dhruba Datta</title>
-      <meta
-        name="description"
-        content="About Dhruba Datta — R&D Lead, AI engineer, and researcher building voice AI, n8n automation, and modern web platforms. Active code-bias research with University College Dublin."
+      <Seo
+        title="About | Dhruba Datta"
+        description="About Dhruba Datta: R&D Lead at Social Engagement Group and part-time Product & Operations Lead at Optify, building voice AI, LLM automation and full-stack platforms."
+        path="/about"
       />
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
 

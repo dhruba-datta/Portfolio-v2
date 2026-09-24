@@ -1,4 +1,4 @@
-import { Globe2, Smartphone, Activity, BadgeCheck, Github } from "lucide-react";
+import { Globe2, Smartphone, FileText, Activity, Github } from "lucide-react";
 import { SiHtml5, SiCss3 } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
@@ -12,12 +12,12 @@ const EasyCookingPage = ({ isDark, toggleTheme }: EasyCookingPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="EasyCooking"
-    description="Home cooks struggle to find authentic recipes from diverse cuisines while juggling messy recipe sites loaded with ads and slow load times. This streamlined cooking platform solves that by delivering curated Bengali, Chinese, and Indian recipes with distraction-free instructions that load instantly on any device - transforming kitchen chaos into confident cooking with zero distractions and recipes that are actually usable while your hands are covered in flour."
+    description="I built a recipe site with authentic Bengali, Chinese, and Indian recipes organized by cuisine. It is plain HTML and CSS with no dependencies, so it loads quickly, and it is responsive, so recipes are easy to follow on a phone in the kitchen, without ads or distractions."
     coverSrc="/images/projects/EasyCooking.webp"
     chips={[
       { name: "HTML5", icon: <SiHtml5 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "CSS3", icon: <SiCss3 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Responsive Design", icon: <Smartphone className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "Responsive", icon: <Smartphone className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Multi-Cuisine", icon: <Globe2 className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "GitHub Pages", icon: <Github className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
@@ -25,38 +25,36 @@ const EasyCookingPage = ({ isDark, toggleTheme }: EasyCookingPageProps) => (
     secondaryUrl="https://dhruba-datta.github.io/EasyCooking/"
     secondaryLabel="Check it out"
     features={[
-      { id: "multi-cuisine", icon: <Globe2 className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Multi-Cuisine Support", summary: "Extensive library of authentic recipes spanning Bengali, Chinese, and Indian culinary traditions", details: ["Dedicated, culturally distinct sections for each cuisine type providing an immersive thematic experience", "Collection of traditional and authentic recipes curated for both beginners and experienced cooks", "Seamless and intuitive navigation system allowing users to effortlessly switch between culinary regions", "Rich visual presentation showcasing the cultural diversity and vibrancy of each food category"] },
-      { id: "responsive", icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Cross-Platform Design", summary: "Fully responsive architecture ensuring a flawless reading experience on any device", details: ["Mobile-first design approach prioritizing readability and usability on smartphones and tablets", "Touch-friendly interface elements designed for easy interaction in a kitchen environment", "Consistent visual hierarchy and user experience maintained across desktops, tablets, and phones", "Optimized layout that adapts fluidly to different screen sizes without compromising content accessibility"] },
-      { id: "fullscreen", icon: <BadgeCheck className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Fullscreen Mode", summary: "Distraction-free immersive viewing mode designed specifically for active cooking sessions", details: ["Dedicated reading mode that removes UI clutter to focus purely on ingredients and instructions", "Structured step-by-step breakdown of recipes to ensure clarity and ease of following", "Typography optimized for legibility at a distance, perfect for glancing while cooking", "Enhanced visual layout that turns your device into a smart kitchen companion"] },
-      { id: "performance", icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Pure HTML/CSS Architecture", summary: "Ultra-lightweight implementation delivering instant page loads and superior performance", details: ["Zero-dependency architecture built without heavy JavaScript frameworks for maximum speed", "Minimal file sizes ensuring near-instant loading times even on slower network connections", "Semantic HTML structure providing excellent accessibility and out-of-the-box SEO optimization", "Clean, maintainable codebase that is easy to extend with new recipes or styling updates"] },
+      { id: "recipes", icon: <Globe2 className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Three Cuisines", summary: "Recipes organized by Bengali, Chinese, and Indian food", details: ["Curated traditional recipes for each cuisine", "Separate sections for easy browsing", "Each recipe with ingredients and step-by-step instructions"] },
+      { id: "mobile", icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Mobile-Friendly", summary: "Works smoothly on phones, tablets, and desktops", details: ["Responsive layout that adapts to any screen size", "Touch-friendly navigation", "Readable font sizes when cooking in the kitchen"] },
+      { id: "clean", icon: <FileText className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Distraction-Free", summary: "Just recipes, no ads or popups", details: ["Fast load times with no JavaScript dependencies", "Clear recipe layout focused on ingredients and instructions", "Clean design that stays out of the way"] },
+      { id: "semantic", icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Semantic HTML", summary: "Built with proper markup and accessibility", details: ["Semantic HTML tags for screen readers", "Good SEO structure", "Easy to maintain and extend"] },
     ]}
-    techSectionTitle="Technologies Used"
+    techSectionTitle="Stack"
     techItems={[
-      { icon: <SiHtml5 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "HTML5", description: "Semantic and accessible markup structure ensuring SEO optimization and a readable, maintainable codebase." },
-      { icon: <SiCss3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "CSS3", description: "Modern styling techniques utilizing Flexbox/Grid layouts and custom animations for a polished look." },
-      { icon: <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Responsive Design", description: "Fluid, mobile-first approach ensuring consistent rendering and usability across all devices and screen sizes." },
-      { icon: <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Multi-Cuisine Architecture", description: "Modularly organized content sections dedicated to distinct culinary styles for easy navigation." },
-      { icon: <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "GitHub Pages", description: "Reliable and free static site hosting solution with automated deployment pipelines from the repository." },
+      { icon: <SiHtml5 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "HTML5", description: "Semantic markup with proper structure for accessibility and SEO." },
+      { icon: <SiCss3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "CSS3", description: "Responsive layout with Flexbox, mobile-first design approach." },
+      { icon: <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Responsive Design", description: "Works on phones, tablets, and desktops without frameworks." },
+      { icon: <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Static Content", description: "Organized recipe files with consistent structure for each cuisine." },
+      { icon: <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "GitHub Pages", description: "Free static hosting with automatic deployment from the repo." },
     ]}
     useCases={[
-      "Ideal for home cooking enthusiasts eager to explore and master new international cuisines",
-      "A digital gateway for cultural food exploration, preserving and sharing traditional recipes",
-      "A practical, distraction-free kitchen companion for following recipes in real-time",
-      "An accessible educational resource for beginners learning the fundamentals of cooking",
-      "A clean, high-performance web template suitable for other content-focused recipe blogs",
+      "A learning project to understand HTML, CSS, and responsive design",
+      "Template for building static recipe sites without a backend",
+      "Demonstration of clean HTML and CSS practices",
     ]}
     howToSteps={[
       <>Clone:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/dhruba-datta/EasyCooking</code></>,
-      <>Open&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">index.html</code>&nbsp;in your browser</>,
-      <>Navigate through different cuisine sections</>,
-      <>Browse recipes by category (Bengali, Chinese, Indian)</>,
-      <>For development: Host locally with&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">live-server</code>&nbsp;or similar</>,
+      <>Open&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">index.html</code>&nbsp;in your browser</>,
+      <>Browse recipes organized by cuisine (Bengali, Chinese, Indian)</>,
+      <>To add recipes, edit the HTML files in the project</>,
+      <>Deploy to GitHub Pages by pushing to the repo</>,
     ]}
     contactCTA={{
-      title: "Need a high-performance web solution?",
-      description: "I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Building your first static site?",
+      description: "I help developers create fast, clean websites with HTML, CSS, and responsive design.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "View All Projects",
     }}
   />
 );

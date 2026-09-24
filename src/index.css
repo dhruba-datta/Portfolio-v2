@@ -22,8 +22,13 @@
     @apply font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold;
   }
 
-  h3 {
+  h3,
+  .eyebrow {
     @apply font-outfit text-[10px] sm:text-[11px] tracking-[0.2em] font-semibold uppercase;
+  }
+
+  .eyebrow {
+    @apply leading-normal;
   }
 
   h4 {

@@ -69,9 +69,9 @@ const Academic = ({ isDark: _isDark = false }: AcademicProps) => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <h3 className="text-slate-500 dark:text-slate-400">
+            <p className="eyebrow text-slate-500 dark:text-slate-400">
               Education
-            </h3>
+            </p>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Academic Background
             </h2>

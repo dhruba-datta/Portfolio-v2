@@ -13,9 +13,9 @@ const About = () => {
   // --- Slides ---
   const slides: Slide[] = useMemo(
     () => [
-      { src: '/images/me1.webp', caption: 'I Code', alt: 'Building things' },
-      { src: '/images/me2.webp', caption: 'I Explore', alt: 'Creative work' },
-      { src: '/images/me.webp',  caption: 'I Learn', alt: 'Learning & tinkering' },
+      { src: '/images/me1.webp', caption: 'I Code', alt: 'Dhruba Datta — I Code' },
+      { src: '/images/me2.webp', caption: 'I Explore', alt: 'Dhruba Datta — I Explore' },
+      { src: '/images/me.webp',  caption: 'I Learn', alt: 'Dhruba Datta — I Learn' },
     ],
     []
   );
@@ -103,7 +103,7 @@ const About = () => {
 
       <motion.div
         className="relative z-10 container-max-width section-padding w-full max-w-6xl mx-auto px-7 sm:px-6 md:px-6 flex-1 flex items-center justify-center"
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
@@ -122,15 +122,15 @@ const About = () => {
               >
                 More about me
               </motion.p>
-              <motion.h2
+              <motion.h1
                 initial={prefersReducedMotion || !mounted ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-slate-900 dark:text-white mt-2 sm:mt-3"
+                className="text-slate-900 dark:text-white mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl"
               >
                 I’m <span className="text-blue-600 dark:text-blue-400">Dhruba</span>
-              </motion.h2>
+              </motion.h1>
             </div>
 
             <motion.div
@@ -141,15 +141,14 @@ const About = () => {
               className="space-y-4 sm:space-y-5 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mt-6"
             >
               <p>
-                I started out in full-stack web, picked up QA automation along the way, and these days most of my work is in AI. Right now I lead R&amp;D at Social Engagement Group, build voice AI at Operavo, and work on code bias research with a professor at University College Dublin.
+                I started in full-stack web, moved into QA automation, and now spend most of my time building AI systems that real businesses depend on. At Social Engagement Group I lead R&amp;D, building LLM automation, web platforms and growth systems for the agency and its clients. Part-time, I&apos;m the Product &amp; Operations Lead at Optify Transformation Partners for its brands: Operavo, a voice AI agent that answers and books calls for real estate teams, and AllureHive, a home-décor e-commerce brand.
               </p>
               <p>
-                What I enjoy most is shipping things people actually use. Voice agents that pick up the phone, n8n workflows that handle the boring stuff, web apps that quietly do their job. Research keeps me curious; product work keeps me honest.
+                Alongside that, I've delivered platforms end to end for clients: a wholesale pharmacy system, multi-location restaurant sites and e-commerce stores. I also keep a research interest in fairness in code-generating LLMs.
               </p>
               <p>
                 Off the keyboard, I&apos;m usually behind a camera or somewhere new. Photography and travel are how I reset.
               </p>
-              <p>Eager to innovate, inspire &amp; make a meaningful impact everyday.</p>
             </motion.div>
 
             <motion.div

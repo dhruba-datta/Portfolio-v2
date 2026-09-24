@@ -1,19 +1,24 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Layers, Code2 } from 'lucide-react';
+import { Layers, Code2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projects, categories } from '../../../data/projects';
 import ProjectCard from '../../ui/ProjectCard';
 
 const VALID_CATEGORIES = ['all', 'development', 'app', 'automation'] as const;
+const PAGE_SIZE = 9;
 
 const Projects = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  // The pre-rendered HTML has no query string, so the first client render must
+  // show "All"; the ?tab= value is applied right after hydration, before paint.
+  const [hydrated, setHydrated] = useState(false);
+  useLayoutEffect(() => setHydrated(true), []);
 
   // URL is the source of truth for the active category
-  const tabParam = searchParams.get('tab');
+  const tabParam = hydrated ? searchParams.get('tab') : null;
   const activeCategory: 'all' | string = (
     tabParam && (VALID_CATEGORIES as readonly string[]).includes(tabParam) ? tabParam : 'all'
   );
@@ -25,6 +30,7 @@ const Projects = () => {
     } else {
       next.set('tab', key);
     }
+    next.delete('page'); // each tab starts on page 1
     setSearchParams(next, { replace: true });
   };
 
@@ -33,10 +39,31 @@ const Projects = () => {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  const visibleProjects =
+  // projects.ts is ordered newest → oldest, so pages run from latest to oldest work
+  const filteredProjects =
     activeCategory === 'all'
       ? projects
       : projects.filter((p) => p.category === activeCategory);
+
+  const totalPages = Math.max(1, Math.ceil(filteredProjects.length / PAGE_SIZE));
+  const pageParam = hydrated ? Number(searchParams.get('page')) : 1;
+  const currentPage = Number.isInteger(pageParam) && pageParam >= 1 ? Math.min(pageParam, totalPages) : 1;
+  const visibleProjects = filteredProjects.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const gridTopRef = useRef<HTMLDivElement>(null);
+  const goToPage = (page: number) => {
+    const next = new URLSearchParams(searchParams);
+    if (page <= 1) next.delete('page');
+    else next.set('page', String(page));
+    setSearchParams(next, { replace: true });
+    const top = gridTopRef.current;
+    if (top) {
+      window.scrollTo({
+        top: top.getBoundingClientRect().top + window.scrollY - 120,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+    }
+  };
 
   // Decorative dots for the minimal background (stable across renders)
   const bgDots = useMemo(
@@ -110,18 +137,18 @@ const Projects = () => {
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8 lg:mb-10">
-          <h3 className="text-slate-500 dark:text-slate-400">
+          <p className="eyebrow text-slate-500 dark:text-slate-400">
             Projects
-          </h3>
-          <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
+          </p>
+          <h1 className="mt-2 sm:mt-3 text-slate-900 dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
             Featured Works
-          </h2>
+          </h1>
         </div>
 
         {/* Filters */}
         <div className="flex justify-center mb-6 sm:mb-7 lg:mb-8">
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -193,11 +220,57 @@ const Projects = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-4 sm:gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div ref={gridTopRef} className="grid gap-4 sm:gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {visibleProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} priority={index < 3} />
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <nav
+            aria-label="Projects pagination"
+            className="mt-8 sm:mt-10 lg:mt-12 flex items-center justify-center gap-1.5 sm:gap-2 font-outfit"
+          >
+            <button
+              type="button"
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="Previous page"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300 disabled:opacity-40 disabled:pointer-events-none transition-colors focus-override"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+              const isCurrent = page === currentPage;
+              return (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => goToPage(page)}
+                  aria-label={`Page ${page}`}
+                  aria-current={isCurrent ? 'page' : undefined}
+                  className={`inline-flex items-center justify-center min-w-10 h-10 px-3 rounded-full text-sm font-medium transition-all focus-override ${
+                    isCurrent
+                      ? 'text-white shadow-sm ring-1 ring-inset ring-blue-300/40 dark:ring-sky-400/25 bg-gradient-to-r from-blue-600 to-indigo-600'
+                      : 'border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300'
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+            <button
+              type="button"
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              aria-label="Next page"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-sky-300 disabled:opacity-40 disabled:pointer-events-none transition-colors focus-override"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </nav>
+        )}
 
         {/* Empty state */}
         {visibleProjects.length === 0 && (

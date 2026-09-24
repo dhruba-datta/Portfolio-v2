@@ -1,4 +1,4 @@
-import { Globe2, Smartphone, FileText, Zap, Sparkles, Monitor, Accessibility } from "lucide-react";
+import { Sparkles, Smartphone, Activity, Accessibility } from "lucide-react";
 import { SiReact, SiTypescript, SiTailwindcss, SiFramer, SiVite, SiNetlify } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
@@ -12,7 +12,7 @@ const PortfolioV2Page = ({ isDark, toggleTheme }: PortfolioV2PageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Portfolio v2"
-    description="Senior developers need portfolios that demonstrate not just technical skills but modern development expertise through the portfolio itself. This advanced interactive portfolio solves that by using React 18, TypeScript, and professional animations to create an immersive experience - transforming a static resume site into a living demonstration of modern frontend mastery that immediately communicates senior-level capabilities through both content and execution."
+    description="I rebuilt my portfolio with React 18, TypeScript, and Framer Motion to showcase modern frontend skills. It features scroll-triggered animations, a dark mode, and project case studies that are both interactive and mobile-friendly. This was a milestone where I moved from a static site to a full React application."
     coverSrc="/images/projects/Portfolio v2.webp"
     chips={[
       { name: "React 18", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
@@ -20,50 +20,41 @@ const PortfolioV2Page = ({ isDark, toggleTheme }: PortfolioV2PageProps) => (
       { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Framer Motion", icon: <SiFramer className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Vite", icon: <SiVite className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Responsive", icon: <Smartphone className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
     githubUrl="https://github.com/dhruba-datta/Portfolio-v2"
-    secondaryUrl="https://dhruba-datta.netlify.app/"
-    secondaryLabel="Check it out"
     features={[
-      { id: "modern", icon: <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Modern Component Architecture", summary: "Scalable and maintainable codebase built on React 18 functional principles", details: ["Utilization of React 18 hooks and functional components for clean, declarative UI logic", "Strict TypeScript integration ensuring compile-time safety and self-documenting code", "Modular component design promoting reusability and consistent styling across all pages", "Architecture organized by feature and domain for improved long-term maintainability"] },
-      { id: "animations", icon: <SiFramer className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Professional Motion Design", summary: "High-fidelity micro-interactions and transitions powered by Framer Motion", details: ["Scroll-triggered reveal animations providing a dynamic and engaging browsing experience", "Staggered entrance effects for list items and grids to guide user attention", "Seamless page transitions and polished hover states for a premium app-like feel", "Performance-aware implementation respecting users' reduced motion preferences"] },
-      { id: "responsive", icon: <Monitor className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Adaptive Responsive Layouts", summary: "Fluid design system that ensures perfect rendering on any device or viewport", details: ["Mobile-first development methodology guaranteeing core functionality on smaller screens", "Tailwind CSS utility classes for rapid, breakpoint-specific layout adjustments", "Comprehensive dark/light mode theming with smooth, system-aware color transitions", "Rigorous testing across mobile, tablet, and desktop resolutions for visual consistency"] },
-      { id: "performance", icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />, title: "High-Performance Optimization", summary: "Engineered for speed, achieving top-tier Core Web Vitals scores", details: ["Powered by Vite for instant development server starts and optimized production bundles", "Strategic code splitting and route-based lazy loading to minimize initial payload", "Next-gen image optimization and adaptive loading strategies for rapid content paint", "Aggressive tree-shaking to eliminate unused code and keep the application lightweight"] },
-      { id: "content", icon: <FileText className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Comprehensive Content Strategy", summary: "A holistic digital presence covering all professional dimensions", details: ["Immersive hero section with animated backgrounds to make a strong first impression", "Detailed 'About' narrative covering professional experience, education, and research work", "Rich project case studies with deep dives into problem solving and tech stacks", "Interactive visualization of technical skills and proficiency levels", "Integrated photography portfolio showcasing creative interests alongside technical ones"] },
-      { id: "accessibility", icon: <Accessibility className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Accessibility & SEO Standards", summary: "Built to be inclusive and discoverable by sticking to web best practices", details: ["Strict semantic HTML hierarchy (headings, landmarks) for screen reader compatibility", "Full keyboard navigability ensuring all interactive elements are reachable without a mouse", "Comprehensive meta-tagging and Open Graph data for rich social media sharing", "SEO-forward routing and structure designed for effective search engine indexing"] },
+      { id: "components", icon: <SiReact className="w-4 sm:w-5 h-4 sm:h-5" />, title: "React Component Architecture", summary: "Organized, reusable React components with proper TypeScript types", details: ["Functional components with custom hooks for state and effects", "Component organization by feature and domain", "Type safety across all props and data", "Modular, maintainable structure"] },
+      { id: "animations", icon: <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Framer Motion Animations", summary: "Scroll-triggered reveals and smooth transitions", details: ["Staggered entrance effects for lists and grids", "Scroll-based animations that don't feel jarring", "Respects prefers-reduced-motion for accessibility"] },
+      { id: "responsive", icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Mobile-First Responsive Design", summary: "Looks good on phones, tablets, and desktops", details: ["Tailwind CSS for rapid responsive layouts", "Dark mode and light mode support", "Touch-friendly navigation"] },
+      { id: "dark-mode", icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Dark and Light Themes", summary: "System-aware color switching and manual toggle", details: ["Smooth transitions between themes", "Respects system preferences on first visit", "Manual toggle button for user choice"] },
+      { id: "accessibility", icon: <Accessibility className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Semantic HTML and SEO", summary: "Built with accessibility standards in mind", details: ["Proper heading hierarchy and landmarks", "Open Graph and meta tags for sharing", "Keyboard navigable throughout"] },
     ]}
-    techSectionTitle="Technologies Used"
+    techSectionTitle="Stack"
     techItems={[
-      { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 18", description: "Utilizing modern concurrent features, custom hooks, and functional components for a reactive UI." },
-      { icon: <SiTypescript className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "TypeScript", description: "Ensuring robust code quality through static typing, interfaces, and enhanced developer tooling support." },
-      { icon: <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Tailwind CSS", description: "Utility-first framework enabling rapid, constraint-based design implementation and effortless responsiveness." },
-      { icon: <SiFramer className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Framer Motion", description: "Production-grade animation library for complex gestures, layout transitions, and scroll effects." },
-      { icon: <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vite", description: "Next-generation frontend build tool offering HMR and optimized production builds." },
-      { icon: <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React Router", description: "Industry-standard routing solution for seamless client-side navigation in SPAs." },
-      { icon: <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Deployment Ready", description: "Configured for automated CI/CD pipelines on platforms like Netlify or Vercel." },
+      { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 18", description: "Functional components with hooks, custom hooks for reusable logic." },
+      { icon: <SiTypescript className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "TypeScript", description: "Static type checking for safer code and better IDE support." },
+      { icon: <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Tailwind CSS", description: "Utility-first CSS framework for rapid layout and responsive design." },
+      { icon: <SiFramer className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Framer Motion", description: "Animation library for scroll effects and page transitions." },
+      { icon: <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vite", description: "Fast build tool with instant dev server and optimized builds." },
+      { icon: <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Netlify", description: "Hosting with automatic deployments from GitHub." },
     ]}
     useCases={[
-      "Primary professional portfolio for senior software engineers and developers",
-      "Strategic showcase for highlighting multidisciplinary expertise (e.g., Development, QA, AI)",
-      "Robust starting template for building modern, high-performance React/TypeScript applications",
-      "Comprehensive career hub for job applications, featuring detailed case studies and CV integration",
-      "Unified personal brand platform merging technical projects with creative pursuits like photography",
-      "Centralized networking node providing easy access to social profiles and contact channels",
+      "A personal portfolio using modern React patterns and animations",
+      "Template for other developers wanting to build similar sites",
+      "Learning project to master React 18, TypeScript, and design animations",
     ]}
     howToSteps={[
       <>Clone:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/dhruba-datta/Portfolio-v2</code></>,
       <>Install dependencies:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm install</code></>,
       <>Start dev server:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm run dev</code></>,
-      <>Customize content in <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">src/components/sections/</code> and <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">src/pages/</code> directories.</>,
+      <>Edit content in <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">src/components/</code>&nbsp;and&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">src/pages/</code></>,
       <>Build for production:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm run build</code></>,
-      <>Deploy to Netlify, Vercel, or any static hosting service.</>,
     ]}
     contactCTA={{
-      title: "Need a high-performance web solution?",
-      description: "I build scalable, pixel-perfect web applications with React, TypeScript, and modern styling. Let's turn your vision into reality.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Building a React portfolio?",
+      description: "I help developers create beautiful, interactive portfolios that showcase their best work.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "View All Projects",
     }}
   />
 );

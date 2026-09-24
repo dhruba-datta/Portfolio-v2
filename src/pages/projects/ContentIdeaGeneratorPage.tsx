@@ -1,4 +1,4 @@
-import { Webhook, FileJson, Code2, Send, AlertTriangle, Activity, Layers, BadgeCheck } from "lucide-react";
+import { Table2, Lightbulb, ShieldCheck, ClipboardList } from "lucide-react";
 import { SiN8N, SiOpenai, SiGooglesheets, SiTrello } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
@@ -7,62 +7,88 @@ interface ContentIdeaGeneratorPageProps {
   toggleTheme?: () => void;
 }
 
-const N8nContentAutomationPage = ({ isDark, toggleTheme }: ContentIdeaGeneratorPageProps) => (
+const ContentIdeaGeneratorPage = ({ isDark, toggleTheme }: ContentIdeaGeneratorPageProps) => (
   <ProjectPageTemplate
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Content Idea Generator (n8n)"
-    description="Content teams waste hours brainstorming variations, writing hooks, and manually organizing ideas across disconnected tools. This AI-powered content generation engine eliminates that bottleneck by automatically transforming raw topics into fully structured content plans - complete with hooks, captions, and CTAs - and organizing them directly into Trello boards, transforming days of creative work into minutes of automated ideation."
+    description="Agencies managing social media for several clients spend hours every month coming up with post ideas that fit each client's industry, audience and rules. This workflow reads each client's brief from a Google Sheet, has GPT write three ready-to-edit post options per topic in the client's tone and within their compliance rules, and puts each idea straight onto that client's Trello backlog. The team starts the month editing drafts instead of staring at a blank page."
     coverSrc="/images/projects/Content Idea Generator (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "OpenAI", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "GPT-4o mini", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Trello", icon: <SiTrello className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Webhook", icon: <Webhook className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Workflow JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
-    githubUrl="https://github.com/dhruba-datta/n8n"
-    secondaryUrl="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation"
-    secondaryLabel="Open Folder"
     features={[
-      { id: "pipeline", icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />, title: "End-to-End Content Pipeline", summary: "Automated lifecycle from raw topic ingestion to actionable backlog items", details: ["Ingests raw thematic inputs and client-specific constraints directly from Google Sheets", "Orchestrates OpenAI API calls to brainstorm, expand, and structure three distinct content variations per topic", "Automatically populates a Trello board with structured cards, complete with hooks, captions, and CTAs"] },
-      { id: "integrations", icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Seamless Ecosystem Integration", summary: "Frictionless data synchronization between productivity tools and AI services", details: ["Bi-directional connectivity with Google Sheets for dynamic batch processing of content calendars", "Deep Trello integration facilitating automated board management, list sorting, and card labeling", "Robust OpenAI API implementation leveraging GPT models for high-quality, context-aware copy generation"] },
-      { id: "blocks", icon: <Code2 className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Modular Processing Logic", summary: "Scalable workflow architecture designed for flexibility and complex transformations", details: ["Advanced list splitting and merging logic to handle large batch operations efficiently", "Conditional validation steps ensuring only high-quality, complete concepts reach the production board", "Reusable sub-workflows enabling easy adaptation for different content formats (e.g., LinkedIn vs. Twitter)"] },
-      { id: "observability", icon: <AlertTriangle className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Operational Resilience", summary: "Enterprise-grade error handling and execution monitoring", details: ["Granular error catching mechanisms preventing API rate limits from disrupting the entire batch", "Detailed execution logs providing full traceability of every generated idea and API interaction", "Automated alerts for failed operations ensuring data integrity across the integrated stack"] },
-      { id: "multi-channel", icon: <Layers className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Multi-Channel Format Variants", summary: "One topic, platform-tuned outputs ready for LinkedIn, Twitter, blog, and beyond", details: ["Platform-specific prompt templates so each channel gets length, tone, and format that fit its native UX", "Single-topic input fans out into long-form (LinkedIn / blog) and short-form (Twitter / threads) variants in one run", "Consistent core message across formats so a campaign reads as one voice no matter where it lands", "Easy to add new channels by dropping in a new prompt template — no workflow surgery"] },
-      { id: "validation", icon: <BadgeCheck className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Structured Output Validation", summary: "Schema-checked AI output guarantees every Trello card has hook, caption, and CTA filled", details: ["JSON-schema validation gate after each AI call rejects malformed or partial generations", "Auto-retry with refined prompt if a card fails validation, preventing empty fields from reaching the board", "Clear error logging when retries are exhausted so the team knows exactly what to fix manually", "Downstream Trello integration receives clean, predictable payloads — never half-formed cards"] },
+      {
+        id: "brief",
+        icon: <Table2 className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "One Sheet Holds Every Client's Brief",
+        summary: "Account managers fill in the brief once; the workflow does the rest",
+        details: [
+          "Industry, primary service, audience, content goal, USP and call to action",
+          "Tone, content pillar, platform and content type",
+          "A compliance layer for regulated industries, such as healthcare or legal",
+        ],
+      },
+      {
+        id: "ideas",
+        icon: <Lightbulb className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Three Options per Topic",
+        summary: "GPT writes a topic and three distinct post options for each content type",
+        details: [
+          "The model writes as a copywriter for that client's industry",
+          "Every option follows the client's tone, platform and call to action",
+        ],
+      },
+      {
+        id: "compliance",
+        icon: <ShieldCheck className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Rules Built Into the Prompt",
+        summary: "Compliance and brand rules are part of every request, not an afterthought",
+        details: [
+          "Each client's compliance notes and special add-ons are passed to the model with every request",
+          "Output is structured, so the ideas are split and formatted the same way every time",
+        ],
+      },
+      {
+        id: "trello",
+        icon: <ClipboardList className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Straight Onto the Trello Backlog",
+        summary: "Each idea becomes a card on the right client's board",
+        details: [
+          "Numbered, formatted post options in the card, ready for a writer or designer to pick up",
+          "Fits the team's existing Trello process, with no new tool to learn",
+        ],
+      },
     ]}
-    techSectionTitle="Nodes & Tech Used"
+    techSectionTitle="Stack"
     techItems={[
-      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n Core", description: "Workflow automation engine managing control flow, data branching, and API orchestration." },
-      { icon: <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "OpenAI (GPT)", description: "Generative AI engine producing creative copy, headlines, and strategic content angles." },
-      { icon: <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "Structured data input layer for batch-loading topics and campaign parameters." },
-      { icon: <SiTrello className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Trello", description: "Project management destination where generated ideas are turned into actionable Kanban cards." },
-      { icon: <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Webhook Node", description: "Event receiver allowing the workflow to be triggered programmatically from external apps." },
-      { icon: <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Code Node (JS)", description: "Custom scripting block for complex JSON transformation and data payload validation." },
+      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n", description: "Loops over clients and topics and formats the output." },
+      { icon: <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "OpenAI GPT-4o mini", description: "Writes topics and post options from each client's brief." },
+      { icon: <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "The client brief database." },
+      { icon: <SiTrello className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Trello", description: "Creates a card per idea on each client's backlog." },
     ]}
     useCases={[
-      "Automated brainstorming engine generating creative angles, hooks, and call-to-actions for any topic",
-      "Batch processing system for marketing agencies managing multiple client content calendars simultaneously",
-      "Seamless bridge between strategy (spreadsheets) and execution (Trello), eliminating copy-paste fatigue",
-      "Scalable foundation for building complex AI-driven operational workflows in n8n",
+      "Social media agencies planning monthly content for many clients",
+      "Healthcare, legal and other regulated brands that need compliant copy",
+      "In-house marketing teams that want a steady supply of first drafts",
     ]}
+    howToSectionTitle="How It Works"
     howToSteps={[
-      <>Open folder:&nbsp;<a className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600 break-words hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" href="https://github.com/dhruba-datta/n8n/tree/main/Content%20Automation" target="_blank" rel="noopener noreferrer" style={{ outline: "none", boxShadow: "none" }}>GitHub - Content Automation</a></>,
-      <>Import workflow:&nbsp;In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.</>,
-      <>Add credentials:&nbsp;Configure OpenAI API key, Google Sheets service account, and Trello token/key.</>,
-      <>Set parameters:&nbsp;Define your prompt templates, target Trello lists (Backlog/To Do), and sheet range.</>,
-      <>Enable:&nbsp;Turn on the <b>Webhook</b> trigger or use a <b>Cron</b> node for scheduled batch creation.</>,
-      <>Test:&nbsp;Run with sample ideas in your sheet to verify AI output quality and card creation.</>,
+      "The team keeps each client's brief in a Google Sheet.",
+      "The workflow reads the brief and sends it to GPT with the client's rules.",
+      "GPT returns a topic and three post options.",
+      "Each idea is added as a card on the client's Trello backlog.",
     ]}
     contactCTA={{
-      title: "Need custom n8n automations?",
-      description: "I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Want a content pipeline that never runs dry?",
+      description: "I can build an idea generator around your clients' briefs and the tools your team already uses.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "Explore Workflows",
     }}
   />
 );
 
-export default N8nContentAutomationPage;
+export default ContentIdeaGeneratorPage;

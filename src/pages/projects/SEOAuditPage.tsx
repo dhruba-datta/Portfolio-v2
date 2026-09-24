@@ -1,5 +1,5 @@
-import { Globe2, Webhook, Activity, Search, Mail } from "lucide-react";
-import { SiN8N, SiGooglesheets, SiOpenai, SiGmail } from "react-icons/si";
+import { Webhook, Gauge, Sparkles, Send, Table2 } from "lucide-react";
+import { SiN8N, SiOpenai, SiGooglesheets, SiGmail, SiPagespeedinsights } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
 interface SEOAuditPageProps {
@@ -12,52 +12,84 @@ const SEOAuditPage = ({ isDark, toggleTheme }: SEOAuditPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="SEO Audit (n8n)"
-    description="Agencies struggle to demonstrate immediate value to prospective clients during initial outreach, often losing leads before the first meeting. This automated SEO audit engine solves that by instantly analyzing any website's performance, generating AI-powered professional reports, and delivering them directly to clients - transforming cold prospects into engaged leads through immediate, tangible value without any manual analysis work."
+    description="Agencies win clients by showing them a problem on their own website, but running an audit and writing it up by hand takes time for every prospect. This workflow does it the moment someone submits their site: it runs Google's PageSpeed test for performance and SEO on mobile, has GPT-4 turn the numbers into a short, plain-English audit with the top three issues and fixes, and emails it to the prospect. Every request is logged, so the sales team knows who to follow up with."
     coverSrc="/images/projects/SEO Audit (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "OpenAI", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "PageSpeed", icon: <Search className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "PageSpeed Insights", icon: <SiPagespeedinsights className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "GPT-4", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Gmail", icon: <SiGmail className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Webhook", icon: <Webhook className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
-    githubUrl="https://github.com/dhruba-datta/n8n"
-    secondaryUrl="https://github.com/dhruba-datta/n8n/tree/main/SEO%20Audit"
-    secondaryLabel="Open Folder"
     features={[
-      { id: "analysis", icon: <Activity className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Automated Performance Pipeline", summary: "High-precision website analysis using Google PageSpeed Insights API", details: ["Real-time fetching of Lighthouse mobile performance metrics for any URL via automated REST API calls", "Extraction of critical Core Web Vitals (LCP, FID, CLS) and PageSpeed scores to quantify user experience", "Deep data parsing logic that benchmarks results against industry standards to pinpoint specific latency issues"] },
-      { id: "ai", icon: <SiOpenai className="w-4 sm:w-5 h-4 sm:h-5" />, title: "AI-Powered Audit Generation", summary: "GPT-4 driven analysis transforming raw metrics into professional, persuasive reports", details: ["Intelligent interpretation of performance data by OpenAI's GPT-4 model to articulate technical findings into business value", "Generation of concise, persuasive audits designed for high-impact client presentations and sales decks", "Strategic prioritization of optimization tasks based on their projected impact on SEO rankings and conversion rates"] },
-      { id: "reporting", icon: <Mail className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Automated Gmail Reporting", summary: "Seamless delivery of professional audit results directly to clients via custom HTML templates", details: ["Dynamic creation of beautifully formatted HTML email reports with embedded performance charts and AI insights", "Automated dispatching via secure Gmail API nodes with personalized subject lines and clear Call-to-Actions (CTAs)", "Zero-touch client communication flow triggered instantly by form submissions or manual webhook pings"] },
-      { id: "logging", icon: <SiGooglesheets className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Centralized Lead Management", summary: "Production-ready tracking of audit requests and client data in Google Sheets", details: ["Persistent logging of every audit request to track lead sources and maintain a historical database of client performance", "Bi-directional synchronization of client metadata across the agency tech stack for unified lead nurturing", "Automated sheet maintenance that flags high-priority leads based on their performance scores for immediate sales follow-up"] },
+      {
+        id: "instant",
+        icon: <Webhook className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Audit on Request",
+        summary: "A website form sends the prospect's name, email and URL straight into the workflow",
+        details: [
+          "Works with any form that can post to a webhook, including a landing page or a lead magnet",
+          "No one on the team has to run the test or write the email",
+        ],
+      },
+      {
+        id: "measure",
+        icon: <Gauge className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Real Google Metrics",
+        summary: "Runs Google PageSpeed Insights for performance and SEO on mobile",
+        details: [
+          "Pulls the performance score, speed index, first contentful paint, total blocking time and layout shift",
+          "Uses Google's own numbers, so the prospect can check them for themselves",
+        ],
+      },
+      {
+        id: "write",
+        icon: <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "An Audit People Actually Read",
+        summary: "GPT-4 turns the metrics into a short, persuasive summary",
+        details: [
+          "A one-line verdict that includes the score, the three most important issues and three recommended fixes",
+          "Explains what fixing them would change for the business, and ends with a call to action",
+          "Returns structured JSON, so the email layout stays the same every time",
+        ],
+      },
+      {
+        id: "deliver",
+        icon: <Send className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Delivered by Email, Logged for Sales",
+        summary: "The prospect gets the audit in their inbox; the team gets a record",
+        details: [
+          "Sent from the agency's Gmail as a 'Performance review of your website' email",
+          "Each request is added to Google Sheets with the prospect's details for follow-up",
+        ],
+      },
     ]}
-    techSectionTitle="Nodes & Tech Used"
+    techSectionTitle="Stack"
     techItems={[
-      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n Orchestration", description: "Core engine managing the end-to-end automation from webhook trigger to final reporting." },
-      { icon: <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "HTTP Request Node", description: "Executes high-performance calls to the Google PageSpeed Insights API for real-time metrics." },
-      { icon: <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "GPT-4 Model", description: "Advanced AI model used for interpreting technical Lighthouse data into human-readable business audits." },
-      { icon: <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Gmail Integration", description: "Transactional email system for delivering personalized SEO reports directly to client inboxes." },
-      { icon: <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "Serves as a lightweight CRM and request log for long-term client tracking and pipeline monitoring." },
-      { icon: <Webhook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Webhook Node", description: "Universal entry point allowing external contact forms or apps to trigger audits instantaneously." },
+      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n", description: "Webhook, HTTP Request and Code nodes run the pipeline end to end." },
+      { icon: <SiPagespeedinsights className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "PageSpeed Insights API", description: "Google's Lighthouse test for performance and SEO on mobile." },
+      { icon: <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "OpenAI GPT-4", description: "Writes the audit summary as structured JSON." },
+      { icon: <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Gmail", description: "Sends the audit to the prospect." },
+      { icon: <Table2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "Logs every audit request for the sales team." },
     ]}
     useCases={[
-      "Automated lead generation engine delivering immediate value to prospective clients via SEO audits",
-      "Scalable performance monitoring for agency clients with weekly or monthly automated reporting",
-      "Internal technical debt auditing for development teams to maintain high Lighthouse scores at scale",
-      "Strategic sales tool for identifying and approaching businesses with underperforming website metrics",
+      "Agencies offering a free website audit as a lead magnet",
+      "Sales teams that want a reason to start a conversation with a prospect",
+      "Consultants who want to qualify a site before a discovery call",
     ]}
+    howToSectionTitle="How It Works"
     howToSteps={[
-      <>Open folder:&nbsp;<a className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600 break-words hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" href="https://github.com/dhruba-datta/n8n/tree/main/SEO%20Audit" target="_blank" rel="noopener noreferrer">GitHub - SEO Audit</a></>,
-      <>Import workflow:&nbsp;In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">SEO_Audit.json</code> file.</>,
-      <>Configure API Keys:&nbsp;Set up your <b>Google PageSpeed API</b> key, <b>OpenAI</b> credentials, and <b>Gmail OAuth2</b> permissions.</>,
-      <>Connect Trigger:&nbsp;Point your website's contact form or a custom script to the n8n <b>Webhook URL</b>.</>,
-      <>Test Pipeline:&nbsp;Perform a manual trigger with test data to verify the audit generation and email delivery flow.</>,
+      "A prospect submits their name, email and website URL through a form.",
+      "The request is logged in Google Sheets.",
+      "Google PageSpeed Insights tests the site for performance and SEO on mobile.",
+      "GPT-4 writes a short audit with the score, top issues and recommended fixes.",
+      "The audit is emailed to the prospect within minutes.",
     ]}
     contactCTA={{
-      title: "Automate your agency growth?",
-      description: "I build intelligent n8n workflows that transform technical data into high-value client experiences. Let's optimize your pipeline.",
-      primaryButtonText: "Start Automation",
-      secondaryButtonText: "View All Projects",
+      title: "Want audits that turn into leads?",
+      description: "I can set up an automated audit that runs on your own form, in your brand's voice, and feeds your sales pipeline.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "Explore Workflows",
     }}
   />
 );

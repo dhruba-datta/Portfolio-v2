@@ -7,6 +7,8 @@ import {
   LayoutDashboard,
   Lock,
   Globe2,
+  CreditCard,
+  Rocket,
 } from "lucide-react";
 import {
   SiNextdotjs,
@@ -15,6 +17,9 @@ import {
   SiTailwindcss,
   SiSupabase,
   SiVercel,
+  SiStripe,
+  SiTwilio,
+  SiN8N,
 } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
@@ -28,7 +33,7 @@ const OperavoPage = ({ isDark, toggleTheme }: OperavoPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Operavo"
-    description="Real estate teams lose qualified buyers every time a call goes to voicemail or sits in a callback queue overnight. This real-time voice AI platform eliminates that leakage entirely by answering every inbound call instantly, qualifying the buyer mid-conversation, and booking the showing on a live calendar before the caller hangs up - transforming the after-hours dead zone into a 24/7 booking engine that captures revenue while the office is closed."
+    description="Real estate teams lose buyers every time a call goes to voicemail or waits in a callback queue overnight. Operavo is a voice AI platform that answers every inbound call, qualifies the buyer during the conversation, books the showing on a live calendar and hands off to a person when needed. I lead its product and operations and work on the platform with a small team: a Next.js dashboard for workspaces and call history, Supabase auth with row-level security to keep each client's data separate, Google Calendar availability and bookings, SMS confirmations through Twilio, and n8n workflows for follow-up automation."
     coverSrc="/images/projects/Operavo.webp"
     chips={[
       { name: "Next.js 16", icon: <SiNextdotjs className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
@@ -38,7 +43,6 @@ const OperavoPage = ({ isDark, toggleTheme }: OperavoPageProps) => (
       { name: "Supabase", icon: <SiSupabase className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Voice AI", icon: <PhoneCall className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
-    githubUrl="https://github.com/OptifyLLC/Operavo"
     secondaryUrl="https://operavo.ai/"
     secondaryLabel="Check it out"
     features={[
@@ -114,6 +118,30 @@ const OperavoPage = ({ isDark, toggleTheme }: OperavoPageProps) => (
           "Full settings surface for profile, business identity, and connected accounts with safe disconnect flows",
         ],
       },
+      {
+        id: "billing-onboarding",
+        icon: <CreditCard className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Subscription Billing & Onboarding",
+        summary: "Stripe subscriptions, a full tenant lifecycle and a guided 9-step client onboarding",
+        details: [
+          "Stripe subscription billing tied to each workspace",
+          "Tenant lifecycle: provisioning → active → past-due → suspended → cancelled",
+          "9-step client onboarding flow covering calendar OAuth, agent setup and automation provisioning",
+          "n8n workflows for booking and lead qualification provisioned per client",
+        ],
+      },
+      {
+        id: "security-delivery",
+        icon: <Rocket className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Security & Delivery",
+        summary: "Hardened platform shipped in sprints with a 5-person team",
+        details: [
+          "Row-level security, webhook signature verification and encrypted OAuth tokens",
+          "Production incident diagnosis and fixes",
+          "Roadmap, sprint planning and sprint reporting from MVP to paying clients",
+          "Voice agent conversation design: qualification, booking, fallback and human handoff",
+        ],
+      },
     ]}
     techSectionTitle="Technologies Used"
     techItems={[
@@ -126,6 +154,10 @@ const OperavoPage = ({ isDark, toggleTheme }: OperavoPageProps) => (
       { icon: <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Real-Time Voice AI", description: "Low-latency voice pipeline answering inbound calls and driving qualification, booking, and handoff in one conversation." },
       { icon: <SiVercel className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vercel", description: "Production deployment with preview environments, edge runtime, and zero-config Next.js hosting." },
       { icon: <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Calendar API", description: "Live availability reads and event writes so the agent never books over an existing meeting." },
+      { icon: <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vapi", description: "Voice agent orchestration." },
+      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n", description: "Booking and lead-qualification workflows." },
+      { icon: <SiStripe className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Stripe", description: "Subscription billing." },
+      { icon: <SiTwilio className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Twilio", description: "Telephony and SMS." },
     ]}
     useCases={[
       "Real estate brokerages capturing after-hours buyer inquiries that would otherwise hit voicemail",

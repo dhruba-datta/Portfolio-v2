@@ -2,19 +2,21 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { projects } from '../../../data/projects';
+import { projects, homeFeaturedIds } from '../../../data/projects';
 import ProjectCard from '../../ui/ProjectCard';
 
 const ProjectPreview = () => {
   const prefersReducedMotion = useReducedMotion();
 
-  // Get first 6 featured projects for homepage preview
+  // Curated homepage preview, in the order set by homeFeaturedIds
   const featuredProjects = useMemo(
-    () => projects.filter((p) => p.featured).slice(0, 6),
+    () =>
+      homeFeaturedIds
+        .map((id) => projects.find((p) => p.id === id))
+        .filter((p): p is NonNullable<typeof p> => Boolean(p)),
     []
   );
 
-  // Decorative dots for the minimal background (stable across renders)
   // Decorative dots for the minimal background (stable across renders)
   const bgDots = useMemo(
     () =>
@@ -91,9 +93,9 @@ const ProjectPreview = () => {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12 text-center sm:text-left"
         >
           <div>
-            <h3 className="text-slate-500 dark:text-slate-400">
+            <p className="eyebrow text-slate-500 dark:text-slate-400">
               Featured Works
-            </h3>
+            </p>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Latest Projects
             </h2>

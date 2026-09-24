@@ -12,8 +12,7 @@ export default async (req, context) => {
     "http://localhost:5173",
     "http://localhost:8888",
     "https://dhruba-datta.com",
-    "https://dhruba-datta.netlify.app",
-    "https://dhruba-datta-portfolio.netlify.app"
+    "https://dhruba-datta.netlify.app"
   ];
 
   if (!allowedOrigins.includes(origin)) {
@@ -64,7 +63,8 @@ export default async (req, context) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Origin": "https://dhruba-datta-portfolio.netlify.app",
+        // Must be an allowed origin in the EmailJS dashboard (Account → Security)
+        "Origin": "https://dhruba-datta.netlify.app",
       },
       body: JSON.stringify(payload),
     });

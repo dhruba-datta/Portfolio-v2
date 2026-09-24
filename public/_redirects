@@ -1,3 +1,9 @@
-/*    /index.html   200
-
 /HomePage    /    301
+/projects/ab-pharmacy-orders    /projects/ab-pharmacy    301
+/projects/ab-pharmacy-expo    /projects/ab-pharmacy-app    301
+/projects/form-verification-n8n    /projects/website-lead-intake-n8n    301
+/projects/holiday-digest-n8n    /projects?tab=automation    301
+/projects/dice-job-search-n8n    /projects?tab=automation    301
+/projects/linkedin-job-search-n8n    /projects?tab=automation    301
+
+/*    /404.html   404

@@ -12,7 +12,7 @@ const SocialEngagementGroupPage = ({ isDark, toggleTheme }: SocialEngagementGrou
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Social Engagement Group"
-    description="Growing agencies lose credibility when their own website feels slow, outdated, or generic - the very problems they promise to solve for clients. This high-performance agency platform eliminates that contradiction by delivering lightning-fast loads, cinematic animations, and AI-optimized indexing that positions the agency as an undeniable leader in modern digital experiences, turning the website itself into the most powerful sales tool."
+    description="The website for Social Engagement Group, a digital marketing agency. I led its development on Next.js 15 with Turbopack, React 19, Tailwind 4, Framer Motion for scroll-linked animations, and Lenis for smooth scrolling. It features 24+ service pages with a cohesive design system, JSON-LD schema for rich search results and AI interpretation, llms.txt for AI discovery, and optimized WebP/WebM media. Images are compressed 60–80% smaller, and background videos stay under 800KB."
     coverSrc="/images/projects/Social Engagement Group.webp"
     chips={[
       { name: "Next.js 15", icon: <SiNextdotjs className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
@@ -26,12 +26,12 @@ const SocialEngagementGroupPage = ({ isDark, toggleTheme }: SocialEngagementGrou
     secondaryUrl="https://www.socialengagementgroup.com/"
     secondaryLabel="Check it out"
     features={[
-      { id: "performance", icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />, title: "High-Performance Architecture", summary: "Next.js 15 App Router with Turbopack for lightning-fast loads", details: ["Utilizes the latest Next.js 15 App Router architecture for optimized server-side rendering and static generation", "Turbopack-enabled development environment ensuring near-instantaneous hot module replacement", "Strict WebP and WebM asset compression protocols keeping media payloads under 800KB", "Optimized hydration cycles to ensure zero flickering during complex page transitions"] },
-      { id: "motion", icon: <MousePointer2 className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Immersive Motion Design", summary: "Cinematic scroll orchestrations powered by Lenis and Framer Motion 12", details: ["Integrated Lenis smooth scrolling for a premium, cinematic browsing experience", "Complex scroll-linked animations and entrance effects powered by Framer Motion 12", "Custom SVG-based liquid transitions and micro-interactions enhancing user engagement", "Orchestrated stagger effects for gallery and service grids for a polished feel"] },
-      { id: "ai-ready", icon: <Bot className="w-4 sm:w-5 h-4 sm:h-5" />, title: "AI-Ready Infrastructure", summary: "Specialized llms.txt and AI-bot friendly crawler permissions", details: ["Published a standalone llms.txt site index to assist AI models in understanding core business offerings", "Advanced robots.txt configuration explicitly authorizing and guiding major AI crawlers (GPTBot, Claude-Web)", "Semantic HTML structure and JSON-LD structured data for rich search engine and AI agent interpretation", "AI-optimized meta-tagging for contextual relevance in automated summaries"] },
-      { id: "design-system", icon: <Layout className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Enterprise Design System", summary: "Unified branding with Outfit and Playfair Display typography", details: ["Unified typography using Outfit for modern body text and Playfair Display for premium headings", "Dynamic branding logic automatically suffixing page titles for maximum brand recall", "Modular component library ensuring 100% visual consistency across 24+ service categories", "Precision-crafted HSL color palette tailored for both light and dark mode excellence"] },
-      { id: "seo-reach", icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Advanced SEO & Reach", summary: "JSON-LD schema and metadata overhaul for 24+ global routes", details: ["Implementation of multi-layered JSON-LD schema including Organization, WebSite, and ProfessionalService", "Standardized metadata orchestration for all static and dynamic routes ensuring consistent search appearance", "Automated sitemap generation with next-sitemap for high-accuracy crawler indexing", "Optimized OpenGraph and Twitter card configurations for high-impact social sharing"] },
-      { id: "asset-optimization", icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Optimized Asset Delivery", summary: "High-performance WebM (VP9) and WebP media compression", details: ["Full migration from legacy PNG/JPG formats to optimized WebP, reducing payload by up to 80%", "High-performance background video encoding using VP9 codec strictly under 800KB for instant play", "Lazy-loading strategies for non-critical images to prioritize Largest Contentful Paint (LCP)", "CSS-based mesh gradients and patterns to reduce reliance on large background images"] },
+      { id: "performance", icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />, title: "High-Performance Architecture", summary: "Next.js 15 App Router with Turbopack for fast builds", details: ["Next.js 15 App Router with static generation for every route", "Turbopack in development for instant hot reloads", "Image optimisation serving WebP and AVIF with fallbacks", "Immutable one-year cache headers on media files"] },
+      { id: "motion", icon: <MousePointer2 className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Motion Design", summary: "Scroll-linked animations powered by Lenis and Framer Motion 12", details: ["Lenis smooth scrolling throughout", "Framer Motion 12 for entrance and scroll-triggered effects", "Staggered animations on gallery and service grids", "Light/dark theme with theme init script to prevent flash"] },
+      { id: "ai-ready", icon: <Bot className="w-4 sm:w-5 h-4 sm:h-5" />, title: "AI-Ready Infrastructure", summary: "llms.txt and explicit AI crawler permissions", details: ["Published /llms.txt with service offerings and contact info", "robots.txt explicitly allows GPTBot, OAI-SearchBot and ClaudeBot", "Semantic HTML and JSON-LD structured data", "llms.txt kept in sync with sitemap"] },
+      { id: "design-system", icon: <Layout className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Design System", summary: "Unified typography and colour across all pages", details: ["Outfit for body text, Playfair Display for headings", "Dynamic page titles with brand suffix", "Modular component library", "Light and dark mode colour palettes"] },
+      { id: "seo-reach", icon: <Search className="w-4 sm:w-5 h-4 sm:h-5" />, title: "SEO and Structured Data", summary: "JSON-LD schema and metadata for 24+ routes", details: ["Organization and WebSite schema", "Per-page metadata and OpenGraph tags", "Generated sitemap with next-sitemap", "Canonical URLs"] },
+      { id: "asset-optimization", icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Media Optimization", summary: "WebP images and VP9 video with minimal file size", details: ["Full WebP and AVIF migration from PNG/JPG", "Video files stay under 800KB using VP9 codec", "Lazy-loading for non-critical images", "CSS gradients instead of background images where possible"] },
     ]}
     techSectionTitle="Technologies Used"
     techItems={[
@@ -45,12 +45,9 @@ const SocialEngagementGroupPage = ({ isDark, toggleTheme }: SocialEngagementGrou
       { icon: <Layout className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "TypeScript", description: "Strict type safety ensuring code quality and maintainability across all components." },
     ]}
     useCases={[
-      "Establishing a premium digital presence for fast-growing agencies seeking competitive edge",
-      "Achieving top-tier Lighthouse scores and Core Web Vitals through aggressive asset optimization",
-      "Increasing mobile conversion rates through cinematic smooth-scrolling UX and immersive animations",
-      "Reducing administrative burden by automating LLM-friendly content indexing for AI discovery",
-      "Building AI-ready infrastructure that ranks well in ChatGPT, Claude, and Perplexity searches",
-      "Creating scalable multi-service platforms supporting 24+ regional and category pages",
+      "Agencies that want a website showcasing their own work with modern performance and animations",
+      "Businesses with many service lines that need one unified site with consistent branding",
+      "Teams that want to be discoverable in AI chatbot searches alongside traditional SEO",
     ]}
     howToSteps={[
       <>Clone repository:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/SocialEngagementGroup/website</code></>,

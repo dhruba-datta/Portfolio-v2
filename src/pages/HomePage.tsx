@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import Navigation from '../components/ui/Navigation';
 import Hero from '../components/sections/home/Hero';
+import Seo from '../components/ui/Seo';
 
 // Lazy load heavy sections
 const TechStack = lazy(() => import('../components/sections/home/TechStack'));
@@ -22,6 +23,11 @@ const LazySection = ({ children }: { children: React.ReactNode }) => (
 const HomePage = ({ isDark, toggleTheme }: HomePageProps) => {
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a0f1c] transition-colors duration-300">
+      <Seo
+        title="Dhruba Datta | Portfolio"
+        description="Dhruba Datta, R&D Lead at Social Engagement Group and Product & Operations Lead at Optify. Builds production voice AI, LLM automation and full-stack platforms for real businesses."
+        path="/"
+      />
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
       
       <main>

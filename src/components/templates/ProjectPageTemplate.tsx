@@ -9,6 +9,7 @@ import {
   ArrowRight,
   Activity,
   FileJson,
+  FileText,
 } from "lucide-react";
 import { BsAppIndicator } from "react-icons/bs";
 import { LuSettings2 } from "react-icons/lu";
@@ -19,6 +20,7 @@ import Navigation from "../ui/Navigation";
 import Footer from "../ui/Footer";
 import ProjectCard from "../ui/ProjectCard";
 import ContactCTA from "../sections/ContactCTA";
+import Seo, { SITE_URL } from "../ui/Seo";
 import { projects } from "../../data/projects";
 
 /* ─── Types ─── */
@@ -49,6 +51,15 @@ export interface ContactCTAData {
   secondaryButtonText?: string;
 }
 
+/** Free-form narrative section (e.g. My Role, Overview, Key Findings). */
+export interface ContentSection {
+  id: string;
+  title: string;
+  icon?: ReactNode;
+  paragraphs?: ReactNode[];
+  bullets?: ReactNode[];
+}
+
 export interface TocItem {
   id: string;
   label: string;
@@ -70,13 +81,14 @@ export interface ProjectPageTemplateProps {
   secondaryUrl?: string;
   secondaryLabel?: string;
 
-  /* Sections */
-  features: Feature[];
+  /* Sections — narrative sections render first; empty lists are skipped */
+  sections?: ContentSection[];
+  features?: Feature[];
   techSectionTitle?: string;
-  techItems: TechItem[];
-  useCases: string[];
+  techItems?: TechItem[];
+  useCases?: string[];
   howToSectionTitle?: string;
-  howToSteps: ReactNode[];
+  howToSteps?: ReactNode[];
 
   /* TOC override (optional) */
   toc?: TocItem[];
@@ -97,12 +109,13 @@ const ProjectPageTemplate = ({
   githubUrl,
   secondaryUrl,
   secondaryLabel = "Open Folder",
-  features,
+  sections = [],
+  features = [],
   techSectionTitle = "Technologies Used",
-  techItems,
-  useCases,
+  techItems = [],
+  useCases = [],
   howToSectionTitle = "How to Use",
-  howToSteps,
+  howToSteps = [],
   toc: tocOverride,
   contactCTA,
 }: ProjectPageTemplateProps) => {
@@ -148,15 +161,21 @@ const ProjectPageTemplate = ({
   const [expanded, setExpanded] = useState<string | null>(features[0]?.id ?? null);
 
   /* TOC */
+  const tocIconClass = "w-3.5 sm:w-4 h-3.5 sm:h-4";
   const defaultToc: TocItem[] = [
-    { id: "highlights", label: "Feature Highlights", icon: <Activity className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "tech", label: techSectionTitle, icon: <BsAppIndicator className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "use-cases", label: "Use Cases", icon: <LuSettings2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
-    { id: "how-to", label: "How to Use", icon: <FileJson className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> },
+    ...sections.map((sec) => ({
+      id: sec.id,
+      label: sec.title,
+      icon: <FileText className={tocIconClass} />,
+    })),
+    ...(features.length ? [{ id: "highlights", label: "Feature Highlights", icon: <Activity className={tocIconClass} /> }] : []),
+    ...(techItems.length ? [{ id: "tech", label: techSectionTitle, icon: <BsAppIndicator className={tocIconClass} /> }] : []),
+    ...(useCases.length ? [{ id: "use-cases", label: "Use Cases", icon: <LuSettings2 className={tocIconClass} /> }] : []),
+    ...(howToSteps.length ? [{ id: "how-to", label: howToSectionTitle, icon: <FileJson className={tocIconClass} /> }] : []),
   ];
   const toc = tocOverride ?? defaultToc;
 
-  const [active, setActive] = useState<string>(toc[0]?.id ?? "highlights");
+  const [active, setActive] = useState<string>(toc[0]?.id ?? "");
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
   useEffect(() => {
@@ -183,7 +202,6 @@ const ProjectPageTemplate = ({
   };
 
   /* SEO metadata derived from props + project data */
-  const SITE_URL = "https://dhruba-datta.netlify.app";
   const pageTitle = `${title} | Dhruba Datta`;
   const metaDescription =
     currentProject?.tagline ?? (typeof description === "string" ? description : title);
@@ -227,25 +245,13 @@ const ProjectPageTemplate = ({
         effectiveIsDark ? " dark" : ""
       } dark:bg-[#0a0f1c] dark:text-white`}
     >
-      {/* React 19 native metadata — hoisted into <head> */}
-      <title>{pageTitle}</title>
-      <meta name="description" content={metaDescription} />
-      <meta name="keywords" content={keywords} />
-      <link rel="canonical" href={absolutePageUrl} />
-
-      {/* Open Graph */}
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content={absolutePageUrl} />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content={absoluteImageUrl} />
-
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={absolutePageUrl} />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={absoluteImageUrl} />
+      <Seo
+        title={pageTitle}
+        description={metaDescription}
+        path={location.pathname}
+        image={absoluteImageUrl}
+        type="article"
+      />
 
       {/* JSON-LD: project + breadcrumb */}
       {projectJsonLd && (
@@ -262,20 +268,36 @@ const ProjectPageTemplate = ({
       <Navigation isDark={effectiveIsDark} toggleTheme={effectiveToggleTheme} />
 
       <main className="flex-grow">
-        {/* Cover */}
-        <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 -z-10">
-          <div
-            className="absolute inset-0 bg-center bg-cover"
-            style={{ backgroundImage: `url('${coverSrc}')` }}
-          />
-          <div className="absolute inset-0 backdrop-blur-[6px] opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/5 dark:from-black/30 dark:via-transparent dark:to-black/20" />
-        </div>
+        {/* Hero: breadcrumbs + header over a faded cover image */}
+        <div className="relative isolate overflow-hidden">
+          <div aria-hidden className="absolute inset-0 -z-10 pointer-events-none">
+            {/* Soft colour wash from the cover */}
+            <img
+              src={encodeURI(coverSrc.replace(/\.webp$/, "-640.webp"))}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover scale-125 blur-3xl saturate-150 opacity-50 dark:opacity-70"
+              decoding="async"
+            />
+            {/* The cover's illustration (right side), faded into the page */}
+            <img
+              src={encodeURI(coverSrc)}
+              srcSet={`${encodeURI(coverSrc.replace(/\.webp$/, "-640.webp"))} 640w, ${encodeURI(coverSrc)} 1200w`}
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              alt=""
+              className="absolute right-0 top-0 h-full w-full lg:w-[62%] object-cover object-right opacity-25 lg:opacity-45 dark:opacity-40 lg:dark:opacity-70 [mask-image:linear-gradient(to_right,transparent_48%,black_78%),linear-gradient(to_bottom,black_55%,transparent)] [mask-composite:intersect] [-webkit-mask-composite:source-in]"
+              fetchPriority="high"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white dark:via-[#0a0f1c]/30 dark:to-[#0a0f1c]" />
+          </div>
+
+          {/* Space for the fixed navigation */}
+          <div className="h-24 sm:h-28 md:h-32" />
 
         {/* Breadcrumbs */}
         <div className="container mx-auto px-4 sm:px-5 pt-2 sm:pt-3 pb-3 sm:pb-4 max-w-6xl">
           <motion.nav
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             aria-label="Breadcrumb"
@@ -306,7 +328,7 @@ const ProjectPageTemplate = ({
 
         {/* Header */}
         <motion.header
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -318,19 +340,11 @@ const ProjectPageTemplate = ({
                 {title}
               </h1>
 
-              {/* Quick-facts strip — Year · Role · Outcome */}
-              {currentProject && (
-                <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-x-2.5 sm:gap-x-3 gap-y-1 text-xs sm:text-sm font-outfit text-gray-500 dark:text-gray-400">
-                  <span>{currentProject.year}</span>
-                  <span className="opacity-40" aria-hidden>·</span>
-                  <span>{currentProject.role}</span>
-                  {currentProject.outcome && (
-                    <>
-                      <span className="opacity-40" aria-hidden>·</span>
-                      <span>{currentProject.outcome}</span>
-                    </>
-                  )}
-                </div>
+              {/* Outcome line */}
+              {currentProject?.outcome && (
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-outfit text-gray-500 dark:text-gray-400">
+                  {currentProject.outcome}
+                </p>
               )}
 
               <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mb-3 sm:mb-4">
@@ -431,6 +445,8 @@ const ProjectPageTemplate = ({
             )}
           </div>
         </motion.header>
+          <div className="h-8 sm:h-10 md:h-12" />
+        </div>
 
         {/* Layout: main + right toc */}
         <div className="max-w-6xl mx-auto px-4 md:px-6 mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 sm:gap-10 md:gap-12 lg:gap-14">
@@ -460,7 +476,38 @@ const ProjectPageTemplate = ({
             </details>
 
             <article className="space-y-12 sm:space-y-16 md:space-y-20">
+            {/* Narrative sections (My Role, Overview, Findings…) */}
+            {sections.map((sec) => (
+              <section key={sec.id} id={sec.id} className="scroll-mt-24 sm:scroll-mt-28">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="flex items-center gap-2 mb-3 sm:mb-4"
+                >
+                  <span className="shrink-0 text-blue-500">
+                    {sec.icon ?? <FileText className="w-4 h-4 sm:w-5 sm:h-5" />}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">{sec.title}</h2>
+                </motion.div>
+                {sec.paragraphs?.map((para, i) => (
+                  <p key={i} className="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-gray-800 dark:text-gray-200">
+                    {para}
+                  </p>
+                ))}
+                {sec.bullets && sec.bullets.length > 0 && (
+                  <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base text-gray-800 dark:text-gray-200">
+                    {sec.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+
             {/* Feature Highlights */}
+            {features.length > 0 && (
             <section id="highlights" className="scroll-mt-24 sm:scroll-mt-28">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -500,7 +547,8 @@ const ProjectPageTemplate = ({
                         />
                       </motion.button>
 
-                      <AnimatePresence>
+                      {/* initial={false}: the first panel is open in the pre-rendered HTML; animating it open on load caused layout shift */}
+                      <AnimatePresence initial={false}>
                         {open && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
@@ -534,8 +582,10 @@ const ProjectPageTemplate = ({
                 })}
               </div>
             </section>
+            )}
 
             {/* Tech / Nodes */}
+            {techItems.length > 0 && (
             <section id="tech" className="scroll-mt-24 sm:scroll-mt-28">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -561,8 +611,10 @@ const ProjectPageTemplate = ({
                 ))}
               </ul>
             </section>
+            )}
 
             {/* Use Cases */}
+            {useCases.length > 0 && (
             <section id="use-cases" className="scroll-mt-24 sm:scroll-mt-28">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -580,8 +632,10 @@ const ProjectPageTemplate = ({
                 ))}
               </ul>
             </section>
+            )}
 
             {/* How to Use */}
+            {howToSteps.length > 0 && (
             <section id="how-to" className="scroll-mt-24 sm:scroll-mt-28">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -604,6 +658,7 @@ const ProjectPageTemplate = ({
                 </ol>
               </div>
             </section>
+            )}
 
             </article>
           </div>
@@ -684,7 +739,7 @@ const ProjectPageTemplate = ({
                 >
                   <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-gray-400 group-hover:-translate-x-1 group-hover:text-blue-500 transition-all" />
                   <span className="min-w-0">
-                    <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                    <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
                       Previous
                     </span>
                     <span className="block text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
@@ -701,7 +756,7 @@ const ProjectPageTemplate = ({
                   className="group inline-flex items-center gap-2 sm:gap-3 text-right min-w-0 max-w-[48%] ml-auto focus-override font-outfit"
                 >
                   <span className="min-w-0">
-                    <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                    <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
                       Next
                     </span>
                     <span className="block text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">

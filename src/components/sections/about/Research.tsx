@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { LuUsers, LuBookOpen, LuMapPin, LuExternalLink } from "react-icons/lu";
 
 interface Publication {
@@ -11,6 +12,15 @@ interface Publication {
   location: string;
   doi: string;
   status: string;
+}
+
+interface OngoingResearch {
+  id: number;
+  title: string;
+  collaborator: string;
+  status: string;
+  detail: string;
+  link?: string;
 }
 
 interface Achievement {
@@ -41,6 +51,25 @@ const publications: Publication[] = [
     doi: "10.1007/978-981-99-6550-2_5",
     status: "Published",
   },
+];
+
+const ongoingResearch: OngoingResearch[] = [
+  {
+    id: 1,
+    title: "CodeAudit-X: Bias Mitigation in Code LLMs",
+    collaborator: "University College Dublin, Ireland",
+    status: "In preparation",
+    detail: "Manuscript in preparation · 2025 – Present",
+  },
+];
+
+const researchInterests = [
+  "AI for Software Engineering",
+  "Fairness & Bias in Code LLMs",
+  "Trustworthy & Responsible AI",
+  "LLM Evaluation",
+  "Explainable AI",
+  "Computer Vision for Medical Imaging",
 ];
 
 const achievements: Achievement[] = [
@@ -76,6 +105,22 @@ const achievements: Achievement[] = [
       "Secured 1st place out of 250+ teams (DRMC National Science Festival 2016) and 3rd place out of 120 teams (SGHS Inter-School Science Festival 2016).",
     category: "competition",
     icon: "trophy",
+  },
+  {
+    id: 5,
+    title: "IELTS Academic 7.5",
+    description:
+      "Overall 7.5 (Listening 8.5, Reading 7.0, Writing 6.5, Speaking 7.0), February 2026.",
+    category: "technical",
+    icon: "language",
+  },
+  {
+    id: 6,
+    title: "International Research Collaboration",
+    description:
+      "Working with University College Dublin's School of Computer Science on bias auditing for code-generating LLMs.",
+    category: "research",
+    icon: "globe",
   },
 ];
 
@@ -131,9 +176,9 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <h3 className="text-slate-500 dark:text-slate-400">
+            <p className="eyebrow text-slate-500 dark:text-slate-400">
               Research & Recognition
-            </h3>
+            </p>
             <h2 className="mt-2 sm:mt-3 text-slate-900 dark:text-white">
               Publications & Achievements
             </h2>
@@ -292,6 +337,57 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
                 </motion.li>
               ))}
             </motion.ol>
+            {/* Ongoing Research */}
+            <h4
+              className={`font-bold mt-8 sm:mt-10 lg:mt-12 mb-3 sm:mb-4 lg:mb-5 tracking-tight flex items-center gap-2 ${
+                isDark ? "!text-white" : "text-slate-900"
+              }`}
+            >
+              Ongoing Research
+            </h4>
+            <ol className="relative border-l-4 border-blue-500/20 dark:border-blue-500/20 mt-2 space-y-4 sm:space-y-5 lg:space-y-6 ml-2 sm:ml-0">
+              {ongoingResearch.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative pl-6 sm:pl-7"
+                >
+                  <span className="absolute left-[-6px] sm:left-[-8px] top-2 w-2 sm:w-3 h-2 sm:h-3 rounded-full shadow-md bg-blue-500 dark:bg-blue-400" />
+                  <h4 className="text-base sm:text-base lg:text-lg font-bold mb-2 sm:mb-3 leading-tight text-blue-600 dark:text-blue-400">
+                    {item.link ? (
+                      <Link to={item.link} className="hover:underline focus-override">
+                        {item.title}
+                      </Link>
+                    ) : (
+                      item.title
+                    )}
+                  </h4>
+                  <div
+                    className={`flex items-start gap-2 text-xs sm:text-xs lg:text-sm mb-3 ${
+                      isDark ? "text-gray-200" : "text-gray-700"
+                    }`}
+                  >
+                    <LuUsers className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gray-400 mt-px sm:mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium mr-1.5">With:</span>
+                      <span>{item.collaborator}</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2">
+                    <span className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-xs font-semibold rounded-full bg-amber-50 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-200/70 dark:border-amber-400/30">
+                      {item.status}
+                    </span>
+                    <span className="text-xs sm:text-xs text-slate-500 dark:text-slate-400">
+                      {item.detail}
+                    </span>
+                  </div>
+                </motion.li>
+              ))}
+            </ol>
+
             <div className="mt-6 sm:mt-8 lg:mt-12 hidden sm:block">
               <h4
                 className={`font-bold mb-2 sm:mb-3 ${
@@ -300,40 +396,15 @@ const ResearchAndAchievements = ({ isDark = false }: ResearchProps) => {
               >
                 Research Interests
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-4 lg:gap-x-4 gap-y-1.5 sm:gap-y-2 lg:gap-y-3">
-                {[
-                  {
-                    id: 1,
-                    area: "Artificial Intelligence",
-                  },
-                  {
-                    id: 2,
-                    area: "Machine Learning",
-                  },
-                  {
-                    id: 5,
-                    area: "Generative AI",
-                  },
-                  {
-                    id: 3,
-                    area: "Computer Vision",
-                  },
-                  {
-                    id: 4,
-                    area: "Large Language Models",
-                  },
-                  {
-                    id: 6,
-                    area: "Natural Language Processing",
-                  },
-                ].map((interest) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 sm:gap-x-4 lg:gap-x-6 gap-y-1.5 sm:gap-y-2 lg:gap-y-3">
+                {researchInterests.map((area) => (
                   <div
-                    key={interest.id}
+                    key={area}
                     className="flex items-center gap-2 sm:gap-3"
                   >
                     <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-500 dark:bg-blue-400 flex-shrink-0" />
-                    <p className="whitespace-nowrap text-sm sm:text-base text-slate-600 dark:text-slate-300">
-                      {interest.area}
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+                      {area}
                     </p>
                   </div>
                 ))}

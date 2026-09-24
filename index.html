@@ -2,53 +2,62 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Explicit Consent -->
-    <script src="/gtm.js"></script>
+    <script src="/gtm.js" defer></script>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <meta
-      name="description"
-      content="Dhruba Datta — R&D Lead, AI Engineer & Researcher. Building voice AI, n8n automation, and modern web platforms. Active code-bias research with University College Dublin."
-    />
     <meta name="author" content="Dhruba Datta" />
     <meta
       name="keywords"
-      content="ai engineer, voice ai, n8n automation, r&d lead, code bias research, react developer, typescript, full stack developer, portfolio"
+      content="ai engineer, product lead, full-stack developer, voice ai, llm automation, n8n, supabase, next.js, dhruba datta"
     />
+
+    <!--
+      Home-page defaults. Tags marked data-default are replaced per route:
+      by the pre-render script at build time and by <Seo> on the client.
+    -->
+    <title data-default>Dhruba Datta | Portfolio</title>
+    <meta data-default name="description" content="Dhruba Datta, R&amp;D Lead at Social Engagement Group and Product &amp; Operations Lead at Optify. Builds production voice AI, LLM automation and full-stack platforms for real businesses." />
+    <link data-default rel="canonical" href="https://dhruba-datta.netlify.app/" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://dhruba-datta-portfolio.netlify.app/"
-    />
-    <meta
-      property="og:title"
-      content="Dhruba Datta — R&D Lead · AI Engineer · Researcher"
-    />
-    <meta
-      property="og:description"
-      content="Portfolio of voice AI, n8n automation, and modern web platforms — plus active code-bias research with University College Dublin."
-    />
-    <meta property="og:image" content="/images/Headshot.webp" />
+    <meta data-default property="og:type" content="website" />
+    <meta data-default property="og:url" content="https://dhruba-datta.netlify.app/" />
+    <meta data-default property="og:title" content="Dhruba Datta | Portfolio" />
+    <meta data-default property="og:description" content="Dhruba Datta, R&amp;D Lead at Social Engagement Group and Product &amp; Operations Lead at Optify. Builds production voice AI, LLM automation and full-stack platforms for real businesses." />
+    <meta data-default property="og:image" content="https://dhruba-datta.netlify.app/images/Headshot.webp" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://dhruba-datta-portfolio.netlify.app/"
-    />
-    <meta
-      property="twitter:title"
-      content="Dhruba Datta — R&D Lead · AI Engineer · Researcher"
-    />
-    <meta
-      property="twitter:description"
-      content="Portfolio of voice AI, n8n automation, and modern web platforms — plus active code-bias research with University College Dublin."
-    />
-    <meta property="twitter:image" content="/images/Headshot.webp" />
+    <meta data-default name="twitter:card" content="summary_large_image" />
+    <meta data-default name="twitter:url" content="https://dhruba-datta.netlify.app/" />
+    <meta data-default name="twitter:title" content="Dhruba Datta | Portfolio" />
+    <meta data-default name="twitter:description" content="Dhruba Datta, R&amp;D Lead at Social Engagement Group and Product &amp; Operations Lead at Optify. Builds production voice AI, LLM automation and full-stack platforms for real businesses." />
+    <meta data-default name="twitter:image" content="https://dhruba-datta.netlify.app/images/Headshot.webp" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dhruba Datta",
+        "url": "https://dhruba-datta.netlify.app/",
+        "image": "https://dhruba-datta.netlify.app/images/Headshot.webp",
+        "jobTitle": "Research & Development Lead",
+        "worksFor": [
+          { "@type": "Organization", "name": "Social Engagement Group" },
+          { "@type": "Organization", "name": "Optify Transformation Partners" }
+        ],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Delhi Technological University" },
+        "knowsAbout": ["Voice AI", "Large Language Models", "AI for Software Engineering", "Full-Stack Development", "Workflow Automation", "Product Management"],
+        "sameAs": [
+          "https://www.linkedin.com/in/dhruba-datta/",
+          "https://github.com/dhruba-datta",
+          "https://scholar.google.co.uk/citations?user=RGxdIVkAAAAJ",
+          "https://leetcode.com/u/dhruba-datta/"
+        ]
+      }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="/images/Headshot.webp" />
@@ -62,7 +71,6 @@
       media="print"
       onload="this.media='all'"
     />
-    <title>Dhruba Datta | Portfolio</title>
   </head>
 
   <body>

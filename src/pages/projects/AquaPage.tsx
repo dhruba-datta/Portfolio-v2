@@ -4,7 +4,6 @@ import {
   Layout,
   Zap,
   Menu,
-  Briefcase,
   Smartphone,
 } from "lucide-react";
 import {
@@ -26,7 +25,7 @@ const AquaPage = ({ isDark, toggleTheme }: AquaPageProps) => (
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Aqua Innovations"
-    description="Modern agencies struggle to win premium clients when their own website looks like every other template-built portfolio. This high-end agency platform solves that by combining momentum-based smooth scrolling, GSAP-powered cinematic transitions, and a transformative slide-out navigation - turning the website itself into a portfolio piece that signals quality before a prospect ever reads a word of copy."
+    description="I built a modern agency website for Aqua that combines smooth scrolling with GSAP animations and a slide-out navigation menu. The site uses modular page sections so the layout can be recomposed for different pitches and case studies, responsive typography for any screen size, and Lenis smooth scroll with GSAP entrance animations for a polished feel."
     coverSrc="/images/projects/Aqua.webp"
     chips={[
       { name: "React 19", icon: <SiReact className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
@@ -41,110 +40,93 @@ const AquaPage = ({ isDark, toggleTheme }: AquaPageProps) => (
     secondaryLabel="Check it out"
     features={[
       {
-        id: "fluid-motion",
+        id: "scroll-animation",
         icon: <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Fluid Motion & Momentum Scroll",
-        summary: "Cinematic 'quiet luxury' feel powered by GSAP and Lenis",
+        title: "Smooth Scroll & Entrance Animations",
+        summary: "Momentum-based scrolling with GSAP-driven reveals",
         details: [
-          "Lenis momentum-based smooth scrolling delivering the buttery, physics-driven scroll prospects expect from premium agencies",
-          "GSAP-driven entrance animations for hero headings, statements, and section reveals tuned to a calm 'quiet luxury' cadence",
-          "Interactive hero mouse trail that spawns rotating image cards as the visitor explores, creating a tactile first impression",
-          "Carefully orchestrated reveal sequences across Statement, Industries, and Approach sections for a consistent rhythm",
+          "Lenis smooth scroll providing momentum-based scrolling across the site",
+          "GSAP animations for hero headings, section reveals, and element entrances",
+          "Mouse trail on the hero section that disables on touch devices",
+          "Staggered animations across Statement, Industries, and Approach sections",
         ],
       },
       {
         id: "navigation",
         icon: <Menu className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Transformative Slide-Out Navigation",
-        summary: "Scaling-origin menu transition that feels native, not bolted-on",
+        title: "Slide-Out Navigation Menu",
+        summary: "Custom menu using transform-origin for the opening animation",
         details: [
-          "Custom slide-out menu using scaling-origin transforms for a cinematic, app-like opening sequence",
-          "Smooth route transitions across Home, Privacy, Terms, and Legal pages without jarring page swaps",
-          "Sticky GET STARTED CTA persisting in the top-right so the conversion path is always one tap away",
-          "Touch-optimized interactions ensuring the same premium feel on mobile and desktop",
+          "Slide-out menu triggered from the top-right, with a custom transform-origin animation",
+          "Route transitions across Home, Privacy, Terms, and Legal pages",
+          "Sticky GET STARTED CTA button in the top-right corner",
+          "Responsive design with mobile-optimized touch interactions",
         ],
       },
       {
         id: "section-system",
         icon: <Layout className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Modular Section-Driven Layout",
-        summary: "A library of pre-styled blocks ready to recompose for any pitch",
+        title: "Modular Section Components",
+        summary: "Pre-built sections that compose the page",
         details: [
-          "Rich suite of modular sections: Statement, Services, Industries, Why Aqua, Approach, Portfolio, Testimonials, Team, Clients, Marquee, and Contact",
-          "Each block is self-contained so the homepage narrative can be reordered without touching styles or layout primitives",
-          "Consistent type system (uppercase eyebrows, large display headings, subtle micro-copy) bonded across every section",
-          "Responsive scaling using clamp-based fluid typography so the design holds up from 360px phones to 4K displays",
-        ],
-      },
-      {
-        id: "performance",
-        icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Lightning-Fast Performance",
-        summary: "React 19 + Vite 7 with a deliberately minimal bundle footprint",
-        details: [
-          "React 19 concurrent rendering keeping the hero animation, mouse trail, and scroll effects buttery even on mid-tier hardware",
-          "Vite 7 build pipeline producing tightly tree-shaken bundles for fast first paint and instant route switches",
-          "Hero background blur and overlay handled in CSS to avoid expensive runtime image processing",
-          "Lazy-mounted trail items that auto-clean after their fade so memory stays flat during long scroll sessions",
-        ],
-      },
-      {
-        id: "design-system",
-        icon: <Briefcase className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Premium Agency Design System",
-        summary: "Tailwind CSS v4 utility system tuned for high-end brand work",
-        details: [
-          "Tailwind CSS v4 with custom fluid typography utilities and brand-aligned color tokens for absolute design flexibility",
-          "Hover states across Industries and Why Aqua cards using a signature cyan accent that locks in the Aqua identity",
-          "Aspect-locked imagery and consistent radii across portfolio thumbnails for a cohesive editorial feel",
-          "Dedicated Privacy, Terms, and Legal pages styled to match the marketing pages — no template-looking footer routes",
+          "Reusable sections: Statement, Industries, Approach, Portfolio, Testimonials, Team, and Contact",
+          "Each section is self-contained so the page can be recomposed by changing section order",
+          "Consistent typography system with fluid sizing across all screen sizes",
+          "Unified color and spacing system across sections",
         ],
       },
       {
         id: "responsive",
         icon: <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />,
-        title: "Responsive Across Every Device",
-        summary: "From 360px phones to ultrawide monitors without breakpoints showing",
+        title: "Responsive Across Devices",
+        summary: "Works on mobile, tablet, and desktop screens",
         details: [
-          "Mobile-first layouts collapsing the slide-out menu, hero copy, and section grids without losing the cinematic feel",
-          "Mouse-trail interaction gracefully disabled on touch devices in favor of the tap-driven navigation flow",
-          "Contact form and CTAs sized for thumb reach so mobile prospects convert as easily as desktop ones",
-          "Tested across breakpoints with fluid clamp-based typography so headlines never overflow or truncate awkwardly",
+          "Mobile-first layout with the slide-out menu collapsing to a drawer on small screens",
+          "Fluid typography using CSS clamp so text scales smoothly from 360px phones to 4K displays",
+          "Touch-optimized buttons and CTAs with appropriate spacing for thumb reach",
+          "Mouse trail disabled on touch devices to avoid layout shifts",
+        ],
+      },
+      {
+        id: "performance",
+        icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Fast Load Performance",
+        summary: "Optimized bundle and rendering",
+        details: [
+          "React 19 with concurrent rendering for smooth animations",
+          "Vite 7 build pipeline with tree-shaking for a minimal bundle size",
+          "Background blur and overlays handled in CSS, not JavaScript",
+          "Lazy initialization of animations and interactive elements",
         ],
       },
     ]}
-    techSectionTitle="Technologies Used"
+    techSectionTitle="Stack"
     techItems={[
-      { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 19", description: "Latest concurrent features driving the hero mouse trail, animated reveals, and route transitions." },
-      { icon: <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vite 7", description: "Modern build tooling delivering instant HMR in development and tightly tree-shaken production bundles." },
-      { icon: <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Tailwind CSS 4", description: "Utility-first framework powering the fluid typography, responsive grid, and brand color system." },
-      { icon: <SiGreensock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "GSAP", description: "Production-grade animation library orchestrating the hero entrance, scroll reveals, and mouse-trail choreography." },
-      { icon: <MousePointer2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Lenis Smooth Scroll", description: "Momentum-based scrolling library giving the entire site its signature cinematic, physics-driven feel." },
-      { icon: <Menu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React Router 7", description: "Client-side routing across Home, Privacy, Terms, and Legal pages with seamless transitions." },
-      { icon: <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Component Architecture", description: "Reusable section components (Statement, Industries, Portfolio, Team, Testimonials) for rapid recomposition." },
-      { icon: <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Netlify", description: "Production deployment with instant cache invalidation and global CDN delivery." },
+      { icon: <SiReact className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React 19", description: "Component framework with concurrent rendering for smooth animations and transitions." },
+      { icon: <SiVite className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Vite 7", description: "Build tool for fast development and optimized production bundles." },
+      { icon: <SiTailwindcss className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Tailwind CSS 4", description: "Utility-first CSS framework for responsive design and fluid typography." },
+      { icon: <SiGreensock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "GSAP", description: "Animation library for entrance effects and section reveals." },
+      { icon: <MousePointer2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Lenis", description: "Smooth scroll library with momentum-based scrolling." },
+      { icon: <Menu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "React Router 7", description: "Client-side routing for page navigation." },
+      { icon: <SiNetlify className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Netlify", description: "Hosting with continuous deployment and global CDN." },
     ]}
     useCases={[
-      "Boutique digital agencies needing a homepage that signals premium pricing before the first conversation",
-      "Creative studios pitching brand, web, and product clients with one cohesive editorial-feel narrative",
-      "Freelancers wanting a portfolio framework that doesn't look like every Figma template on the market",
-      "Established agencies refreshing an outdated site with a cinematic motion layer without rebuilding from scratch",
-      "Architecture, interior, and luxury services brands where visual storytelling is the entire sales pitch",
-      "Small teams needing a modular section library so new case studies and offers can be added in minutes",
-      "Anyone who wants Lenis smooth-scrolling and GSAP motion patterns referenced as a working production starter",
+      "Digital agencies and creative studios wanting a portfolio site with custom animations",
+      "Freelancers needing a modular section-based homepage they can quickly adapt",
+      "Teams that want smooth scroll and entrance animations without building from scratch",
     ]}
+    howToSectionTitle="Deploy It"
     howToSteps={[
-      <>Clone repository:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/dhruba-datta/Aqua</code></>,
-      <>Install dependencies:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm install</code></>,
-      <>Start dev server:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm run dev</code>&nbsp;and open <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">http://localhost:5173</code>.</>,
-      <>Production build:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm run build</code></>,
-      <>Deploy:&nbsp;Drag the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">dist</code> folder to <b>Netlify</b> or connect the repository for automated continuous deployment.</>,
+      <>Clone:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">git clone https://github.com/dhruba-datta/Aqua</code></>,
+      <>Install:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm install</code></>,
+      <>Run dev:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm run dev</code>&nbsp;at <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">localhost:5173</code></>,
+      <>Build & deploy:&nbsp;<code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded border border-blue-200 dark:border-gray-600">npm run build</code>&nbsp;then push <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">dist</code> to Netlify</>,
     ]}
     contactCTA={{
-      title: "Need an agency-grade website that converts?",
-      description: "I design and build premium, motion-rich web experiences for studios and creative brands. Let's talk about elevating yours.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Need a site with smooth animations and custom interactions?",
+      description: "I build portfolio and marketing sites with GSAP, Lenis, and modular components that you can customize.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "View All Projects",
     }}
   />
 );

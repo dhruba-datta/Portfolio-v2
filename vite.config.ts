@@ -8,13 +8,14 @@ const commitYear = execSync("git log -1 --format=%cd --date=format:%Y")
   .trim();
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   define: {
     __LAST_UPDATE_YEAR__: JSON.stringify(commitYear),
   },
   plugins: [
     react(),
-    ViteImageOptimizer({
+    // Images only need optimising once, in the client build
+    !isSsrBuild && ViteImageOptimizer({
       png: {
         quality: 80,
       },
@@ -51,14 +52,16 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-icons': ['react-icons', 'lucide-react'],
-        },
-      },
+      output: isSsrBuild
+        ? {}
+        : {
+            manualChunks: {
+              'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+              'vendor-motion': ['framer-motion'],
+              'vendor-icons': ['react-icons', 'lucide-react'],
+            },
+          },
     },
     chunkSizeWarningLimit: 600,
   },
-});
+}));

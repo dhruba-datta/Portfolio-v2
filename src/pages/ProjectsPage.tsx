@@ -1,6 +1,7 @@
 import Navigation from '../components/ui/Navigation';
 import Projects from '../components/sections/project/Projects';
 import Footer from '../components/ui/Footer';
+import Seo from '../components/ui/Seo';
 
 interface ProjectsPageProps {
   isDark: boolean;
@@ -10,10 +11,10 @@ interface ProjectsPageProps {
 const ProjectsPage = ({ isDark, toggleTheme }: ProjectsPageProps) => {
   return (
     <div className={`min-h-screen flex flex-col bg-white dark:bg-[#0a0f1c] transition-colors duration-300`}>
-      <title>Projects | Dhruba Datta</title>
-      <meta
-        name="description"
-        content="A curated catalog of web platforms, mobile apps, and n8n automations Dhruba Datta has shipped — case studies for each."
+      <Seo
+        title="Projects | Dhruba Datta"
+        description="Case studies from Dhruba Datta: voice AI and LLM automation, client web platforms, e-commerce, and n8n workflows."
+        path="/projects"
       />
       <Navigation isDark={isDark} toggleTheme={toggleTheme} />
 

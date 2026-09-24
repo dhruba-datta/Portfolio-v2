@@ -7,7 +7,7 @@ export interface Project {
   /** Full problem-solution-impact paragraph shown on detail pages. */
   description: string;
   image: string;
-  /** Year shipped (4-digit). Shown in detail-page quick-facts strip. */
+  /** Year shipped (4-digit). Used for ordering only; not displayed. */
   year: string;
   /** My role on the project (e.g. "Lead Engineer", "Solo Developer"). */
   role: string;

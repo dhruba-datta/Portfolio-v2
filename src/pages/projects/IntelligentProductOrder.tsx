@@ -1,5 +1,5 @@
-import { FileJson, Brain, Database, ListTodo, Zap } from "lucide-react";
-import { SiN8N, SiOpenai, SiGooglesheets, SiGmail } from "react-icons/si";
+import { Inbox, Sparkles, PackageCheck, ClipboardList, ListTodo, Table2 } from "lucide-react";
+import { SiN8N, SiOpenai, SiGmail, SiGooglesheets } from "react-icons/si";
 import ProjectPageTemplate from "../../components/templates/ProjectPageTemplate";
 
 interface IntelligentProductOrderPageProps {
@@ -12,52 +12,84 @@ const IntelligentProductOrderPage = ({ isDark, toggleTheme }: IntelligentProduct
     isDark={isDark}
     toggleTheme={toggleTheme}
     title="Intelligent Product Order (n8n)"
-    description="E-commerce teams drown in email orders, manually copying product details into spreadsheets and task managers while risking costly errors. This AI-powered order automation system eliminates that bottleneck by using GPT to extract order details from emails, verify inventory availability, and automatically create Monday.com tasks - transforming chaotic inbox management into a streamlined fulfillment pipeline that reduces manual data entry by over 90 percent."
+    description="Many businesses still take orders by email, and someone has to read each one, find the product and copy the details into the team's task board. This workflow watches the inbox, has an AI model pull the order out of the email as structured data, matches it against the product catalogue, and creates a ready-to-work item on Monday.com with the customer, product, quantity, delivery date and priority. Inquiries and issues are recognised and kept out of the order queue."
     coverSrc="/images/projects/Intelligent Product Order (n8n).webp"
     chips={[
       { name: "n8n", icon: <SiN8N className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "OpenAI", icon: <SiOpenai className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Gmail", icon: <SiGmail className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+      { name: "Google Sheets", icon: <SiGooglesheets className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
       { name: "Monday.com", icon: <ListTodo className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
-      { name: "JSON", icon: <FileJson className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
     ]}
-    githubUrl="https://github.com/dhruba-datta/n8n"
-    secondaryUrl="https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order"
-    secondaryLabel="Open Folder"
     features={[
-      { id: "product-sync", icon: <Database className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Product Data Sync", summary: "Automated catalog synchronization from distributed external sources", details: ["Aggregates product metadata from disparate JSON endpoints (e.g., GitHub Gists) into a unified schema", "Performs intelligent upserts into Google Sheets, ensuring pricing and inventory data is always current", "Establishes a single source of truth for downstream validation logic"] },
-      { id: "smart-processing", icon: <Brain className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Smart Order Processing", summary: "AI-powered parsing of unstructured natural language orders", details: ["Leverages OpenAI (GPT-3.5) to interpret free-form email bodies, extracting intent, product IDs, and quantities", "Implements fuzzy matching logic to correlate customer requests with exact SKU codes", "Automatically filters out non-transactional inquiries to focus solely on actionable revenue opportunities"] },
-      { id: "task-automation", icon: <ListTodo className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Task Automation", summary: "Seamless orchestration of cross-platform fulfillment workflows", details: ["Instantly generates detailed Monday.com items for verified orders, complete with customer context", "Maps extracted data fields to specific board columns for immediate team visibility", "Appends formatted update logs to each item, preserving the original communication trail for auditability"] },
-      { id: "integration-logic", icon: <Zap className="w-4 sm:w-5 h-4 sm:h-5" />, title: "Integration Logic", summary: "Robust data validation and error-resilient architecture", details: ["Bi-directional verification ensuring only orders for valid, in-stock products are processed", "Granular error routing to flag ambiguous or incomplete orders for manual review", "Idempotent design principles to prevent duplicate tasks from generated from the same email thread"] },
+      {
+        id: "inbox",
+        icon: <Inbox className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Watches the Order Inbox",
+        summary: "New emails are picked up every minute",
+        details: [
+          "Spam and trash are ignored",
+          "Customers keep ordering the way they already do, with no new portal or form",
+        ],
+      },
+      {
+        id: "extract",
+        icon: <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "AI Reads the Email",
+        summary: "An OpenAI model turns free-text emails into a strict order record",
+        details: [
+          "Extracts intent (order, inquiry, issue), product ID or name, quantity, delivery date, customer, address and phone",
+          "Converts written dates like 'next Friday' into a proper date",
+          "Marks the order high priority when the email says urgent or ASAP",
+        ],
+      },
+      {
+        id: "catalogue",
+        icon: <PackageCheck className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Checked Against the Catalogue",
+        summary: "The product is looked up before anything is created",
+        details: [
+          "A separate pipeline pulls the product catalogue from an API, page by page, into Google Sheets",
+          "Each order is matched to the catalogue by product ID, so the task carries the right product details",
+        ],
+      },
+      {
+        id: "monday",
+        icon: <ClipboardList className="w-4 sm:w-5 h-4 sm:h-5" />,
+        title: "Ready-to-Work Monday.com Item",
+        summary: "Only real orders reach the board, fully filled in",
+        details: [
+          "Creates an item with the order details mapped to the board's columns",
+          "Adds an update with the full order context for whoever picks it up",
+          "Emails classified as inquiries or issues don't create order items",
+        ],
+      },
     ]}
-    techSectionTitle="Nodes & Tech Used"
+    techSectionTitle="Stack"
     techItems={[
-      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n Core", description: "Workflow orchestration engine managing complex data transformations and API choreography." },
-      { icon: <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "OpenAI (GPT-3.5)", description: "Natural Language Processing engine capable of extracting structured JSON from free-text emails." },
-      { icon: <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Gmail", description: "Event-driven trigger source monitoring specific inboxes for new customer correspondence." },
-      { icon: <SiGooglesheets className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "Relational database layer acting as the master product catalog and order validator." },
-      { icon: <ListTodo className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Monday.com", description: "Collaborative work OS where raw orders are converted into trackable fulfillment tasks." },
+      { icon: <SiN8N className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "n8n", description: "Email trigger, parsing, lookups and branching logic." },
+      { icon: <SiOpenai className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "OpenAI", description: "Extracts the order from the email as validated JSON." },
+      { icon: <SiGmail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Gmail", description: "The inbox the workflow watches for orders." },
+      { icon: <Table2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Google Sheets", description: "Product catalogue kept in sync from the product API." },
+      { icon: <ListTodo className="w-3.5 h-3.5 sm:w-4 sm:h-4" />, label: "Monday.com", description: "Order items and updates for the fulfilment team." },
     ]}
     useCases={[
-      "Automating e-commerce order entry from legacy email-based ordering systems",
-      "Synchronizing distributed inventory data from multiple suppliers into a central dashboard",
-      "Reducing customer service response times by instantly routing valid orders to warehouse teams",
-      "Scaling fulfillment operations without increasing administrative headcount",
+      "Wholesalers and distributors who receive orders by email",
+      "Pharmacies and suppliers that need orders on a shared board fast",
+      "Any team copying details from emails into a project tool by hand",
     ]}
+    howToSectionTitle="How It Works"
     howToSteps={[
-      <>Open folder:&nbsp;<a className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600 break-words hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" href="https://github.com/dhruba-datta/n8n/tree/main/Intelligent%20Product%20Order" target="_blank" rel="noopener noreferrer" style={{ outline: "none", boxShadow: "none" }}>GitHub - Intelligent Product Order</a></>,
-      <>Import workflow:&nbsp;In n8n go to <b>Workflows → Import</b> and upload the <code className="text-xs sm:text-sm bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded border border-blue-200 dark:border-gray-600">.json</code> file.</>,
-      <>Configure Credentials:&nbsp;Set up OAuth2 for Google Sheets, Gmail, and Monday.com, and add your OpenAI API key.</>,
-      <>Customize Google Sheets:&nbsp;Ensure your sheet has columns for `ID`, `Name`, `Price`, and `Category` and update the Sheet ID in the nodes.</>,
-      <>Configure Monday.com:&nbsp;Update the Board ID and Group ID in the Monday.com nodes to match your workflow.</>,
-      <>Run:&nbsp;Manually sync the product catalog, then activate the workflow to start monitoring for email orders.</>,
+      "A customer emails an order the way they always have.",
+      "The AI model pulls out the product, quantity, date, customer and priority.",
+      "The product is matched against the catalogue.",
+      "A Monday.com item is created with every detail the team needs.",
     ]}
     contactCTA={{
-      title: "Need custom n8n automations?",
-      description: "I design robust, production-ready n8n workflows for content, growth, and internal tooling. Let's build your pipeline.",
-      primaryButtonText: "Get In Touch",
-      secondaryButtonText: "Explore More Work",
+      title: "Still copying orders out of emails?",
+      description: "I can connect your inbox to your task board so orders arrive ready to fulfil.",
+      primaryButtonText: "Get Started",
+      secondaryButtonText: "Explore Workflows",
     }}
   />
 );

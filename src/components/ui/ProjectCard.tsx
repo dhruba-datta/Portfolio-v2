@@ -7,9 +7,11 @@ import { categoryMeta } from '../../data/projects';
 interface ProjectCardProps {
   project: Project;
   index: number;
+  /** Above-the-fold card: load its image immediately instead of lazily. */
+  priority?: boolean;
 }
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const ProjectCard = ({ project, index, priority = false }: ProjectCardProps) => {
   const meta = categoryMeta[project.category] ?? { label: project.category, Icon: Layers };
 
   // Resolve which tags to show on the card. cardTags overrides; falls back to first 2.
@@ -27,7 +29,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2, margin: '0px 0px -50px 0px' }}
       transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.5, ease: 'easeOut' }}
-      className="group transform-gpu max-w-[94%] mx-auto sm:max-w-none"
+      className="group transform-gpu w-full min-w-0 max-w-[94%] mx-auto sm:max-w-none"
     >
       <Link
         to={`/projects/${project.id}`}
@@ -40,11 +42,17 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
         >
           <img
-            src={project.image}
-            alt={project.title}
+            src={encodeURI(project.image)}
+            // Cards are at most ~420px wide: serve the 640px cover, 1200px only on dense screens
+            srcSet={`${encodeURI(project.image.replace(/\.webp$/, '-640.webp'))} 640w, ${encodeURI(project.image)} 1200w`}
+            sizes="(min-width: 1280px) 400px, (min-width: 768px) 50vw, 94vw"
+            width={640}
+            height={352}
+            alt={`${project.title} project cover`}
             className="h-full w-full object-cover object-[50%_60%] transition-transform duration-700 sm:group-hover:scale-110 will-change-transform transform-gpu"
             style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
-            loading="lazy"
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority && index === 0 ? 'high' : 'auto'}
             decoding="async"
           />
 
@@ -74,10 +82,6 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                 <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </span>
             </div>
-
-            <span className="text-[10px] sm:text-[11px] font-outfit font-medium tracking-wider uppercase text-slate-400 dark:text-slate-500 mb-2 sm:mb-2.5 inline-block">
-              {project.year} · {project.role}
-            </span>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 min-h-[32px] sm:min-h-[40px] line-clamp-2">
               {project.tagline}
