@@ -702,7 +702,7 @@ export const homeFeaturedIds = [
   'optify',
   'operavo',
   'seg-marketing',
+  'social-engagement-group',
   'flame-hibachi',
   'cold-email-pipeline-n8n',
-  'ai-voice-agent-n8n',
 ];
