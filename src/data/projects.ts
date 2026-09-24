@@ -699,10 +699,10 @@ export const categoryMeta: Record<string, { label: string; Icon: React.ElementTy
 
 /** Home-page "Featured works", in display order. */
 export const homeFeaturedIds = [
-  'social-engagement-group',
-  'flame-hibachi',
-  'ab-pharmacy',
+  'optify',
   'operavo',
-  'allurehive',
+  'seg-marketing',
+  'flame-hibachi',
   'cold-email-pipeline-n8n',
+  'ai-voice-agent-n8n',
 ];
